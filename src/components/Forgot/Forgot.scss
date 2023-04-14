@@ -1,0 +1,29 @@
+.forgot{
+    width: 80%;
+    margin: 0 auto;
+    height: calc(100vh - 300px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.forgotBox{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+}
+
+.forgotEmail{
+    width: 80% !important;
+}
+
+.forgotSpan{
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+}

@@ -1,0 +1,67 @@
+.login {
+    font-family: "Bebas Neue", cursive;
+    width: 100%;
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.linkIcon{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    align-items: flex-end;
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(186, 130, 167);
+    text-shadow: -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px 1px 0 #fff;
+}
+
+.fonLogin{
+    height: 100%;
+    width: 65%;
+    background: url('../../Balance.jpg') no-repeat 38%;
+    background-size: cover;
+}
+
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    width: 35%;
+    padding: 30px 0;
+    transition: .5s;
+}
+
+.spanDobro{
+    font-size: 40px;
+    font-weight: bold;
+    margin: 20px 0 40px 0;
+}
+
+.knopki{
+    display: flex;
+    justify-content: center;
+}
+
+.knopka{
+    height: 50px;
+    min-width: 200px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    border: .5px solid rgb(111, 137, 173);
+    transition: .5s;
+    &:hover{
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    }
+
+}

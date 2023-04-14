@@ -4,14 +4,74 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="2">
+    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="3">
+      <change afterPath="$PROJECT_DIR$/src/API/API.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Balance.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Footer/Footer.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Footer/Footer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Forgot/Forgot.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Forgot/ForgotPassword.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Osnova.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Payment/Pay/Pay.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Payment/Payment.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Payment/Payment.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/HistoryMatrix/HistoryMatrix.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/HistoryMatrix/HistoryMatrix.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Learn/Learn.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Learn/Learn.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Orders/Orders.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Orders/Orders.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Support/Support.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Support/Support.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Tarif/Tarif.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/User/User.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/User/User.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/Profile.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/Profile.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ResetPassword.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Success.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Welcome/Welcome.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Welcome/Welcome.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/diagram/Diagram.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/feature/ErorSnackBar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/feature/Icon.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/feature/Login.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/feature/Login.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/feature/RegistrationForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/feature/SimpleAccordion.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux-store/error-wait-reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux-store/personalMatrix-reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux-store/registration-login-auth.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux-store/store.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/type/personalMatrix-type.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/errors.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/validations/validationRegistrationForm.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_02_2023,_17_00_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_02_2023__17_00__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/diagram/Diagram.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/diagram/diagram.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/diagram/diagram.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature/DatePicker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/DatePicker.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
+        <option value="SCSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="PUSH_TAGS">
@@ -26,6 +86,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2Lp5fzkCMgcUAjKsJt1LJMAoJqA" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -34,23 +97,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "yarn",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/src/components/Profile/MenuProfile&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/Profile/MenuProfile" />
+      <recent name="$PROJECT_DIR$/src/feature" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/Profile/MenuProfile/User" />
+      <recent name="$PROJECT_DIR$/src/components/Forgot" />
+      <recent name="$PROJECT_DIR$/src/components/Payment" />
+      <recent name="$PROJECT_DIR$/src/components/Header" />
+      <recent name="$PROJECT_DIR$/src/components" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -60,7 +139,48 @@
       <option name="presentableId" value="Default" />
       <updated>1676555290941</updated>
       <workItem from="1676555292419" duration="1720000" />
-      <workItem from="1676557042908" duration="357000" />
+      <workItem from="1676557042908" duration="2686000" />
+      <workItem from="1676815311377" duration="8000" />
+      <workItem from="1677251003598" duration="18640000" />
+      <workItem from="1677317865421" duration="11001000" />
+      <workItem from="1677406579054" duration="11554000" />
+      <workItem from="1677434691406" duration="6497000" />
+      <workItem from="1677494991316" duration="15922000" />
+      <workItem from="1677669000940" duration="622000" />
+      <workItem from="1677752919548" duration="17641000" />
+      <workItem from="1677930967745" duration="7551000" />
+      <workItem from="1677947003905" duration="2060000" />
+      <workItem from="1678015279516" duration="6934000" />
+      <workItem from="1678194531834" duration="3318000" />
+      <workItem from="1678444175909" duration="1252000" />
+      <workItem from="1678460161044" duration="978000" />
+      <workItem from="1678547926867" duration="22000" />
+      <workItem from="1678547972594" duration="4645000" />
+      <workItem from="1678616324959" duration="8218000" />
+      <workItem from="1678700145788" duration="4108000" />
+      <workItem from="1678888114562" duration="616000" />
+      <workItem from="1678983474160" duration="618000" />
+      <workItem from="1679052977787" duration="13451000" />
+      <workItem from="1679139337727" duration="7288000" />
+      <workItem from="1679307625004" duration="719000" />
+      <workItem from="1679477880904" duration="12617000" />
+      <workItem from="1679586661284" duration="4500000" />
+      <workItem from="1679749760436" duration="48000" />
+      <workItem from="1679749832997" duration="2837000" />
+      <workItem from="1679840708784" duration="622000" />
+      <workItem from="1679908962173" duration="3675000" />
+      <workItem from="1679928963590" duration="8217000" />
+      <workItem from="1679942907648" duration="4048000" />
+      <workItem from="1680175160623" duration="1805000" />
+      <workItem from="1680783462277" duration="13421000" />
+      <workItem from="1680805230734" duration="31000" />
+      <workItem from="1680805266800" duration="673000" />
+      <workItem from="1680865487067" duration="11936000" />
+      <workItem from="1681034275755" duration="8988000" />
+      <workItem from="1681206485588" duration="11811000" />
+      <workItem from="1681293784853" duration="17282000" />
+      <workItem from="1681376747164" duration="25413000" />
+      <workItem from="1681473635268" duration="1035000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1676555659169</created>
@@ -69,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676555659169</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="3">
+      <created>1676557639714</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1676557639714</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -86,7 +213,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -101,6 +228,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="1" />
-    <option name="LAST_COMMIT_MESSAGE" value="1" />
+    <MESSAGE value="3" />
+    <option name="LAST_COMMIT_MESSAGE" value="3" />
   </component>
 </project>
