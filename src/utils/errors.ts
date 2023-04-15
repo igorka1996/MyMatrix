@@ -1,5 +1,6 @@
 import axios from "axios";
 import {
+  avatarWaitAC,
   errorAC,
   initialAC,
   statusAC,
@@ -11,8 +12,10 @@ export const HandleError = (e: any, dispatch: Dispatch) => {
     dispatch(errorAC({ error: e.response?.data.message }));
     dispatch(statusAC({ status: "idle" }));
     dispatch(initialAC({ initial: true }));
+    dispatch(avatarWaitAC({ avatarWait: false }));
   } else if (err) {
     dispatch(statusAC({ status: "idle" }));
     dispatch(initialAC({ initial: true }));
+    dispatch(avatarWaitAC({ avatarWait: false }));
   }
 };

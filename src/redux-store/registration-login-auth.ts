@@ -1,6 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { authAPI } from "../API/API";
-import { initialAC, statusAC } from "./error-wait-reducer";
+import {
+  avatarWaitAC,
+  initialAC,
+  statusAC,
+  successAC,
+  updateUserAC,
+} from "./error-wait-reducer";
 import { HandleError } from "../utils/errors";
 
 type InitialStateType = {
@@ -11,6 +17,8 @@ type InitialStateType = {
   token: string;
   auth: boolean;
   subscription: string | number | null;
+  avatar: string;
+  phone: string;
 };
 
 const initialState: InitialStateType = {
@@ -21,6 +29,8 @@ const initialState: InitialStateType = {
   token: "",
   auth: false,
   subscription: null,
+  avatar: "",
+  phone: "",
 };
 
 const slice = createSlice({
@@ -35,6 +45,8 @@ const slice = createSlice({
       state.id = action.payload.id;
       state.token = action.payload.token;
       state.auth = action.payload.auth;
+      state.phone = action.payload.phone;
+      state.avatar = "";
     });
     builder.addCase(payAndRegistrationThunk.fulfilled, (state, action) => {
       state.name = action.payload.name;
@@ -43,6 +55,8 @@ const slice = createSlice({
       state.id = action.payload.id;
       state.token = action.payload.token;
       state.auth = action.payload.auth;
+      state.phone = action.payload.phone;
+      state.avatar = "";
       window.location.assign(action.payload.url);
     });
     builder.addCase(authThunk.fulfilled, (state, action) => {
@@ -52,6 +66,8 @@ const slice = createSlice({
       state.id = action.payload.id;
       state.token = action.payload.token;
       state.auth = action.payload.auth;
+      state.avatar = action.payload.avatar;
+      state.phone = action.payload.phone;
     });
     builder.addCase(loginThunk.fulfilled, (state, action) => {
       state.name = action.payload.name;
@@ -60,6 +76,7 @@ const slice = createSlice({
       state.id = action.payload.id;
       state.token = action.payload.token;
       state.auth = action.payload.auth;
+      state.avatar = action.payload.avatar;
     });
     builder.addCase(logOutThunk.fulfilled, (state, action) => {
       state.name = "";
@@ -68,6 +85,15 @@ const slice = createSlice({
       state.id = "";
       state.token = "";
       state.auth = action.payload.auth;
+    });
+    builder.addCase(uploadAvatarThunk.fulfilled, (state, action) => {
+      state.avatar = action.payload.avatar;
+    });
+    builder.addCase(updateUserThunk.fulfilled, (state, action) => {
+      state.name = action.payload.name;
+      state.email = action.payload.email;
+      state.surname = action.payload.surname;
+      state.phone = action.payload.phone;
     });
   },
 });
@@ -103,6 +129,7 @@ export const registrationThunk = createAsyncThunk(
         email: res.data.email,
         id: res.data._id,
         token: res.data.token,
+        phone: res.data.phone,
         auth: true,
       };
     } catch (e) {
@@ -124,6 +151,8 @@ export const authThunk = createAsyncThunk(
         email: res.data.email,
         id: res.data._id,
         token: res.data.token,
+        avatar: res.data.avatar,
+        phone: res.data.phone,
         auth: true,
       };
     } catch (e) {
@@ -140,6 +169,7 @@ export const loginThunk = createAsyncThunk(
     { dispatch, rejectWithValue }
   ) => {
     try {
+      dispatch(initialAC({ initial: false }));
       const res = await authAPI.login({
         email: param.email,
         password: param.password,
@@ -152,6 +182,8 @@ export const loginThunk = createAsyncThunk(
         email: res.data.email,
         id: res.data._id,
         token: res.data.token,
+        avatar: res.data.avatar,
+        phone: res.data.phone,
         auth: true,
       };
     } catch (e) {
@@ -241,8 +273,70 @@ export const payAndRegistrationThunk = createAsyncThunk(
         email: res.data.email,
         id: res.data._id,
         token: res.data.token,
+        phone: res.data.phone,
         auth: true,
         url: res.data.url,
+      };
+    } catch (e) {
+      HandleError(e, dispatch);
+      return rejectWithValue(null);
+    }
+  }
+);
+
+export const uploadAvatarThunk = createAsyncThunk(
+  "registration-auth-login/avatar",
+  async (
+    param: { userId: string; avatar: string },
+    { dispatch, rejectWithValue }
+  ) => {
+    try {
+      dispatch(avatarWaitAC({ avatarWait: true }));
+      const res = await authAPI.uploadAvatar({
+        avatar: param.avatar,
+        userId: param.userId,
+      });
+      dispatch(avatarWaitAC({ avatarWait: false }));
+      return {
+        avatar: res.data.avatar,
+      };
+    } catch (e) {
+      HandleError(e, dispatch);
+      return rejectWithValue(null);
+    }
+  }
+);
+
+export const updateUserThunk = createAsyncThunk(
+  "registration-auth-login/updateUser",
+  async (
+    param: {
+      userId: string;
+      name: string;
+      surname: string;
+      email: string;
+      phone: string;
+      password?: string;
+    },
+    { dispatch, rejectWithValue }
+  ) => {
+    try {
+      dispatch(updateUserAC({ updateUser: true }));
+      const res = await authAPI.updateUser({
+        userId: param.userId,
+        name: param.name,
+        surname: param.surname,
+        email: param.email,
+        phone: param.phone,
+        password: param.password,
+      });
+      dispatch(updateUserAC({ updateUser: false }));
+      dispatch(successAC({ success: res.data.message }));
+      return {
+        name: res.data.name,
+        surname: res.data.surname,
+        email: res.data.email,
+        phone: res.data.phone,
       };
     } catch (e) {
       HandleError(e, dispatch);

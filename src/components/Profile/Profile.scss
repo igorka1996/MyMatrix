@@ -1,23 +1,25 @@
 .profileSection{
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
     min-height: calc(100vh - 300px);
     display: flex;
     justify-content: space-between;
+  padding-bottom: 50px;
 }
 
 .profileMenu{
     height: auto;
-    width: 35%;
+    width: 25%;
     display: flex;
     flex-direction: column;
     margin-top: 200px;
     align-items: flex-start;
+    border-right: 1px solid darkgray;
 }
 
 .profileLink{
     text-decoration: none;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
     margin: 10px 0;
     color: rgb(111, 137, 173);
@@ -25,9 +27,14 @@
 
 .active{
     text-decoration: none;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
     margin: 10px 0;
     color: rgb(148, 134, 179);
     border-bottom: 1px solid rgb(148, 134, 179);
+}
+
+.profileMenuSection{
+    width: 75%;
+    margin-top: 200px;
 }

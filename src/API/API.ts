@@ -8,8 +8,7 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use((config) => {
-  config.headers.cookie = Cookies.get("token");
-  console.log(Cookies.get("token"));
+  config.headers.authorization = Cookies.get("token");
   return config;
 });
 
@@ -79,7 +78,19 @@ export const authAPI = {
       .post("checkout", { items })
       .then((res) => window.location.assign(res.data.url));
   },
-
+  uploadAvatar(data: { userId: string; avatar: string }) {
+    return instance.post("upload", data);
+  },
+  updateUser(data: {
+    userId: string;
+    name: string;
+    surname: string;
+    phone: string;
+    email: string;
+    password?: string;
+  }) {
+    return instance.post("update", data);
+  },
   payRegistration(items: {
     item: { name: string; price: number };
     registration: {

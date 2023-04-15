@@ -4,8 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="4">
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="5">
+      <change afterPath="$PROJECT_DIR$/src/feature/SnackBarSuccess.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/API/API.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/API.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/User/User.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/User/User.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/User/User.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/User/User.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature/ErorSnackBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/ErorSnackBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature/RegistrationForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/RegistrationForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux-store/error-wait-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/error-wait-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux-store/registration-login-auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/registration-login-auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/errors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/errors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/validations/validationRegistrationForm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/validations/validationRegistrationForm.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,30 +61,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/src/components/Profile/MenuProfile&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/src/feature",
+    "list.type.of.created.stylesheet": "SCSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "prettierjs.PrettierConfiguration.Package": "/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/node_modules/prettier",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/components/Profile/MenuProfile" />
       <recent name="$PROJECT_DIR$/src/feature" />
+      <recent name="$PROJECT_DIR$/src/components/Profile/MenuProfile" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components/Profile/MenuProfile/User" />
@@ -128,7 +144,8 @@
       <workItem from="1681206485588" duration="11811000" />
       <workItem from="1681293784853" duration="17282000" />
       <workItem from="1681376747164" duration="25413000" />
-      <workItem from="1681473635268" duration="3408000" />
+      <workItem from="1681473635268" duration="16193000" />
+      <workItem from="1681554435993" duration="22782000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1676555659169</created>
@@ -151,7 +168,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681475765099</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="5">
+      <created>1681486138827</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681486138827</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,6 +209,7 @@
     <MESSAGE value="1" />
     <MESSAGE value="3" />
     <MESSAGE value="4" />
-    <option name="LAST_COMMIT_MESSAGE" value="4" />
+    <MESSAGE value="5" />
+    <option name="LAST_COMMIT_MESSAGE" value="5" />
   </component>
 </project>

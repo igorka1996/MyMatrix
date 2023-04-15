@@ -20,6 +20,7 @@ import { Welcome } from "./components/Welcome/Welcome";
 import LoginIcon from "@mui/icons-material/Login";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Profile } from "./components/Profile/Profile";
+import { SnackBarSuccess } from "./feature/SnackBarSuccess";
 
 function App() {
   const loc = useLocation();
@@ -78,7 +79,7 @@ function App() {
                 <Link
                   style={{ marginRight: 20, fontSize: 20 }}
                   className={"batonStandart"}
-                  to={"/profile"}
+                  to={"/profile/user"}
                 >
                   профиль
                 </Link>
@@ -106,6 +107,7 @@ function App() {
           )}
         </div>
       )}
+
       <Routes>
         <Route path={"/"} element={<Osnova />} />
         <Route path={"/matrix"} element={<Diagram />} />
@@ -117,6 +119,7 @@ function App() {
         <Route path={"/profile/*"} element={<Profile />} />
       </Routes>
       <ErrorSnackbar />
+      <SnackBarSuccess />
       {loc.pathname === "/welcome" ? undefined : <Footer />}
     </div>
   );

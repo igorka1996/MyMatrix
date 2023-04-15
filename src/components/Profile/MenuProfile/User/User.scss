@@ -1,0 +1,96 @@
+.divAvatar {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+
+}
+
+.avatarImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease-in-out;
+}
+
+.divAvatar:hover .avatarImg {
+    filter: brightness(70%);
+    cursor: pointer;
+}
+
+.avatarInput {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    width: 200%;
+    height: 200%;
+    cursor: pointer;
+}
+
+.divAvatar:hover .avatarInput {
+    opacity: 1;
+}
+
+.avatarInput:before {
+    content: "Выбрать";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    font-size: 1.7rem;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.avatarInput:hover:before {
+    opacity: 1;
+}
+
+
+.divUserFlex{
+    display: flex;
+    align-items: center;
+}
+
+.divSpanUser{
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.spanUserName{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.spanUserEmail{
+    color: darkgrey;
+}
+
+.userProfile{
+    margin-left: 40px;
+}
+
+
+
+.formUpdate {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+
+.divUserForm{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100px;
+}

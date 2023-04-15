@@ -43,3 +43,15 @@ export const passValidation = {
     return true;
   },
 };
+
+export const passValidationUser = {
+  required: false,
+  validate: (value: string) => {
+    if (value.length > 0) {
+      if (!regularPass.test(value) || value.length < 8) {
+        return "Пароль должен состоять из 8 или более символов и включать в себя цифры, латинские буквы верхнего и нижнего регистра";
+      }
+    }
+    return true;
+  },
+};

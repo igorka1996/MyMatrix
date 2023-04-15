@@ -33,7 +33,7 @@ export const Login = () => {
     formState: { errors, isValid },
     register,
   } = useForm<FormRegistration>({
-    mode: "all",
+    mode: "onBlur",
   });
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
