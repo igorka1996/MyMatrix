@@ -9,6 +9,19 @@ import {
 } from "./error-wait-reducer";
 import { HandleError } from "../utils/errors";
 
+export type SubscriptionType = {
+  expiresSub: string;
+  subscribe: string;
+  _id: string;
+};
+
+type OrdersType = {
+  date: string;
+  name: string;
+  price: string;
+  _id: string;
+};
+
 type InitialStateType = {
   name: string;
   surname: string;
@@ -16,9 +29,11 @@ type InitialStateType = {
   id: string;
   token: string;
   auth: boolean;
-  subscription: string | number | null;
+  subscription: SubscriptionType[];
   avatar: string;
   phone: string;
+  historyOfOrders: OrdersType[];
+  totalAmount: number;
 };
 
 const initialState: InitialStateType = {
@@ -28,9 +43,11 @@ const initialState: InitialStateType = {
   id: "",
   token: "",
   auth: false,
-  subscription: null,
+  subscription: [],
   avatar: "",
   phone: "",
+  historyOfOrders: [],
+  totalAmount: 0,
 };
 
 const slice = createSlice({
@@ -46,6 +63,9 @@ const slice = createSlice({
       state.token = action.payload.token;
       state.auth = action.payload.auth;
       state.phone = action.payload.phone;
+      state.subscription = action.payload.sub;
+      state.historyOfOrders = action.payload.orders;
+      state.totalAmount = action.payload.totalAmount;
       state.avatar = "";
     });
     builder.addCase(payAndRegistrationThunk.fulfilled, (state, action) => {
@@ -56,6 +76,9 @@ const slice = createSlice({
       state.token = action.payload.token;
       state.auth = action.payload.auth;
       state.phone = action.payload.phone;
+      state.subscription = action.payload.sub;
+      state.historyOfOrders = action.payload.orders;
+      state.totalAmount = action.payload.totalAmount;
       state.avatar = "";
       window.location.assign(action.payload.url);
     });
@@ -68,6 +91,9 @@ const slice = createSlice({
       state.auth = action.payload.auth;
       state.avatar = action.payload.avatar;
       state.phone = action.payload.phone;
+      state.subscription = action.payload.sub;
+      state.historyOfOrders = action.payload.orders;
+      state.totalAmount = action.payload.totalAmount;
     });
     builder.addCase(loginThunk.fulfilled, (state, action) => {
       state.name = action.payload.name;
@@ -77,6 +103,9 @@ const slice = createSlice({
       state.token = action.payload.token;
       state.auth = action.payload.auth;
       state.avatar = action.payload.avatar;
+      state.subscription = action.payload.sub;
+      state.historyOfOrders = action.payload.orders;
+      state.totalAmount = action.payload.totalAmount;
     });
     builder.addCase(logOutThunk.fulfilled, (state, action) => {
       state.name = "";
@@ -130,6 +159,9 @@ export const registrationThunk = createAsyncThunk(
         id: res.data._id,
         token: res.data.token,
         phone: res.data.phone,
+        sub: res.data.subscription,
+        orders: res.data.historyOfOrders,
+        totalAmount: res.data.totalAmount,
         auth: true,
       };
     } catch (e) {
@@ -153,6 +185,9 @@ export const authThunk = createAsyncThunk(
         token: res.data.token,
         avatar: res.data.avatar,
         phone: res.data.phone,
+        sub: res.data.subscription,
+        orders: res.data.historyOfOrders,
+        totalAmount: res.data.totalAmount,
         auth: true,
       };
     } catch (e) {
@@ -183,7 +218,10 @@ export const loginThunk = createAsyncThunk(
         id: res.data._id,
         token: res.data.token,
         avatar: res.data.avatar,
+        sub: res.data.subscription,
         phone: res.data.phone,
+        orders: res.data.historyOfOrders,
+        totalAmount: res.data.totalAmount,
         auth: true,
       };
     } catch (e) {
@@ -274,6 +312,9 @@ export const payAndRegistrationThunk = createAsyncThunk(
         id: res.data._id,
         token: res.data.token,
         phone: res.data.phone,
+        sub: res.data.subscription,
+        orders: res.data.historyOfOrders,
+        totalAmount: res.data.totalAmount,
         auth: true,
         url: res.data.url,
       };

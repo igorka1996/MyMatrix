@@ -65,13 +65,13 @@ export const authAPI = {
     return instance.post("auth/login", data);
   },
   deleteMe() {
-    return instance.get("delete");
+    return instance.delete("delete");
   },
   forgot(data: { email: string }) {
-    return instance.post("forgot-password", data);
+    return instance.put("forgot-password", data);
   },
   resetPass(data: { token: string; password: string }) {
-    return instance.post("reset-password", data);
+    return instance.put("reset-password", data);
   },
   matrixOnce(items: { id: string; item: { name: string; price: number } }) {
     return instance
@@ -79,7 +79,7 @@ export const authAPI = {
       .then((res) => window.location.assign(res.data.url));
   },
   uploadAvatar(data: { userId: string; avatar: string }) {
-    return instance.post("upload", data);
+    return instance.put("upload", data);
   },
   updateUser(data: {
     userId: string;
@@ -89,7 +89,7 @@ export const authAPI = {
     email: string;
     password?: string;
   }) {
-    return instance.post("update", data);
+    return instance.put("update", data);
   },
   payRegistration(items: {
     item: { name: string; price: number };

@@ -53,7 +53,7 @@ export const Profile = () => {
           className={({ isActive }) => clasNam(isActive)}
           to={"/profile/learn"}
         >
-          Обучение
+          Видео-Обучение
         </NavLink>
         <NavLink
           className={({ isActive }) => clasNam(isActive)}

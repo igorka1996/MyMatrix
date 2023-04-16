@@ -1,5 +1,5 @@
 import React from "react";
 
 export const HistoryMatrix = () => {
-  return <div></div>;
+  return <div>История поиска матрицы</div>;
 };
