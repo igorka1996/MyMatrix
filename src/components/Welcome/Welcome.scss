@@ -2,7 +2,7 @@
     font-family: "Bebas Neue", cursive;
     width: 100%;
     margin: 0 auto;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: space-between;
 }
@@ -24,9 +24,16 @@
     1px 1px 0 #fff;
 }
 
-.fonLogin{
+
+
+.glavFonlogin{
     height: 100%;
     width: 65%;
+}
+.fonLogin{
+    height: 100vh;
+    width: 65%;
+    position: fixed;
     background: url('../../Balance.jpg') no-repeat 38%;
     background-size: cover;
 }

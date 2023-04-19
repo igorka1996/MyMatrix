@@ -4,18 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="6">
-      <change afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Tarif/Tarif.scss" afterDir="false" />
+    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="7">
+      <change afterPath="$PROJECT_DIR$/src/components/Payment/Pay/Pay.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Payment/Success/Success.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/API/API.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/API.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/HistoryMatrix/HistoryMatrix.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/HistoryMatrix/HistoryMatrix.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Learn/Learn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Learn/Learn.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Orders/Orders.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Orders/Orders.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Orders/Orders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Orders/Orders.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Tarif/Tarif.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Tarif/Tarif.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux-store/registration-login-auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/registration-login-auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Payment/Pay/Pay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Payment/Pay/Pay.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Support/Support.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Support/Support.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Success.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Payment/Success/Success.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Welcome/Welcome.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Welcome/Welcome.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Welcome/Welcome.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Welcome/Welcome.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/validations/validationRegistrationForm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/validations/validationRegistrationForm.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,11 +81,11 @@
       <recent name="$PROJECT_DIR$/src/components/Profile/MenuProfile" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/Payment/Success" />
       <recent name="$PROJECT_DIR$/src/components/Profile/MenuProfile/User" />
       <recent name="$PROJECT_DIR$/src/components/Forgot" />
       <recent name="$PROJECT_DIR$/src/components/Payment" />
       <recent name="$PROJECT_DIR$/src/components/Header" />
-      <recent name="$PROJECT_DIR$/src/components" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -141,7 +141,9 @@
       <workItem from="1681473635268" duration="16193000" />
       <workItem from="1681554435993" duration="22782000" />
       <workItem from="1681590328804" duration="136000" />
-      <workItem from="1681641610244" duration="14917000" />
+      <workItem from="1681641610244" duration="15600000" />
+      <workItem from="1681750710873" duration="4113000" />
+      <workItem from="1681907495494" duration="5863000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1676555659169</created>
@@ -178,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681590389389</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="7">
+      <created>1681672045685</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681672045685</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,6 +223,7 @@
     <MESSAGE value="4" />
     <MESSAGE value="5" />
     <MESSAGE value="6" />
-    <option name="LAST_COMMIT_MESSAGE" value="6" />
+    <MESSAGE value="7" />
+    <option name="LAST_COMMIT_MESSAGE" value="7" />
   </component>
 </project>

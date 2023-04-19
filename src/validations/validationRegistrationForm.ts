@@ -55,3 +55,23 @@ export const passValidationUser = {
     return true;
   },
 };
+
+export const subjectValidations = {
+  required: "Обязательно для заполнения",
+  validate: (value: string) => {
+    if (value.length > 40) {
+      return "Тема сообщения должна быть не более 40 символов";
+    }
+    return true;
+  },
+};
+
+export const messageValidation = {
+  required: "Обязательно для заполнения",
+  validate: (value: string) => {
+    if (value.length > 400) {
+      return "Сообщение не должно быть более 300 символов";
+    }
+    return true;
+  },
+};

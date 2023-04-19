@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./App.css";
 import { Diagram } from "./components/diagram/Diagram";
 import { Link, Navigate, Route, Routes, useLocation } from "react-router-dom";
-import { Success } from "./components/Success";
+import { Success } from "./components/Payment/Success/Success";
 import { useAppDispatch, useAppSelector } from "./redux-store/store";
 import { authThunk, logOutThunk } from "./redux-store/registration-login-auth";
 import { ForgotPassword } from "./components/Forgot/ForgotPassword";

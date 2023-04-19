@@ -22,6 +22,7 @@ import Box from "@mui/material/Box";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { payAndRegistrationThunk } from "../../../redux-store/registration-login-auth";
 import { MuiTelInput } from "mui-tel-input";
+import "./Pay.scss";
 interface FormRegistration {
   name: string;
   surname: string;
@@ -86,14 +87,18 @@ export const Pay = () => {
   };
 
   return auth ? (
-    <div>
+    <div className={"paySection"}>
       <span>Имя: {name}</span>
       <br />
       <span>Фамилия: {surname}</span>
       <br />
       <span>Email: {mail}</span>
       <br />
-      <Button variant={"contained"} onClick={onClickTests}>
+      <Button
+        className={"paySection"}
+        variant={"contained"}
+        onClick={onClickTests}
+      >
         Оплатить
       </Button>
     </div>
@@ -223,7 +228,7 @@ export const Pay = () => {
             label="Запомнить меня"
           />
           <Button variant={"contained"} disabled={!isValid} type={"submit"}>
-            Зарегистрироваться
+            Зарегистрироваться и олатить
           </Button>
         </div>
       </form>

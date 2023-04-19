@@ -81,6 +81,9 @@ export const authAPI = {
   uploadAvatar(data: { userId: string; avatar: string }) {
     return instance.put("upload", data);
   },
+  supportMessage(data: { email: string; subject: string; message: string }) {
+    return instance.post("supportmessage", data);
+  },
   updateUser(data: {
     userId: string;
     name: string;

@@ -17,11 +17,14 @@ export const Welcome = () => {
 
   return (
     <Box className={"login"}>
-      <div className={"fonLogin"}>
-        <Link className={"linkIcon"} to={"/"}>
-          <IconHome />
-        </Link>
+      <div className={"glavFonlogin"}>
+        <div className={"fonLogin"}>
+          <Link className={"linkIcon"} to={"/"}>
+            <IconHome />
+          </Link>
+        </div>
       </div>
+
       <div className={"formLogin"}>
         <span className={"spanDobro"}>Добро пожаловать</span>
         <div className={"knopki"}>
