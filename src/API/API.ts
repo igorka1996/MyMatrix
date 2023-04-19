@@ -3,7 +3,7 @@ import { PersonalMatrix } from "../type/personalMatrix-type";
 import Cookies from "js-cookie";
 
 const instance = axios.create({
-  baseURL: "http://localhost:4444/",
+  baseURL: "https://2533-176-118-76-224.ngrok-free.app/",
   withCredentials: true,
 });
 
