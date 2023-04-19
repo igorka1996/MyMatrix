@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/MyMatrix/static/css/main.c89894f6.css",
-    "main.js": "/MyMatrix/static/js/main.504a13da.js",
+    "main.js": "/MyMatrix/static/js/main.db4abd14.js",
     "static/media/Balance.jpg": "/MyMatrix/static/media/Balance.fea5384340cb0893d3e4.jpg",
     "static/media/fon.jpg": "/MyMatrix/static/media/fon.de1fd6093b30129dcb43.jpg",
     "static/media/pacifico-all-400-normal.woff": "/MyMatrix/static/media/pacifico-all-400-normal.8f19c0296562a647f0a0.woff",
@@ -15,10 +15,10 @@
     "static/media/bebas-neue-latin-ext-400-normal.woff2": "/MyMatrix/static/media/bebas-neue-latin-ext-400-normal.f2363170269a33a9c268.woff2",
     "index.html": "/MyMatrix/index.html",
     "main.c89894f6.css.map": "/MyMatrix/static/css/main.c89894f6.css.map",
-    "main.504a13da.js.map": "/MyMatrix/static/js/main.504a13da.js.map"
+    "main.db4abd14.js.map": "/MyMatrix/static/js/main.db4abd14.js.map"
   },
   "entrypoints": [
     "static/css/main.c89894f6.css",
-    "static/js/main.504a13da.js"
+    "static/js/main.db4abd14.js"
   ]
 }
