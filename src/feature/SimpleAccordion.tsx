@@ -10,7 +10,7 @@ export function SimpleAccordion() {
   const personalMatrix = useAppSelector((state) => state.personalMatrixReducer);
   const gender = "M";
   return (
-    <div>
+    <div style={{ width: "80%", margin: "0 auto" }}>
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}

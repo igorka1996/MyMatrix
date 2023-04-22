@@ -3,12 +3,12 @@ import { PersonalMatrix } from "../type/personalMatrix-type";
 import Cookies from "js-cookie";
 
 const instance = axios.create({
-  baseURL: "https://2533-176-118-76-224.ngrok-free.app/",
+  baseURL: "https://045a-176-118-76-224.ngrok-free.app/",
   withCredentials: true,
 });
 
 instance.interceptors.request.use((config) => {
-  config.headers.authorization = Cookies.get("token");
+  config.headers.cookie = Cookies.get("token");
   return config;
 });
 

@@ -21,6 +21,7 @@ import LoginIcon from "@mui/icons-material/Login";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Profile } from "./components/Profile/Profile";
 import { SnackBarSuccess } from "./feature/SnackBarSuccess";
+import { Error } from "./components/Payment/Error/Error";
 
 function App() {
   const loc = useLocation();
@@ -112,6 +113,7 @@ function App() {
         <Route path={"/"} element={<Osnova />} />
         <Route path={"/matrix"} element={<Diagram />} />
         <Route path={"/success"} element={<Success />} />
+        <Route path={"/error"} element={<Error />} />
         <Route path={"/welcome"} element={<Welcome />} />
         <Route path={"/forgot"} element={<ForgotPassword />} />
         <Route path={"/reset-password/:token"} element={<ResetPassword />} />

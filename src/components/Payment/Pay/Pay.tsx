@@ -1,8 +1,8 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import { useAppDispatch, useAppSelector } from "../../../redux-store/store";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { authAPI } from "../../../API/API";
-import { Button, Checkbox, FormControlLabel } from "@mui/material";
+import { Checkbox, FormControlLabel } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import {
   emailValidation,
@@ -23,6 +23,31 @@ import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { payAndRegistrationThunk } from "../../../redux-store/registration-login-auth";
 import { MuiTelInput } from "mui-tel-input";
 import "./Pay.scss";
+
+const policyFunc = (auth: boolean) => {
+  if (auth) {
+    return (
+      <span>
+        Продолжая покупку, я принмаю условия{" "}
+        <Link to={"/"}>Публичной оферты</Link>, подтверждая, что
+        ознакомился(ась) с{" "}
+        <Link to={"/"}>Политикой обработки персональных данных</Link> и даю свое
+        согласие на <Link to={"/"}>обработку персональных данных</Link>
+      </span>
+    );
+  } else {
+    return (
+      <span>
+        Продолжая покупку и регистрацию, я принмаю условия{" "}
+        <Link to={"/"}>Публичной оферты</Link>, подтверждая, что
+        ознакомился(ась) с{" "}
+        <Link to={"/"}>Политикой обработки персональных данных</Link> и даю свое
+        согласие на <Link to={"/"}>обработку персональных данных</Link>
+      </span>
+    );
+  }
+};
+
 interface FormRegistration {
   name: string;
   surname: string;
@@ -32,6 +57,7 @@ interface FormRegistration {
   check: boolean;
   phoneInput: string;
 }
+
 export const Pay = () => {
   const { state } = useLocation();
   const name = useAppSelector((state) => state.registrationReducer.name);
@@ -42,6 +68,8 @@ export const Pay = () => {
 
   const [showPassword, setShowPassword] = React.useState(false);
   const [showPassword1, setShowPassword1] = React.useState(false);
+  const [check, setCheck] = React.useState(false);
+  const pol = policyFunc(auth);
   const dispatch = useAppDispatch();
   const {
     handleSubmit,
@@ -75,7 +103,9 @@ export const Pay = () => {
       })
     );
   };
-
+  const onChangeCheck = (e: ChangeEvent<HTMLInputElement>) => {
+    setCheck(e.currentTarget.checked);
+  };
   const onClickTests = async () => {
     await authAPI.matrixOnce({
       id,
@@ -86,151 +116,197 @@ export const Pay = () => {
     });
   };
 
+  const total = state.price.toString().replace(/(\d+)00(?=\s|$)/g, "$1,00");
   return auth ? (
     <div className={"paySection"}>
-      <span>Имя: {name}</span>
-      <br />
-      <span>Фамилия: {surname}</span>
-      <br />
-      <span>Email: {mail}</span>
-      <br />
-      <Button
-        className={"paySection"}
-        variant={"contained"}
-        onClick={onClickTests}
-      >
-        Оплатить
-      </Button>
+      <div className={"paySectionPay"}>
+        <span className={"oformPay"}>Оформление покупки</span>
+        <span className={"payTarif"}>
+          Имя: <span className={"payPrice"}>{name}</span>
+        </span>
+        <span className={"payTarif"}>
+          Фамилия: <span className={"payPrice"}>{surname}</span>
+        </span>
+        <span className={"payTarif"}>
+          Почта: <span className={"payPrice"}>{mail}</span>
+        </span>
+        <span className={"payTarif"}>
+          Тариф: <span className={"payPrice"}>{state.name}</span>
+        </span>
+        <span className={"payTarif"}>
+          Стоимость: <span className={"payPrice"}>{`${total} руб.`}</span>
+        </span>
+        <FormControlLabel
+          className={"saveMe"}
+          control={<Checkbox onChange={onChangeCheck} defaultChecked={false} />}
+          label={pol}
+        />
+        <button
+          style={{ padding: "5px 40px", margin: "0 auto" }}
+          className={`batonStandart + ' ' + ${!check ? "dis" : ""}`}
+          disabled={!check}
+          type={"submit"}
+          onClick={onClickTests}
+        >
+          Оплатить
+        </button>
+      </div>
     </div>
   ) : (
-    <Box sx={{ display: "flex", flexWrap: "wrap" }}>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <TextField
-            {...register("name", nameAndSurnameValidation)}
-            sx={{ m: 1, width: "25ch" }}
-            label="Имя"
-            multiline
-            maxRows={4}
-            variant="standard"
-            error={!!errors.name?.message}
-            helperText={errors.name?.message}
-          />
-          <TextField
-            {...register("surname", nameAndSurnameValidation)}
-            sx={{ m: 1, width: "25ch" }}
-            label="Фамилия"
-            multiline
-            maxRows={4}
-            variant="standard"
-            error={!!errors.surname?.message}
-            helperText={errors.surname?.message}
-          />
-
-          <Controller
-            control={control}
-            rules={phoneValidation}
-            name={"phoneInput"}
-            render={({ field, fieldState }) => (
-              <MuiTelInput
-                {...field}
-                sx={{ m: 1, width: "25ch" }}
-                onlyCountries={["RU"]}
-                defaultCountry={"RU"}
-                variant="standard"
-                label={"Телефон"}
-                inputProps={{ maxLength: 16 }}
-                helperText={
-                  fieldState.invalid ? errors.phoneInput?.message : ""
+    <Box className={"paySection"}>
+      <span className={"oformPay"}>Оформление покупки</span>
+      <form className={"formLoginPay"} onSubmit={handleSubmit(onSubmit)}>
+        <div className={"divLoginGlav"}>
+          <div className={"divLoginSun"}>
+            <TextField
+              style={{ width: "70%" }}
+              {...register("name", nameAndSurnameValidation)}
+              label="Имя"
+              multiline
+              maxRows={4}
+              variant="standard"
+              error={!!errors.name?.message}
+              helperText={errors.name?.message}
+            />
+          </div>
+          <div className={"divLoginSun"}>
+            <TextField
+              style={{ width: "70%" }}
+              {...register("surname", nameAndSurnameValidation)}
+              sx={{ m: 1, width: "25ch" }}
+              label="Фамилия"
+              multiline
+              maxRows={4}
+              variant="standard"
+              error={!!errors.surname?.message}
+              helperText={errors.surname?.message}
+            />
+          </div>
+        </div>
+        <div className={"divLoginGlav"}>
+          <div className={"divLoginSun"}>
+            <Controller
+              control={control}
+              rules={phoneValidation}
+              name={"phoneInput"}
+              render={({ field, fieldState }) => (
+                <MuiTelInput
+                  style={{ width: "70%" }}
+                  {...field}
+                  onlyCountries={["RU"]}
+                  defaultCountry={"RU"}
+                  variant="standard"
+                  label={"Телефон"}
+                  inputProps={{ maxLength: 16 }}
+                  helperText={
+                    fieldState.invalid ? errors.phoneInput?.message : ""
+                  }
+                  error={fieldState.invalid}
+                />
+              )}
+            ></Controller>
+          </div>
+          <div className={"divLoginSun"}>
+            <TextField
+              style={{ width: "70%" }}
+              {...register("email", emailValidation)}
+              label="Email"
+              multiline
+              maxRows={4}
+              variant="standard"
+              error={!!errors.email?.message}
+              helperText={errors.email?.message}
+            />
+          </div>
+        </div>
+        <div className={"divLoginGlav"}>
+          <div className={"divLoginSun"}>
+            <FormControl style={{ width: "70%" }} variant="standard">
+              <InputLabel
+                error={!!errors.password?.message}
+                htmlFor="standard-adornment-password"
+              >
+                Пароль
+              </InputLabel>
+              <Input
+                error={!!errors.password?.message}
+                {...register("password", passValidation)}
+                type={showPassword ? "text" : "password"}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
                 }
-                error={fieldState.invalid}
               />
-            )}
-          ></Controller>
-
-          <TextField
-            {...register("email", emailValidation)}
-            sx={{ m: 1, width: "25ch" }}
-            label="Email"
-            multiline
-            maxRows={4}
-            variant="standard"
-            error={!!errors.email?.message}
-            helperText={errors.email?.message}
-          />
-
-          <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
-            <InputLabel
-              error={!!errors.password?.message}
-              htmlFor="standard-adornment-password"
-            >
-              Пароль
-            </InputLabel>
-            <Input
-              error={!!errors.password?.message}
-              {...register("password", passValidation)}
-              type={showPassword ? "text" : "password"}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                  >
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              }
-            />
-            <FormHelperText error={!!errors.password?.message}>
-              {errors.password?.message}
-            </FormHelperText>
-          </FormControl>
-
-          <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
-            <InputLabel
-              error={!!errors.confirmpass?.message}
-              htmlFor="standard-adornment-password"
-            >
-              Подтверждение пароля
-            </InputLabel>
-            <Input
-              error={!!errors.confirmpass?.message}
-              {...register("confirmpass", {
-                validate: {
-                  passConf: (value: string) => {
-                    if (password !== value) {
-                      return "Пароли не совпадают";
-                    }
-                    return true;
+              <FormHelperText error={!!errors.password?.message}>
+                {errors.password?.message}
+              </FormHelperText>
+            </FormControl>
+          </div>
+          <div className={"divLoginSun"}>
+            <FormControl style={{ width: "70%" }} variant="standard">
+              <InputLabel
+                error={!!errors.confirmpass?.message}
+                htmlFor="standard-adornment-password"
+              >
+                Подтверждение пароля
+              </InputLabel>
+              <Input
+                error={!!errors.confirmpass?.message}
+                {...register("confirmpass", {
+                  validate: {
+                    passConf: (value: string) => {
+                      if (password !== value) {
+                        return "Пароли не совпадают";
+                      }
+                      return true;
+                    },
                   },
-                },
-              })}
-              type={showPassword1 ? "text" : "password"}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword1}
-                    onMouseDown={handleMouseDownPassword}
-                  >
-                    {showPassword1 ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              }
-            />
-            <FormHelperText error={!!errors.confirmpass?.message}>
-              {errors.confirmpass?.message}
-            </FormHelperText>
-          </FormControl>
+                })}
+                type={showPassword1 ? "text" : "password"}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword1}
+                      onMouseDown={handleMouseDownPassword}
+                    >
+                      {showPassword1 ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+              />
+              <FormHelperText error={!!errors.confirmpass?.message}>
+                {errors.confirmpass?.message}
+              </FormHelperText>
+            </FormControl>
+          </div>
+        </div>
+        <div className={"divLogin"}>
           <FormControlLabel
             control={<Checkbox defaultChecked {...register("check")} />}
             label="Запомнить меня"
           />
-          <Button variant={"contained"} disabled={!isValid} type={"submit"}>
-            Зарегистрироваться и олатить
-          </Button>
         </div>
+        <FormControlLabel
+          className={"saveMe"}
+          control={<Checkbox onChange={onChangeCheck} defaultChecked={false} />}
+          label={pol}
+        />
+        <button
+          style={{ padding: "5px 40px", margin: "0 auto" }}
+          className={`batonStandart + ' ' + ${!isValid || !check ? "dis" : ""}`}
+          disabled={!isValid || !check}
+          type={"submit"}
+        >
+          Зарегистрироваться и олатить
+        </button>
       </form>
     </Box>
   );

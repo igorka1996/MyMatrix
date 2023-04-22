@@ -1,9 +1,55 @@
-.paySection{
-        width: 80%;
-        margin: 0 auto;
-        min-height: calc(100vh - 300px);
-        display: flex;
-        justify-content: center;
-        padding-bottom: 50px;
-        align-items: center;
+.paySection {
+    width: 80%;
+    margin: 0 auto;
+    min-height: calc(100vh - 300px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 50px;
+    align-items: center;
+}
+
+.divLoginGlav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.formLoginPay {
+    width: 100% !important;
+}
+
+.divLoginSun {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+}
+
+.payTarif {
+    margin: 20px 0;
+    font-size: 25px;
+    width: 470px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.payPrice {
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+
+.paySectionPay{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.oformPay{
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
 }

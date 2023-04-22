@@ -1,12 +1,43 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import "./diagram.scss";
-import { DatePicker } from "../../feature/DatePicker";
 import { SimpleAccordion } from "../../feature/SimpleAccordion";
+import { useLocation } from "react-router-dom";
+import { getPersonalMatrix } from "../../redux-store/personalMatrix-reducer";
+import { useAppDispatch } from "../../redux-store/store";
 
 export const Diagram = () => {
-  const [birthday, setBirthday] = useState<string>("0000-00-00");
-
-  const birthdayArray = birthday.split("-");
+  const { state } = useLocation();
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(
+      getPersonalMatrix({
+        isPersonalQualities: [A, B, X],
+        talentsOfDad: [E_duplicate, E1_duplicate, E2_duplicate],
+        talentsOfMother: [F_duplicate, F1_duplicate, F2_duplicate],
+        talentsOfGod: [B, B1, B2],
+        isPastLife: `${D2}-${D1}-${D}`,
+        IsHealthSaxasrara: [B, A, E],
+        IsHealthAdjna: [B1_duplicate, A1_duplicate, K6_duplicate],
+        IsHealthVishydha: [B2_duplicate, A2_duplicate, K5_duplicate],
+        IsHealthAnaxata: [B3_duplicate, A3_duplicate, K4_duplicate],
+        IsHealthManipura: [X_duplicate, Y_duplicate, K3_duplicate],
+        IsHealthMuladxara: [D_duplicate, C_duplicate, K1_duplicate],
+        isHealthSvadxistana: [D1_duplicate, C1_duplicate, K2_duplicate],
+        IsPurpose: [LP1, LP2, LP3],
+        IsTests: X,
+        Gender: "M",
+        isLove: [D2, L, G4],
+        isMoney: [M, G4, C2, C, C1],
+        parentMenLine: [E, E1, E2, X, G, G1, G2],
+        parentWomenLine: [F, F1, F2, X, H, H1, H2],
+        parentResentment: [A, A1, A2],
+        isChildren: [A, A1, A2],
+        isManagement: [A, B, X],
+        IsYear: [1, 2],
+      })
+    );
+  }, []);
+  const birthdayArray = state.date.split("-");
   let A = calculation(parseInt(birthdayArray[2]));
   let B = calculation(parseInt(birthdayArray[1]));
   let C = calculation(parseInt(birthdayArray[0]));
@@ -123,7 +154,7 @@ export const Diagram = () => {
       .reduce((previousValue, currentValue) =>
         String(parseInt(previousValue) + parseInt(currentValue))
       );
-    while (number > 22 || parseInt(sumNumber) > 22) {
+    if (number > 22 || parseInt(sumNumber) > 22) {
       number = parseInt(
         number
           .toString()
@@ -474,31 +505,10 @@ export const Diagram = () => {
   }
   return (
     <>
-      <DatePicker
-        isPersonalQualities={[A, B, X]}
-        talentsOfDad={[E_duplicate, E1_duplicate, E2_duplicate]}
-        talentsOfMother={[F_duplicate, F1_duplicate, F2_duplicate]}
-        talentsOfGod={[B, B1, B2]}
-        isPastLife={`${D2}-${D1}-${D}`}
-        IsHealthSaxasrara={[B, A, E]}
-        IsHealthAdjna={[B1_duplicate, A1_duplicate, K6_duplicate]}
-        IsHealthVishydha={[B2_duplicate, A2_duplicate, K5_duplicate]}
-        IsHealthAnaxata={[B3_duplicate, A3_duplicate, K4_duplicate]}
-        IsHealthManipura={[X_duplicate, Y_duplicate, K3_duplicate]}
-        IsHealthMuladxara={[D_duplicate, C_duplicate, K1_duplicate]}
-        isHealthSvadxistana={[D1_duplicate, C1_duplicate, K2_duplicate]}
-        IsPurpose={[LP1, LP2, LP3]}
-        IsTests={X}
-        isLove={[D2, L, G4]}
-        isMoney={[M, G4, C2, C, C1]}
-        parentMenLine={[E, E1, E2, X, G, G1, G2]}
-        parentWomenLine={[F, F1, F2, X, H, H1, H2]}
-        parentResentment={[A, A1, A2]}
-        isChildren={[A, A1, A2]}
-        isManagement={[A, B, X]}
-        setBirthday={setBirthday}
-      />
-      <section className="section-with-diagram section pb-0 js-section-with-diagram">
+      <section
+        style={{ paddingTop: 200 }}
+        className="section-with-diagram section pb-0 js-section-with-diagram"
+      >
         <div className="h2 section-with-diagram__title">
           Персональный расчет
         </div>
@@ -1726,7 +1736,6 @@ export const Diagram = () => {
           </div>
         </div>
       </section>
-      <div className="print-diagram-wrap js-print-diagram-wrap"></div>
       <SimpleAccordion />
     </>
   );

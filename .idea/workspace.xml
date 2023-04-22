@@ -4,8 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="8">
+    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="8.1">
+      <change afterPath="$PROJECT_DIR$/src/components/Payment/Error/Error.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/error.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mark.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/API/API.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/API.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Osnova.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Osnova.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Payment/Pay/Pay.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Payment/Pay/Pay.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Payment/Pay/Pay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Payment/Pay/Pay.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Payment/Success/Success.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Payment/Success/Success.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Orders/Orders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Orders/Orders.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/diagram/Diagram.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/diagram/Diagram.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/diagram/diagram.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/diagram/diagram.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature/DatePicker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/DatePicker.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature/SimpleAccordion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/SimpleAccordion.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +32,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
-        <option value="TypeScript JSX File" />
         <option value="SCSS File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -133,7 +149,10 @@
       <workItem from="1681590328804" duration="136000" />
       <workItem from="1681641610244" duration="15600000" />
       <workItem from="1681750710873" duration="4113000" />
-      <workItem from="1681907495494" duration="5981000" />
+      <workItem from="1681907495494" duration="7872000" />
+      <workItem from="1682013107342" duration="4130000" />
+      <workItem from="1682065546647" duration="12820000" />
+      <workItem from="1682156023081" duration="834000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1676555659169</created>
@@ -184,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681918387011</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="8.1">
+      <created>1681918547568</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1681918547568</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,6 +248,7 @@
     <MESSAGE value="6" />
     <MESSAGE value="7" />
     <MESSAGE value="8" />
-    <option name="LAST_COMMIT_MESSAGE" value="8" />
+    <MESSAGE value="8.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="8.1" />
   </component>
 </project>

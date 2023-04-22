@@ -1,6 +1,7 @@
 import React from "react";
 import { Payment } from "./Payment/Payment";
 import "../App.css";
+import { DatePicker } from "../feature/DatePicker";
 
 export const Osnova = () => {
   return (
@@ -12,6 +13,9 @@ export const Osnova = () => {
           твоей судьбы
           <button className={"baton"}>ПРОВЕСТИ РАСЧЕТ</button>
         </h1>
+      </section>
+      <section>
+        <DatePicker />
       </section>
       <Payment />
     </>

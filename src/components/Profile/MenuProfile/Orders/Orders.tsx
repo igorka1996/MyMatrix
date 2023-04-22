@@ -11,10 +11,10 @@ export const Orders = () => {
     (state) => state.registrationReducer.totalAmount
   );
 
-  const total = totalAmount.toString().replace(/(\d{4})00(?=\s|$)/g, "$1,00");
+  const total = totalAmount.toString().replace(/(\d+)00(?=\s|$)/g, "$1,00");
 
   const historyOrders = orders.map((el) => {
-    const outputString = el.price.replace(/(\d{4})00(?=\s|$)/g, "$1,00");
+    const outputString = el.price.replace(/(\d+)00(?=\s|$)/g, "$1,00");
     return (
       <div className={"divOrders"}>
         <span
