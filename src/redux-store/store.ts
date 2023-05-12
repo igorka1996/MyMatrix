@@ -4,11 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { personalMatrixReducer } from "./personalMatrix-reducer";
 import { registrationReducer } from "./registration-login-auth";
 import { errorReducer } from "./error-wait-reducer";
+import { personalMatrixChildrenReducer } from "./personalMatrixChildren-reducer";
 
 const rootReducers = combineReducers({
   personalMatrixReducer: personalMatrixReducer,
   registrationReducer: registrationReducer,
   errorReducer: errorReducer,
+  personalMatrixChildrenReducer: personalMatrixChildrenReducer,
 });
 
 export const store = configureStore({

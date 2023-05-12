@@ -29,7 +29,7 @@ const initialState: PersonalMatrix = {
     isPurpose40_60: [],
     isGeneralPurpose: [],
   },
-  isTests: [],
+  isPersonalPowerCode: [],
   isLove: {
     isLoveMenOrWomen: [],
     isCharacterLoveMenOrWomen: [],
@@ -47,16 +47,7 @@ const initialState: PersonalMatrix = {
   },
   isChildren: [],
   isManagement: [],
-  isYear: {
-    isEssenceOfTheYearPlus: {
-      isPlus: [],
-      isMinus: [],
-    },
-    isCausesOfEvents: {
-      isPlus: [],
-      isMinus: [],
-    },
-  },
+  isYear: [],
 };
 
 const slice = createSlice({
@@ -70,7 +61,7 @@ const slice = createSlice({
       state.isPastLife = action.payload.isPastLife;
       state.isHealth = action.payload.isHealth;
       state.isPurpose = action.payload.isPurpose;
-      state.isTests = action.payload.isTests;
+      state.isPersonalPowerCode = action.payload.isPersonalPowerCode;
       state.isLove = action.payload.isLove;
       state.isMoney = action.payload.isMoney;
       state.isParents = action.payload.isParents;
@@ -100,16 +91,17 @@ export const getPersonalMatrix = createAsyncThunk(
       IsHealthMuladxara: number[];
       isHealthSvadxistana: number[];
       IsPurpose: number[];
-      IsTests: number;
+      isPersonalPowerCode: number[];
       Gender: string;
       isLove: number[];
+      MoneyFlow: number[];
+      moneySuccess: number[];
       isMoney: number[];
       parentMenLine: number[];
       parentWomenLine: number[];
       parentResentment: number[];
       isChildren: number[];
       isManagement: number[];
-      IsYear: number[];
     },
     { dispatch, rejectWithValue }
   ) => {
@@ -128,16 +120,17 @@ export const getPersonalMatrix = createAsyncThunk(
         param.IsHealthMuladxara,
         param.isHealthSvadxistana,
         param.IsPurpose,
-        param.IsTests,
+        param.isPersonalPowerCode,
         param.Gender,
         param.isLove,
         param.isMoney,
+        param.moneySuccess,
+        param.MoneyFlow,
         param.parentMenLine,
         param.parentWomenLine,
         param.parentResentment,
         param.isChildren,
-        param.isManagement,
-        param.IsYear
+        param.isManagement
       );
       return res.data;
     } catch (e) {

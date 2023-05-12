@@ -5,10 +5,28 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useAppSelector } from "../redux-store/store";
+import { ForecastForTheYear } from "./ForecastForTheYear";
+import { PropsTypeForecastTheYear } from "../type/personalMatrix-type";
 
-export function SimpleAccordion() {
+const filterCalcYear = (arr: [], gender: string) => {
+  return arr.map((e: any) => {
+    if (e.w && e.m) {
+      if (gender === "M") {
+        return e.m;
+      } else if (gender === "W") {
+        return e.w;
+      }
+    }
+    return e;
+  });
+};
+
+export function SimpleAccordion(props: PropsTypeForecastTheYear) {
   const personalMatrix = useAppSelector((state) => state.personalMatrixReducer);
-  const gender = "M";
+  const yearHandler = filterCalcYear(
+    personalMatrix.isYear,
+    props.gender ? props.gender : "W"
+  );
   return (
     <div style={{ width: "80%", margin: "0 auto" }}>
       <Accordion>
@@ -28,33 +46,48 @@ export function SimpleAccordion() {
             {personalMatrix.isPersonalQualities.isGeneral.length !== 0
               ? personalMatrix.isPersonalQualities?.isGeneral.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
             <br />
             <b>В позитиве</b>
             <br />
-            {personalMatrix.isPersonalQualities.isPositive.length !== 0
+            {personalMatrix.isPersonalQualities.isPositive !== undefined
               ? personalMatrix.isPersonalQualities.isPositive.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
             <br />
             <b>В негативе</b>
             <br />
-            {personalMatrix.isPersonalQualities.isNegative.length !== 0
+            {personalMatrix.isPersonalQualities.isNegative !== undefined
               ? personalMatrix.isPersonalQualities.isNegative.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -72,37 +105,52 @@ export function SimpleAccordion() {
           <Typography>
             <b>Талант от Бога</b>
             <br />
-            {personalMatrix.isTalents.isTalentsOfGod.length !== 0
+            {personalMatrix.isTalents.isTalentsOfGod !== undefined
               ? personalMatrix.isTalents.isTalentsOfGod.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
             <br />
             <b>Талант от Отца</b>
             <br />
-            {personalMatrix.isTalents.isTalentsOfDad.length !== 0
+            {personalMatrix.isTalents.isTalentsOfDad !== undefined
               ? personalMatrix.isTalents.isTalentsOfDad.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
             <br />
 
             <b>Талант от Матери</b>
             <br />
-            {personalMatrix.isTalents.isTalentsOfMother.length !== 0
+            {personalMatrix.isTalents.isTalentsOfMother !== undefined
               ? personalMatrix.isTalents.isTalentsOfMother.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -118,14 +166,19 @@ export function SimpleAccordion() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {personalMatrix.isPastLife.length !== 0
+            {personalMatrix.isPastLife !== undefined
               ? personalMatrix.isPastLife.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -185,11 +238,16 @@ export function SimpleAccordion() {
             {personalMatrix.isHealth.Saxasrara !== undefined
               ? personalMatrix.isHealth.Saxasrara.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
             <br />
             <b>
               Аджна - отвечают за затылочные и височные доли мозга, глаз, уши,
@@ -238,11 +296,16 @@ export function SimpleAccordion() {
             {personalMatrix.isHealth.Adjna !== undefined
               ? personalMatrix.isHealth.Adjna.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
             <br />
             <b>
               Вишудха - отвечают за щитовидная железа, трахея, бронхи, горло,
@@ -289,11 +352,16 @@ export function SimpleAccordion() {
             {personalMatrix.isHealth.Vishydha !== undefined
               ? personalMatrix.isHealth.Vishydha.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
             <br />
             <b>
               Анахата - отвечают за сердце, кровеносная система, органы дыхания,
@@ -347,11 +415,16 @@ export function SimpleAccordion() {
             {personalMatrix.isHealth.Anaxata !== undefined
               ? personalMatrix.isHealth.Anaxata.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
             <br />
             <b>
               Манипура - отвечают за ЖКТ, органы брюшной полости, поджелудочная
@@ -403,11 +476,16 @@ export function SimpleAccordion() {
             {personalMatrix.isHealth.Manipura !== undefined
               ? personalMatrix.isHealth.Manipura.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
             <br />
             <b>
               Свадхистана - отвечают за надпочечники, матка и яичники, почки,
@@ -456,11 +534,16 @@ export function SimpleAccordion() {
             {personalMatrix.isHealth.Svadxistana !== undefined
               ? personalMatrix.isHealth.Svadxistana.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
             <br />
             <b>
               Муладхара - отвечают за Мочеполовая система, нижние конечности,
@@ -504,11 +587,16 @@ export function SimpleAccordion() {
             {personalMatrix.isHealth.Muladxara !== undefined
               ? personalMatrix.isHealth.Muladxara.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -530,33 +618,48 @@ export function SimpleAccordion() {
             {personalMatrix.isPurpose.isPurpose20_40.length !== 0
               ? personalMatrix.isPurpose.isPurpose20_40.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
             <br />
             <b>Предназначение (40-60 лет)</b>
             <br />
             {personalMatrix.isPurpose.isPurpose40_60.length !== 0
               ? personalMatrix.isPurpose.isPurpose40_60.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
             <br />
             <b>Предназначение (общие)</b>
             <br />
             {personalMatrix.isPurpose.isGeneralPurpose.length !== 0
               ? personalMatrix.isPurpose.isGeneralPurpose.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -568,19 +671,24 @@ export function SimpleAccordion() {
           id="panel2a-header"
         >
           <Typography>
-            <b>Испытания</b>
+            <b>Код личной силы</b>
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {personalMatrix.isTests.length !== 0
-              ? personalMatrix.isTests.map((e) => (
+            {personalMatrix.isPersonalPowerCode.length !== 0
+              ? personalMatrix.isPersonalPowerCode.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -597,38 +705,53 @@ export function SimpleAccordion() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            <b>Отношения у {gender === "M" ? "мужчин" : "женщин"}</b>
+            <b>Отношения у {props.gender === "M" ? "мужчин" : "женщин"}</b>
             <br />
             {personalMatrix.isLove.isLoveMenOrWomen.length !== 0
               ? personalMatrix.isLove.isLoveMenOrWomen.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
             <br />
             <b>Характер партнёра</b>
             <br />
             {personalMatrix.isLove.isCharacterLoveMenOrWomen.length !== 0
               ? personalMatrix.isLove.isCharacterLoveMenOrWomen.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
             <br />
             <b>На выходе</b>
             <br />
             {personalMatrix.isLove.loveTotal.length !== 0
               ? personalMatrix.isLove.loveTotal.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -649,33 +772,48 @@ export function SimpleAccordion() {
             {personalMatrix.isMoney.moneyLineOfActivity.length !== 0
               ? personalMatrix.isMoney.moneyLineOfActivity.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
             <br />
             <b>Для достижения успеха важно</b>
             <br />
             {personalMatrix.isMoney.moneySuccess.length !== 0
               ? personalMatrix.isMoney.moneySuccess.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
             <br />
             <b>Как раскрыть денежный поток</b>
             <br />
             {personalMatrix.isMoney.moneyFlow.length !== 0
               ? personalMatrix.isMoney.moneyFlow.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -697,33 +835,48 @@ export function SimpleAccordion() {
             {personalMatrix.isParents.parentMenLine.length !== 0
               ? personalMatrix.isParents.parentMenLine.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
             <br />
             <b>Родовые программы по женской линии</b>
             <br />
             {personalMatrix.isParents.parentWomenLine.length !== 0
               ? personalMatrix.isParents.parentWomenLine.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
             <br />
             <b>Обиды на родителей</b>
             <br />
             {personalMatrix.isParents.parentResentment.length !== 0
               ? personalMatrix.isParents.parentResentment.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -743,11 +896,16 @@ export function SimpleAccordion() {
             {personalMatrix.isChildren.length !== 0
               ? personalMatrix.isChildren.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -767,11 +925,100 @@ export function SimpleAccordion() {
             {personalMatrix.isManagement.length !== 0
               ? personalMatrix.isManagement.map((e) => (
                   <div>
-                    {e.text}
+                    {e.text.split("\n").map((paragraph: string) => (
+                      <p>
+                        {paragraph}
+                        <br />
+                      </p>
+                    ))}
                     <br />
                   </div>
                 ))
-              : "1"}
+              : ""}
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+          <Typography>
+            <b>Прогнозы по годам</b>
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <ForecastForTheYear
+              yaer={yearHandler}
+              age={props.age}
+              B={props.B}
+              D={props.D}
+              DHDD={props.DHDD}
+              BFBF={props.BFBF}
+              BFB={props.BFB}
+              DHD={props.DHD}
+              BFBBF={props.BFBBF}
+              DHDDH={props.DHDDH}
+              BF={props.BF}
+              DH={props.DH}
+              BFFBF={props.BFFBF}
+              DHHDH={props.DHHDH}
+              BFF={props.BFF}
+              DHH={props.DHH}
+              BFFF={props.BFFF}
+              DHHH={props.DHHH}
+              F={props.F}
+              H={props.H}
+              FCFF={props.FCFF}
+              HAHH={props.HAHH}
+              FCF={props.FCF}
+              HAH={props.HAH}
+              FCFFC={props.FCFFC}
+              HAHHA={props.HAHHA}
+              FC={props.FC}
+              HA={props.HA}
+              FCCFC={props.FCCFC}
+              HAAHA={props.HAAHA}
+              FCC={props.FCC}
+              HAA={props.HAA}
+              FCCC={props.FCCC}
+              HAAA={props.HAAA}
+              C={props.C}
+              A={props.A}
+              CGCC={props.CGCC}
+              AEAA={props.AEAA}
+              CGC={props.CGC}
+              AEA={props.AEA}
+              CGCCG={props.CGCCG}
+              AEAAE={props.AEAAE}
+              CG={props.CG}
+              AE={props.AE}
+              CGGCG={props.CGGCG}
+              AEEAE={props.AEEAE}
+              CGG={props.CGG}
+              AEE={props.AEE}
+              CGGG={props.CGGG}
+              AEEE={props.AEEE}
+              G={props.G}
+              E={props.E}
+              GDGG={props.GDGG}
+              EBEE={props.EBEE}
+              GDG={props.GDG}
+              EBE={props.EBE}
+              GDGGD={props.GDGGD}
+              EBEEB={props.EBEEB}
+              GD={props.GD}
+              EB={props.EB}
+              GDDGD={props.GDDGD}
+              EBBEB={props.EBBEB}
+              GDD={props.GDD}
+              EBB={props.EBB}
+              GDDD={props.GDDD}
+              EBBB={props.EBBB}
+            />
           </Typography>
         </AccordionDetails>
       </Accordion>

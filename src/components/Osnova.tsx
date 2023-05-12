@@ -1,7 +1,7 @@
 import React from "react";
 import { Payment } from "./Payment/Payment";
 import "../App.css";
-import { DatePicker } from "../feature/DatePicker";
+import { DatePickers } from "../feature/DatePickers";
 
 export const Osnova = () => {
   return (
@@ -15,7 +15,7 @@ export const Osnova = () => {
         </h1>
       </section>
       <section>
-        <DatePicker />
+        <DatePickers />
       </section>
       <Payment />
     </>
