@@ -5,12 +5,14 @@ import { personalMatrixReducer } from "./personalMatrix-reducer";
 import { registrationReducer } from "./registration-login-auth";
 import { errorReducer } from "./error-wait-reducer";
 import { personalMatrixChildrenReducer } from "./personalMatrixChildren-reducer";
+import { MatrixCompatibilityReducer } from "./MatrixCompatibility-reducer";
 
 const rootReducers = combineReducers({
   personalMatrixReducer: personalMatrixReducer,
   registrationReducer: registrationReducer,
   errorReducer: errorReducer,
   personalMatrixChildrenReducer: personalMatrixChildrenReducer,
+  MatrixCompatibilityReducer: MatrixCompatibilityReducer,
 });
 
 export const store = configureStore({

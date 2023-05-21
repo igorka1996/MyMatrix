@@ -5,7 +5,6 @@ import Tab from "@mui/material/Tab";
 import SwipeableViews from "react-swipeable-views";
 import {
   calculation,
-  calcYearlyForecast,
   calcYearlyForecastChildren,
   funcCalculation,
 } from "../utils/calc";

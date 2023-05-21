@@ -4,27 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="8.2">
-      <change afterPath="$PROJECT_DIR$/src/feature/DatePickers.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/feature/DatePickers.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/feature/ForecastForTheYear.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/feature/ForecastForTheYearChildren.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/feature/MatrixDiagram.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/feature/SimpleAccordionChildren.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux-store/personalMatrixChildren-reducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/type/personalMatrixChildren-type.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/calc.ts" afterDir="false" />
+    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="9">
+      <change afterPath="$PROJECT_DIR$/src/components/diagram/DiagramCompatibility.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/feature/MatrixDiagramCompatibility.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/feature/SimpleAccordionCompatibility.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux-store/MatrixCompatibility-reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/type/matrixCompatibility-type.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/API/API.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/API.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Osnova.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Osnova.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/diagram/Diagram.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/diagram/Diagram.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feature/DatePicker.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Learn/Learn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Learn/Learn.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Orders/Orders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Orders/Orders.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Tarif/Tarif.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Tarif/Tarif.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature/DatePickers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/DatePickers.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature/ForecastForTheYearChildren.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/ForecastForTheYearChildren.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/feature/SimpleAccordion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/SimpleAccordion.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux-store/personalMatrix-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/personalMatrix-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature/SimpleAccordionChildren.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/SimpleAccordionChildren.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux-store/registration-login-auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/registration-login-auth.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux-store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/type/personalMatrix-type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/type/personalMatrix-type.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/calc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/calc.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,32 +63,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/src/feature",
-    "list.type.of.created.stylesheet": "SCSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "yarn",
-    "prettierjs.PrettierConfiguration.Package": "/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/node_modules/prettier",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "ts.external.directory.path": "/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/src/feature&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/feature" />
       <recent name="$PROJECT_DIR$/src/type" />
       <recent name="$PROJECT_DIR$/src/redux-store" />
+      <recent name="$PROJECT_DIR$/src/components/diagram" />
       <recent name="$PROJECT_DIR$/src/components/Profile/MenuProfile" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -172,7 +172,15 @@
       <workItem from="1683626865022" duration="7270000" />
       <workItem from="1683733660209" duration="4252000" />
       <workItem from="1683798348930" duration="3885000" />
-      <workItem from="1683883583858" duration="20534000" />
+      <workItem from="1683883583858" duration="21805000" />
+      <workItem from="1684170944363" duration="1325000" />
+      <workItem from="1684226183489" duration="13838000" />
+      <workItem from="1684316071712" duration="639000" />
+      <workItem from="1684349825764" duration="4922000" />
+      <workItem from="1684487751298" duration="12000" />
+      <workItem from="1684487786967" duration="626000" />
+      <workItem from="1684595026993" duration="5992000" />
+      <workItem from="1684673996328" duration="942000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1676555659169</created>
@@ -237,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682182956774</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="9">
+      <created>1683920491625</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1683920491625</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,17 +292,7 @@
     <MESSAGE value="8" />
     <MESSAGE value="8.1" />
     <MESSAGE value="8.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="8.2" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/feature/MatrixDiagram.tsx</url>
-          <line>1134</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="9" />
+    <option name="LAST_COMMIT_MESSAGE" value="9" />
   </component>
 </project>

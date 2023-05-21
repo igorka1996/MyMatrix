@@ -5,24 +5,9 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useAppSelector } from "../redux-store/store";
-import {
-  PropsTypeForecastTheYear,
-  PropsTypeForecastTheYearChildren,
-} from "../type/personalMatrix-type";
+import { PropsTypeForecastTheYearChildren } from "../type/personalMatrix-type";
 import { ForecastForTheYearChildren } from "./ForecastForTheYearChildren";
-
-const filterCalcYear = (arr: [], gender: string) => {
-  return arr.map((e: any) => {
-    if (e.w && e.m) {
-      if (gender === "M") {
-        return e.m;
-      } else if (gender === "W") {
-        return e.w;
-      }
-    }
-    return e;
-  });
-};
+import { filterCalcYear } from "../utils/calc";
 
 export function SimpleAccordionChildren(
   props: PropsTypeForecastTheYearChildren

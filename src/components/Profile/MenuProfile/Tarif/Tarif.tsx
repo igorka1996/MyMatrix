@@ -8,16 +8,16 @@ export const Tarif = () => {
     (state) => state.registrationReducer.subscription
   );
 
-  const tarif = subscribe.map((el) => {
-    return (
-      <span className={"spanTarif"} key={el._id}>
-        {el.subscribe}
+  const tarif = subscribe.map((el: any) => {
+    return !!el?.access || !!el?.access || !!el?.access ? (
+      <span className={"spanTarif"}>
+        {el.subscribe || el.subscribe || el.subscribe}
       </span>
-    );
+    ) : undefined;
   });
   return (
     <div className={"userProfile"}>
-      {!subscribe.length ? (
+      {!subscribe.filter((e: any) => e.access).length ? (
         <div>
           <span className={"spanNoneTarif"}>
             На данный момент у Вас нет активных тарифов

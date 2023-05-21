@@ -22,12 +22,17 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import { Profile } from "./components/Profile/Profile";
 import { SnackBarSuccess } from "./feature/SnackBarSuccess";
 import { Error } from "./components/Payment/Error/Error";
+import { DiagramCompatibility } from "./components/diagram/DiagramCompatibility";
 
 function App() {
   const loc = useLocation();
   const dispatch = useAppDispatch();
   const auth = useAppSelector((state) => state.registrationReducer.auth);
   const initialize = useAppSelector((state) => state.errorReducer.initialize);
+  const tarif = useAppSelector(
+    (state) => state.registrationReducer.subscription
+  );
+  console.log(tarif);
   const fromPage = loc.state?.pathname || "/";
   useEffect(() => {
     localStorage.setItem("path", loc.pathname);
@@ -112,6 +117,10 @@ function App() {
       <Routes>
         <Route path={"/"} element={<Osnova />} />
         <Route path={"/matrix"} element={<Diagram />} />
+        <Route
+          path={"/matrixcompatibility"}
+          element={<DiagramCompatibility />}
+        />
         <Route path={"/success"} element={<Success />} />
         <Route path={"/error"} element={<Error />} />
         <Route path={"/welcome"} element={<Welcome />} />

@@ -2,20 +2,18 @@ import React, { useState, useEffect } from "react";
 import "./Learn.scss";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../../../../redux-store/store";
-import { SubscriptionType } from "../../../../redux-store/registration-login-auth";
 
-const checkSubscription = (subscribe: SubscriptionType[]) => {
-  let result = false;
-  subscribe.map((el) => {
+const checkSubscription = (subscribe: []) => {
+  return subscribe.filter((el: any) => {
     if (
       el.subscribe === "Видео-курс + Вместе и навсегда" ||
       el.subscribe === "Видео-курс"
     ) {
-      result = true;
+      if (el.access === true) {
+        return el;
+      }
     }
-    return el;
   });
-  return result;
 };
 
 export const Learn = () => {
@@ -25,7 +23,7 @@ export const Learn = () => {
   const [set, setState] = useState(false);
 
   useEffect(() => {
-    setState(checkSubscription(subscribe));
+    setState(checkSubscription(subscribe).length > 0);
   }, [subscribe]);
 
   return (

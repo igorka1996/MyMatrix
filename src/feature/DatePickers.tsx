@@ -9,6 +9,7 @@ import { FormGroup } from "@material-ui/core";
 
 export function DatePickers() {
   const [value, setValue] = useState<string>("");
+  const [value1, setValue1] = useState<string>("");
   const [check, setCheck] = useState<boolean>(false);
   const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     width: 124,
@@ -67,6 +68,11 @@ export function DatePickers() {
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setValue(e.currentTarget.value);
+  };
+  const onChangeHandler1 = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setValue1(e.currentTarget.value);
   };
   return (
     <section className={"sectionDate"}>
@@ -149,6 +155,46 @@ export function DatePickers() {
           className={"batonStandart"}
           state={{ date: value, male: check ? "M" : "W", child: true }}
           to={"/matrix"}
+        >
+          Рассчитать
+        </Link>
+      </Stack>
+
+      <Stack
+        component="form"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-around",
+          alignItems: "center",
+        }}
+        noValidate
+        spacing={3}
+      >
+        <TextField
+          onChange={onChangeHandler}
+          id="date"
+          label="Дата рождения партнера 1"
+          type="date"
+          sx={{ width: 220 }}
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+        <TextField
+          onChange={onChangeHandler1}
+          id="date"
+          label="Дата рождения партнера 2"
+          type="date"
+          sx={{ width: 220 }}
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+        <Link
+          className={"batonStandart"}
+          state={{ date: value, date1: value1 }}
+          to={"/matrixcompatibility"}
         >
           Рассчитать
         </Link>

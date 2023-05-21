@@ -9,10 +9,29 @@ import {
 } from "./error-wait-reducer";
 import { HandleError } from "../utils/errors";
 
-export type SubscriptionType = {
-  expiresSub: string;
+type SubscriptionMonthType = {
   subscribe: string;
-  _id: string;
+  expiresSub: number;
+  access: boolean;
+};
+
+type SubscriptionForeverVideoType = {
+  subscribe: string;
+  access: boolean;
+};
+
+type SubscriptionTrialType = {
+  subscribe: string;
+  access: boolean;
+  personal: number;
+  children: number;
+  compatibility: number;
+};
+
+export type SubscriptionType = {
+  month: SubscriptionMonthType;
+  foreverVideo: SubscriptionForeverVideoType;
+  trial: SubscriptionTrialType;
 };
 
 type OrdersType = {
@@ -29,7 +48,7 @@ type InitialStateType = {
   id: string;
   token: string;
   auth: boolean;
-  subscription: SubscriptionType[];
+  subscription: any;
   avatar: string;
   phone: string;
   historyOfOrders: OrdersType[];
@@ -66,7 +85,7 @@ const slice = createSlice({
       state.subscription = action.payload.sub;
       state.historyOfOrders = action.payload.orders;
       state.totalAmount = action.payload.totalAmount;
-      state.avatar = "";
+      state.avatar = action.payload.avatar;
     });
     builder.addCase(payAndRegistrationThunk.fulfilled, (state, action) => {
       state.name = action.payload.name;
@@ -163,6 +182,7 @@ export const registrationThunk = createAsyncThunk(
         orders: res.data.historyOfOrders,
         totalAmount: res.data.totalAmount,
         auth: true,
+        avatar: res.data.avatarURL,
       };
     } catch (e) {
       HandleError(e, dispatch);

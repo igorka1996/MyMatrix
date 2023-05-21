@@ -2,6 +2,7 @@ import axios from "axios";
 import { PersonalMatrix } from "../type/personalMatrix-type";
 import Cookies from "js-cookie";
 import { PersonalMatrixChildren } from "../type/personalMatrixChildren-type";
+import { MatrixCompatibility } from "../type/matrixCompatibility-type";
 
 const instance = axios.create({
   baseURL: "http://localhost:4444/",
@@ -62,6 +63,19 @@ export const personalMatrixAPI = {
   ) {
     return instance.get<PersonalMatrixChildren>(
       `mathmatrixchild?isPersonalQualitiesChildren=${isPersonalQualitiesChildren[0]},${isPersonalQualitiesChildren[1]},${isPersonalQualitiesChildren[2]}&queryIsBirthTalentsDirectionsOfHobbiesAndHobbyGroups=${queryIsBirthTalentsDirectionsOfHobbiesAndHobbyGroups[0]},${queryIsBirthTalentsDirectionsOfHobbiesAndHobbyGroups[1]},${queryIsBirthTalentsDirectionsOfHobbiesAndHobbyGroups[2]}&isBirthTalents=${isBirthTalents[0]},${isBirthTalents[1]},${isBirthTalents[2]}&isTalentsInTheFemaleLine=${isTalentsInTheFemaleLine[0]},${isTalentsInTheFemaleLine[1]},${isTalentsInTheFemaleLine[2]}&isTalentsInTheMaleLine=${isTalentsInTheMaleLine[0]},${isTalentsInTheMaleLine[1]},${isTalentsInTheMaleLine[2]}&isWhatToConsiderWhenRaisingAChild=${isWhatToConsiderWhenRaisingAChild[0]},${isWhatToConsiderWhenRaisingAChild[1]},${isWhatToConsiderWhenRaisingAChild[2]}&isDirectionOfActivityOptionsForFutureProfessions=${isDirectionOfActivityOptionsForFutureProfessions[0]}&isFirstPersonalPurpose=${isFirstPersonalPurpose[0]}&isSecondSocialPurpose=${isSecondSocialPurpose[0]}&isForSuccessItIsImportant=${isForSuccessItIsImportant[0]}, ${isForSuccessItIsImportant[1]}, ${isForSuccessItIsImportant[2]}, ${isForSuccessItIsImportant[3]}&isLessonsOnTheGenderOfTheMaleLine=${isLessonsOnTheGenderOfTheMaleLine[0]},${isLessonsOnTheGenderOfTheMaleLine[1]},${isLessonsOnTheGenderOfTheMaleLine[2]},${isLessonsOnTheGenderOfTheMaleLine[3]},${isLessonsOnTheGenderOfTheMaleLine[4]},${isLessonsOnTheGenderOfTheMaleLine[5]},${isLessonsOnTheGenderOfTheMaleLine[6]}&isLessonsOnTheGenderOfTheFemaleLine=${isLessonsOnTheGenderOfTheFemaleLine[0]},${isLessonsOnTheGenderOfTheFemaleLine[1]},${isLessonsOnTheGenderOfTheFemaleLine[2]},${isLessonsOnTheGenderOfTheFemaleLine[3]},${isLessonsOnTheGenderOfTheFemaleLine[4]},${isLessonsOnTheGenderOfTheFemaleLine[5]},${isLessonsOnTheGenderOfTheFemaleLine[6]}&isSubconsciousScript=${isSubconsciousScript[0]},${isSubconsciousScript[1]},${isSubconsciousScript[2]}, ${isSubconsciousScript[3]}&Gender=${Gender}`
+    );
+  },
+  getMatrixCompatibility(
+    isWhyDidYouMeet: number[],
+    isTheSpiritualEssenceOfTheCouple: number[],
+    isMaterialKarma: number[],
+    isCouplesSpiritualKarma: number[],
+    isGenericTasksOfPartners: number[],
+    isCouplesWellBeing: number[],
+    isThePurposeOfTheCouple: number[]
+  ) {
+    return instance.get<MatrixCompatibility>(
+      `mathmatrixcompatibility?isWhyDidYouMeet=${isWhyDidYouMeet[0]},${isWhyDidYouMeet[1]},${isWhyDidYouMeet[2]}&isTheSpiritualEssenceOfTheCouple=${isTheSpiritualEssenceOfTheCouple[0]},${isTheSpiritualEssenceOfTheCouple[1]},${isTheSpiritualEssenceOfTheCouple[2]}&isMaterialKarma=${isMaterialKarma[0]},${isMaterialKarma[1]},${isMaterialKarma[2]}&isCouplesSpiritualKarma=${isCouplesSpiritualKarma[0]},${isCouplesSpiritualKarma[1]},${isCouplesSpiritualKarma[2]}&isGenericTasksOfPartners=${isGenericTasksOfPartners[0]},${isGenericTasksOfPartners[1]},${isGenericTasksOfPartners[2]}, ${isGenericTasksOfPartners[3]}&isCouplesWellBeing=${isCouplesWellBeing[0]},${isCouplesWellBeing[1]},${isCouplesWellBeing[2]}, ${isCouplesWellBeing[3]}, ${isCouplesWellBeing[4]}&isThePurposeOfTheCouple=${isThePurposeOfTheCouple[0]}, ${isThePurposeOfTheCouple[1]}, ${isThePurposeOfTheCouple[2]}`
     );
   },
   // tests(data: { items: { id: number; quantity: number }[] }) {

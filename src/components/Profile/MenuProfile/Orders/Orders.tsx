@@ -7,6 +7,7 @@ export const Orders = () => {
   const orders = useAppSelector(
     (state) => state.registrationReducer.historyOfOrders
   );
+  console.log(orders);
   const totalAmount = useAppSelector(
     (state) => state.registrationReducer.totalAmount
   );
@@ -14,7 +15,9 @@ export const Orders = () => {
   const total = totalAmount.toString().replace(/(\d+)00(?=\s|$)/g, "$1,00");
 
   const historyOrders = orders.map((el) => {
-    const outputString = el.price.replace(/(\d+)00(?=\s|$)/g, "$1,00");
+    const outputString = el.price
+      ?.toString()
+      .replace(/(\d+)00(?=\s|$)/g, "$1,00");
     return (
       <div className={"divOrders"}>
         <span
@@ -48,12 +51,6 @@ export const Orders = () => {
             Ваша история приобретения тарифов
           </span>
           <div className={"divOrdersHistory"}>{historyOrders}</div>
-          <div style={{ fontSize: 25 }}>
-            Общая затраченная сумма:
-            <span
-              style={{ marginLeft: 10, fontWeight: "bold" }}
-            >{`${total} руб.`}</span>
-          </div>
         </div>
       ) : (
         <div>

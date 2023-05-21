@@ -57,6 +57,19 @@ export const calculateAge = (birthday: string) => {
   const ageInYears = ageInMonths / 12;
   return parseFloat(ageInYears.toFixed(2));
 };
+
+export const filterCalcYear = (arr: [], gender: string) => {
+  return arr.map((e: any) => {
+    if (e.w && e.m) {
+      if (gender === "M") {
+        return e.m;
+      } else if (gender === "W") {
+        return e.w;
+      }
+    }
+    return e;
+  });
+};
 export const calcYearlyForecast = (age: number) => {
   if (age >= 16 && age <= 17.5) {
     return 0;
