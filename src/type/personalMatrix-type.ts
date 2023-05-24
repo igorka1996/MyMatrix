@@ -166,6 +166,22 @@ export type PersonalMatrix = {
   isYear: [];
 };
 
+export type PersonalMatrixAPI = {
+  isPersonalQualities: IsPersonalQualities;
+  isTalents: IsTalents;
+  isPastLife: IsPastLife[];
+  isHealth: IsHealth;
+  isPurpose: IsPurpose;
+  isPersonalPowerCode: isPersonalPowerCode[];
+  isLove: IsLove;
+  isMoney: IsMoney;
+  isParents: IsParents;
+  isChildren: IsChildren[];
+  isManagement: IsManagement[];
+  isYear: [];
+  subscription: [];
+};
+
 export type PropsTypeForecastTheYear = {
   yaer?: any;
   gender?: string;

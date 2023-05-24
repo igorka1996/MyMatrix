@@ -3,85 +3,135 @@ import "./diagram.scss";
 import { SimpleAccordion } from "../../feature/SimpleAccordion";
 import { SimpleAccordionChildren } from "../../feature/SimpleAccordionChildren";
 import { useLocation } from "react-router-dom";
-import { getPersonalMatrix } from "../../redux-store/personalMatrix-reducer";
-import { useAppDispatch } from "../../redux-store/store";
+import {
+  getPersonalMatrix,
+  getPersonalMatrixLite,
+} from "../../redux-store/personalMatrix-reducer";
+import { useAppDispatch, useAppSelector } from "../../redux-store/store";
 import { calculateAge, calculation, funcCalculation } from "../../utils/calc";
 import { MatrixDiagram } from "../../feature/MatrixDiagram";
-import { getPersonalMatrixChildren } from "../../redux-store/personalMatrixChildren-reducer";
+import {
+  getPersonalMatrixChildren,
+  getPersonalMatrixChildrenLite,
+} from "../../redux-store/personalMatrixChildren-reducer";
 
 export const Diagram = () => {
   const { state } = useLocation();
   const age = calculateAge(state.date);
   const dispatch = useAppDispatch();
+  const sub = useAppSelector((state) => state.registrationReducer.subscription);
+  const id = useAppSelector((state) => state.registrationReducer.id);
+  const auth = useAppSelector((state) => state.registrationReducer.auth);
+
+  const subscribeAccessPersonal = sub.filter((e: any) => {
+    return (
+      e.access &&
+      (e.subscribe === "Вместе и навсегда" ||
+        e.subscribe === "Видео-курс + Вместе и навсегда" ||
+        (e.subscribe === "Пробный" && e.personal > 0) ||
+        (e.subscribe === "Матрица на месяц" && sub.expiresSub > Date.now()))
+    );
+  });
+
+  const subscribeAccessChildren = sub.filter((e: any) => {
+    return (
+      e.access &&
+      (e.subscribe === "Вместе и навсегда" ||
+        e.subscribe === "Видео-курс + Вместе и навсегда" ||
+        (e.subscribe === "Пробный" && e.children > 0) ||
+        (e.subscribe === "Матрица на месяц" && sub.expiresSub > Date.now()))
+    );
+  });
   useEffect(() => {
-    if (state.child) {
-      dispatch(
-        getPersonalMatrixChildren({
-          isPersonalQualitiesChildren: funcIsPersonalQualitiesl(),
-          queryIsBirthTalentsDirectionsOfHobbiesAndHobbyGroups: funcCalculation(
-            [B, B1, B2]
-          ),
-          isBirthTalents: funcCalculation([B, B1, B2]),
-          isTalentsInTheFemaleLine: funcCalculation([F, F1, F2]),
-          isTalentsInTheMaleLine: funcCalculation([E, E2, E1]),
-          isLessonsOnTheGenderOfTheMaleLine: funcCalculation([
-            F,
-            F1,
-            F2,
-            X,
-            H,
-            H1,
-            H2,
-          ]),
-          isLessonsOnTheGenderOfTheFemaleLine: funcCalculation([
-            E,
-            E1,
-            E2,
-            X,
-            G,
-            G1,
-            G2,
-          ]),
-          isWhatToConsiderWhenRaisingAChild: funcCalculation([A, A1, A2]),
-          isDirectionOfActivityOptionsForFutureProfessions: [M],
-          isForSuccessItIsImportant: funcCalculation([G4, C2, C, C1]),
-          isSubconsciousScript: funcCalculation([C, D, D1, D2]),
-          isFirstPersonalPurpose: [LP1],
-          isSecondSocialPurpose: [YM],
-          Gender: state.male,
-        })
-      );
-    } else {
-      dispatch(
-        getPersonalMatrix({
-          isPersonalQualities: funcIsPersonalQualitiesl(),
-          talentsOfDad: funcCalculation([E, E2, E1]),
-          talentsOfMother: funcCalculation([F, F1, F2]),
-          talentsOfGod: funcCalculation([B, B1, B2]),
-          isPastLife: `${D2}-${D1}-${D}`,
-          IsHealthSaxasrara: funcCalculation([B, A, E]),
-          IsHealthAdjna: funcCalculation([A1, B1, K6]),
-          IsHealthVishydha: funcCalculation([A2, B2, K5]),
-          IsHealthAnaxata: funcCalculation([A3, B3, K4]),
-          IsHealthManipura: funcCalculation([X, X, K3]),
-          IsHealthMuladxara: funcCalculation([D, C, K1]),
-          isHealthSvadxistana: funcCalculation([C2, D2, I5]),
-          IsPurpose: [LP1, LP2, LP3],
-          isPersonalPowerCode: funcCalculation([X, Y, XY]),
-          Gender: state.male,
-          isLove: funcCalculation([D2, L, G4]),
-          isMoney: [M],
-          moneySuccess: funcCalculation([G4, C2, C, C1]),
-          MoneyFlow: funcCalculation([C, C1]),
-          parentMenLine: funcCalculation([E, E1, E2, X, G, G1, G2]),
-          parentWomenLine: funcCalculation([F, F1, F2, X, H, H1, H2]),
-          parentResentment: funcCalculation([A, A1, A2]),
-          isChildren: funcCalculation([A, A1, A2]),
-          isManagement: funcCalculation([A, B, X]),
-        })
-      );
+    if (auth) {
+      if (state.child) {
+        if (auth && subscribeAccessChildren.length > 0) {
+          dispatch(
+            getPersonalMatrixChildren({
+              isPersonalQualitiesChildren: funcIsPersonalQualitiesl(),
+              isBirthTalents: funcCalculation([B, B1, B2]),
+              isTalentsInTheFemaleLine: funcCalculation([F, F1, F2]),
+              isTalentsInTheMaleLine: funcCalculation([E, E2, E1]),
+              isLessonsOnTheGenderOfTheMaleLine: funcCalculation([
+                F,
+                F1,
+                F2,
+                X,
+                H,
+                H1,
+                H2,
+              ]),
+              isLessonsOnTheGenderOfTheFemaleLine: funcCalculation([
+                E,
+                E1,
+                E2,
+                X,
+                G,
+                G1,
+                G2,
+              ]),
+              isWhatToConsiderWhenRaisingAChild: funcCalculation([A, A1, A2]),
+              isDirectionOfActivityOptionsForFutureProfessions: [M],
+              isForSuccessItIsImportant: funcCalculation([G4, C2, C, C1]),
+              isSubconsciousScript: funcCalculation([C, D, D1, D2]),
+              isFirstPersonalPurpose: [LP1],
+              isSecondSocialPurpose: [YM],
+              Gender: state.male,
+              subscribe: subscribeAccessChildren[0]?.subscribe,
+              id,
+            })
+          );
+        } else {
+          dispatch(
+            getPersonalMatrixChildrenLite({
+              isPersonalQualitiesChildren: funcIsPersonalQualitiesl(),
+              Gender: state.male,
+            })
+          );
+        }
+      } else {
+        if (auth && subscribeAccessPersonal.length > 0) {
+          dispatch(
+            getPersonalMatrix({
+              isPersonalQualities: funcIsPersonalQualitiesl(),
+              talentsOfDad: funcCalculation([E, E2, E1]),
+              talentsOfMother: funcCalculation([F, F1, F2]),
+              talentsOfGod: funcCalculation([B, B1, B2]),
+              isPastLife: `${D2}-${D1}-${D}`,
+              IsHealthSaxasrara: funcCalculation([B, A, E]),
+              IsHealthAdjna: funcCalculation([A1, B1, K6]),
+              IsHealthVishydha: funcCalculation([A2, B2, K5]),
+              IsHealthAnaxata: funcCalculation([A3, B3, K4]),
+              IsHealthManipura: funcCalculation([X, X, K3]),
+              IsHealthMuladxara: funcCalculation([D, C, K1]),
+              isHealthSvadxistana: funcCalculation([C2, D2, I5]),
+              IsPurpose: [LP1, LP2, LP3],
+              isPersonalPowerCode: funcCalculation([X, Y, XY]),
+              Gender: state.male,
+              isLove: funcCalculation([D2, L, G4]),
+              isMoney: [M],
+              moneySuccess: funcCalculation([G4, C2, C, C1]),
+              MoneyFlow: funcCalculation([C, C1]),
+              parentMenLine: funcCalculation([E, E1, E2, X, G, G1, G2]),
+              parentWomenLine: funcCalculation([F, F1, F2, X, H, H1, H2]),
+              parentResentment: funcCalculation([A, A1, A2]),
+              isChildren: funcCalculation([A, A1, A2]),
+              isManagement: funcCalculation([A, B, X]),
+              subscribe: subscribeAccessPersonal[0]?.subscribe,
+              id,
+            })
+          );
+        } else {
+          dispatch(
+            getPersonalMatrixLite({
+              isPersonalQualities: funcIsPersonalQualitiesl(),
+              Gender: state.male,
+            })
+          );
+        }
+      }
     }
-  }, []);
+  }, [auth]);
 
   const birthdayArray = state.date.split("-");
   let A = calculation(parseInt(birthdayArray[2]));

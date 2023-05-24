@@ -159,6 +159,25 @@ export function SimpleAccordionChildren(
                   )
                 )
               : ""}
+            <br />
+            <b>Направления увлечений, хобби и кружков по интересам</b>
+            <br />
+            {personalMatrixChildren.isChildTalents
+              .isDirectionsOfHobbiesAndHobbyGroups !== undefined
+              ? personalMatrixChildren.isChildTalents.isDirectionsOfHobbiesAndHobbyGroups.map(
+                  (e) => (
+                    <div>
+                      {e.text.split("\n").map((paragraph: string) => (
+                        <p>
+                          {paragraph}
+                          <br />
+                        </p>
+                      ))}
+                      <br />
+                    </div>
+                  )
+                )
+              : ""}
           </Typography>
         </AccordionDetails>
       </Accordion>

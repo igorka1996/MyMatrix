@@ -96,3 +96,14 @@ export type PersonalMatrixChildren = {
   isSubconsciousScript: isSubconsciousScript[];
   isYear: [];
 };
+
+export type PersonalMatrixChildrenAPI = {
+  isPersonalQualitiesChildren: isPersonalQualitiesChildren;
+  isChildTalents: isChildTalents;
+  isRelationshipWithParents: isRelationshipWithParents;
+  isSelfRrealizationOfTheChild: isSelfRrealizationOfTheChild;
+  isPurposeOfTheChild: isPurposeOfTheChild;
+  isSubconsciousScript: isSubconsciousScript[];
+  isYear: [];
+  subscription: [];
+};

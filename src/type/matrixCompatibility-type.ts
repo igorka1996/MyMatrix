@@ -3,6 +3,17 @@ export type isValueAndTextType = {
   text: string;
 };
 
+export type MatrixCompatibilityAPI = {
+  isWhyDidYouMeet: isValueAndTextType[];
+  isTheSpiritualEssenceOfTheCouple: isValueAndTextType[];
+  isMaterialKarma: isValueAndTextType[];
+  isCouplesSpiritualKarma: isValueAndTextType[];
+  isGenericTasksOfPartners: isValueAndTextType[];
+  isCouplesWellBeing: isValueAndTextType[];
+  isThePurposeOfTheCouple: isValueAndTextType[];
+  subscription: [];
+};
+
 export type MatrixCompatibility = {
   isWhyDidYouMeet: isValueAndTextType[];
   isTheSpiritualEssenceOfTheCouple: isValueAndTextType[];

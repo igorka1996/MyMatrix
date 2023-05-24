@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { authAPI } from "../API/API";
 import {
   avatarWaitAC,
@@ -8,6 +8,7 @@ import {
   updateUserAC,
 } from "./error-wait-reducer";
 import { HandleError } from "../utils/errors";
+import { logOutMatrixAC } from "./personalMatrix-reducer";
 
 type SubscriptionMonthType = {
   subscribe: string;
@@ -72,7 +73,11 @@ const initialState: InitialStateType = {
 const slice = createSlice({
   name: "registration-auth-login",
   initialState,
-  reducers: {},
+  reducers: {
+    subAC(state, action: PayloadAction<{ sub: [] }>) {
+      state.subscription = action.payload.sub;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(registrationThunk.fulfilled, (state, action) => {
       state.name = action.payload.name;
@@ -147,7 +152,7 @@ const slice = createSlice({
 });
 
 export const registrationReducer = slice.reducer;
-
+export const { subAC } = slice.actions;
 export const registrationThunk = createAsyncThunk(
   "registration-auth-login/registration",
   async (
@@ -256,6 +261,7 @@ export const logOutThunk = createAsyncThunk(
   async (param, { dispatch, rejectWithValue }) => {
     try {
       await authAPI.deleteMe();
+      dispatch(logOutMatrixAC());
       return { auth: false };
     } catch (e) {
       HandleError(e, dispatch);

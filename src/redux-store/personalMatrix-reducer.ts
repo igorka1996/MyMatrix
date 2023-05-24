@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { PersonalMatrix } from "../type/personalMatrix-type";
 import { personalMatrixAPI } from "../API/API";
 import { HandleError } from "../utils/errors";
+import { subAC } from "./registration-login-auth";
 
 const initialState: PersonalMatrix = {
   isPersonalQualities: {
@@ -53,7 +54,11 @@ const initialState: PersonalMatrix = {
 const slice = createSlice({
   name: "personalMatrix",
   initialState,
-  reducers: {},
+  reducers: {
+    logOutMatrixAC() {
+      return initialState;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(getPersonalMatrix.fulfilled, (state, action) => {
       state.isPersonalQualities = action.payload.isPersonalQualities;
@@ -69,13 +74,17 @@ const slice = createSlice({
       state.isManagement = action.payload.isManagement;
       state.isYear = action.payload.isYear;
     });
+    builder.addCase(getPersonalMatrixLite.fulfilled, (state, action) => {
+      state.isPersonalQualities = action.payload.isPersonalQualities;
+      state.isYear = action.payload.isYear;
+    });
   },
 });
 
 export const personalMatrixReducer = slice.reducer;
-
+export const { logOutMatrixAC } = slice.actions;
 export const getPersonalMatrix = createAsyncThunk(
-  "personalMatrix/get",
+  "personalMatrix/post",
   async (
     param: {
       isPersonalQualities: number[];
@@ -102,10 +111,13 @@ export const getPersonalMatrix = createAsyncThunk(
       parentResentment: number[];
       isChildren: number[];
       isManagement: number[];
+      subscribe: string;
+      id: string;
     },
     { dispatch, rejectWithValue }
   ) => {
     try {
+      dispatch(logOutMatrixAC());
       const res = await personalMatrixAPI.getPersonalMatrix(
         param.isPersonalQualities,
         param.talentsOfDad,
@@ -130,7 +142,33 @@ export const getPersonalMatrix = createAsyncThunk(
         param.parentWomenLine,
         param.parentResentment,
         param.isChildren,
-        param.isManagement
+        param.isManagement,
+        param.subscribe,
+        param.id
+      );
+      dispatch(subAC({ sub: res.data.subscription }));
+      return res.data;
+    } catch (e) {
+      HandleError(e, dispatch);
+      return rejectWithValue(null);
+    }
+  }
+);
+
+export const getPersonalMatrixLite = createAsyncThunk(
+  "personalMatrixLite/get",
+  async (
+    param: {
+      isPersonalQualities: number[];
+      Gender: string;
+    },
+    { dispatch, rejectWithValue }
+  ) => {
+    try {
+      dispatch(logOutMatrixAC());
+      const res = await personalMatrixAPI.getPersonalMatrixLite(
+        param.isPersonalQualities,
+        param.Gender
       );
       return res.data;
     } catch (e) {
