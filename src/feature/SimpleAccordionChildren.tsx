@@ -16,7 +16,7 @@ export function SimpleAccordionChildren(
     (state) => state.personalMatrixChildrenReducer
   );
   const yearHandler = filterCalcYear(
-    personalMatrixChildren.isYear,
+    personalMatrixChildren.data.isYear,
     props.gender ? props.gender : "W"
   );
   return (
@@ -35,57 +35,63 @@ export function SimpleAccordionChildren(
           <Typography>
             <b>Характеристика качеств</b>
             <br />
-            {personalMatrixChildren.isPersonalQualitiesChildren
+            {personalMatrixChildren.data.isPersonalQualitiesChildren
               .isCharacteristicsOfQualities.length !== 0
-              ? personalMatrixChildren.isPersonalQualitiesChildren?.isCharacteristicsOfQualities.map(
-                  (e) => (
-                    <div>
-                      {e.text.split("\n").map((paragraph: string) => (
-                        <p>
-                          {paragraph}
-                          <br />
-                        </p>
-                      ))}
+              ? personalMatrixChildren.data.isPersonalQualitiesChildren?.isCharacteristicsOfQualities.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
                       <br />
-                    </div>
+                    </React.Fragment>
                   )
                 )
               : ""}
             <br />
             <b>Рекомендации для родителей</b>
             <br />
-            {personalMatrixChildren.isPersonalQualitiesChildren
+            {personalMatrixChildren.data.isPersonalQualitiesChildren
               .isRecommendationsForParents.length !== 0
-              ? personalMatrixChildren.isPersonalQualitiesChildren?.isRecommendationsForParents.map(
-                  (e) => (
-                    <div>
-                      {e.text.split("\n").map((paragraph: string) => (
-                        <p>
-                          {paragraph}
-                          <br />
-                        </p>
-                      ))}
+              ? personalMatrixChildren.data.isPersonalQualitiesChildren?.isRecommendationsForParents.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
                       <br />
-                    </div>
+                    </React.Fragment>
                   )
                 )
               : ""}
             <br />
             <b>Ребенок в общении</b>
             <br />
-            {personalMatrixChildren.isPersonalQualitiesChildren
+            {personalMatrixChildren.data.isPersonalQualitiesChildren
               .isChildInCommunication !== undefined
-              ? personalMatrixChildren.isPersonalQualitiesChildren.isChildInCommunication.map(
-                  (e) => (
-                    <div>
-                      {e.text.split("\n").map((paragraph: string) => (
-                        <p>
-                          {paragraph}
-                          <br />
-                        </p>
-                      ))}
+              ? personalMatrixChildren.data.isPersonalQualitiesChildren.isChildInCommunication.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
                       <br />
-                    </div>
+                    </React.Fragment>
                   )
                 )
               : ""}
@@ -106,75 +112,84 @@ export function SimpleAccordionChildren(
           <Typography>
             <b>Талант от рождения</b>
             <br />
-            {personalMatrixChildren.isChildTalents.isBirthTalents.length !== 0
-              ? personalMatrixChildren.isChildTalents.isBirthTalents.map(
-                  (e) => (
-                    <div>
-                      {e.text.split("\n").map((paragraph: string) => (
-                        <p>
-                          {paragraph}
-                          <br />
-                        </p>
-                      ))}
+            {personalMatrixChildren.data.isChildTalents?.isBirthTalents
+              .length !== undefined
+              ? personalMatrixChildren.data.isChildTalents.isBirthTalents.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
                       <br />
-                    </div>
+                    </React.Fragment>
                   )
                 )
               : ""}
             <br />
             <b>Таланты по мужской линии</b>
             <br />
-            {personalMatrixChildren.isChildTalents.isTalentsInTheMaleLine !==
-            undefined
-              ? personalMatrixChildren.isChildTalents.isTalentsInTheMaleLine.map(
-                  (e) => (
-                    <div>
-                      {e.text.split("\n").map((paragraph: string) => (
-                        <p>
-                          {paragraph}
-                          <br />
-                        </p>
-                      ))}
+            {personalMatrixChildren.data.isChildTalents
+              ?.isTalentsInTheMaleLine !== undefined
+              ? personalMatrixChildren.data.isChildTalents.isTalentsInTheMaleLine.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
                       <br />
-                    </div>
+                    </React.Fragment>
                   )
                 )
               : ""}
             <br />
             <b>Таланты по женской линии</b>
             <br />
-            {personalMatrixChildren.isChildTalents.isTalentsInTheFemaleLine !==
-            undefined
-              ? personalMatrixChildren.isChildTalents.isTalentsInTheFemaleLine.map(
-                  (e) => (
-                    <div>
-                      {e.text.split("\n").map((paragraph: string) => (
-                        <p>
-                          {paragraph}
-                          <br />
-                        </p>
-                      ))}
+            {personalMatrixChildren.data.isChildTalents
+              ?.isTalentsInTheFemaleLine !== undefined
+              ? personalMatrixChildren.data.isChildTalents.isTalentsInTheFemaleLine.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
                       <br />
-                    </div>
+                    </React.Fragment>
                   )
                 )
               : ""}
             <br />
             <b>Направления увлечений, хобби и кружков по интересам</b>
             <br />
-            {personalMatrixChildren.isChildTalents
-              .isDirectionsOfHobbiesAndHobbyGroups !== undefined
-              ? personalMatrixChildren.isChildTalents.isDirectionsOfHobbiesAndHobbyGroups.map(
-                  (e) => (
-                    <div>
-                      {e.text.split("\n").map((paragraph: string) => (
-                        <p>
-                          {paragraph}
-                          <br />
-                        </p>
-                      ))}
+            {personalMatrixChildren.data.isChildTalents
+              ?.isDirectionsOfHobbiesAndHobbyGroups !== undefined
+              ? personalMatrixChildren.data.isChildTalents.isDirectionsOfHobbiesAndHobbyGroups.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
                       <br />
-                    </div>
+                    </React.Fragment>
                   )
                 )
               : ""}
@@ -196,57 +211,63 @@ export function SimpleAccordionChildren(
             <br />
             <b>Что нужно учитывать в вопросах воспитания ребенка</b>
             <br />
-            {personalMatrixChildren.isRelationshipWithParents
-              .isWhatToConsiderWhenRaisingAChild.length !== 0
-              ? personalMatrixChildren.isRelationshipWithParents.isWhatToConsiderWhenRaisingAChild.map(
-                  (e) => (
-                    <div>
-                      {e.text.split("\n").map((paragraph: string) => (
-                        <p>
-                          {paragraph}
-                          <br />
-                        </p>
-                      ))}
+            {personalMatrixChildren.data.isRelationshipWithParents
+              ?.isWhatToConsiderWhenRaisingAChild.length !== undefined
+              ? personalMatrixChildren.data.isRelationshipWithParents.isWhatToConsiderWhenRaisingAChild.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
                       <br />
-                    </div>
+                    </React.Fragment>
                   )
                 )
               : ""}
             <br />
             <b>Уроки по роду мужской линии</b>
             <br />
-            {personalMatrixChildren.isRelationshipWithParents
-              .isLessonsOnTheGenderOfTheMaleLine.length !== 0
-              ? personalMatrixChildren.isRelationshipWithParents.isLessonsOnTheGenderOfTheMaleLine.map(
-                  (e) => (
-                    <div>
-                      {e.text.split("\n").map((paragraph: string) => (
-                        <p>
-                          {paragraph}
-                          <br />
-                        </p>
-                      ))}
+            {personalMatrixChildren.data.isRelationshipWithParents
+              ?.isLessonsOnTheGenderOfTheMaleLine.length !== undefined
+              ? personalMatrixChildren.data.isRelationshipWithParents.isLessonsOnTheGenderOfTheMaleLine.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
                       <br />
-                    </div>
+                    </React.Fragment>
                   )
                 )
               : ""}
             <br />
             <b>Уроки по роду женской линии</b>
             <br />
-            {personalMatrixChildren.isRelationshipWithParents
-              .isLessonsOnTheGenderOfTheFemaleLine.length !== 0
-              ? personalMatrixChildren.isRelationshipWithParents.isLessonsOnTheGenderOfTheFemaleLine.map(
-                  (e) => (
-                    <div>
-                      {e.text.split("\n").map((paragraph: string) => (
-                        <p>
-                          {paragraph}
-                          <br />
-                        </p>
-                      ))}
+            {personalMatrixChildren.data.isRelationshipWithParents
+              ?.isLessonsOnTheGenderOfTheFemaleLine.length !== undefined
+              ? personalMatrixChildren.data.isRelationshipWithParents.isLessonsOnTheGenderOfTheFemaleLine.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
                       <br />
-                    </div>
+                    </React.Fragment>
                   )
                 )
               : ""}
@@ -267,38 +288,43 @@ export function SimpleAccordionChildren(
           <Typography>
             <b>Направление деятельности, варианты будущих профессий</b>
             <br />
-            {personalMatrixChildren.isSelfRrealizationOfTheChild
-              .isDirectionOfActivityOptionsForFutureProfessions.length !== 0
-              ? personalMatrixChildren.isSelfRrealizationOfTheChild.isDirectionOfActivityOptionsForFutureProfessions.map(
-                  (e) => (
-                    <div>
-                      {e.text.split("\n").map((paragraph: string) => (
-                        <p>
-                          {paragraph}
-                          <br />
-                        </p>
-                      ))}
+            {personalMatrixChildren.data.isSelfRrealizationOfTheChild
+              ?.isDirectionOfActivityOptionsForFutureProfessions.length !==
+            undefined
+              ? personalMatrixChildren.data.isSelfRrealizationOfTheChild.isDirectionOfActivityOptionsForFutureProfessions.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
                       <br />
-                    </div>
+                    </React.Fragment>
                   )
                 )
               : ""}
             <br />
             <b>Для достижения успеха важно</b>
             <br />
-            {personalMatrixChildren.isSelfRrealizationOfTheChild
-              .isForSuccessItIsImportant.length !== 0
-              ? personalMatrixChildren.isSelfRrealizationOfTheChild.isForSuccessItIsImportant.map(
-                  (e) => (
-                    <div>
-                      {e.text.split("\n").map((paragraph: string) => (
-                        <p>
-                          {paragraph}
-                          <br />
-                        </p>
-                      ))}
+            {personalMatrixChildren.data.isSelfRrealizationOfTheChild
+              ?.isForSuccessItIsImportant.length !== undefined
+              ? personalMatrixChildren.data.isSelfRrealizationOfTheChild.isForSuccessItIsImportant.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
                       <br />
-                    </div>
+                    </React.Fragment>
                   )
                 )
               : ""}
@@ -321,38 +347,42 @@ export function SimpleAccordionChildren(
             <br />
             <b>Первое, личное предназначение</b>
             <br />
-            {personalMatrixChildren.isPurposeOfTheChild.isFirstPersonalPurpose
-              .length !== 0
-              ? personalMatrixChildren.isPurposeOfTheChild.isFirstPersonalPurpose.map(
-                  (e) => (
-                    <div>
-                      {e.text.split("\n").map((paragraph: string) => (
-                        <p>
-                          {paragraph}
-                          <br />
-                        </p>
-                      ))}
+            {personalMatrixChildren.data.isPurposeOfTheChild
+              ?.isFirstPersonalPurpose.length !== undefined
+              ? personalMatrixChildren.data.isPurposeOfTheChild.isFirstPersonalPurpose.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
                       <br />
-                    </div>
+                    </React.Fragment>
                   )
                 )
               : ""}
             <br />
             <b>Второе, социальное предназначение</b>
             <br />
-            {personalMatrixChildren.isPurposeOfTheChild.isSecondSocialPurpose
-              .length !== 0
-              ? personalMatrixChildren.isPurposeOfTheChild.isSecondSocialPurpose.map(
-                  (e) => (
-                    <div>
-                      {e.text.split("\n").map((paragraph: string) => (
-                        <p>
-                          {paragraph}
-                          <br />
-                        </p>
-                      ))}
+            {personalMatrixChildren.data.isPurposeOfTheChild
+              ?.isSecondSocialPurpose.length !== undefined
+              ? personalMatrixChildren.data.isPurposeOfTheChild.isSecondSocialPurpose.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
                       <br />
-                    </div>
+                    </React.Fragment>
                   )
                 )
               : ""}
@@ -374,18 +404,22 @@ export function SimpleAccordionChildren(
           <Typography>
             <b>Подсознательные страхи и блоки</b>
             <br />
-            {personalMatrixChildren.isSubconsciousScript.length !== 0
-              ? personalMatrixChildren.isSubconsciousScript.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
-                        {paragraph}
-                        <br />
-                      </p>
-                    ))}
-                    <br />
-                  </div>
-                ))
+            {personalMatrixChildren.data.isSubconsciousScript !== undefined
+              ? personalMatrixChildren.data.isSubconsciousScript.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
+                      <br />
+                    </React.Fragment>
+                  )
+                )
               : ""}
           </Typography>
         </AccordionDetails>

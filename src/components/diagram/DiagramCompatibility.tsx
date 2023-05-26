@@ -3,55 +3,41 @@ import "./diagram.scss";
 import { useLocation } from "react-router-dom";
 import { calculation, funcCalculation } from "../../utils/calc";
 import { MatrixDiagramCompatibility } from "../../feature/MatrixDiagramCompatibility";
-import { useAppDispatch, useAppSelector } from "../../redux-store/store";
-import {
-  getMatrixCompatibility,
-  getMatrixCompatibilityLite,
-} from "../../redux-store/MatrixCompatibility-reducer";
+import { useAppDispatch } from "../../redux-store/store";
+import { getMatrixCompatibility } from "../../redux-store/MatrixCompatibility-reducer";
 import { SimpleAccordionCompatibility } from "../../feature/SimpleAccordionCompatibility";
 
 export const DiagramCompatibility = () => {
   const { state } = useLocation();
   // const age = calculateAge(state.date);
   const dispatch = useAppDispatch();
-  const sub = useAppSelector((state) => state.registrationReducer.subscription);
-  const id = useAppSelector((state) => state.registrationReducer.id);
-  const auth = useAppSelector((state) => state.registrationReducer.auth);
 
-  const subscribeAccessCompatibility = sub.filter((e: any) => {
+  const subscribeAccessCompatibility = state.sub.filter((e: any) => {
     return (
       e.access &&
       (e.subscribe === "Вместе и навсегда" ||
         e.subscribe === "Видео-курс + Вместе и навсегда" ||
         (e.subscribe === "Пробный" && e.compatibility > 0) ||
-        (e.subscribe === "Матрица на месяц" && sub.expiresSub > Date.now()))
+        (e.subscribe === "Матрица на месяц" && e.expiresSub > Date.now()))
     );
   });
   useEffect(() => {
-    if (auth) {
-      if (subscribeAccessCompatibility.length > 0) {
-        dispatch(
-          getMatrixCompatibility({
-            isWhyDidYouMeet: funcCalculation([Ad, A1d, A2d]),
-            isTheSpiritualEssenceOfTheCouple: funcCalculation([Bd, B1d, B2d]),
-            isMaterialKarma: funcCalculation([Cd, C1d, C2d]),
-            isCouplesSpiritualKarma: funcCalculation([Dd, D1d, D2d]),
-            isGenericTasksOfPartners: funcCalculation([Ed, Fd, Gd, Hd]),
-            isCouplesWellBeing: funcCalculation([C2d, Md, G4d, Ld, D2d]),
-            isThePurposeOfTheCouple: funcCalculation([LP1d, YMd, RRMd]),
-            subscribe: subscribeAccessCompatibility[0].subscribe,
-            id,
-          })
-        );
-      } else {
-        dispatch(
-          getMatrixCompatibilityLite({
-            isWhyDidYouMeet: funcCalculation([Ad, A1d, A2d]),
-          })
-        );
-      }
-    }
-  }, [auth]);
+    dispatch(
+      getMatrixCompatibility({
+        isWhyDidYouMeet: funcCalculation([Ad, A1d, A2d]),
+        isTheSpiritualEssenceOfTheCouple: funcCalculation([Bd, B1d, B2d]),
+        isMaterialKarma: funcCalculation([Cd, C1d, C2d]),
+        isCouplesSpiritualKarma: funcCalculation([Dd, D1d, D2d]),
+        isGenericTasksOfPartners: funcCalculation([Ed, Fd, Gd, Hd]),
+        isCouplesWellBeing: funcCalculation([C2d, Md, G4d, Ld, D2d]),
+        isThePurposeOfTheCouple: funcCalculation([LP1d, YMd, RRMd]),
+        datePartnerOne: state.date,
+        datePartnerTwo: state.date1,
+        subscribe: subscribeAccessCompatibility[0]?.subscribe,
+        id: state.id,
+      })
+    );
+  }, []);
 
   const birthdayArray = state.date.split("-");
   let A = calculation(parseInt(birthdayArray[2]));

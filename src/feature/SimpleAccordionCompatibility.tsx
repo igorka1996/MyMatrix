@@ -5,7 +5,6 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useAppSelector } from "../redux-store/store";
-import { PropsTypeForecastTheYearChildren } from "../type/personalMatrix-type";
 
 export function SimpleAccordionCompatibility() {
   const MatrixCompatibility = useAppSelector(
@@ -26,17 +25,17 @@ export function SimpleAccordionCompatibility() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {MatrixCompatibility.isWhyDidYouMeet.length !== 0
-              ? MatrixCompatibility.isWhyDidYouMeet.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
+            {MatrixCompatibility.data.isWhyDidYouMeet.length !== 0
+              ? MatrixCompatibility.data.isWhyDidYouMeet.map((e, index) => (
+                  <React.Fragment key={index}>
+                    {e.text.split("\n").map((paragraph: string, innerIndex) => (
+                      <React.Fragment key={innerIndex}>
                         {paragraph}
-                        <br />
-                      </p>
+                        <br key={`br-${index}`} />
+                      </React.Fragment>
                     ))}
                     <br />
-                  </div>
+                  </React.Fragment>
                 ))
               : ""}
             <br />
@@ -55,18 +54,21 @@ export function SimpleAccordionCompatibility() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {MatrixCompatibility.isTheSpiritualEssenceOfTheCouple.length !== 0
-              ? MatrixCompatibility.isTheSpiritualEssenceOfTheCouple.map(
-                  (e) => (
-                    <div>
-                      {e.text.split("\n").map((paragraph: string) => (
-                        <p>
-                          {paragraph}
-                          <br />
-                        </p>
-                      ))}
+            {MatrixCompatibility.data.isTheSpiritualEssenceOfTheCouple
+              ?.length !== undefined
+              ? MatrixCompatibility.data.isTheSpiritualEssenceOfTheCouple.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
                       <br />
-                    </div>
+                    </React.Fragment>
                   )
                 )
               : ""}
@@ -85,17 +87,17 @@ export function SimpleAccordionCompatibility() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {MatrixCompatibility.isMaterialKarma.length !== 0
-              ? MatrixCompatibility.isMaterialKarma.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
+            {MatrixCompatibility.data.isMaterialKarma?.length !== undefined
+              ? MatrixCompatibility.data.isMaterialKarma.map((e, index) => (
+                  <React.Fragment key={index}>
+                    {e.text.split("\n").map((paragraph: string, innerIndex) => (
+                      <React.Fragment key={innerIndex}>
                         {paragraph}
-                        <br />
-                      </p>
+                        <br key={`br-${index}`} />
+                      </React.Fragment>
                     ))}
                     <br />
-                  </div>
+                  </React.Fragment>
                 ))
               : ""}
           </Typography>
@@ -113,18 +115,23 @@ export function SimpleAccordionCompatibility() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {MatrixCompatibility.isCouplesSpiritualKarma.length !== 0
-              ? MatrixCompatibility.isCouplesSpiritualKarma.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
-                        {paragraph}
-                        <br />
-                      </p>
-                    ))}
-                    <br />
-                  </div>
-                ))
+            {MatrixCompatibility.data.isCouplesSpiritualKarma?.length !==
+            undefined
+              ? MatrixCompatibility.data.isCouplesSpiritualKarma.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
+                      <br />
+                    </React.Fragment>
+                  )
+                )
               : ""}
           </Typography>
         </AccordionDetails>
@@ -141,18 +148,23 @@ export function SimpleAccordionCompatibility() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {MatrixCompatibility.isGenericTasksOfPartners.length !== 0
-              ? MatrixCompatibility.isGenericTasksOfPartners.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
-                        {paragraph}
-                        <br />
-                      </p>
-                    ))}
-                    <br />
-                  </div>
-                ))
+            {MatrixCompatibility.data.isGenericTasksOfPartners?.length !==
+            undefined
+              ? MatrixCompatibility.data.isGenericTasksOfPartners.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
+                      <br />
+                    </React.Fragment>
+                  )
+                )
               : ""}
           </Typography>
         </AccordionDetails>
@@ -170,17 +182,17 @@ export function SimpleAccordionCompatibility() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {MatrixCompatibility.isCouplesWellBeing.length !== 0
-              ? MatrixCompatibility.isCouplesWellBeing.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
+            {MatrixCompatibility.data.isCouplesWellBeing?.length !== undefined
+              ? MatrixCompatibility.data.isCouplesWellBeing.map((e, index) => (
+                  <React.Fragment key={index}>
+                    {e.text.split("\n").map((paragraph: string, innerIndex) => (
+                      <React.Fragment key={innerIndex}>
                         {paragraph}
-                        <br />
-                      </p>
+                        <br key={`br-${index}`} />
+                      </React.Fragment>
                     ))}
                     <br />
-                  </div>
+                  </React.Fragment>
                 ))
               : ""}
           </Typography>
@@ -199,18 +211,23 @@ export function SimpleAccordionCompatibility() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {MatrixCompatibility.isThePurposeOfTheCouple.length !== 0
-              ? MatrixCompatibility.isThePurposeOfTheCouple.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
-                        {paragraph}
-                        <br />
-                      </p>
-                    ))}
-                    <br />
-                  </div>
-                ))
+            {MatrixCompatibility.data.isThePurposeOfTheCouple?.length !==
+            undefined
+              ? MatrixCompatibility.data.isThePurposeOfTheCouple.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
+                      <br />
+                    </React.Fragment>
+                  )
+                )
               : ""}
           </Typography>
         </AccordionDetails>

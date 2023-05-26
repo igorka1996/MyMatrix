@@ -10,31 +10,6 @@ import {
 import { HandleError } from "../utils/errors";
 import { logOutMatrixAC } from "./personalMatrix-reducer";
 
-type SubscriptionMonthType = {
-  subscribe: string;
-  expiresSub: number;
-  access: boolean;
-};
-
-type SubscriptionForeverVideoType = {
-  subscribe: string;
-  access: boolean;
-};
-
-type SubscriptionTrialType = {
-  subscribe: string;
-  access: boolean;
-  personal: number;
-  children: number;
-  compatibility: number;
-};
-
-export type SubscriptionType = {
-  month: SubscriptionMonthType;
-  foreverVideo: SubscriptionForeverVideoType;
-  trial: SubscriptionTrialType;
-};
-
 type OrdersType = {
   date: string;
   name: string;
@@ -54,6 +29,11 @@ type InitialStateType = {
   phone: string;
   historyOfOrders: OrdersType[];
   totalAmount: number;
+  matrixSearchHistory: {
+    personal: { gender: string; name: string; date: string }[];
+    children: { gender: string; name: string; date: string }[];
+    compatibility: { datePartnerOne: string; datePartnerTwo: string }[];
+  };
 };
 
 const initialState: InitialStateType = {
@@ -68,6 +48,11 @@ const initialState: InitialStateType = {
   phone: "",
   historyOfOrders: [],
   totalAmount: 0,
+  matrixSearchHistory: {
+    personal: [],
+    children: [],
+    compatibility: [],
+  },
 };
 
 const slice = createSlice({
@@ -91,6 +76,7 @@ const slice = createSlice({
       state.historyOfOrders = action.payload.orders;
       state.totalAmount = action.payload.totalAmount;
       state.avatar = action.payload.avatar;
+      state.matrixSearchHistory = action.payload.matrixSearchHistory;
     });
     builder.addCase(payAndRegistrationThunk.fulfilled, (state, action) => {
       state.name = action.payload.name;
@@ -104,6 +90,7 @@ const slice = createSlice({
       state.historyOfOrders = action.payload.orders;
       state.totalAmount = action.payload.totalAmount;
       state.avatar = "";
+      state.matrixSearchHistory = action.payload.matrixSearchHistory;
       window.location.assign(action.payload.url);
     });
     builder.addCase(authThunk.fulfilled, (state, action) => {
@@ -118,6 +105,7 @@ const slice = createSlice({
       state.subscription = action.payload.sub;
       state.historyOfOrders = action.payload.orders;
       state.totalAmount = action.payload.totalAmount;
+      state.matrixSearchHistory = action.payload.matrixSearchHistory;
     });
     builder.addCase(loginThunk.fulfilled, (state, action) => {
       state.name = action.payload.name;
@@ -130,6 +118,7 @@ const slice = createSlice({
       state.subscription = action.payload.sub;
       state.historyOfOrders = action.payload.orders;
       state.totalAmount = action.payload.totalAmount;
+      state.matrixSearchHistory = action.payload.matrixSearchHistory;
     });
     builder.addCase(logOutThunk.fulfilled, (state, action) => {
       state.name = "";
@@ -188,6 +177,7 @@ export const registrationThunk = createAsyncThunk(
         totalAmount: res.data.totalAmount,
         auth: true,
         avatar: res.data.avatarURL,
+        matrixSearchHistory: res.data.matrixSearchHistory,
       };
     } catch (e) {
       HandleError(e, dispatch);
@@ -213,6 +203,7 @@ export const authThunk = createAsyncThunk(
         sub: res.data.subscription,
         orders: res.data.historyOfOrders,
         totalAmount: res.data.totalAmount,
+        matrixSearchHistory: res.data.matrixSearchHistory,
         auth: true,
       };
     } catch (e) {
@@ -247,6 +238,7 @@ export const loginThunk = createAsyncThunk(
         phone: res.data.phone,
         orders: res.data.historyOfOrders,
         totalAmount: res.data.totalAmount,
+        matrixSearchHistory: res.data.matrixSearchHistory,
         auth: true,
       };
     } catch (e) {
@@ -341,6 +333,7 @@ export const payAndRegistrationThunk = createAsyncThunk(
         sub: res.data.subscription,
         orders: res.data.historyOfOrders,
         totalAmount: res.data.totalAmount,
+        matrixSearchHistory: res.data.matrixSearchHistory,
         auth: true,
         url: res.data.url,
       };

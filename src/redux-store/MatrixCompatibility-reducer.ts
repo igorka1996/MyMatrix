@@ -5,13 +5,15 @@ import { MatrixCompatibility } from "../type/matrixCompatibility-type";
 import { subAC } from "./registration-login-auth";
 
 const initialState: MatrixCompatibility = {
-  isWhyDidYouMeet: [],
-  isTheSpiritualEssenceOfTheCouple: [],
-  isMaterialKarma: [],
-  isCouplesSpiritualKarma: [],
-  isGenericTasksOfPartners: [],
-  isCouplesWellBeing: [],
-  isThePurposeOfTheCouple: [],
+  data: {
+    isWhyDidYouMeet: [],
+    isTheSpiritualEssenceOfTheCouple: [],
+    isMaterialKarma: [],
+    isCouplesSpiritualKarma: [],
+    isGenericTasksOfPartners: [],
+    isCouplesWellBeing: [],
+    isThePurposeOfTheCouple: [],
+  },
 };
 
 const slice = createSlice({
@@ -24,17 +26,7 @@ const slice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(getMatrixCompatibility.fulfilled, (state, action) => {
-      state.isWhyDidYouMeet = action.payload.isWhyDidYouMeet;
-      state.isTheSpiritualEssenceOfTheCouple =
-        action.payload.isTheSpiritualEssenceOfTheCouple;
-      state.isMaterialKarma = action.payload.isMaterialKarma;
-      state.isCouplesSpiritualKarma = action.payload.isCouplesSpiritualKarma;
-      state.isGenericTasksOfPartners = action.payload.isGenericTasksOfPartners;
-      state.isCouplesWellBeing = action.payload.isCouplesWellBeing;
-      state.isThePurposeOfTheCouple = action.payload.isThePurposeOfTheCouple;
-    });
-    builder.addCase(getMatrixCompatibilityLite.fulfilled, (state, action) => {
-      state.isWhyDidYouMeet = action.payload.isWhyDidYouMeet;
+      state.data = action.payload.data;
     });
   },
 });
@@ -52,6 +44,8 @@ export const getMatrixCompatibility = createAsyncThunk(
       isGenericTasksOfPartners: number[];
       isCouplesWellBeing: number[];
       isThePurposeOfTheCouple: number[];
+      datePartnerOne: string;
+      datePartnerTwo: string;
       subscribe: string;
       id: string;
     },
@@ -67,32 +61,16 @@ export const getMatrixCompatibility = createAsyncThunk(
         param.isGenericTasksOfPartners,
         param.isCouplesWellBeing,
         param.isThePurposeOfTheCouple,
+        param.datePartnerOne,
+        param.datePartnerTwo,
         param.subscribe,
         param.id
       );
-      dispatch(subAC({ sub: res.data.subscription }));
-      return res.data;
-    } catch (e) {
-      HandleError(e, dispatch);
-      return rejectWithValue(null);
-    }
-  }
-);
+      if (res.data.subscription) {
+        dispatch(subAC({ sub: res.data.subscription }));
+      }
 
-export const getMatrixCompatibilityLite = createAsyncThunk(
-  "MatrixCompatibilityLite/get",
-  async (
-    param: {
-      isWhyDidYouMeet: number[];
-    },
-    { dispatch, rejectWithValue }
-  ) => {
-    try {
-      dispatch(logOutMatrixCompatibilityAC());
-      const res = await personalMatrixAPI.getMatrixCompatibilityLite(
-        param.isWhyDidYouMeet
-      );
-      return res.data;
+      return { data: res.data };
     } catch (e) {
       HandleError(e, dispatch);
       return rejectWithValue(null);

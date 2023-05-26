@@ -29,10 +29,6 @@ function App() {
   const dispatch = useAppDispatch();
   const auth = useAppSelector((state) => state.registrationReducer.auth);
   const initialize = useAppSelector((state) => state.errorReducer.initialize);
-  const tarif = useAppSelector(
-    (state) => state.registrationReducer.subscription
-  );
-  console.log(tarif);
   const fromPage = loc.state?.pathname || "/";
   useEffect(() => {
     localStorage.setItem("path", loc.pathname);

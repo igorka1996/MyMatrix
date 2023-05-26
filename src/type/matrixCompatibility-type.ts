@@ -15,11 +15,13 @@ export type MatrixCompatibilityAPI = {
 };
 
 export type MatrixCompatibility = {
-  isWhyDidYouMeet: isValueAndTextType[];
-  isTheSpiritualEssenceOfTheCouple: isValueAndTextType[];
-  isMaterialKarma: isValueAndTextType[];
-  isCouplesSpiritualKarma: isValueAndTextType[];
-  isGenericTasksOfPartners: isValueAndTextType[];
-  isCouplesWellBeing: isValueAndTextType[];
-  isThePurposeOfTheCouple: isValueAndTextType[];
+  data: {
+    isWhyDidYouMeet: isValueAndTextType[];
+    isTheSpiritualEssenceOfTheCouple: isValueAndTextType[];
+    isMaterialKarma: isValueAndTextType[];
+    isCouplesSpiritualKarma: isValueAndTextType[];
+    isGenericTasksOfPartners: isValueAndTextType[];
+    isCouplesWellBeing: isValueAndTextType[];
+    isThePurposeOfTheCouple: isValueAndTextType[];
+  };
 };

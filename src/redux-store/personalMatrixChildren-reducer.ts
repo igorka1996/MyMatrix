@@ -5,32 +5,34 @@ import { PersonalMatrixChildren } from "../type/personalMatrixChildren-type";
 import { subAC } from "./registration-login-auth";
 
 const initialState: PersonalMatrixChildren = {
-  isPersonalQualitiesChildren: {
-    isCharacteristicsOfQualities: [],
-    isRecommendationsForParents: [],
-    isChildInCommunication: [],
+  data: {
+    isPersonalQualitiesChildren: {
+      isCharacteristicsOfQualities: [],
+      isRecommendationsForParents: [],
+      isChildInCommunication: [],
+    },
+    isChildTalents: {
+      isBirthTalents: [],
+      isTalentsInTheFemaleLine: [],
+      isTalentsInTheMaleLine: [],
+      isDirectionsOfHobbiesAndHobbyGroups: [],
+    },
+    isRelationshipWithParents: {
+      isWhatToConsiderWhenRaisingAChild: [],
+      isLessonsOnTheGenderOfTheMaleLine: [],
+      isLessonsOnTheGenderOfTheFemaleLine: [],
+    },
+    isSelfRrealizationOfTheChild: {
+      isDirectionOfActivityOptionsForFutureProfessions: [],
+      isForSuccessItIsImportant: [],
+    },
+    isPurposeOfTheChild: {
+      isFirstPersonalPurpose: [],
+      isSecondSocialPurpose: [],
+    },
+    isSubconsciousScript: [],
+    isYear: [],
   },
-  isChildTalents: {
-    isBirthTalents: [],
-    isTalentsInTheFemaleLine: [],
-    isTalentsInTheMaleLine: [],
-    isDirectionsOfHobbiesAndHobbyGroups: [],
-  },
-  isRelationshipWithParents: {
-    isWhatToConsiderWhenRaisingAChild: [],
-    isLessonsOnTheGenderOfTheMaleLine: [],
-    isLessonsOnTheGenderOfTheFemaleLine: [],
-  },
-  isSelfRrealizationOfTheChild: {
-    isDirectionOfActivityOptionsForFutureProfessions: [],
-    isForSuccessItIsImportant: [],
-  },
-  isPurposeOfTheChild: {
-    isFirstPersonalPurpose: [],
-    isSecondSocialPurpose: [],
-  },
-  isSubconsciousScript: [],
-  isYear: [],
 };
 
 const slice = createSlice({
@@ -43,25 +45,8 @@ const slice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(getPersonalMatrixChildren.fulfilled, (state, action) => {
-      state.isPersonalQualitiesChildren =
-        action.payload.isPersonalQualitiesChildren;
-      state.isChildTalents = action.payload.isChildTalents;
-      state.isRelationshipWithParents =
-        action.payload.isRelationshipWithParents;
-      state.isSelfRrealizationOfTheChild =
-        action.payload.isSelfRrealizationOfTheChild;
-      state.isPurposeOfTheChild = action.payload.isPurposeOfTheChild;
-      state.isSubconsciousScript = action.payload.isSubconsciousScript;
-      state.isYear = action.payload.isYear;
+      state.data = action.payload.data;
     });
-    builder.addCase(
-      getPersonalMatrixChildrenLite.fulfilled,
-      (state, action) => {
-        state.isPersonalQualitiesChildren =
-          action.payload.isPersonalQualitiesChildren;
-        state.isYear = action.payload.isYear;
-      }
-    );
   },
 });
 
@@ -84,6 +69,7 @@ export const getPersonalMatrixChildren = createAsyncThunk(
       isSecondSocialPurpose: number[];
       isSubconsciousScript: number[];
       Gender: string;
+      date: string;
       subscribe: string;
       id: string;
     },
@@ -105,34 +91,14 @@ export const getPersonalMatrixChildren = createAsyncThunk(
         param.isSecondSocialPurpose,
         param.isSubconsciousScript,
         param.Gender,
+        param.date,
         param.subscribe,
         param.id
       );
-      dispatch(subAC({ sub: res.data.subscription }));
-      return res.data;
-    } catch (e) {
-      HandleError(e, dispatch);
-      return rejectWithValue(null);
-    }
-  }
-);
-
-export const getPersonalMatrixChildrenLite = createAsyncThunk(
-  "personalMatrixChildrenLite/get",
-  async (
-    param: {
-      isPersonalQualitiesChildren: number[];
-      Gender: string;
-    },
-    { dispatch, rejectWithValue }
-  ) => {
-    try {
-      dispatch(logOutMatrixChildrenAC());
-      const res = await personalMatrixAPI.getPersonalMatrixChildrenLite(
-        param.isPersonalQualitiesChildren,
-        param.Gender
-      );
-      return res.data;
+      if (res.data.subscription) {
+        dispatch(subAC({ sub: res.data.subscription }));
+      }
+      return { data: res.data };
     } catch (e) {
       HandleError(e, dispatch);
       return rejectWithValue(null);

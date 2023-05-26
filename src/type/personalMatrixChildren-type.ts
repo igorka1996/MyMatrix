@@ -88,13 +88,15 @@ export type isSubconsciousScript = {
 };
 
 export type PersonalMatrixChildren = {
-  isPersonalQualitiesChildren: isPersonalQualitiesChildren;
-  isChildTalents: isChildTalents;
-  isRelationshipWithParents: isRelationshipWithParents;
-  isSelfRrealizationOfTheChild: isSelfRrealizationOfTheChild;
-  isPurposeOfTheChild: isPurposeOfTheChild;
-  isSubconsciousScript: isSubconsciousScript[];
-  isYear: [];
+  data: {
+    isPersonalQualitiesChildren: isPersonalQualitiesChildren;
+    isChildTalents: isChildTalents;
+    isRelationshipWithParents: isRelationshipWithParents;
+    isSelfRrealizationOfTheChild: isSelfRrealizationOfTheChild;
+    isPurposeOfTheChild: isPurposeOfTheChild;
+    isSubconsciousScript: isSubconsciousScript[];
+    isYear: [];
+  };
 };
 
 export type PersonalMatrixChildrenAPI = {

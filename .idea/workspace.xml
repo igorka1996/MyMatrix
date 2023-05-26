@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="10">
+    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="11">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/API/API.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/API.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/diagram/Diagram.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/diagram/Diagram.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/diagram/DiagramCompatibility.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/diagram/DiagramCompatibility.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature/DatePickers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/DatePickers.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature/SimpleAccordion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/SimpleAccordion.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/feature/SimpleAccordionChildren.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/SimpleAccordionChildren.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature/SimpleAccordionCompatibility.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/SimpleAccordionCompatibility.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux-store/MatrixCompatibility-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/MatrixCompatibility-reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux-store/personalMatrix-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/personalMatrix-reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux-store/personalMatrixChildren-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/personalMatrixChildren-reducer.ts" afterDir="false" />
@@ -175,7 +179,10 @@
       <workItem from="1684595026993" duration="5992000" />
       <workItem from="1684673996328" duration="1968000" />
       <workItem from="1684748205254" duration="13891000" />
-      <workItem from="1684918262667" duration="12523000" />
+      <workItem from="1684918262667" duration="12593000" />
+      <workItem from="1685021680713" duration="4733000" />
+      <workItem from="1685092729643" duration="4065000" />
+      <workItem from="1685113717071" duration="10030000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1676555659169</created>
@@ -254,7 +261,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684675005872</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="11">
+      <created>1684943845178</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1684943845178</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,6 +310,7 @@
     <MESSAGE value="8.2" />
     <MESSAGE value="9" />
     <MESSAGE value="10" />
-    <option name="LAST_COMMIT_MESSAGE" value="10" />
+    <MESSAGE value="11" />
+    <option name="LAST_COMMIT_MESSAGE" value="11" />
   </component>
 </project>

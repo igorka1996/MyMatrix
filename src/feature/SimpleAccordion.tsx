@@ -11,8 +11,9 @@ import { filterCalcYear } from "../utils/calc";
 
 export function SimpleAccordion(props: PropsTypeForecastTheYear) {
   const personalMatrix = useAppSelector((state) => state.personalMatrixReducer);
+  console.log(personalMatrix);
   const yearHandler = filterCalcYear(
-    personalMatrix.isYear,
+    personalMatrix.data.isYear,
     props.gender ? props.gender : "W"
   );
   return (
@@ -31,50 +32,62 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
           <Typography>
             <b>Общее</b>
             <br />
-            {personalMatrix.isPersonalQualities.isGeneral.length !== 0
-              ? personalMatrix.isPersonalQualities?.isGeneral.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
-                        {paragraph}
-                        <br />
-                      </p>
-                    ))}
-                    <br />
-                  </div>
-                ))
+            {personalMatrix.data.isPersonalQualities.isGeneral.length !== 0
+              ? personalMatrix.data.isPersonalQualities?.isGeneral.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
+                      <br />
+                    </React.Fragment>
+                  )
+                )
               : ""}
             <br />
             <b>В позитиве</b>
             <br />
-            {personalMatrix.isPersonalQualities.isPositive !== undefined
-              ? personalMatrix.isPersonalQualities.isPositive.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
-                        {paragraph}
-                        <br />
-                      </p>
-                    ))}
-                    <br />
-                  </div>
-                ))
+            {personalMatrix.data.isPersonalQualities.isPositive !== undefined
+              ? personalMatrix.data.isPersonalQualities.isPositive.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
+                      <br />
+                    </React.Fragment>
+                  )
+                )
               : ""}
             <br />
             <b>В негативе</b>
             <br />
-            {personalMatrix.isPersonalQualities.isNegative !== undefined
-              ? personalMatrix.isPersonalQualities.isNegative.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
-                        {paragraph}
-                        <br />
-                      </p>
-                    ))}
-                    <br />
-                  </div>
-                ))
+            {personalMatrix.data.isPersonalQualities.isNegative !== undefined
+              ? personalMatrix.data.isPersonalQualities.isNegative.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
+                      <br />
+                    </React.Fragment>
+                  )
+                )
               : ""}
           </Typography>
         </AccordionDetails>
@@ -93,51 +106,55 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
           <Typography>
             <b>Талант от Бога</b>
             <br />
-            {personalMatrix.isTalents.isTalentsOfGod !== undefined
-              ? personalMatrix.isTalents.isTalentsOfGod.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
+            {personalMatrix.data.isTalents?.isTalentsOfGod !== undefined
+              ? personalMatrix.data.isTalents.isTalentsOfGod.map((e, index) => (
+                  <React.Fragment key={index}>
+                    {e.text.split("\n").map((paragraph: string, innerIndex) => (
+                      <React.Fragment key={innerIndex}>
                         {paragraph}
-                        <br />
-                      </p>
+                        <br key={`br-${index}`} />
+                      </React.Fragment>
                     ))}
                     <br />
-                  </div>
+                  </React.Fragment>
                 ))
               : ""}
             <br />
             <b>Талант от Отца</b>
             <br />
-            {personalMatrix.isTalents.isTalentsOfDad !== undefined
-              ? personalMatrix.isTalents.isTalentsOfDad.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
+            {personalMatrix.data.isTalents?.isTalentsOfDad !== undefined
+              ? personalMatrix.data.isTalents.isTalentsOfDad.map((e, index) => (
+                  <React.Fragment key={index}>
+                    {e.text.split("\n").map((paragraph: string, innerIndex) => (
+                      <React.Fragment key={innerIndex}>
                         {paragraph}
-                        <br />
-                      </p>
+                        <br key={`br-${index}`} />
+                      </React.Fragment>
                     ))}
                     <br />
-                  </div>
+                  </React.Fragment>
                 ))
               : ""}
             <br />
 
             <b>Талант от Матери</b>
             <br />
-            {personalMatrix.isTalents.isTalentsOfMother !== undefined
-              ? personalMatrix.isTalents.isTalentsOfMother.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
-                        {paragraph}
-                        <br />
-                      </p>
-                    ))}
-                    <br />
-                  </div>
-                ))
+            {personalMatrix.data.isTalents?.isTalentsOfMother !== undefined
+              ? personalMatrix.data.isTalents.isTalentsOfMother.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
+                      <br />
+                    </React.Fragment>
+                  )
+                )
               : ""}
           </Typography>
         </AccordionDetails>
@@ -154,17 +171,17 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {personalMatrix.isPastLife !== undefined
-              ? personalMatrix.isPastLife.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
+            {personalMatrix.data.isPastLife !== undefined
+              ? personalMatrix.data.isPastLife.map((e, index) => (
+                  <React.Fragment key={index}>
+                    {e.text.split("\n").map((paragraph: string, innerIndex) => (
+                      <React.Fragment key={innerIndex}>
                         {paragraph}
-                        <br />
-                      </p>
+                        <br key={`br-${index}`} />
+                      </React.Fragment>
                     ))}
                     <br />
-                  </div>
+                  </React.Fragment>
                 ))
               : ""}
           </Typography>
@@ -223,17 +240,17 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
             строгий и умеренный образ жизни, не предаваться излишествам,
             заниматься энергетическими и духовными практиками.
             <br />
-            {personalMatrix.isHealth.Saxasrara !== undefined
-              ? personalMatrix.isHealth.Saxasrara.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
+            {personalMatrix.data.isHealth?.Saxasrara !== undefined
+              ? personalMatrix.data.isHealth.Saxasrara.map((e, index) => (
+                  <React.Fragment key={index}>
+                    {e.text.split("\n").map((paragraph: string, innerIndex) => (
+                      <React.Fragment key={innerIndex}>
                         {paragraph}
-                        <br />
-                      </p>
+                        <br key={`br-${index}`} />
+                      </React.Fragment>
                     ))}
                     <br />
-                  </div>
+                  </React.Fragment>
                 ))
               : ""}
             <br />
@@ -281,17 +298,17 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
             станет важным шагом к переустройству жизни. Не забывайте о
             постоянном развитии своей личности.
             <br />
-            {personalMatrix.isHealth.Adjna !== undefined
-              ? personalMatrix.isHealth.Adjna.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
+            {personalMatrix.data.isHealth?.Adjna !== undefined
+              ? personalMatrix.data.isHealth.Adjna.map((e, index) => (
+                  <React.Fragment key={index}>
+                    {e.text.split("\n").map((paragraph: string, innerIndex) => (
+                      <React.Fragment key={innerIndex}>
                         {paragraph}
-                        <br />
-                      </p>
+                        <br key={`br-${index}`} />
+                      </React.Fragment>
                     ))}
                     <br />
-                  </div>
+                  </React.Fragment>
                 ))
               : ""}
             <br />
@@ -337,17 +354,17 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
             используйте подсказки жизни и больше прислушивайтесь к себе.
             Занимайтесь творческим самовыражением.
             <br />
-            {personalMatrix.isHealth.Vishydha !== undefined
-              ? personalMatrix.isHealth.Vishydha.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
+            {personalMatrix.data.isHealth?.Vishydha !== undefined
+              ? personalMatrix.data.isHealth.Vishydha.map((e, index) => (
+                  <React.Fragment key={index}>
+                    {e.text.split("\n").map((paragraph: string, innerIndex) => (
+                      <React.Fragment key={innerIndex}>
                         {paragraph}
-                        <br />
-                      </p>
+                        <br key={`br-${index}`} />
+                      </React.Fragment>
                     ))}
                     <br />
-                  </div>
+                  </React.Fragment>
                 ))
               : ""}
             <br />
@@ -400,17 +417,17 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
             самодостаточным, без обвинений себя и окружающих, без зависимости от
             чужого одобрения или помощи.
             <br />
-            {personalMatrix.isHealth.Anaxata !== undefined
-              ? personalMatrix.isHealth.Anaxata.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
+            {personalMatrix.data.isHealth?.Anaxata !== undefined
+              ? personalMatrix.data.isHealth.Anaxata.map((e, index) => (
+                  <React.Fragment key={index}>
+                    {e.text.split("\n").map((paragraph: string, innerIndex) => (
+                      <React.Fragment key={innerIndex}>
                         {paragraph}
-                        <br />
-                      </p>
+                        <br key={`br-${index}`} />
+                      </React.Fragment>
                     ))}
                     <br />
-                  </div>
+                  </React.Fragment>
                 ))
               : ""}
             <br />
@@ -461,17 +478,17 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
             недовольства, разочарования, агрессии. Станьте хозяином своего тела
             и эмоций.
             <br />
-            {personalMatrix.isHealth.Manipura !== undefined
-              ? personalMatrix.isHealth.Manipura.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
+            {personalMatrix.data.isHealth?.Manipura !== undefined
+              ? personalMatrix.data.isHealth.Manipura.map((e, index) => (
+                  <React.Fragment key={index}>
+                    {e.text.split("\n").map((paragraph: string, innerIndex) => (
+                      <React.Fragment key={innerIndex}>
                         {paragraph}
-                        <br />
-                      </p>
+                        <br key={`br-${index}`} />
+                      </React.Fragment>
                     ))}
                     <br />
-                  </div>
+                  </React.Fragment>
                 ))
               : ""}
             <br />
@@ -519,17 +536,17 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
             найти любимое занятие и работать в комфортной зоне, где сможете
             максимально раскрыться.
             <br />
-            {personalMatrix.isHealth.Svadxistana !== undefined
-              ? personalMatrix.isHealth.Svadxistana.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
+            {personalMatrix.data.isHealth?.Svadxistana !== undefined
+              ? personalMatrix.data.isHealth.Svadxistana.map((e, index) => (
+                  <React.Fragment key={index}>
+                    {e.text.split("\n").map((paragraph: string, innerIndex) => (
+                      <React.Fragment key={innerIndex}>
                         {paragraph}
-                        <br />
-                      </p>
+                        <br key={`br-${index}`} />
+                      </React.Fragment>
                     ))}
                     <br />
-                  </div>
+                  </React.Fragment>
                 ))
               : ""}
             <br />
@@ -572,17 +589,17 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
             возможности, сделайте ремонт или поменяйте часть обстановки, уберите
             старые фото и вещи.
             <br />
-            {personalMatrix.isHealth.Muladxara !== undefined
-              ? personalMatrix.isHealth.Muladxara.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
+            {personalMatrix.data.isHealth?.Muladxara !== undefined
+              ? personalMatrix.data.isHealth.Muladxara.map((e, index) => (
+                  <React.Fragment key={index}>
+                    {e.text.split("\n").map((paragraph: string, innerIndex) => (
+                      <React.Fragment key={innerIndex}>
                         {paragraph}
-                        <br />
-                      </p>
+                        <br key={`br-${index}`} />
+                      </React.Fragment>
                     ))}
                     <br />
-                  </div>
+                  </React.Fragment>
                 ))
               : ""}
           </Typography>
@@ -603,50 +620,55 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
           <Typography>
             <b>Предназначение (20-40 лет)</b>
             <br />
-            {personalMatrix.isPurpose.isPurpose20_40.length !== 0
-              ? personalMatrix.isPurpose.isPurpose20_40.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
+            {personalMatrix.data.isPurpose?.isPurpose20_40.length !== undefined
+              ? personalMatrix.data.isPurpose.isPurpose20_40.map((e, index) => (
+                  <React.Fragment key={index}>
+                    {e.text.split("\n").map((paragraph: string, innerIndex) => (
+                      <React.Fragment key={innerIndex}>
                         {paragraph}
-                        <br />
-                      </p>
+                        <br key={`br-${index}`} />
+                      </React.Fragment>
                     ))}
                     <br />
-                  </div>
+                  </React.Fragment>
                 ))
               : ""}
             <br />
             <b>Предназначение (40-60 лет)</b>
             <br />
-            {personalMatrix.isPurpose.isPurpose40_60.length !== 0
-              ? personalMatrix.isPurpose.isPurpose40_60.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
+            {personalMatrix.data.isPurpose?.isPurpose40_60.length !== undefined
+              ? personalMatrix.data.isPurpose.isPurpose40_60.map((e, index) => (
+                  <React.Fragment key={index}>
+                    {e.text.split("\n").map((paragraph: string, innerIndex) => (
+                      <React.Fragment key={innerIndex}>
                         {paragraph}
-                        <br />
-                      </p>
+                        <br key={`br-${index}`} />
+                      </React.Fragment>
                     ))}
                     <br />
-                  </div>
+                  </React.Fragment>
                 ))
               : ""}
             <br />
             <b>Предназначение (общие)</b>
             <br />
-            {personalMatrix.isPurpose.isGeneralPurpose.length !== 0
-              ? personalMatrix.isPurpose.isGeneralPurpose.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
-                        {paragraph}
-                        <br />
-                      </p>
-                    ))}
-                    <br />
-                  </div>
-                ))
+            {personalMatrix.data.isPurpose?.isGeneralPurpose.length !==
+            undefined
+              ? personalMatrix.data.isPurpose.isGeneralPurpose.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
+                      <br />
+                    </React.Fragment>
+                  )
+                )
               : ""}
           </Typography>
         </AccordionDetails>
@@ -664,17 +686,17 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {personalMatrix.isPersonalPowerCode.length !== 0
-              ? personalMatrix.isPersonalPowerCode.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
+            {personalMatrix.data.isPersonalPowerCode?.length !== undefined
+              ? personalMatrix.data.isPersonalPowerCode.map((e, index) => (
+                  <React.Fragment key={index}>
+                    {e.text.split("\n").map((paragraph: string, innerIndex) => (
+                      <React.Fragment key={innerIndex}>
                         {paragraph}
-                        <br />
-                      </p>
+                        <br key={`br-${index}`} />
+                      </React.Fragment>
                     ))}
                     <br />
-                  </div>
+                  </React.Fragment>
                 ))
               : ""}
           </Typography>
@@ -695,49 +717,54 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
           <Typography>
             <b>Отношения у {props.gender === "M" ? "мужчин" : "женщин"}</b>
             <br />
-            {personalMatrix.isLove.isLoveMenOrWomen.length !== 0
-              ? personalMatrix.isLove.isLoveMenOrWomen.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
+            {personalMatrix.data.isLove?.isLoveMenOrWomen.length !== undefined
+              ? personalMatrix.data.isLove.isLoveMenOrWomen.map((e, index) => (
+                  <React.Fragment key={index}>
+                    {e.text.split("\n").map((paragraph: string, innerIndex) => (
+                      <React.Fragment key={innerIndex}>
                         {paragraph}
-                        <br />
-                      </p>
+                        <br key={`br-${index}`} />
+                      </React.Fragment>
                     ))}
                     <br />
-                  </div>
+                  </React.Fragment>
                 ))
               : ""}
             <br />
             <b>Характер партнёра</b>
             <br />
-            {personalMatrix.isLove.isCharacterLoveMenOrWomen.length !== 0
-              ? personalMatrix.isLove.isCharacterLoveMenOrWomen.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
-                        {paragraph}
-                        <br />
-                      </p>
-                    ))}
-                    <br />
-                  </div>
-                ))
+            {personalMatrix.data.isLove?.isCharacterLoveMenOrWomen.length !==
+            undefined
+              ? personalMatrix.data.isLove.isCharacterLoveMenOrWomen.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
+                      <br />
+                    </React.Fragment>
+                  )
+                )
               : ""}
             <br />
             <b>На выходе</b>
             <br />
-            {personalMatrix.isLove.loveTotal.length !== 0
-              ? personalMatrix.isLove.loveTotal.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
+            {personalMatrix.data.isLove?.loveTotal.length !== undefined
+              ? personalMatrix.data.isLove.loveTotal.map((e, index) => (
+                  <React.Fragment key={index}>
+                    {e.text.split("\n").map((paragraph: string, innerIndex) => (
+                      <React.Fragment key={innerIndex}>
                         {paragraph}
-                        <br />
-                      </p>
+                        <br key={`br-${index}`} />
+                      </React.Fragment>
                     ))}
                     <br />
-                  </div>
+                  </React.Fragment>
                 ))
               : ""}
           </Typography>
@@ -757,49 +784,56 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
           <Typography>
             <b>Направление деятельности</b>
             <br />
-            {personalMatrix.isMoney.moneyLineOfActivity.length !== 0
-              ? personalMatrix.isMoney.moneyLineOfActivity.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
-                        {paragraph}
-                        <br />
-                      </p>
-                    ))}
-                    <br />
-                  </div>
-                ))
+            {personalMatrix.data.isMoney?.moneyLineOfActivity.length !==
+            undefined
+              ? personalMatrix.data.isMoney.moneyLineOfActivity.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
+                      <br />
+                    </React.Fragment>
+                  )
+                )
               : ""}
             <br />
             <b>Для достижения успеха важно</b>
             <br />
-            {personalMatrix.isMoney.moneySuccess.length !== 0
-              ? personalMatrix.isMoney.moneySuccess.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
+            {personalMatrix.data.isMoney?.moneySuccess.length !== undefined
+              ? personalMatrix.data.isMoney.moneySuccess.map((e, index) => (
+                  <React.Fragment key={index}>
+                    {e.text.split("\n").map((paragraph: string, innerIndex) => (
+                      <React.Fragment key={innerIndex}>
                         {paragraph}
-                        <br />
-                      </p>
+                        <br key={`br-${index}`} />
+                      </React.Fragment>
                     ))}
                     <br />
-                  </div>
+                  </React.Fragment>
                 ))
               : ""}
             <br />
             <b>Как раскрыть денежный поток</b>
             <br />
-            {personalMatrix.isMoney.moneyFlow.length !== 0
-              ? personalMatrix.isMoney.moneyFlow.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
-                        {paragraph}
-                        <br />
-                      </p>
-                    ))}
+            {personalMatrix.data.isMoney?.moneyFlow.length !== undefined
+              ? personalMatrix.data.isMoney.moneyFlow.map((e, index) => (
+                  <React.Fragment key={index}>
+                    {e.text
+                      .split("\n")
+                      .map((paragraph: string, innerIndex: number) => (
+                        <React.Fragment key={innerIndex}>
+                          {paragraph}
+                          <br key={`br-${index}`} />
+                        </React.Fragment>
+                      ))}
                     <br />
-                  </div>
+                  </React.Fragment>
                 ))
               : ""}
           </Typography>
@@ -820,50 +854,59 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
           <Typography>
             <b>Родовые программы по мужской линии</b>
             <br />
-            {personalMatrix.isParents.parentMenLine.length !== 0
-              ? personalMatrix.isParents.parentMenLine.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
+            {personalMatrix.data.isParents?.parentMenLine.length !== undefined
+              ? personalMatrix.data.isParents.parentMenLine.map((e, index) => (
+                  <React.Fragment key={index}>
+                    {e.text.split("\n").map((paragraph: string, innerIndex) => (
+                      <React.Fragment key={innerIndex}>
                         {paragraph}
-                        <br />
-                      </p>
+                        <br key={`br-${index}`} />
+                      </React.Fragment>
                     ))}
                     <br />
-                  </div>
+                  </React.Fragment>
                 ))
               : ""}
             <br />
             <b>Родовые программы по женской линии</b>
             <br />
-            {personalMatrix.isParents.parentWomenLine.length !== 0
-              ? personalMatrix.isParents.parentWomenLine.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
-                        {paragraph}
-                        <br />
-                      </p>
-                    ))}
-                    <br />
-                  </div>
-                ))
+            {personalMatrix.data.isParents?.parentWomenLine.length !== undefined
+              ? personalMatrix.data.isParents.parentWomenLine.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
+                      <br />
+                    </React.Fragment>
+                  )
+                )
               : ""}
             <br />
             <b>Обиды на родителей</b>
             <br />
-            {personalMatrix.isParents.parentResentment.length !== 0
-              ? personalMatrix.isParents.parentResentment.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
-                        {paragraph}
-                        <br />
-                      </p>
-                    ))}
-                    <br />
-                  </div>
-                ))
+            {personalMatrix.data.isParents?.parentResentment.length !==
+            undefined
+              ? personalMatrix.data.isParents.parentResentment.map(
+                  (e, index) => (
+                    <React.Fragment key={index}>
+                      {e.text
+                        .split("\n")
+                        .map((paragraph: string, innerIndex) => (
+                          <React.Fragment key={innerIndex}>
+                            {paragraph}
+                            <br key={`br-${index}`} />
+                          </React.Fragment>
+                        ))}
+                      <br />
+                    </React.Fragment>
+                  )
+                )
               : ""}
           </Typography>
         </AccordionDetails>
@@ -881,17 +924,17 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {personalMatrix.isChildren.length !== 0
-              ? personalMatrix.isChildren.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
+            {personalMatrix.data.isChildren !== undefined
+              ? personalMatrix.data.isChildren.map((e, index) => (
+                  <React.Fragment key={index}>
+                    {e.text.split("\n").map((paragraph: string, innerIndex) => (
+                      <React.Fragment key={innerIndex}>
                         {paragraph}
-                        <br />
-                      </p>
+                        <br key={`br-${index}`} />
+                      </React.Fragment>
                     ))}
                     <br />
-                  </div>
+                  </React.Fragment>
                 ))
               : ""}
           </Typography>
@@ -910,17 +953,17 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {personalMatrix.isManagement.length !== 0
-              ? personalMatrix.isManagement.map((e) => (
-                  <div>
-                    {e.text.split("\n").map((paragraph: string) => (
-                      <p>
+            {personalMatrix.data.isManagement !== undefined
+              ? personalMatrix.data.isManagement.map((e, index) => (
+                  <React.Fragment key={index}>
+                    {e.text.split("\n").map((paragraph: string, innerIndex) => (
+                      <React.Fragment key={innerIndex}>
                         {paragraph}
-                        <br />
-                      </p>
+                        <br key={`br-${index}`} />
+                      </React.Fragment>
                     ))}
                     <br />
-                  </div>
+                  </React.Fragment>
                 ))
               : ""}
           </Typography>

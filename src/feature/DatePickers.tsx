@@ -6,11 +6,16 @@ import { Link } from "react-router-dom";
 import "./DatePickers.scss";
 import { FormControlLabel, styled, Switch } from "@mui/material";
 import { FormGroup } from "@material-ui/core";
+import { useAppSelector } from "../redux-store/store";
 
 export function DatePickers() {
   const [value, setValue] = useState<string>("");
   const [value1, setValue1] = useState<string>("");
   const [check, setCheck] = useState<boolean>(false);
+  const auth = useAppSelector((state) => state.registrationReducer.auth);
+  const sub = useAppSelector((state) => state.registrationReducer.subscription);
+  const id = useAppSelector((state) => state.registrationReducer.id);
+
   const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     width: 124,
     height: 60,
@@ -111,7 +116,13 @@ export function DatePickers() {
         />
         <Link
           className={"batonStandart"}
-          state={{ date: value, male: check ? "M" : "W", child: false }}
+          state={{
+            date: value,
+            male: check ? "M" : "W",
+            child: false,
+            sub,
+            id,
+          }}
           to={"/matrix"}
         >
           Рассчитать
@@ -153,7 +164,14 @@ export function DatePickers() {
         />
         <Link
           className={"batonStandart"}
-          state={{ date: value, male: check ? "M" : "W", child: true }}
+          state={{
+            date: value,
+            male: check ? "M" : "W",
+            child: true,
+            auth,
+            sub,
+            id,
+          }}
           to={"/matrix"}
         >
           Рассчитать
@@ -193,7 +211,7 @@ export function DatePickers() {
         />
         <Link
           className={"batonStandart"}
-          state={{ date: value, date1: value1 }}
+          state={{ date: value, date1: value1, sub, id }}
           to={"/matrixcompatibility"}
         >
           Рассчитать

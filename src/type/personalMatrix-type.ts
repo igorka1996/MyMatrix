@@ -152,18 +152,20 @@ export type IsManagement = {
 };
 
 export type PersonalMatrix = {
-  isPersonalQualities: IsPersonalQualities;
-  isTalents: IsTalents;
-  isPastLife: IsPastLife[];
-  isHealth: IsHealth;
-  isPurpose: IsPurpose;
-  isPersonalPowerCode: isPersonalPowerCode[];
-  isLove: IsLove;
-  isMoney: IsMoney;
-  isParents: IsParents;
-  isChildren: IsChildren[];
-  isManagement: IsManagement[];
-  isYear: [];
+  data: {
+    isPersonalQualities: IsPersonalQualities;
+    isTalents: IsTalents;
+    isPastLife: IsPastLife[];
+    isHealth: IsHealth;
+    isPurpose: IsPurpose;
+    isPersonalPowerCode: isPersonalPowerCode[];
+    isLove: IsLove;
+    isMoney: IsMoney;
+    isParents: IsParents;
+    isChildren: IsChildren[];
+    isManagement: IsManagement[];
+    isYear: [];
+  };
 };
 
 export type PersonalMatrixAPI = {
