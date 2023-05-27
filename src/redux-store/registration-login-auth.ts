@@ -30,9 +30,13 @@ type InitialStateType = {
   historyOfOrders: OrdersType[];
   totalAmount: number;
   matrixSearchHistory: {
-    personal: { gender: string; name: string; date: string }[];
-    children: { gender: string; name: string; date: string }[];
-    compatibility: { datePartnerOne: string; datePartnerTwo: string }[];
+    personal: { gender: string; name: string; date: string; _id: string }[];
+    children: { gender: string; name: string; date: string; _id: string }[];
+    compatibility: {
+      datePartnerOne: string;
+      datePartnerTwo: string;
+      _id: string;
+    }[];
   };
 };
 
@@ -54,7 +58,7 @@ const initialState: InitialStateType = {
     compatibility: [],
   },
 };
-
+console.log(initialState);
 const slice = createSlice({
   name: "registration-auth-login",
   initialState,
@@ -76,7 +80,6 @@ const slice = createSlice({
       state.historyOfOrders = action.payload.orders;
       state.totalAmount = action.payload.totalAmount;
       state.avatar = action.payload.avatar;
-      state.matrixSearchHistory = action.payload.matrixSearchHistory;
     });
     builder.addCase(payAndRegistrationThunk.fulfilled, (state, action) => {
       state.name = action.payload.name;
@@ -90,7 +93,6 @@ const slice = createSlice({
       state.historyOfOrders = action.payload.orders;
       state.totalAmount = action.payload.totalAmount;
       state.avatar = "";
-      state.matrixSearchHistory = action.payload.matrixSearchHistory;
       window.location.assign(action.payload.url);
     });
     builder.addCase(authThunk.fulfilled, (state, action) => {
@@ -105,7 +107,6 @@ const slice = createSlice({
       state.subscription = action.payload.sub;
       state.historyOfOrders = action.payload.orders;
       state.totalAmount = action.payload.totalAmount;
-      state.matrixSearchHistory = action.payload.matrixSearchHistory;
     });
     builder.addCase(loginThunk.fulfilled, (state, action) => {
       state.name = action.payload.name;
@@ -118,7 +119,6 @@ const slice = createSlice({
       state.subscription = action.payload.sub;
       state.historyOfOrders = action.payload.orders;
       state.totalAmount = action.payload.totalAmount;
-      state.matrixSearchHistory = action.payload.matrixSearchHistory;
     });
     builder.addCase(logOutThunk.fulfilled, (state, action) => {
       state.name = "";
@@ -136,6 +136,15 @@ const slice = createSlice({
       state.email = action.payload.email;
       state.surname = action.payload.surname;
       state.phone = action.payload.phone;
+    });
+    builder.addCase(historyPersonalMatrix.fulfilled, (state, action) => {
+      state.matrixSearchHistory.personal = action.payload.personal;
+    });
+    builder.addCase(historyChildrenMatrix.fulfilled, (state, action) => {
+      state.matrixSearchHistory.children = action.payload.children;
+    });
+    builder.addCase(historyCompatibilityMatrix.fulfilled, (state, action) => {
+      state.matrixSearchHistory.compatibility = action.payload.compatibility;
     });
   },
 });
@@ -398,6 +407,45 @@ export const updateUserThunk = createAsyncThunk(
         email: res.data.email,
         phone: res.data.phone,
       };
+    } catch (e) {
+      HandleError(e, dispatch);
+      return rejectWithValue(null);
+    }
+  }
+);
+
+export const historyPersonalMatrix = createAsyncThunk(
+  "registration-auth-login/historyMatrixPersonal",
+  async (param, { dispatch, rejectWithValue }) => {
+    try {
+      let res = await authAPI.historyPersonalMatrix();
+      return { personal: res.data.matrixSearchHistory };
+    } catch (e) {
+      HandleError(e, dispatch);
+      return rejectWithValue(null);
+    }
+  }
+);
+
+export const historyChildrenMatrix = createAsyncThunk(
+  "registration-auth-login/historyMatrixChildren",
+  async (param, { dispatch, rejectWithValue }) => {
+    try {
+      let res = await authAPI.historyChildrenMatrix();
+      return { children: res.data.matrixSearchHistory };
+    } catch (e) {
+      HandleError(e, dispatch);
+      return rejectWithValue(null);
+    }
+  }
+);
+
+export const historyCompatibilityMatrix = createAsyncThunk(
+  "registration-auth-login/historyMatrixCompatibility",
+  async (param, { dispatch, rejectWithValue }) => {
+    try {
+      let res = await authAPI.historyCompatibilityMatrix();
+      return { compatibility: res.data.matrixSearchHistory };
     } catch (e) {
       HandleError(e, dispatch);
       return rejectWithValue(null);

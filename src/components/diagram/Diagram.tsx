@@ -68,6 +68,7 @@ export const Diagram = () => {
           isSecondSocialPurpose: [YM],
           Gender: state.male,
           date: state.date,
+          name: state.name,
           subscribe: subscribeAccessChildren[0]?.subscribe,
           id: state.id,
         })
@@ -100,6 +101,7 @@ export const Diagram = () => {
           isChildren: funcCalculation([A, A1, A2]),
           isManagement: funcCalculation([A, B, X]),
           date: state.date,
+          name: state.name,
           id: state.id,
           subscribe: subscribeAccessPersonal[0]?.subscribe,
         })

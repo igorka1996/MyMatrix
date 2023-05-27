@@ -1,0 +1,19 @@
+
+
+
+
+
+.history{
+    display: flex;
+    margin-top: 30px;
+    border: 1px solid black;
+}
+
+.strOne{
+    min-width: 200px;
+    border-right: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

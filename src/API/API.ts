@@ -41,12 +41,13 @@ export const personalMatrixAPI = {
     isChildren: number[],
     isManagement: number[],
     date: string,
+    name: string,
     id?: string,
     subscribe?: string
   ) {
     return instance.post<PersonalMatrixAPI>(
       `mathmatrix?isPersonalQualities=${isPersonalQualities[0]},${isPersonalQualities[1]},${isPersonalQualities[2]}&talentsOfDad=${talentsOfDad[0]},${talentsOfDad[1]},${talentsOfDad[2]}&talentsOfMother=${talentsOfMother[0]},${talentsOfMother[1]},${talentsOfMother[2]}&talentsOfGod=${talentsOfGod[0]},${talentsOfGod[1]},${talentsOfGod[2]}&isPastLife=${isPastLife}&IsHealthSaxasrara=${IsHealthSaxasrara[0]},${IsHealthSaxasrara[1]},${IsHealthSaxasrara[2]}&IsHealthAdjna=${IsHealthAdjna[0]},${IsHealthAdjna[1]},${IsHealthAdjna[2]}&IsHealthVishydha=${IsHealthVishydha[0]},${IsHealthVishydha[1]},${IsHealthVishydha[2]}&IsHealthAnaxata=${IsHealthAnaxata[0]},${IsHealthAnaxata[1]},${IsHealthAnaxata[2]}&IsHealthManipura=${IsHealthManipura[0]},${IsHealthManipura[1]},${IsHealthManipura[2]}&IsHealthMuladxara=${IsHealthMuladxara[0]},${IsHealthMuladxara[1]},${IsHealthMuladxara[2]}&IsPurpose=${IsPurpose[0]},${IsPurpose[1]},${IsPurpose[2]}&isPersonalPowerCode=${isPersonalPowerCode[0]},${isPersonalPowerCode[1]},${isPersonalPowerCode[2]}&Gender=${Gender}&isLove=${isLove[0]},${isLove[1]},${isLove[2]}&isMoney=${isMoney[0]}&MoneyFlow=${MoneyFlow[0]},${MoneyFlow[1]}&moneySuccess=${moneySuccess[0]},${moneySuccess[1]},${moneySuccess[2]},${moneySuccess[3]},${moneySuccess[4]}&parentMenLine=${parentMenLine[0]},${parentMenLine[1]},${parentMenLine[2]},${parentMenLine[3]},${parentMenLine[4]},${parentMenLine[5]},${parentMenLine[6]}&parentWomenLine=${parentWomenLine[0]},${parentWomenLine[1]},${parentWomenLine[2]},${parentWomenLine[3]},${parentWomenLine[4]},${parentWomenLine[5]},${parentWomenLine[6]}&parentResentment=${parentResentment[0]},${parentResentment[1]},${parentResentment[2]}&isChildren=${isChildren[0]},${isChildren[1]},${isChildren[2]}&isManagement=${isManagement[0]},${isManagement[1]},${isManagement[2]}&IsHealthSvadxistana=${isHealthSvadxistana[0]},${isHealthSvadxistana[1]},${isHealthSvadxistana[2]}`,
-      { subscribe, id, date }
+      { subscribe, id, date, name }
     );
   },
   getPersonalMatrixChildren(
@@ -64,12 +65,13 @@ export const personalMatrixAPI = {
     isSubconsciousScript: number[],
     Gender: string,
     date: string,
+    name: string,
     subscribe?: string,
     id?: string
   ) {
     return instance.post<PersonalMatrixChildrenAPI>(
       `mathmatrixchild?isPersonalQualitiesChildren=${isPersonalQualitiesChildren[0]},${isPersonalQualitiesChildren[1]},${isPersonalQualitiesChildren[2]}&isBirthTalents=${isBirthTalents[0]},${isBirthTalents[1]},${isBirthTalents[2]}&isTalentsInTheFemaleLine=${isTalentsInTheFemaleLine[0]},${isTalentsInTheFemaleLine[1]},${isTalentsInTheFemaleLine[2]}&isTalentsInTheMaleLine=${isTalentsInTheMaleLine[0]},${isTalentsInTheMaleLine[1]},${isTalentsInTheMaleLine[2]}&isWhatToConsiderWhenRaisingAChild=${isWhatToConsiderWhenRaisingAChild[0]},${isWhatToConsiderWhenRaisingAChild[1]},${isWhatToConsiderWhenRaisingAChild[2]}&isDirectionOfActivityOptionsForFutureProfessions=${isDirectionOfActivityOptionsForFutureProfessions[0]}&isFirstPersonalPurpose=${isFirstPersonalPurpose[0]}&isSecondSocialPurpose=${isSecondSocialPurpose[0]}&isForSuccessItIsImportant=${isForSuccessItIsImportant[0]},${isForSuccessItIsImportant[1]},${isForSuccessItIsImportant[2]},${isForSuccessItIsImportant[3]}&isLessonsOnTheGenderOfTheMaleLine=${isLessonsOnTheGenderOfTheMaleLine[0]},${isLessonsOnTheGenderOfTheMaleLine[1]},${isLessonsOnTheGenderOfTheMaleLine[2]},${isLessonsOnTheGenderOfTheMaleLine[3]},${isLessonsOnTheGenderOfTheMaleLine[4]},${isLessonsOnTheGenderOfTheMaleLine[5]},${isLessonsOnTheGenderOfTheMaleLine[6]}&isLessonsOnTheGenderOfTheFemaleLine=${isLessonsOnTheGenderOfTheFemaleLine[0]},${isLessonsOnTheGenderOfTheFemaleLine[1]},${isLessonsOnTheGenderOfTheFemaleLine[2]},${isLessonsOnTheGenderOfTheFemaleLine[3]},${isLessonsOnTheGenderOfTheFemaleLine[4]},${isLessonsOnTheGenderOfTheFemaleLine[5]},${isLessonsOnTheGenderOfTheFemaleLine[6]}&isSubconsciousScript=${isSubconsciousScript[0]},${isSubconsciousScript[1]},${isSubconsciousScript[2]},${isSubconsciousScript[3]}&Gender=${Gender}`,
-      { subscribe, id, date }
+      { subscribe, id, date, name }
     );
   },
   getMatrixCompatibility(
@@ -154,5 +156,14 @@ export const authAPI = {
     };
   }) {
     return instance.post("checkoutnoregistr", items);
+  },
+  historyPersonalMatrix() {
+    return instance.get("historypersonalmatrix");
+  },
+  historyChildrenMatrix() {
+    return instance.get("historychildrenmatrix");
+  },
+  historyCompatibilityMatrix() {
+    return instance.get("historycompatibilitymatrix");
   },
 };

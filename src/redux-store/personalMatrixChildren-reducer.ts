@@ -70,6 +70,7 @@ export const getPersonalMatrixChildren = createAsyncThunk(
       isSubconsciousScript: number[];
       Gender: string;
       date: string;
+      name: string;
       subscribe: string;
       id: string;
     },
@@ -92,6 +93,7 @@ export const getPersonalMatrixChildren = createAsyncThunk(
         param.isSubconsciousScript,
         param.Gender,
         param.date,
+        param.name,
         param.subscribe,
         param.id
       );

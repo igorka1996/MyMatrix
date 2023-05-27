@@ -98,8 +98,8 @@ export const getPersonalMatrix = createAsyncThunk(
       parentResentment: number[];
       isChildren: number[];
       isManagement: number[];
-      // name: string;
       date: string;
+      name: string;
       subscribe?: string;
       id?: string;
     },
@@ -132,8 +132,8 @@ export const getPersonalMatrix = createAsyncThunk(
         param.parentResentment,
         param.isChildren,
         param.isManagement,
-        // param.name,
         param.date,
+        param.name,
         param.id,
         param.subscribe
       );

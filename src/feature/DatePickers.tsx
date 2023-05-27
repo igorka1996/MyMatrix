@@ -11,11 +11,16 @@ import { useAppSelector } from "../redux-store/store";
 export function DatePickers() {
   const [value, setValue] = useState<string>("");
   const [value1, setValue1] = useState<string>("");
+  const [name, setName] = useState<string>("");
   const [check, setCheck] = useState<boolean>(false);
   const auth = useAppSelector((state) => state.registrationReducer.auth);
   const sub = useAppSelector((state) => state.registrationReducer.subscription);
   const id = useAppSelector((state) => state.registrationReducer.id);
-
+  const onChangeHandlerName = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setName(e.currentTarget.value);
+  };
   const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     width: 124,
     height: 60,
@@ -122,6 +127,7 @@ export function DatePickers() {
             child: false,
             sub,
             id,
+            name,
           }}
           to={"/matrix"}
         >
@@ -130,6 +136,7 @@ export function DatePickers() {
       </Stack>
 
       <FormGroup>
+        <TextField label={"Имя"} onChange={onChangeHandlerName} />
         <FormControlLabel
           control={
             <MaterialUISwitch
@@ -171,6 +178,7 @@ export function DatePickers() {
             auth,
             sub,
             id,
+            name,
           }}
           to={"/matrix"}
         >
