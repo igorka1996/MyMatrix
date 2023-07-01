@@ -3,6 +3,7 @@ import { personalMatrixAPI } from "../API/API";
 import { HandleError } from "../utils/errors";
 import { MatrixCompatibility } from "../type/matrixCompatibility-type";
 import { subAC } from "./registration-login-auth";
+import { matrixWaitAC } from "./error-wait-reducer";
 
 const initialState: MatrixCompatibility = {
   data: {
@@ -52,6 +53,7 @@ export const getMatrixCompatibility = createAsyncThunk(
     { dispatch, rejectWithValue }
   ) => {
     try {
+      dispatch(matrixWaitAC({ matrixWait: true }));
       dispatch(logOutMatrixCompatibilityAC());
       const res = await personalMatrixAPI.getMatrixCompatibility(
         param.isWhyDidYouMeet,
@@ -69,9 +71,10 @@ export const getMatrixCompatibility = createAsyncThunk(
       if (res.data.subscription) {
         dispatch(subAC({ sub: res.data.subscription }));
       }
-
+      dispatch(matrixWaitAC({ matrixWait: false }));
       return { data: res.data };
     } catch (e) {
+      dispatch(matrixWaitAC({ matrixWait: false }));
       HandleError(e, dispatch);
       return rejectWithValue(null);
     }

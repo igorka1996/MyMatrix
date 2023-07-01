@@ -165,6 +165,7 @@ export type PersonalMatrix = {
     isChildren: IsChildren[];
     isManagement: IsManagement[];
     isYear: [];
+    filePath: string;
   };
 };
 
@@ -182,6 +183,7 @@ export type PersonalMatrixAPI = {
   isManagement: IsManagement[];
   isYear: [];
   subscription: [];
+  filePath: string;
 };
 
 export type PropsTypeForecastTheYear = {
@@ -255,6 +257,8 @@ export type PropsTypeForecastTheYear = {
 };
 
 export type PropsTypeForecastTheYearChildren = {
+  repeat?: boolean;
+  yes?: boolean;
   CGG: number;
   AEE: number;
   age: number;

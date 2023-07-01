@@ -3,13 +3,15 @@ import "./diagram.scss";
 import { useLocation } from "react-router-dom";
 import { calculation, funcCalculation } from "../../utils/calc";
 import { MatrixDiagramCompatibility } from "../../feature/MatrixDiagramCompatibility";
-import { useAppDispatch } from "../../redux-store/store";
+import { useAppDispatch, useAppSelector } from "../../redux-store/store";
 import { getMatrixCompatibility } from "../../redux-store/MatrixCompatibility-reducer";
 import { SimpleAccordionCompatibility } from "../../feature/SimpleAccordionCompatibility";
+import { Button, CircularProgress } from "@mui/material";
+import { personalMatrixAPI } from "../../API/API";
 
 export const DiagramCompatibility = () => {
   const { state } = useLocation();
-  // const age = calculateAge(state.date);
+  const matrixWait = useAppSelector((state) => state.errorReducer.matrixWait);
   const dispatch = useAppDispatch();
 
   const subscribeAccessCompatibility = state.sub.filter((e: any) => {
@@ -288,8 +290,48 @@ export const DiagramCompatibility = () => {
   let YMd = calculation(LOd + LMd);
   let RRMd = calculation(LP1d + YMd);
 
+  const downloadPdf = async () => {
+    let response = await personalMatrixAPI.getPdfCompatibility(
+      funcCalculation([Ad, A1d, A2d]),
+      funcCalculation([Bd, B1d, B2d]),
+      funcCalculation([Cd, C1d, C2d]),
+      funcCalculation([Dd, D1d, D2d]),
+      funcCalculation([Ed, Fd, Gd, Hd]),
+      funcCalculation([C2d, Md, G4d, Ld, D2d]),
+      funcCalculation([LP1d, YMd, RRMd]),
+      state.date,
+      state.date1
+    );
+    const blob = new Blob([response.data], { type: "application/pdf" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `${state.date}/${state.date1}`;
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+  if (matrixWait) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "100vh",
+          top: "50%",
+          textAlign: "center",
+          width: "100%",
+        }}
+      >
+        <CircularProgress />
+      </div>
+    );
+  }
   return (
     <>
+      {subscribeAccessCompatibility.length > 0 ? (
+        <Button onClick={downloadPdf}>Скачать PDF</Button>
+      ) : undefined}
       <MatrixDiagramCompatibility
         LP1={LP1}
         LZ={LZ}

@@ -8,10 +8,13 @@ import { useAppDispatch, useAppSelector } from "../../redux-store/store";
 import { calculateAge, calculation, funcCalculation } from "../../utils/calc";
 import { MatrixDiagram } from "../../feature/MatrixDiagram";
 import { getPersonalMatrixChildren } from "../../redux-store/personalMatrixChildren-reducer";
+import { personalMatrixAPI } from "../../API/API";
+import { Button, CircularProgress } from "@mui/material";
 
 export const Diagram = () => {
   const { state } = useLocation();
   const age = calculateAge(state.date);
+  const matrixWait = useAppSelector((state) => state.errorReducer.matrixWait);
   const dispatch = useAppDispatch();
 
   const subscribeAccessPersonal = state.sub.filter((e: any) => {
@@ -227,8 +230,236 @@ export const Diagram = () => {
     return [A, B, X];
   };
 
+  const downloadPdf = async () => {
+    let response;
+    if (state.personal) {
+      response = await personalMatrixAPI.getPdfPersonal(
+        funcIsPersonalQualitiesl(),
+        funcCalculation([E, E2, E1]),
+        funcCalculation([F, F1, F2]),
+        funcCalculation([B, B1, B2]),
+        `${D2}-${D1}-${D}`,
+        funcCalculation([B, A, E]),
+        funcCalculation([A1, B1, K6]),
+        funcCalculation([A2, B2, K5]),
+        funcCalculation([A3, B3, K4]),
+        funcCalculation([X, X, K3]),
+        funcCalculation([D, C, K1]),
+        funcCalculation([C2, D2, I5]),
+        [LP1, LP2, LP3],
+        funcCalculation([X, Y, XY]),
+        funcCalculation([D2, L, G4]),
+        [M],
+        funcCalculation([G4, C2, C, C1]),
+        funcCalculation([C, C1]),
+        funcCalculation([E, E1, E2, X, G, G1, G2]),
+        funcCalculation([F, F1, F2, X, H, H1, H2]),
+        funcCalculation([A, A1, A2]),
+        funcCalculation([A, A1, A2]),
+        funcCalculation([A, B, X]),
+        calcYearlyPDF(age)[1] as string,
+        funcCalculation(calcYearlyPDF(age)[0] as number[]),
+        state.male,
+        state.date,
+        state.name
+      );
+    } else {
+      response = await personalMatrixAPI.getPdfChildren(
+        funcIsPersonalQualitiesl(),
+        funcCalculation([B, B1, B2]),
+        funcCalculation([F, F1, F2]),
+        funcCalculation([E, E2, E1]),
+        funcCalculation([F, F1, F2, X, H, H1, H2]),
+        funcCalculation([E, E1, E2, X, G, G1, G2]),
+        funcCalculation([A, A1, A2]),
+        [M],
+        funcCalculation([G4, C2, C, C1]),
+        funcCalculation([C, D, D1, D2]),
+        [LP1],
+        [YM],
+        calcYearlyPDFChildren(age)[1] as string,
+        funcCalculation(calcYearlyPDFChildren(age)[0] as number[]),
+        state.male,
+        state.date,
+        state.name
+      );
+    }
+
+    const blob = new Blob([response.data], { type: "application/pdf" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `${state.name}(${state.date})`;
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+
+  function calcYearlyPDF(age: number) {
+    if (age >= 16 && age <= 17.5) {
+      return [[EBBEB, GDDGD, calculation(EBBEB + GDDGD)], "16-17.5"];
+    } else if (age > 17.5 && age <= 18.5) {
+      return [[EBB, GDD, calculation(EBB + GDD)], "17.5-18.5"];
+    } else if (age > 18.5 && age < 20) {
+      return [[EBBB, GDDD, calculation(EBBB + GDDD)], "18.5-19"];
+    } else if (age >= 20 && age < 21) {
+      return [[B, D, calculation(D + B)], "20"];
+    } else if (age >= 21 && age <= 22.5) {
+      return [[BFBF, DHDD, calculation(BFBF + DHDD)], "21-22.5"];
+    } else if (age > 22.5 && age <= 23.5) {
+      return [[BFB, DHD, calculation(BFB + DHD)], "22.5-23.5"];
+    } else if (age >= 23.5 && age < 25) {
+      return [[BFBBF, DHDDH, calculation(BFBBF + DHDDH)], "23.5-24"];
+    } else if (age >= 25 && age < 26) {
+      return [[BF, DH, calculation(BF + DH)], "25"];
+    } else if (age >= 26 && age <= 27.5) {
+      return [[BFFBF, DHHDH, calculation(BFFBF + DHHDH)], "26-27.5"];
+    } else if (age > 27.5 && age <= 28.5) {
+      return [[BFF, DHH, calculation(BFF + DHH)], "27.5-28.5"];
+    } else if (age > 28.5 && age < 30) {
+      return [[BFFF, DHHH, calculation(BFFF + DHHH)], "28.5-29"];
+    } else if (age >= 30 && age < 31) {
+      return [[F, H, calculation(F + H)], "30"];
+    } else if (age >= 31 && age <= 32.5) {
+      return [[FCFF, HAHH, calculation(FCFF + HAHH)], "31-32.5"];
+    } else if (age > 32.5 && age <= 33.5) {
+      return [[FCF, HAH, calculation(FCF + HAH)], "32.5-33.5"];
+    } else if (age > 33.5 && age < 35) {
+      return [[FCFFC, HAHHA, calculation(FCFFC + HAHHA)], "33.5-34"];
+    } else if (age >= 35 && age < 36) {
+      return [[FC, HA, calculation(FC + HA)], "35"];
+    } else if (age >= 36 && age <= 37.5) {
+      return [[FCCFC, HAAHA, calculation(FCCFC + HAAHA)], "36-37.5"];
+    } else if (age > 37.5 && age <= 38.5) {
+      return [[FCC, HAA, calculation(FCC + HAA)], "37.5-38.5"];
+    } else if (age > 38.5 && age < 40) {
+      return [[FCCC, HAAA, calculation(FCCC + HAAA)], "38.5-39"];
+    } else if (age >= 40 && age < 41) {
+      return [[C, A, calculation(C + A)], "40"];
+    } else if (age >= 41 && age <= 42.5) {
+      return [[CGCC, AEAA, calculation(CGCC + AEAA)], "41-42.5"];
+    } else if (age > 42.5 && age <= 43.5) {
+      return [[CGC, AEA, calculation(CGC + AEA)], "42.5-43.5"];
+    } else if (age > 43.5 && age < 45) {
+      return [[CGCCG, AEAAE, calculation(CGCCG + AEAAE)], "43.5-44"];
+    } else if (age >= 45 && age < 46) {
+      return [[CG, AE, calculation(CG + AE)], "45"];
+    } else if (age >= 46 && age <= 47.5) {
+      return [[CGGCG, AEEAE, calculation(CGGCG + AEEAE)], "46-47.5"];
+    } else if (age > 47.5 && age <= 48.5) {
+      return [[CGG, AEE, calculation(CGG + AEE)], "47.5-48.5"];
+    } else if (age > 48.5 && age < 50) {
+      return [[CGGG, AEEE, calculation(CGGG + AEEE)], "48.5-49"];
+    } else if (age >= 50 && age < 51) {
+      return [[G, E, calculation(G + E)], "50"];
+    } else if (age >= 51 && age <= 52.5) {
+      return [[GDGG, EBEE, calculation(GDGG + EBEE)], "51-52.5"];
+    } else if (age > 52.5 && age <= 53.5) {
+      return [[GDG, EBE, calculation(GDG + EBE)], "52.5-53.5"];
+    } else if (age > 53.5 && age < 55) {
+      return [[GDGGD, EBEEB, calculation(GDGGD + EBEEB)], "53.5-54"];
+    } else if (age >= 55 && age < 56) {
+      return [[GD, EB, calculation(GD + EB)], "55"];
+    } else if (age >= 56 && age <= 57.5) {
+      return [[GDDGD, EBBEB, calculation(GDDGD + EBBEB)], "56-57.5"];
+    } else if (age > 57.5 && age <= 58.5) {
+      return [[GDD, EBB, calculation(GDD + EBB)], "57.5-58.5"];
+    } else if (age > 58.5 && age < 60) {
+      return [[GDDD, EBBB, calculation(GDDD + EBBB)], "58.5-59"];
+    } else if (age >= 60 && age < 61) {
+      return [[D, B, calculation(D + B)], "60"];
+    } else if (age >= 61 && age <= 62.5) {
+      return [[DHDD, BFBF, calculation(DHDD + BFBF)], "61-62.5"];
+    } else if (age > 62.5 && age <= 63.5) {
+      return [[DHD, BFB, calculation(DHD + BFB)], "62.5-63.5"];
+    } else if (age > 63.5 && age < 65) {
+      return [[DHDDH, BFBBF, calculation(DHDDH + BFBBF)], "63.5-64"];
+    } else if (age >= 65 && age < 66) {
+      return [[DH, BF, calculation(DH + BF)], "65"];
+    } else if (age >= 66 && age <= 67.5) {
+      return [[DHHDH, BFFBF, calculation(DHHDH + BFFBF)], "66-67.5"];
+    } else if (age > 67.5 && age <= 68.5) {
+      return [[DHH, BFF, calculation(DHH + BFF)], "67.5-68.5"];
+    } else if (age > 68.5 && age < 70) {
+      return [[DHHH, BFFF, calculation(DHHH + BFFF)], "68.5-69"];
+    } else if (age >= 70 && age < 71) {
+      return [[H, F, calculation(H + F)], "70"];
+    } else if (age >= 71 && age <= 72.5) {
+      return [[HAHH, FCFF, calculation(HAHH + FCFF)], "71-72.5"];
+    } else if (age > 72.5 && age <= 73.5) {
+      return [[HAH, FCF, calculation(HAH + FCF)], "72.5-73.5"];
+    } else if (age > 73.5 && age < 75) {
+      return [[HAHHA, FCFFC, calculation(HAHHA + FCFFC)], "73.5-74"];
+    } else if (age >= 75 && age < 76) {
+      return [[HA, FC, calculation(HA + FC)], "75"];
+    } else if (age >= 76 && age <= 77.5) {
+      return [[HAAHA, FCCFC, calculation(HAAHA + FCCFC)], "76-77.5"];
+    } else if (age > 77.5 && age <= 78.5) {
+      return [[HAA, FCC, calculation(HAA + FCC)], "77.5-78.5"];
+    } else if (age > 78.5 && age < 80) {
+      return [[HAAA, FCCC, calculation(HAAA + FCCC)], "78.5-79"];
+    } else if (age >= 80 && age < 81) {
+      return [[A, C, calculation(A + C)], "80"];
+    }
+    return [
+      [0, 0, 0],
+      "Для данной даты воспользуйтесь детской матрицой судьбы",
+    ];
+  }
+
+  const calcYearlyPDFChildren = (age: number) => {
+    if (age >= 0 && age < 1) {
+      return [[A, C, calculation(A + C)], "0-1"];
+    } else if (age >= 1 && age <= 2.5) {
+      return [[AEAA, CGCC, calculation(AEAA + CGCC)], "1-2.5"];
+    } else if (age > 2.5 && age <= 3.5) {
+      return [[AEA, CGC, calculation(AEA + CGC)], "2.5-3.5"];
+    } else if (age > 3.5 && age < 5) {
+      return [[AEAAE, CGCCG, calculation(AEAAE + CGCCG)], "3.5-4"];
+    } else if (age >= 5 && age < 6) {
+      return [[AE, CG, calculation(AE + CG)], "5"];
+    } else if (age >= 6 && age <= 7.5) {
+      return [[AEEAE, CGGCG, calculation(AEEAE + CGGCG)], "6-7.5"];
+    } else if (age > 7.5 && age <= 8.5) {
+      return [[AEE, CGG, calculation(AEE + CGG)], "7.5-8.5"];
+    } else if (age > 8.5 && age < 10) {
+      return [[AEEE, CGGG, calculation(AEEE + CGGG)], "8.5-9"];
+    } else if (age >= 10 && age < 11) {
+      return [[E, G, calculation(E + G)], "10"];
+    } else if (age >= 11 && age <= 12.5) {
+      return [[EBEE, GDGG, calculation(EBEE + GDGG)], "11-12.5"];
+    } else if (age > 12.5 && age <= 13.5) {
+      return [[EBE, GDG, calculation(EBE + GDG)], "12.5-13.5"];
+    } else if (age > 13.5 && age < 15) {
+      return [[EBEEB, GDGGD, calculation(EBEEB + GDGGD)], "13.5-14"];
+    } else if (age >= 15 && age < 16) {
+      return [[EB, GD, calculation(EB + GD)], "15"];
+    }
+    return [
+      [0, 0, 0],
+      "Для данной даты воспользуйтесь персональной матрицой судьбы",
+    ];
+  };
+
+  if (matrixWait) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "100vh",
+          top: "50%",
+          textAlign: "center",
+          width: "100%",
+        }}
+      >
+        <CircularProgress />
+      </div>
+    );
+  }
   return (
     <>
+      <Button onClick={downloadPdf}>Скачать PDF</Button>
       <MatrixDiagram
         LP1={LP1}
         LZ={LZ}
@@ -339,6 +570,8 @@ export const Diagram = () => {
       />
       {state.child ? (
         <SimpleAccordionChildren
+          repeat={state.repeat}
+          yes={subscribeAccessChildren.length > 0}
           gender={state.male}
           age={age}
           AEE={AEE}

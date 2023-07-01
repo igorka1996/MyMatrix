@@ -27,6 +27,7 @@ import { DiagramCompatibility } from "./components/diagram/DiagramCompatibility"
 function App() {
   const loc = useLocation();
   const dispatch = useAppDispatch();
+  const matrixWait = useAppSelector((state) => state.errorReducer.matrixWait);
   const auth = useAppSelector((state) => state.registrationReducer.auth);
   const initialize = useAppSelector((state) => state.errorReducer.initialize);
   const fromPage = loc.state?.pathname || "/";

@@ -5,6 +5,7 @@ import {
   initialAC,
   statusAC,
   successAC,
+  tableWaitAC,
   updateUserAC,
 } from "./error-wait-reducer";
 import { HandleError } from "../utils/errors";
@@ -418,9 +419,12 @@ export const historyPersonalMatrix = createAsyncThunk(
   "registration-auth-login/historyMatrixPersonal",
   async (param, { dispatch, rejectWithValue }) => {
     try {
+      dispatch(tableWaitAC({ tableWait: true }));
       let res = await authAPI.historyPersonalMatrix();
+      dispatch(tableWaitAC({ tableWait: false }));
       return { personal: res.data.matrixSearchHistory };
     } catch (e) {
+      dispatch(tableWaitAC({ tableWait: false }));
       HandleError(e, dispatch);
       return rejectWithValue(null);
     }
@@ -431,9 +435,12 @@ export const historyChildrenMatrix = createAsyncThunk(
   "registration-auth-login/historyMatrixChildren",
   async (param, { dispatch, rejectWithValue }) => {
     try {
+      dispatch(tableWaitAC({ tableWait: true }));
       let res = await authAPI.historyChildrenMatrix();
+      dispatch(tableWaitAC({ tableWait: false }));
       return { children: res.data.matrixSearchHistory };
     } catch (e) {
+      dispatch(tableWaitAC({ tableWait: false }));
       HandleError(e, dispatch);
       return rejectWithValue(null);
     }
@@ -444,9 +451,12 @@ export const historyCompatibilityMatrix = createAsyncThunk(
   "registration-auth-login/historyMatrixCompatibility",
   async (param, { dispatch, rejectWithValue }) => {
     try {
+      dispatch(tableWaitAC({ tableWait: true }));
       let res = await authAPI.historyCompatibilityMatrix();
+      dispatch(tableWaitAC({ tableWait: false }));
       return { compatibility: res.data.matrixSearchHistory };
     } catch (e) {
+      dispatch(tableWaitAC({ tableWait: false }));
       HandleError(e, dispatch);
       return rejectWithValue(null);
     }

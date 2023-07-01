@@ -68,11 +68,10 @@ export const ForecastForTheYearChildren = (
       ? calcYearlyForecastChildren(props.age)
       : 0
   );
-
+  console.log(props.repeat);
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
-
   const handleChangeIndex = (index: number) => {
     setValue(index);
   };
@@ -88,19 +87,71 @@ export const ForecastForTheYearChildren = (
           variant="scrollable"
           aria-label="visible arrows tabs example"
         >
-          <Tab label="0-1" {...a11yProps(0)} />
-          <Tab label="1-2.5" {...a11yProps(1)} />
-          <Tab label="2.5-3.5" {...a11yProps(2)} />
-          <Tab label="3.5-4" {...a11yProps(3)} />
-          <Tab label="5" {...a11yProps(4)} />
-          <Tab label="6-7.5" {...a11yProps(5)} />
-          <Tab label="7.5-8.5" {...a11yProps(6)} />
-          <Tab label="8.5-9" {...a11yProps(7)} />
-          <Tab label="10" {...a11yProps(8)} />
-          <Tab label="11-12.5" {...a11yProps(9)} />
-          <Tab label="12.5-13.5" {...a11yProps(10)} />
-          <Tab label="13.5-14" {...a11yProps(11)} />
-          <Tab label="15" {...a11yProps(12)} />
+          <Tab
+            disabled={props.repeat ? !props.repeat : value !== 0 && !props.yes}
+            label="0-1"
+            {...a11yProps(0)}
+          />
+          <Tab
+            disabled={props.repeat ? !props.repeat : value !== 1 && !props.yes}
+            label="1-2.5"
+            {...a11yProps(1)}
+          />
+          <Tab
+            disabled={props.repeat ? !props.repeat : value !== 2 && !props.yes}
+            label="2.5-3.5"
+            {...a11yProps(2)}
+          />
+          <Tab
+            disabled={props.repeat ? !props.repeat : value !== 3 && !props.yes}
+            label="3.5-4"
+            {...a11yProps(3)}
+          />
+          <Tab
+            disabled={props.repeat ? !props.repeat : value !== 4 && !props.yes}
+            label="5"
+            {...a11yProps(4)}
+          />
+          <Tab
+            disabled={props.repeat ? !props.repeat : value !== 5 && !props.yes}
+            label="6-7.5"
+            {...a11yProps(5)}
+          />
+          <Tab
+            disabled={props.repeat ? !props.repeat : value !== 6 && !props.yes}
+            label="7.5-8.5"
+            {...a11yProps(6)}
+          />
+          <Tab
+            disabled={props.repeat ? !props.repeat : value !== 7 && !props.yes}
+            label="8.5-9"
+            {...a11yProps(7)}
+          />
+          <Tab
+            disabled={props.repeat ? !props.repeat : value !== 8 && !props.yes}
+            label="10"
+            {...a11yProps(8)}
+          />
+          <Tab
+            disabled={props.repeat ? !props.repeat : value !== 9 && !props.yes}
+            label="11-12.5"
+            {...a11yProps(9)}
+          />
+          <Tab
+            disabled={props.repeat ? !props.repeat : value !== 10 && !props.yes}
+            label="12.5-13.5"
+            {...a11yProps(10)}
+          />
+          <Tab
+            disabled={props.repeat ? !props.repeat : value !== 11 && !props.yes}
+            label="13.5-14"
+            {...a11yProps(11)}
+          />
+          <Tab
+            disabled={props.repeat ? !props.repeat : value !== 12 && !props.yes}
+            label="15"
+            {...a11yProps(12)}
+          />
         </Tabs>
       </AppBar>
       <SwipeableViews

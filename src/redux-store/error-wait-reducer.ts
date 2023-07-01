@@ -9,6 +9,8 @@ type InitialStateType = {
   initialize: boolean;
   avatarWait: boolean;
   updateUser: boolean;
+  tableWait: boolean;
+  matrixWait: boolean;
 };
 
 const initialState: InitialStateType = {
@@ -18,6 +20,8 @@ const initialState: InitialStateType = {
   initialize: false,
   avatarWait: false,
   updateUser: false,
+  tableWait: false,
+  matrixWait: false,
 };
 
 const slice = createSlice({
@@ -42,6 +46,12 @@ const slice = createSlice({
     updateUserAC(state, action: PayloadAction<{ updateUser: boolean }>) {
       state.updateUser = action.payload.updateUser;
     },
+    tableWaitAC(state, action: PayloadAction<{ tableWait: boolean }>) {
+      state.tableWait = action.payload.tableWait;
+    },
+    matrixWaitAC(state, action: PayloadAction<{ matrixWait: boolean }>) {
+      state.matrixWait = action.payload.matrixWait;
+    },
   },
 });
 
@@ -52,5 +62,7 @@ export const {
   errorAC,
   statusAC,
   initialAC,
+  tableWaitAC,
+  matrixWaitAC,
 } = slice.actions;
 export const errorReducer = slice.reducer;

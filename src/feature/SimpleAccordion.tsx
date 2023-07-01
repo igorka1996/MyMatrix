@@ -11,7 +11,6 @@ import { filterCalcYear } from "../utils/calc";
 
 export function SimpleAccordion(props: PropsTypeForecastTheYear) {
   const personalMatrix = useAppSelector((state) => state.personalMatrixReducer);
-  console.log(personalMatrix);
   const yearHandler = filterCalcYear(
     personalMatrix.data.isYear,
     props.gender ? props.gender : "W"

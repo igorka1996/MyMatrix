@@ -437,6 +437,8 @@ export function SimpleAccordionChildren(
         <AccordionDetails>
           <Typography>
             <ForecastForTheYearChildren
+              repeat={props.repeat}
+              yes={props.yes}
               yaer={yearHandler}
               age={props.age}
               C={props.C}

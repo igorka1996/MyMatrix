@@ -11,6 +11,7 @@ import { useAppSelector } from "../redux-store/store";
 export function DatePickers() {
   const [value, setValue] = useState<string>("");
   const [value1, setValue1] = useState<string>("");
+  const [matrix, setMatrix] = useState<string>("personal");
   const [name, setName] = useState<string>("");
   const [check, setCheck] = useState<boolean>(false);
   const auth = useAppSelector((state) => state.registrationReducer.auth);
@@ -84,147 +85,200 @@ export function DatePickers() {
   ) => {
     setValue1(e.currentTarget.value);
   };
+  console.log(value);
+  const onClickHandlerMatrix = (value: string) => {
+    setMatrix(value);
+  };
   return (
-    <section className={"sectionDate"}>
-      <FormGroup>
-        <FormControlLabel
-          control={
-            <MaterialUISwitch
-              onChange={onCheck}
-              sx={{ m: 1 }}
-              defaultChecked={check}
+    <React.Fragment>
+      <div className={"backImageDate"}></div>
+      <section className={"sectionDate"}>
+        <div className={"matrixSearch"}>
+          <span
+            onClick={() => onClickHandlerMatrix("personal")}
+            className={`matrixSpanSearch ${
+              matrix === "personal" ? "activeMatrix" : ""
+            }`}
+          >
+            Персональная матрица
+          </span>
+          <span
+            onClick={() => onClickHandlerMatrix("children")}
+            className={`matrixSpanSearch ${
+              matrix === "children" ? "activeMatrix" : ""
+            }`}
+          >
+            Детская матрица
+          </span>
+          <span
+            onClick={() => onClickHandlerMatrix("compatibility")}
+            className={`matrixSpanSearch ${
+              matrix === "compatibility" ? "activeMatrix" : ""
+            }`}
+          >
+            Матрица совместимости
+          </span>
+        </div>
+        <FormGroup>
+          {matrix === "personal" || matrix === "children" ? (
+            <TextField
+              className={"textMatrix"}
+              label={"Имя"}
+              onChange={onChangeHandlerName}
             />
-          }
-          label="Выберите пол"
-        />
-      </FormGroup>
-      <Stack
-        component="form"
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-around",
-          alignItems: "center",
-        }}
-        noValidate
-        spacing={3}
-      >
-        <TextField
-          onChange={onChangeHandler}
-          id="date"
-          label="Дата рождения"
-          type="date"
-          sx={{ width: 220 }}
-          InputLabelProps={{
-            shrink: true,
-          }}
-        />
-        <Link
-          className={"batonStandart"}
-          state={{
-            date: value,
-            male: check ? "M" : "W",
-            child: false,
-            sub,
-            id,
-            name,
-          }}
-          to={"/matrix"}
-        >
-          Рассчитать
-        </Link>
-      </Stack>
-
-      <FormGroup>
-        <TextField label={"Имя"} onChange={onChangeHandlerName} />
-        <FormControlLabel
-          control={
-            <MaterialUISwitch
-              onChange={onCheck}
-              sx={{ m: 1 }}
-              defaultChecked={check}
+          ) : undefined}
+        </FormGroup>
+        {matrix === "personal" ? (
+          <Stack
+            className={"matrixStack"}
+            component="form"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-around",
+              alignItems: "center",
+            }}
+            noValidate
+            spacing={3}
+          >
+            <TextField
+              onChange={onChangeHandler}
+              id="date"
+              label="Дата рождения"
+              type="date"
+              sx={{ width: 400 }}
+              InputLabelProps={{
+                shrink: true,
+              }}
             />
-          }
-          label="Выберите пол ребенка"
-        />
-      </FormGroup>
-      <Stack
-        component="form"
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-around",
-          alignItems: "center",
-        }}
-        noValidate
-        spacing={3}
-      >
-        <TextField
-          onChange={onChangeHandler}
-          id="date"
-          label="Дата рождения ребенка"
-          type="date"
-          sx={{ width: 220 }}
-          InputLabelProps={{
-            shrink: true,
-          }}
-        />
-        <Link
-          className={"batonStandart"}
-          state={{
-            date: value,
-            male: check ? "M" : "W",
-            child: true,
-            auth,
-            sub,
-            id,
-            name,
-          }}
-          to={"/matrix"}
-        >
-          Рассчитать
-        </Link>
-      </Stack>
-
-      <Stack
-        component="form"
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-around",
-          alignItems: "center",
-        }}
-        noValidate
-        spacing={3}
-      >
-        <TextField
-          onChange={onChangeHandler}
-          id="date"
-          label="Дата рождения партнера 1"
-          type="date"
-          sx={{ width: 220 }}
-          InputLabelProps={{
-            shrink: true,
-          }}
-        />
-        <TextField
-          onChange={onChangeHandler1}
-          id="date"
-          label="Дата рождения партнера 2"
-          type="date"
-          sx={{ width: 220 }}
-          InputLabelProps={{
-            shrink: true,
-          }}
-        />
-        <Link
-          className={"batonStandart"}
-          state={{ date: value, date1: value1, sub, id }}
-          to={"/matrixcompatibility"}
-        >
-          Рассчитать
-        </Link>
-      </Stack>
-    </section>
+            <FormGroup>
+              <FormControlLabel
+                control={
+                  <MaterialUISwitch
+                    onChange={onCheck}
+                    sx={{ m: 1 }}
+                    defaultChecked={check}
+                  />
+                }
+                label="Выберите пол"
+              />
+            </FormGroup>
+            <Link
+              aria-disabled
+              className={`batonStandart ${
+                value.length !== 10 || name.length === 0 ? "disabled-link" : ""
+              }`}
+              state={{
+                date: value,
+                male: check ? "M" : "W",
+                child: false,
+                sub,
+                id,
+                name,
+              }}
+              to={"/matrix"}
+            >
+              Рассчитать
+            </Link>
+          </Stack>
+        ) : matrix === "children" ? (
+          <Stack
+            className={"matrixStack"}
+            component="form"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-around",
+              alignItems: "center",
+            }}
+            noValidate
+            spacing={3}
+          >
+            <TextField
+              onChange={onChangeHandler}
+              id="date"
+              label="Дата рождения ребенка"
+              type="date"
+              sx={{ width: 400 }}
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+            <FormControlLabel
+              control={
+                <MaterialUISwitch
+                  onChange={onCheck}
+                  sx={{ m: 1 }}
+                  defaultChecked={check}
+                />
+              }
+              label="Выберите пол ребенка"
+            />
+            <Link
+              className={`batonStandart ${
+                value.length !== 10 || name.length === 0 ? "disabled-link" : ""
+              }`}
+              state={{
+                date: value,
+                male: check ? "M" : "W",
+                child: true,
+                auth,
+                sub,
+                id,
+                name,
+              }}
+              to={"/matrix"}
+            >
+              Рассчитать
+            </Link>
+          </Stack>
+        ) : (
+          <Stack
+            className={"matrixStack"}
+            component="form"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-around",
+              alignItems: "center",
+            }}
+            noValidate
+            spacing={3}
+          >
+            <TextField
+              onChange={onChangeHandler}
+              id="date"
+              label="Дата рождения партнера 1"
+              type="date"
+              sx={{ width: 400, bottom: "20px" }}
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+            <TextField
+              onChange={onChangeHandler1}
+              id="date"
+              label="Дата рождения партнера 2"
+              type="date"
+              sx={{ width: 400, bottom: "20px" }}
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+            <Link
+              className={`batonStandart ${
+                value.length !== 10 || value1.length !== 10
+                  ? "disabled-link"
+                  : ""
+              }`}
+              state={{ date: value, date1: value1, sub, id }}
+              to={"/matrixcompatibility"}
+            >
+              Рассчитать
+            </Link>
+          </Stack>
+        )}
+      </section>
+    </React.Fragment>
   );
 }

@@ -1,6 +1,50 @@
 .sectionDate{
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.backImageDate {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background: url('../ul.jpg') no-repeat 40%;
+    background-size: cover;
+    z-index: -1;
+}
+.matrixSearch{
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+    z-index: 1;
+}
+
+.matrixSpanSearch{
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px;
+    border: 2px solid black;
+    margin: 0 5px;
+}
+
+.activeMatrix{
+background-color: #6f89ad;
+    color: white;
+}
+
+.matrixStack{
+
+}
+
+.textMatrix{
+    width: 400px;
+    bottom: 20px;
+}
+
+.disabled-link {
+    background-color: darkgrey;
+    pointer-events: none;
 }
