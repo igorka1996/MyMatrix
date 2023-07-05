@@ -4,6 +4,8 @@
     font-size: 25px;
     margin: 10px 0;
     padding: 10px;
+    color: white;
+    font-weight: bold;
 }
 
 .spanTarif:nth-child(2n+1) {
@@ -11,15 +13,17 @@
 }
 
 .spanTarif:nth-child(2n) {
-    background-color: rgb(228, 228, 206);
+    background-color: #deb0a1;
 }
 
 .spanTarifActive{
+    color: #6f89ad;
     font-size: 35px;
     font-weight: bold;
 }
 
 .spanNoneTarif{
+    color: #6f89ad;
     font-size: 25px;
     font-weight: bold;
 }

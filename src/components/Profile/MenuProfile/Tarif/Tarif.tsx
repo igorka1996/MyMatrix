@@ -11,7 +11,9 @@ export const Tarif = () => {
   const tarif = subscribe.map((el: any) => {
     return !!el?.access || !!el?.access || !!el?.access ? (
       <span className={"spanTarif"}>
-        {el.subscribe || el.subscribe || el.subscribe}
+        {`Тариф: ${el.subscribe}` ||
+          `Тариф: ${el.subscribe}` ||
+          `Тариф: ${el.subscribe}`}
       </span>
     ) : undefined;
   });

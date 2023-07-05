@@ -4,30 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="13">
-      <change afterPath="$PROJECT_DIR$/src/1njpg.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/feature/TableWaitSkeleton.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ul.jpg" afterDir="false" />
+    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="14">
+      <change afterPath="$PROJECT_DIR$/src/feature/PlusSupport.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/matrix.webp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/API.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/API.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forgot/Forgot.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forgot/Forgot.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Payment/Payment.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Payment/Payment.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/HistoryMatrix/TableCompatibility.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/HistoryMatrix/TableCompatibility.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/HistoryMatrix/TablePersonal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/HistoryMatrix/TablePersonal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Learn/Learn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Learn/Learn.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Orders/Orders.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Orders/Orders.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Orders/Orders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Orders/Orders.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Tarif/Tarif.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Tarif/Tarif.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Tarif/Tarif.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Tarif/Tarif.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/diagram/Diagram.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/diagram/Diagram.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/diagram/DiagramCompatibility.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/diagram/DiagramCompatibility.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/feature/DatePickers.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/DatePickers.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feature/DatePickers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/DatePickers.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature/ForecastForTheYear.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/ForecastForTheYear.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/feature/ForecastForTheYearChildren.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/ForecastForTheYearChildren.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature/Login.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/Login.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/feature/SimpleAccordion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/SimpleAccordion.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feature/SimpleAccordionChildren.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/SimpleAccordionChildren.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux-store/MatrixCompatibility-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/MatrixCompatibility-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux-store/error-wait-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/error-wait-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux-store/personalMatrix-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/personalMatrix-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux-store/personalMatrixChildren-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/personalMatrixChildren-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux-store/registration-login-auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/registration-login-auth.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/type/personalMatrix-type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/type/personalMatrix-type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,9 +38,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="SCSS File" />
         <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="JavaScript File" />
+        <option value="SCSS File" />
       </list>
     </option>
   </component>
@@ -75,26 +77,30 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/src/components/Profile/MenuProfile/HistoryMatrix&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/src/components/Forgot&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;watcher.settings&quot;,
     &quot;ts.external.directory.path&quot;: &quot;/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/Forgot" />
       <recent name="$PROJECT_DIR$/src/components/Profile/MenuProfile/HistoryMatrix" />
       <recent name="$PROJECT_DIR$/src/feature" />
       <recent name="$PROJECT_DIR$/src/type" />
       <recent name="$PROJECT_DIR$/src/redux-store" />
-      <recent name="$PROJECT_DIR$/src/components/diagram" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components/Payment/Success" />
@@ -199,7 +205,17 @@
       <workItem from="1688033095330" duration="621000" />
       <workItem from="1688043187181" duration="7192000" />
       <workItem from="1688124176408" duration="6165000" />
-      <workItem from="1688204861696" duration="21853000" />
+      <workItem from="1688204861696" duration="21926000" />
+      <workItem from="1688380701902" duration="4612000" />
+      <workItem from="1688558887151" duration="6944000" />
+      <workItem from="1688572681196" duration="1000" />
+      <workItem from="1688572715298" duration="2697000" />
+      <workItem from="1688576868810" duration="4250000" />
+      <workItem from="1688581790123" duration="5462000" />
+      <workItem from="1688587282912" duration="2688000" />
+      <workItem from="1688590083378" duration="1552000" />
+      <workItem from="1688591920148" duration="321000" />
+      <workItem from="1688592259674" duration="919000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1676555659169</created>
@@ -299,7 +315,15 @@
       <option name="project" value="LOCAL" />
       <updated>1685216022298</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="14">
+      <option name="closed" value="true" />
+      <created>1688246952730</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1688246952730</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,6 +368,7 @@
     <MESSAGE value="11" />
     <MESSAGE value="12" />
     <MESSAGE value="13" />
-    <option name="LAST_COMMIT_MESSAGE" value="13" />
+    <MESSAGE value="14" />
+    <option name="LAST_COMMIT_MESSAGE" value="14" />
   </component>
 </project>

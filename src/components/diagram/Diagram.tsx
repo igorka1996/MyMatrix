@@ -603,6 +603,8 @@ export const Diagram = () => {
         />
       ) : (
         <SimpleAccordion
+          repeat={state.repeat}
+          yes={subscribeAccessPersonal.length > 0}
           gender={state.male}
           age={age}
           B={B}

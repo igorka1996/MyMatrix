@@ -24,7 +24,7 @@ import { TableWaitSkeleton } from "../../../../feature/TableWaitSkeleton";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: "#6f89ad",
     color: theme.palette.common.white,
   },
   [`&.${tableCellClasses.body}`]: {
@@ -465,7 +465,7 @@ export function TablePersonal(props: PropsType) {
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 400 }} aria-label="customized table">
         <TableHead>
-          <TableRow>
+          <TableRow sx={{ backgroundColor: "#6f89ad" }}>
             <StyledTableCell>Имя</StyledTableCell>
             <StyledTableCell align="center">Дата рождения</StyledTableCell>
             <StyledTableCell align="center">Пол</StyledTableCell>

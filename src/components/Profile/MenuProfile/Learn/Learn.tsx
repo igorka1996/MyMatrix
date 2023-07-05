@@ -37,9 +37,7 @@ export const Learn = () => {
             style={{
               marginTop: 30,
               maxWidth: 120,
-              backgroundColor: "rgb(228, 228, 206)",
-              textShadow:
-                "-1px -1px 0 rgb(148, 134, 179), 1px -1px 0 rgb(148, 134, 179), -1px 1px 0 rgb(148, 134, 179), 1px 1px 0 rgb(148, 134, 179)",
+              backgroundColor: "rgb(222, 176, 161)",
             }}
             className={"batonStandart"}
             to={"/pay"}

@@ -968,7 +968,6 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
           </Typography>
         </AccordionDetails>
       </Accordion>
-
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -982,6 +981,8 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
         <AccordionDetails>
           <Typography>
             <ForecastForTheYear
+              repeat={props.repeat}
+              yes={props.yes}
               yaer={yearHandler}
               age={props.age}
               B={props.B}

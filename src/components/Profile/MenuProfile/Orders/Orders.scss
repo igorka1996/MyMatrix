@@ -2,8 +2,14 @@
     width: 98%;
     display: flex;
     padding: 0;
+    font-weight: bold;
+    color: white;
     margin: 20px 0;
 }
+
+
+
+
 
 .spanOrders {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
@@ -16,7 +22,12 @@
 }
 
 
+
+
+
+
 .spanOrdersMap {
+    color: white;
     font-weight: bold;
     margin-left: 10px;
 }

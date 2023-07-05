@@ -23,6 +23,7 @@ import { Profile } from "./components/Profile/Profile";
 import { SnackBarSuccess } from "./feature/SnackBarSuccess";
 import { Error } from "./components/Payment/Error/Error";
 import { DiagramCompatibility } from "./components/diagram/DiagramCompatibility";
+import { PlusSupport } from "./feature/PlusSupport";
 
 function App() {
   const loc = useLocation();
@@ -58,12 +59,14 @@ function App() {
     );
   }
 
+
   if (initialize && fromPage !== "/" && auth) {
     return <Navigate to={fromPage} replace />;
   }
 
   return (
     <div className="App">
+      <PlusSupport />
       {loc.pathname === "/welcome" ? undefined : (
         <div className={"header"}>
           <div className={"headerList"}>
@@ -110,7 +113,6 @@ function App() {
           )}
         </div>
       )}
-
       <Routes>
         <Route path={"/"} element={<Osnova />} />
         <Route path={"/matrix"} element={<Diagram />} />

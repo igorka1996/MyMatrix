@@ -33,7 +33,7 @@ export const Orders = () => {
           Дата приобретения: <span className={"spanOrdersMap"}>{el.date}</span>
         </span>
         <span
-          style={{ backgroundColor: "rgb(228, 228, 206)" }}
+          style={{ backgroundColor: "rgb(222, 176, 161)" }}
           className={"spanOrders"}
         >
           Стоимость:{" "}

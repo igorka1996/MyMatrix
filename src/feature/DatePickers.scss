@@ -1,10 +1,15 @@
-.sectionDate{
+.sectionDate {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
+
+
+
+
 
 .backImageDate {
     width: 100%;
@@ -14,35 +19,41 @@
     background-size: cover;
     z-index: -1;
 }
-.matrixSearch{
+
+.matrixSearch {
     display: flex;
     justify-content: center;
     margin: 50px;
     z-index: 1;
 }
 
-.matrixSpanSearch{
+.matrixSpanSearch {
     cursor: pointer;
     border-radius: 10px;
     font-size: 20px;
     padding: 10px;
-    border: 2px solid black;
+    border: 1px solid black;
     margin: 0 5px;
 }
 
-.activeMatrix{
-background-color: #6f89ad;
+.activeMatrix {
+    background-color: #6f89ad;
     color: white;
 }
 
-.matrixStack{
+.matrixStack {
 
 }
 
-.textMatrix{
+.textMatrix {
     width: 400px;
     bottom: 20px;
 }
+
+
+
+
+
 
 .disabled-link {
     background-color: darkgrey;

@@ -72,6 +72,10 @@ export const ForecastForTheYear = (props: PropsTypeForecastTheYear) => {
   const handleChangeIndex = (index: number) => {
     setValue(index);
   };
+
+  const disabledTab = (index: number) => {
+    return props.repeat ? !props.repeat : value !== index && !props.yes;
+  };
   return (
     <Box sx={{ bgcolor: "background.paper", width: "100%" }}>
       <AppBar position="static">
@@ -84,58 +88,98 @@ export const ForecastForTheYear = (props: PropsTypeForecastTheYear) => {
           variant="scrollable"
           aria-label="visible arrows tabs example"
         >
-          <Tab label="16-17.5" {...a11yProps(0)} />
-          <Tab label="17.5-18.5" {...a11yProps(1)} />
-          <Tab label="18.5-19" {...a11yProps(2)} />
-          <Tab label="20" {...a11yProps(3)} />
-          <Tab label="21-22.5" {...a11yProps(4)} />
-          <Tab label="22.5-23.5" {...a11yProps(5)} />
-          <Tab label="23.5-24" {...a11yProps(6)} />
-          <Tab label="25" {...a11yProps(7)} />
-          <Tab label="26-27.5" {...a11yProps(8)} />
-          <Tab label="27.5-28.5" {...a11yProps(9)} />
-          <Tab label="28.5-29" {...a11yProps(10)} />
-          <Tab label="30" {...a11yProps(11)} />
-          <Tab label="31-32.5" {...a11yProps(12)} />
-          <Tab label="32.5-33.5" {...a11yProps(13)} />
-          <Tab label="33.5-34" {...a11yProps(14)} />
-          <Tab label="35" {...a11yProps(15)} />
-          <Tab label="36-37.5" {...a11yProps(16)} />
-          <Tab label="37.5-38.5" {...a11yProps(17)} />
-          <Tab label="38.5-39" {...a11yProps(18)} />
-          <Tab label="40" {...a11yProps(19)} />
-          <Tab label="41-42.5" {...a11yProps(20)} />
-          <Tab label="42.5-43.5" {...a11yProps(21)} />
-          <Tab label="43.5-44" {...a11yProps(22)} />
-          <Tab label="45" {...a11yProps(23)} />
-          <Tab label="46-47.5" {...a11yProps(24)} />
-          <Tab label="47.5-48.5" {...a11yProps(25)} />
-          <Tab label="48.5-49" {...a11yProps(26)} />
-          <Tab label="50" {...a11yProps(27)} />
-          <Tab label="51-52.5" {...a11yProps(28)} />
-          <Tab label="52.5-53.5" {...a11yProps(29)} />
-          <Tab label="53.5-54" {...a11yProps(30)} />
-          <Tab label="55" {...a11yProps(31)} />
-          <Tab label="56-57.5" {...a11yProps(32)} />
-          <Tab label="57.5-58.5" {...a11yProps(33)} />
-          <Tab label="58.5-59" {...a11yProps(34)} />
-          <Tab label="60" {...a11yProps(35)} />
-          <Tab label="61-62.5" {...a11yProps(36)} />
-          <Tab label="62.5-63.5" {...a11yProps(37)} />
-          <Tab label="63.5-64" {...a11yProps(38)} />
-          <Tab label="65" {...a11yProps(39)} />
-          <Tab label="66-67.5" {...a11yProps(40)} />
-          <Tab label="67.5-68.5" {...a11yProps(41)} />
-          <Tab label="68.5-69" {...a11yProps(42)} />
-          <Tab label="70" {...a11yProps(43)} />
-          <Tab label="71-72.5" {...a11yProps(44)} />
-          <Tab label="72.5-73.5" {...a11yProps(45)} />
-          <Tab label="73.5-74" {...a11yProps(46)} />
-          <Tab label="75" {...a11yProps(47)} />
-          <Tab label="76-77.5" {...a11yProps(48)} />
-          <Tab label="77.5-78.5" {...a11yProps(49)} />
-          <Tab label="78.5-79" {...a11yProps(50)} />
-          <Tab label="80" {...a11yProps(51)} />
+          <Tab disabled={disabledTab(0)} label="16-17.5" {...a11yProps(0)} />
+          <Tab disabled={disabledTab(1)} label="17.5-18.5" {...a11yProps(1)} />
+          <Tab disabled={disabledTab(2)} label="18.5-19" {...a11yProps(2)} />
+          <Tab disabled={disabledTab(3)} label="20" {...a11yProps(3)} />
+          <Tab disabled={disabledTab(4)} label="21-22.5" {...a11yProps(4)} />
+          <Tab disabled={disabledTab(5)} label="22.5-23.5" {...a11yProps(5)} />
+          <Tab disabled={disabledTab(6)} label="23.5-24" {...a11yProps(6)} />
+          <Tab disabled={disabledTab(7)} label="25" {...a11yProps(7)} />
+          <Tab disabled={disabledTab(8)} label="26-27.5" {...a11yProps(8)} />
+          <Tab disabled={disabledTab(9)} label="27.5-28.5" {...a11yProps(9)} />
+          <Tab disabled={disabledTab(10)} label="28.5-29" {...a11yProps(10)} />
+          <Tab disabled={disabledTab(11)} label="30" {...a11yProps(11)} />
+          <Tab disabled={disabledTab(12)} label="31-32.5" {...a11yProps(12)} />
+          <Tab
+            disabled={disabledTab(13)}
+            label="32.5-33.5"
+            {...a11yProps(13)}
+          />
+          <Tab disabled={disabledTab(14)} label="33.5-34" {...a11yProps(14)} />
+          <Tab disabled={disabledTab(15)} label="35" {...a11yProps(15)} />
+          <Tab disabled={disabledTab(16)} label="36-37.5" {...a11yProps(16)} />
+          <Tab
+            disabled={disabledTab(17)}
+            label="37.5-38.5"
+            {...a11yProps(17)}
+          />
+          <Tab disabled={disabledTab(18)} label="38.5-39" {...a11yProps(18)} />
+          <Tab disabled={disabledTab(19)} label="40" {...a11yProps(19)} />
+          <Tab disabled={disabledTab(20)} label="41-42.5" {...a11yProps(20)} />
+          <Tab
+            disabled={disabledTab(21)}
+            label="42.5-43.5"
+            {...a11yProps(21)}
+          />
+          <Tab disabled={disabledTab(22)} label="43.5-44" {...a11yProps(22)} />
+          <Tab disabled={disabledTab(23)} label="45" {...a11yProps(23)} />
+          <Tab disabled={disabledTab(24)} label="46-47.5" {...a11yProps(24)} />
+          <Tab
+            disabled={disabledTab(25)}
+            label="47.5-48.5"
+            {...a11yProps(25)}
+          />
+          <Tab disabled={disabledTab(26)} label="48.5-49" {...a11yProps(26)} />
+          <Tab disabled={disabledTab(27)} label="50" {...a11yProps(27)} />
+          <Tab disabled={disabledTab(28)} label="51-52.5" {...a11yProps(28)} />
+          <Tab
+            disabled={disabledTab(29)}
+            label="52.5-53.5"
+            {...a11yProps(29)}
+          />
+          <Tab disabled={disabledTab(30)} label="53.5-54" {...a11yProps(30)} />
+          <Tab disabled={disabledTab(31)} label="55" {...a11yProps(31)} />
+          <Tab disabled={disabledTab(32)} label="56-57.5" {...a11yProps(32)} />
+          <Tab
+            disabled={disabledTab(33)}
+            label="57.5-58.5"
+            {...a11yProps(33)}
+          />
+          <Tab disabled={disabledTab(34)} label="58.5-59" {...a11yProps(34)} />
+          <Tab disabled={disabledTab(35)} label="60" {...a11yProps(35)} />
+          <Tab disabled={disabledTab(36)} label="61-62.5" {...a11yProps(36)} />
+          <Tab
+            disabled={disabledTab(37)}
+            label="62.5-63.5"
+            {...a11yProps(37)}
+          />
+          <Tab disabled={disabledTab(38)} label="63.5-64" {...a11yProps(38)} />
+          <Tab disabled={disabledTab(39)} label="65" {...a11yProps(39)} />
+          <Tab disabled={disabledTab(40)} label="66-67.5" {...a11yProps(40)} />
+          <Tab
+            disabled={disabledTab(41)}
+            label="67.5-68.5"
+            {...a11yProps(41)}
+          />
+          <Tab disabled={disabledTab(42)} label="68.5-69" {...a11yProps(42)} />
+          <Tab disabled={disabledTab(43)} label="70" {...a11yProps(43)} />
+          <Tab disabled={disabledTab(44)} label="71-72.5" {...a11yProps(44)} />
+          <Tab
+            disabled={disabledTab(45)}
+            label="72.5-73.5"
+            {...a11yProps(45)}
+          />
+          <Tab disabled={disabledTab(46)} label="73.5-74" {...a11yProps(46)} />
+          <Tab disabled={disabledTab(47)} label="75" {...a11yProps(47)} />
+          <Tab disabled={disabledTab(48)} label="76-77.5" {...a11yProps(48)} />
+          <Tab
+            disabled={disabledTab(49)}
+            label="77.5-78.5"
+            {...a11yProps(49)}
+          />
+          <Tab disabled={disabledTab(50)} label="78.5-79" {...a11yProps(50)} />
+          <Tab disabled={disabledTab(51)} label="80" {...a11yProps(51)} />
         </Tabs>
       </AppBar>
       <SwipeableViews

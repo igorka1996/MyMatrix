@@ -187,6 +187,8 @@ export type PersonalMatrixAPI = {
 };
 
 export type PropsTypeForecastTheYear = {
+  repeat?: boolean;
+  yes?: boolean;
   yaer?: any;
   gender?: string;
   B: number;
