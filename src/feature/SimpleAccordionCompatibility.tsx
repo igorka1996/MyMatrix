@@ -5,14 +5,18 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useAppSelector } from "../redux-store/store";
-
+import { HashLink as Anchor } from "react-router-hash-link";
+import LockIcon from "@mui/icons-material/Lock";
 export function SimpleAccordionCompatibility() {
   const MatrixCompatibility = useAppSelector(
     (state) => state.MatrixCompatibilityReducer
   );
-
-  return (
-    <div style={{ width: "80%", margin: "0 auto" }}>
+  const accordion = (
+    txt: any,
+    value: { text: string; value: number }[],
+    lock: boolean
+  ) => {
+    return (
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -20,13 +24,34 @@ export function SimpleAccordionCompatibility() {
           id="panel1a-header"
         >
           <Typography>
-            <b>Для чего встретились</b>
+            {!lock ? (
+              <b style={{ display: "flex" }}>{txt}</b>
+            ) : (
+              <b style={{ display: "flex" }}>
+                {value?.length === undefined ? (
+                  <LockIcon style={{ color: "#ba82a7" }} />
+                ) : (
+                  ""
+                )}{" "}
+                {txt}
+              </b>
+            )}
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            {MatrixCompatibility.data.isWhyDidYouMeet.length !== 0
-              ? MatrixCompatibility.data.isWhyDidYouMeet.map((e, index) => (
+          {lock ? (
+            value?.length === undefined ? (
+              <React.Fragment>
+                <p style={{ textAlign: "center", fontWeight: "bold" }}>
+                  Будет доступно после оформления одного из тарифов
+                </p>
+                <Anchor smooth to={"/#tarif"} className={"batonStandart"}>
+                  ТАРИФЫ
+                </Anchor>
+              </React.Fragment>
+            ) : (
+              <Typography>
+                {value.map((e, index) => (
                   <React.Fragment key={index}>
                     {e.text.split("\n").map((paragraph: string, innerIndex) => (
                       <React.Fragment key={innerIndex}>
@@ -36,202 +61,65 @@ export function SimpleAccordionCompatibility() {
                     ))}
                     <br />
                   </React.Fragment>
-                ))
-              : ""}
-            <br />
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography>
-            <b>Духовная суть пары</b>
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            {MatrixCompatibility.data.isTheSpiritualEssenceOfTheCouple
-              ?.length !== undefined
-              ? MatrixCompatibility.data.isTheSpiritualEssenceOfTheCouple.map(
-                  (e, index) => (
-                    <React.Fragment key={index}>
-                      {e.text
-                        .split("\n")
-                        .map((paragraph: string, innerIndex) => (
-                          <React.Fragment key={innerIndex}>
-                            {paragraph}
-                            <br key={`br-${index}`} />
-                          </React.Fragment>
-                        ))}
-                      <br />
+                ))}
+              </Typography>
+            )
+          ) : (
+            <Typography>
+              {value.map((e, index) => (
+                <React.Fragment key={index}>
+                  {e.text.split("\n").map((paragraph: string, innerIndex) => (
+                    <React.Fragment key={innerIndex}>
+                      {paragraph}
+                      <br key={`br-${index}`} />
                     </React.Fragment>
-                  )
-                )
-              : ""}
-          </Typography>
+                  ))}
+                  <br />
+                </React.Fragment>
+              ))}
+            </Typography>
+          )}
         </AccordionDetails>
       </Accordion>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography>
-            <b>Материальная карма</b>
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            {MatrixCompatibility.data.isMaterialKarma?.length !== undefined
-              ? MatrixCompatibility.data.isMaterialKarma.map((e, index) => (
-                  <React.Fragment key={index}>
-                    {e.text.split("\n").map((paragraph: string, innerIndex) => (
-                      <React.Fragment key={innerIndex}>
-                        {paragraph}
-                        <br key={`br-${index}`} />
-                      </React.Fragment>
-                    ))}
-                    <br />
-                  </React.Fragment>
-                ))
-              : ""}
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography>
-            <b>Духовная карма пары</b>
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            {MatrixCompatibility.data.isCouplesSpiritualKarma?.length !==
-            undefined
-              ? MatrixCompatibility.data.isCouplesSpiritualKarma.map(
-                  (e, index) => (
-                    <React.Fragment key={index}>
-                      {e.text
-                        .split("\n")
-                        .map((paragraph: string, innerIndex) => (
-                          <React.Fragment key={innerIndex}>
-                            {paragraph}
-                            <br key={`br-${index}`} />
-                          </React.Fragment>
-                        ))}
-                      <br />
-                    </React.Fragment>
-                  )
-                )
-              : ""}
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography>
-            <b>Родовые задачи партнеров</b>
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            {MatrixCompatibility.data.isGenericTasksOfPartners?.length !==
-            undefined
-              ? MatrixCompatibility.data.isGenericTasksOfPartners.map(
-                  (e, index) => (
-                    <React.Fragment key={index}>
-                      {e.text
-                        .split("\n")
-                        .map((paragraph: string, innerIndex) => (
-                          <React.Fragment key={innerIndex}>
-                            {paragraph}
-                            <br key={`br-${index}`} />
-                          </React.Fragment>
-                        ))}
-                      <br />
-                    </React.Fragment>
-                  )
-                )
-              : ""}
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography>
-            <b>Благополучие пары</b>
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            {MatrixCompatibility.data.isCouplesWellBeing?.length !== undefined
-              ? MatrixCompatibility.data.isCouplesWellBeing.map((e, index) => (
-                  <React.Fragment key={index}>
-                    {e.text.split("\n").map((paragraph: string, innerIndex) => (
-                      <React.Fragment key={innerIndex}>
-                        {paragraph}
-                        <br key={`br-${index}`} />
-                      </React.Fragment>
-                    ))}
-                    <br />
-                  </React.Fragment>
-                ))
-              : ""}
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography>
-            <b>Предназначение пары</b>
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            {MatrixCompatibility.data.isThePurposeOfTheCouple?.length !==
-            undefined
-              ? MatrixCompatibility.data.isThePurposeOfTheCouple.map(
-                  (e, index) => (
-                    <React.Fragment key={index}>
-                      {e.text
-                        .split("\n")
-                        .map((paragraph: string, innerIndex) => (
-                          <React.Fragment key={innerIndex}>
-                            {paragraph}
-                            <br key={`br-${index}`} />
-                          </React.Fragment>
-                        ))}
-                      <br />
-                    </React.Fragment>
-                  )
-                )
-              : ""}
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+    );
+  };
+  return (
+    <div style={{ width: "80%", margin: "0 auto" }}>
+      {accordion(
+        "Для чего встретились",
+        MatrixCompatibility.data.isWhyDidYouMeet,
+        false
+      )}
+      {accordion(
+        "Духовная суть пары",
+        MatrixCompatibility.data.isTheSpiritualEssenceOfTheCouple,
+        true
+      )}
+      {accordion(
+        "Материальная карма",
+        MatrixCompatibility.data.isMaterialKarma,
+        true
+      )}
+      {accordion(
+        "Духовная карма пары",
+        MatrixCompatibility.data.isCouplesSpiritualKarma,
+        true
+      )}
+      {accordion(
+        "Родовые задачи партнеров",
+        MatrixCompatibility.data.isGenericTasksOfPartners,
+        true
+      )}
+      {accordion(
+        "Благополучие пары",
+        MatrixCompatibility.data.isCouplesWellBeing,
+        true
+      )}
+      {accordion(
+        "Предназначение пары",
+        MatrixCompatibility.data.isThePurposeOfTheCouple,
+        true
+      )}
     </div>
   );
 }

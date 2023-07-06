@@ -1102,6 +1102,9 @@ export const MatrixDiagram = (props: MatrixDiagramType) => {
           </div>
         </div>
       </div>
+
+      <div>Таблица</div>
+
       <div className="section-with-diagram__bottom-values-row row">
         <div className="col">
           <div className="diagram-values-item">
