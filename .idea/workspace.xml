@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="15">
+    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="16">
+      <change afterPath="$PROJECT_DIR$/src/feature/MatrixDiagram.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/feature/MatrixDiagram.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/MatrixDiagram.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feature/SimpleAccordion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/SimpleAccordion.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feature/SimpleAccordionChildren.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/SimpleAccordionChildren.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feature/SimpleAccordionCompatibility.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/SimpleAccordionCompatibility.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +195,8 @@
       <workItem from="1688590083378" duration="1552000" />
       <workItem from="1688591920148" duration="321000" />
       <workItem from="1688592259674" duration="1429000" />
-      <workItem from="1688639152221" duration="17359000" />
+      <workItem from="1688639152221" duration="17438000" />
+      <workItem from="1689004026374" duration="7212000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1676555659169</created>
@@ -313,7 +312,15 @@
       <option name="project" value="LOCAL" />
       <updated>1688593474824</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="16">
+      <option name="closed" value="true" />
+      <created>1688675134023</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1688675134023</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,6 +367,7 @@
     <MESSAGE value="13" />
     <MESSAGE value="14" />
     <MESSAGE value="15" />
-    <option name="LAST_COMMIT_MESSAGE" value="15" />
+    <MESSAGE value="16" />
+    <option name="LAST_COMMIT_MESSAGE" value="16" />
   </component>
 </project>

@@ -1,7 +1,69 @@
 import React from "react";
 import { MatrixDiagramType } from "../type/personalMatrix-type";
+import "./MatrixDiagram.scss";
 
 export const MatrixDiagram = (props: MatrixDiagramType) => {
+  const dominantEnergy = (num: number) => {
+    let arr = [
+      props.A,
+      props.A1,
+      props.A2,
+      props.A3,
+      props.B,
+      props.B1,
+      props.B2,
+      props.B3,
+      props.C,
+      props.C1,
+      props.C2,
+      props.D,
+      props.D1,
+      props.D2,
+      props.X,
+      props.Y,
+      props.XY,
+      props.E,
+      props.F,
+      props.G,
+      props.F2,
+      props.F1,
+      props.H2,
+      props.H1,
+      props.H,
+      props.E2,
+      props.E1,
+      props.G1,
+      props.G2,
+      props.G4,
+      props.L,
+      props.M,
+      props.E,
+      props.K6,
+      props.K5,
+      props.K4,
+      props.K3,
+      props.I5,
+      props.K1,
+      props.T2,
+      props.T1,
+      props.T3,
+      props.EG,
+      props.FH,
+      props.LP1,
+      props.YM,
+      props.DG,
+    ];
+    const filteredArr = arr.filter((e) => e === num);
+    const jsxElements = filteredArr.map((e, index) => (
+      <td className="tdDiagram" key={index}></td>
+    ));
+    const ci = 10 - jsxElements.length;
+    for (let i = 0; i < ci; i++) {
+      jsxElements.push(<td key={i}></td>);
+    }
+    return jsxElements;
+  };
+
   return (
     <section
       style={{ paddingTop: 200 }}
@@ -1226,6 +1288,119 @@ export const MatrixDiagram = (props: MatrixDiagramType) => {
           </div>
         </div>
       </div>
+      <table
+        className={"tableDiagram"}
+        // cellPadding={5}
+        // cellSpacing={2}
+        // border={1}
+      >
+        <caption>Ваши доминирующие энергии</caption>
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">1</th>
+            <th scope="col">2</th>
+            <th scope="col">3</th>
+            <th scope="col">4</th>
+            <th scope="col">5</th>
+            <th scope="col">6</th>
+            <th scope="col">7</th>
+            <th scope="col">8</th>
+            <th scope="col">9</th>
+            <th scope="col">10</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1 аркан</th>
+            {dominantEnergy(1)}
+          </tr>
+          <tr>
+            <th scope="row">2 аркан</th>
+            {dominantEnergy(2)}
+          </tr>
+          <tr>
+            <th scope="row">3 аркан</th>
+            {dominantEnergy(3)}
+          </tr>
+          <tr>
+            <th scope="row">4 аркан</th>
+            {dominantEnergy(4)}
+          </tr>
+          <tr>
+            <th scope="row">5 аркан</th>
+            {dominantEnergy(5)}
+          </tr>
+          <tr>
+            <th scope="row">6 аркан</th>
+            {dominantEnergy(6)}
+          </tr>
+          <tr>
+            <th scope="row">7 аркан</th>
+            {dominantEnergy(7)}
+          </tr>
+          <tr>
+            <th scope="row">8 аркан</th>
+            {dominantEnergy(8)}
+          </tr>
+          <tr>
+            <th scope="row">9 аркан</th>
+            {dominantEnergy(9)}
+          </tr>
+          <tr>
+            <th scope="row">10 аркан</th>
+            {dominantEnergy(10)}
+          </tr>
+          <tr>
+            <th scope="row">11 аркан</th>
+            {dominantEnergy(11)}
+          </tr>
+          <tr>
+            <th scope="row">12 аркан</th>
+            {dominantEnergy(12)}
+          </tr>
+          <tr>
+            <th scope="row">13 аркан</th>
+            {dominantEnergy(13)}
+          </tr>
+          <tr>
+            <th scope="row">14 аркан</th>
+            {dominantEnergy(14)}
+          </tr>
+          <tr>
+            <th scope="row">15 аркан</th>
+            {dominantEnergy(15)}
+          </tr>
+          <tr>
+            <th scope="row">16 аркан</th>
+            {dominantEnergy(16)}
+          </tr>
+          <tr>
+            <th scope="row">17 аркан</th>
+            {dominantEnergy(17)}
+          </tr>
+          <tr>
+            <th scope="row">18 аркан</th>
+            {dominantEnergy(18)}
+          </tr>
+          <tr>
+            <th scope="row">19 аркан</th>
+            {dominantEnergy(19)}
+          </tr>
+          <tr>
+            <th scope="row">20 аркан</th>
+            {dominantEnergy(20)}
+          </tr>
+          <tr>
+            <th scope="row">21 аркан</th>
+            {dominantEnergy(21)}
+          </tr>
+          <tr>
+            <th scope="row">22 аркан</th>
+            {dominantEnergy(22)}
+          </tr>
+        </tbody>
+      </table>
     </section>
   );
 };

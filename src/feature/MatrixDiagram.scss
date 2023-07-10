@@ -1,0 +1,36 @@
+.tdDiagram{
+    background-color: #9486b3;
+}
+
+.tableDiagram {
+    width: 100%;
+    border: none;
+    margin-bottom: 20px;
+}
+.tableDiagram thead th {
+    font-weight: bold;
+    text-align: left;
+    border: none;
+    padding: 10px 15px;
+    background: #d8d8d8;
+    font-size: 14px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+.tableDiagram tbody td {
+    text-align: left;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding: 10px 15px;
+    font-size: 14px;
+    vertical-align: top;
+}
+.tableDiagram thead tr th:first-child, .tableDiagram tbody tr td:first-child {
+    border-left: none;
+}
+.tableDiagram thead tr th:last-child, .tableDiagram tbody tr td:last-child {
+    border-right: none;
+}
+.tableDiagram tbody tr:nth-child(even){
+    background: #f3f3f3;
+}
