@@ -10,6 +10,8 @@ import { PropsTypeForecastTheYear } from "../type/personalMatrix-type";
 import { filterCalcYear } from "../utils/calc";
 import { HashLink as Anchor } from "react-router-hash-link";
 import LockIcon from "@mui/icons-material/Lock";
+import { v4 } from "uuid";
+
 export function SimpleAccordion(props: PropsTypeForecastTheYear) {
   const personalMatrix = useAppSelector((state) => state.personalMatrixReducer);
   const yearHandler = filterCalcYear(
@@ -61,18 +63,18 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
               <Typography>
                 {arr.map((el) => {
                   return (
-                    <React.Fragment>
-                      <b>{el.paragraph}</b>
-                      <br />
-                      {el.value.map((e, index) => (
-                        <React.Fragment key={index}>
-                          {e.text.split("\n").map((paragraph, innerIndex) => (
-                            <React.Fragment key={innerIndex}>
+                    <React.Fragment key={v4()}>
+                      <b key={v4()}>{el.paragraph}</b>
+                      <br key={v4()} />
+                      {el.value.map((e) => (
+                        <React.Fragment key={v4()}>
+                          {e.text.split("\n").map((paragraph) => (
+                            <React.Fragment key={v4()}>
                               {paragraph}
-                              <br key={`br-${index}`} />
+                              <br key={`br-${v4()}`} />
                             </React.Fragment>
                           ))}
-                          <br />
+                          <br key={v4()} />
                         </React.Fragment>
                       ))}
                     </React.Fragment>
@@ -84,18 +86,18 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
             <Typography>
               {arr.map((el) => {
                 return (
-                  <React.Fragment>
-                    <b>{el.paragraph}</b>
-                    <br />
-                    {el.value.map((e, index) => (
-                      <React.Fragment key={index}>
-                        {e.text.split("\n").map((paragraph, innerIndex) => (
-                          <React.Fragment key={innerIndex}>
+                  <React.Fragment key={v4()}>
+                    <b key={v4()}>{el.paragraph}</b>
+                    <br key={v4()} />
+                    {el.value.map((e) => (
+                      <React.Fragment key={v4()}>
+                        {e.text.split("\n").map((paragraph) => (
+                          <React.Fragment key={v4()}>
                             {paragraph}
-                            <br key={`br-${index}`} />
+                            <br key={`br-${v4()}`} />
                           </React.Fragment>
                         ))}
-                        <br />
+                        <br key={v4()} />
                       </React.Fragment>
                     ))}
                   </React.Fragment>
@@ -107,6 +109,99 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
       </Accordion>
     );
   };
+
+  // const accordion = (
+  //   txt: any,
+  //   arr: {
+  //     paragraph: string;
+  //     value: { text: string; value: number | string }[];
+  //   }[],
+  //   lock: boolean
+  // ) => {
+  //   return (
+  //     <Accordion>
+  //       <AccordionSummary
+  //         expandIcon={<ExpandMoreIcon />}
+  //         aria-controls="panel1a-content"
+  //         id="panel1a-header"
+  //       >
+  //         <Typography>
+  //           {!lock ? (
+  //             <b style={{ display: "flex" }}>{txt}</b>
+  //           ) : (
+  //             <b style={{ display: "flex" }}>
+  //               {arr[0].value?.length === undefined ? (
+  //                 <LockIcon style={{ color: "#ba82a7" }} />
+  //               ) : (
+  //                 ""
+  //               )}{" "}
+  //               {txt}
+  //             </b>
+  //           )}
+  //         </Typography>
+  //       </AccordionSummary>
+  //       <AccordionDetails>
+  //         {lock ? (
+  //           arr[0].value?.length === undefined ? (
+  //             <React.Fragment key={v4()}>
+  //               <p style={{ textAlign: "center", fontWeight: "bold" }}>
+  //                 Будет доступно после оформления одного из тарифов
+  //               </p>
+  //               <Anchor smooth to={"/#tarif"} className={"batonStandart"}>
+  //                 ТАРИФЫ
+  //               </Anchor>
+  //             </React.Fragment>
+  //           ) : (
+  //             <Typography>
+  //               {arr.map((el) => {
+  //                 return (
+  //                   <React.Fragment key={v4()}>
+  //                     <b>{el.paragraph}</b>
+  //                     <br />
+  //                     {el.value.map((e) => (
+  //                       <React.Fragment key={v4()}>
+  //                         {e.text.split("\n").map((paragraph) => (
+  //                           <React.Fragment key={v4()}>
+  //                             {paragraph}
+  //                             <br key={`br-${v4()}`} />
+  //                           </React.Fragment>
+  //                         ))}
+  //                         <br />
+  //                       </React.Fragment>
+  //                     ))}
+  //                   </React.Fragment>
+  //                 );
+  //               })}
+  //             </Typography>
+  //           )
+  //         ) : (
+  //           <Typography>
+  //             {arr.map((el) => {
+  //               return (
+  //                 <React.Fragment key={v4()}>
+  //                   <b>{el.paragraph}</b>
+  //                   <br />
+  //                   {el.value.map((e) => (
+  //                     <React.Fragment key={v4()}>
+  //                       {e.text.split("\n").map((paragraph) => (
+  //                         <React.Fragment key={v4()}>
+  //                           {paragraph}
+  //                           <br key={`br-${v4()}`} />
+  //                         </React.Fragment>
+  //                       ))}
+  //                       <br />
+  //                     </React.Fragment>
+  //                   ))}
+  //                 </React.Fragment>
+  //               );
+  //             })}
+  //           </Typography>
+  //         )}
+  //       </AccordionDetails>
+  //     </Accordion>
+  //   );
+  // };
+
   return (
     <div style={{ width: "80%", margin: "0 auto" }}>
       {accordion(
@@ -653,6 +748,53 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
         ],
         true
       )}
+
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>
+            {personalMatrix.data?.isProgram !== undefined ? (
+              <b style={{ display: "flex" }}>Программы</b>
+            ) : (
+              <b style={{ display: "flex" }}>
+                {<LockIcon style={{ color: "#ba82a7" }} />} Программы
+              </b>
+            )}
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          {personalMatrix.data?.isProgram === undefined ? (
+            <React.Fragment>
+              <p style={{ textAlign: "center", fontWeight: "bold" }}>
+                Будет доступно после оформления одного из тарифов
+              </p>
+              <Anchor smooth to={"/#tarif"} className={"batonStandart"}>
+                ТАРИФЫ
+              </Anchor>
+            </React.Fragment>
+          ) : (
+            <Typography>
+              {personalMatrix.data?.isProgram.map((e, index) => (
+                <React.Fragment key={index}>
+                  <b>{e.title}</b>
+                  <br key={`br-${index}`} />
+                  {e.text.split("\n").map((paragraph: string, innerIndex) => (
+                    <React.Fragment key={innerIndex}>
+                      {paragraph}
+                      <br key={`br-${index}`} />
+                    </React.Fragment>
+                  ))}
+                  <br />
+                </React.Fragment>
+              ))}
+            </Typography>
+          )}
+        </AccordionDetails>
+      </Accordion>
+
       {accordion(
         "Деньги",
         [
@@ -699,6 +841,7 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
         ],
         true
       )}
+
       {accordion(
         "Руководство",
         [
@@ -720,7 +863,7 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <div>
             <ForecastForTheYear
               repeat={props.repeat}
               yes={props.yes}
@@ -791,7 +934,7 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
               GDDD={props.GDDD}
               EBBB={props.EBBB}
             />
-          </Typography>
+          </div>
         </AccordionDetails>
       </Accordion>
     </div>

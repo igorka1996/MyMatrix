@@ -33,6 +33,7 @@ const initialState: PersonalMatrixChildren = {
     },
     isSubconsciousScript: [],
     isYear: [],
+    dateRepeat: false,
   },
 };
 

@@ -14,6 +14,7 @@ const initialState: MatrixCompatibility = {
     isGenericTasksOfPartners: [],
     isCouplesWellBeing: [],
     isThePurposeOfTheCouple: [],
+    dateRepeat: false,
   },
 };
 

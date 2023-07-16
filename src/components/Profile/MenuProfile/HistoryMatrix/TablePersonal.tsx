@@ -175,12 +175,48 @@ export function TablePersonal(props: PropsType) {
       let LO = calculation(E + G);
       let LM = calculation(F + H);
       let YM = calculation(LO + LM);
+      let T1 = calculation(D + D2 + B3 + X + B1 + B2 + B);
+      let T2 = calculation(A + A1 + A2 + A3 + X + C2 + C);
+      let K2 = calculation(D2 + C2);
+      let T3 = calculation(E + K6 + K5 + K4 + K3 + K2 + K1);
+      let FH = calculation(F + H);
+      let EG = calculation(E + G);
       const funcIsPersonalQualitiesl = () => {
         if (A === B) {
           return [A, 0, X];
         }
         return [A, B, X];
       };
+      function uniqueArr() {
+        let arr = [
+          `${B}-${B2}-${B1}`,
+          `${E}-${E2}-${E1}`,
+          `${A}-${A2}-${A1}`,
+          `${H}-${H2}-${H1}`,
+          `${D}-${D2}-${D1}`,
+          `${G}-${G2}-${G1}`,
+          `${C}-${C2}-${C1}`,
+          `${F}-${F2}-${F1}`,
+          `${X}-${Y}-${XY}`,
+          `${D2}-${G4}-${L}`,
+          `${C2}-${G4}-${M}`,
+          `${A}-${B}-${E}`,
+          `${A1}-${B1}-${K6}`,
+          `${A2}-${B2}-${K5}`,
+          `${A3}-${B3}-${K4}`,
+          `${X}-${X}-${K3}`,
+          `${C2}-${D2}-${I5}`,
+          `${C}-${D}-${K1}`,
+          `${T2}-${T1}-${T3}`,
+          `${E}-${G}-${EG}`,
+          `${F}-${H}-${FH}`,
+          `${LN}-${LZ}-${LP1}`,
+          `${LO}-${LM}-${YM}`,
+        ];
+        return [...new Set(arr)];
+      }
+
+      uniqueArr();
       const calcYearlyPDF = (age: number) => {
         if (age >= 16 && age <= 17.5) {
           return [[EBBEB, GDDGD, calculation(EBBEB + GDDGD)], "16-17.5"];
@@ -329,6 +365,7 @@ export function TablePersonal(props: PropsType) {
       let response;
       if (props.matrix === "personal") {
         response = await personalMatrixAPI.getPdfPersonal(
+          uniqueArr(),
           funcIsPersonalQualitiesl(),
           funcCalculation([E, E2, E1]),
           funcCalculation([F, F1, F2]),

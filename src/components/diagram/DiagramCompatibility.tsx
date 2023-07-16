@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./diagram.scss";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { calculation, funcCalculation } from "../../utils/calc";
 import { MatrixDiagramCompatibility } from "../../feature/MatrixDiagramCompatibility";
 import { useAppDispatch, useAppSelector } from "../../redux-store/store";
@@ -13,6 +13,9 @@ export const DiagramCompatibility = () => {
   const { state } = useLocation();
   const matrixWait = useAppSelector((state) => state.errorReducer.matrixWait);
   const dispatch = useAppDispatch();
+  const dateRepeatCompatibility = useAppSelector(
+    (state) => state.MatrixCompatibilityReducer.data.dateRepeat
+  );
 
   const subscribeAccessCompatibility = state.sub.filter((e: any) => {
     return (
@@ -45,7 +48,6 @@ export const DiagramCompatibility = () => {
   let A = calculation(parseInt(birthdayArray[2]));
   let B = calculation(parseInt(birthdayArray[1]));
   let C = calculation(parseInt(birthdayArray[0]));
-
   let D = calculation(A + B + C);
   let X = calculation(A + B + C + D);
   let B2 = calculation(B + X);
@@ -329,7 +331,23 @@ export const DiagramCompatibility = () => {
   }
   return (
     <>
-      {subscribeAccessCompatibility.length > 0 ? (
+      {!dateRepeatCompatibility ? (
+        <Link
+          style={{ backgroundColor: "rgb(186, 130, 167)" }}
+          className={"batonStandart"}
+          to={"/pay"}
+          state={{
+            name: "Разовая расшифровка даты",
+            matrix: "compatibility",
+            price: 45000,
+            date1: state.date,
+            date2: state.date1,
+          }}
+        >
+          Олатить разовый
+        </Link>
+      ) : undefined}
+      {dateRepeatCompatibility ? (
         <Button onClick={downloadPdf}>Скачать PDF</Button>
       ) : undefined}
       <MatrixDiagramCompatibility

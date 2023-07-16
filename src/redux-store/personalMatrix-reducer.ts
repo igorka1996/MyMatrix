@@ -51,7 +51,8 @@ const initialState: PersonalMatrix = {
     isChildren: [],
     isManagement: [],
     isYear: [],
-    filePath: "",
+    isProgram: [{ _id: "", value: "", title: "", text: "" }],
+    dateRepeat: false,
   },
 };
 
@@ -76,6 +77,7 @@ export const getPersonalMatrix = createAsyncThunk(
   "personalMatrix/post",
   async (
     param: {
+      isProgram: string[];
       isPersonalQualities: number[];
       talentsOfDad: number[];
       talentsOfMother: number[];
@@ -111,6 +113,7 @@ export const getPersonalMatrix = createAsyncThunk(
       dispatch(matrixWaitAC({ matrixWait: true }));
       dispatch(logOutMatrixAC());
       const res = await personalMatrixAPI.getPersonalMatrix(
+        param.isProgram,
         param.isPersonalQualities,
         param.talentsOfDad,
         param.talentsOfMother,

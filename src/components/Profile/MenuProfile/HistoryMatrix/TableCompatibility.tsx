@@ -14,11 +14,10 @@ import { Link } from "react-router-dom";
 import { calculation, funcCalculation } from "../../../../utils/calc";
 import { personalMatrixAPI } from "../../../../API/API";
 import { TableWaitSkeleton } from "../../../../feature/TableWaitSkeleton";
-import Skeleton from "@mui/material/Skeleton";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: "#6f89ad",
     color: theme.palette.common.white,
   },
   [`&.${tableCellClasses.body}`]: {

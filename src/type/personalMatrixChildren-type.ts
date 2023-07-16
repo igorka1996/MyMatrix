@@ -96,6 +96,7 @@ export type PersonalMatrixChildren = {
     isPurposeOfTheChild: isPurposeOfTheChild;
     isSubconsciousScript: isSubconsciousScript[];
     isYear: [];
+    dateRepeat: boolean;
   };
 };
 
@@ -108,4 +109,5 @@ export type PersonalMatrixChildrenAPI = {
   isSubconsciousScript: isSubconsciousScript[];
   isYear: [];
   subscription: [];
+  dateRepeat: boolean;
 };

@@ -315,6 +315,12 @@ export const payAndRegistrationThunk = createAsyncThunk(
       password: string;
       check: boolean;
       phone: string;
+      date: string;
+      username: string;
+      gender: string;
+      matrix: string;
+      date1: string;
+      date2: string;
     },
     { dispatch, rejectWithValue }
   ) => {
@@ -323,6 +329,12 @@ export const payAndRegistrationThunk = createAsyncThunk(
         item: {
           name: param.nameProduct,
           price: param.price,
+          date: param?.date,
+          username: param?.username,
+          gender: param?.gender,
+          matrix: param?.matrix,
+          date1: param?.date1,
+          date2: param?.date2,
         },
         registration: {
           name: param.name,

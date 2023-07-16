@@ -100,6 +100,12 @@ export const Pay = () => {
         password: data.password,
         check: data.check,
         phone: data.phoneInput,
+        date: state?.date,
+        username: state?.username,
+        gender: state?.gender,
+        matrix: state?.matrix,
+        date1: state?.date1,
+        date2: state?.date2,
       })
     );
   };
@@ -112,6 +118,12 @@ export const Pay = () => {
       item: {
         name: state.name,
         price: state.price,
+        date: state?.date,
+        username: state?.username,
+        gender: state?.gender,
+        matrix: state?.matrix,
+        date1: state?.date1,
+        date2: state?.date2,
       },
     });
   };

@@ -12,6 +12,7 @@ import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { PropsTypeForecastTheYear } from "../type/personalMatrix-type";
+import { v4 } from "uuid";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -54,9 +55,10 @@ export const ForecastForTheYear = (props: PropsTypeForecastTheYear) => {
     const arr = funcCalculation([A, B, C]);
     return arr.map((e) => {
       return (
-        <div>
-          <p>{getMatrixItem(e)?.text}</p>
-        </div>
+        <React.Fragment key={v4()}>
+          {getMatrixItem(e)?.text}
+          <br />
+        </React.Fragment>
       );
     });
   };

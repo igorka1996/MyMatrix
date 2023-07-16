@@ -12,6 +12,7 @@ export type MatrixCompatibilityAPI = {
   isCouplesWellBeing: isValueAndTextType[];
   isThePurposeOfTheCouple: isValueAndTextType[];
   subscription: [];
+  dateRepeat: boolean;
 };
 
 export type MatrixCompatibility = {
@@ -23,5 +24,6 @@ export type MatrixCompatibility = {
     isGenericTasksOfPartners: isValueAndTextType[];
     isCouplesWellBeing: isValueAndTextType[];
     isThePurposeOfTheCouple: isValueAndTextType[];
+    dateRepeat: boolean;
   };
 };

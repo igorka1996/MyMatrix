@@ -165,7 +165,8 @@ export type PersonalMatrix = {
     isChildren: IsChildren[];
     isManagement: IsManagement[];
     isYear: [];
-    filePath: string;
+    isProgram: { _id: string; value: string; title: string; text: string }[];
+    dateRepeat: boolean;
   };
 };
 
@@ -183,7 +184,8 @@ export type PersonalMatrixAPI = {
   isManagement: IsManagement[];
   isYear: [];
   subscription: [];
-  filePath: string;
+  isProgram: { _id: string; value: string; title: string; text: string }[];
+  dateRepeat: boolean;
 };
 
 export type PropsTypeForecastTheYear = {

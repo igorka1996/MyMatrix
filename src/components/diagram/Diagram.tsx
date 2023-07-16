@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./diagram.scss";
 import { SimpleAccordion } from "../../feature/SimpleAccordion";
 import { SimpleAccordionChildren } from "../../feature/SimpleAccordionChildren";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { getPersonalMatrix } from "../../redux-store/personalMatrix-reducer";
 import { useAppDispatch, useAppSelector } from "../../redux-store/store";
 import { calculateAge, calculation, funcCalculation } from "../../utils/calc";
@@ -15,6 +15,12 @@ export const Diagram = () => {
   const { state } = useLocation();
   const age = calculateAge(state.date);
   const matrixWait = useAppSelector((state) => state.errorReducer.matrixWait);
+  const dateRepeatPersonal = useAppSelector(
+    (state) => state.personalMatrixReducer.data.dateRepeat
+  );
+  const dateRepeatChildren = useAppSelector(
+    (state) => state.personalMatrixChildrenReducer.data.dateRepeat
+  );
   const dispatch = useAppDispatch();
 
   const subscribeAccessPersonal = state.sub.filter((e: any) => {
@@ -79,6 +85,7 @@ export const Diagram = () => {
     } else {
       dispatch(
         getPersonalMatrix({
+          isProgram: uniqueArr(),
           isPersonalQualities: funcIsPersonalQualitiesl(),
           talentsOfDad: funcCalculation([E, E2, E1]),
           talentsOfMother: funcCalculation([F, F1, F2]),
@@ -230,10 +237,42 @@ export const Diagram = () => {
     return [A, B, X];
   };
 
+  function uniqueArr() {
+    let arr = [
+      `${B}-${B2}-${B1}`,
+      `${E}-${E2}-${E1}`,
+      `${A}-${A2}-${A1}`,
+      `${H}-${H2}-${H1}`,
+      `${D}-${D2}-${D1}`,
+      `${G}-${G2}-${G1}`,
+      `${C}-${C2}-${C1}`,
+      `${F}-${F2}-${F1}`,
+      `${X}-${Y}-${XY}`,
+      `${D2}-${G4}-${L}`,
+      `${C2}-${G4}-${M}`,
+      `${A}-${B}-${E}`,
+      `${A1}-${B1}-${K6}`,
+      `${A2}-${B2}-${K5}`,
+      `${A3}-${B3}-${K4}`,
+      `${X}-${X}-${K3}`,
+      `${C2}-${D2}-${I5}`,
+      `${C}-${D}-${K1}`,
+      `${T2}-${T1}-${T3}`,
+      `${E}-${G}-${EG}`,
+      `${F}-${H}-${FH}`,
+      `${LN}-${LZ}-${LP1}`,
+      `${LO}-${LM}-${YM}`,
+    ];
+    return [...new Set(arr)];
+  }
+
+  uniqueArr();
+
   const downloadPdf = async () => {
     let response;
-    if (state.personal) {
+    if (!state.child) {
       response = await personalMatrixAPI.getPdfPersonal(
+        uniqueArr(),
         funcIsPersonalQualitiesl(),
         funcCalculation([E, E2, E1]),
         funcCalculation([F, F1, F2]),
@@ -457,9 +496,30 @@ export const Diagram = () => {
       </div>
     );
   }
+  console.log(dateRepeatChildren);
+  console.log(dateRepeatPersonal);
   return (
     <>
-      <Button onClick={downloadPdf}>Скачать PDF</Button>
+      {!dateRepeatChildren || !dateRepeatPersonal ? (
+        <Link
+          style={{ backgroundColor: "rgb(186, 130, 167)" }}
+          className={"batonStandart"}
+          to={"/pay"}
+          state={{
+            name: "Разовая расшифровка даты",
+            matrix: state.child ? "child" : "personal",
+            price: 45000,
+            date: state.date,
+            gender: state.male,
+            username: state.name,
+          }}
+        >
+          Олатить разовый
+        </Link>
+      ) : undefined}
+      {dateRepeatChildren || dateRepeatPersonal ? (
+        <Button onClick={downloadPdf}>Скачать PDF</Button>
+      ) : undefined}
       <MatrixDiagram
         LP1={LP1}
         LZ={LZ}

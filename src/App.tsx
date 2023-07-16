@@ -24,6 +24,8 @@ import { SnackBarSuccess } from "./feature/SnackBarSuccess";
 import { Error } from "./components/Payment/Error/Error";
 import { DiagramCompatibility } from "./components/diagram/DiagramCompatibility";
 import { PlusSupport } from "./feature/PlusSupport";
+import { SuccessDateOnce } from "./components/Payment/Success/SuccessDateOnce";
+import { SuccessLesson } from "./components/Payment/Success/SuccessLesson";
 
 function App() {
   const loc = useLocation();
@@ -58,7 +60,6 @@ function App() {
       </div>
     );
   }
-
 
   if (initialize && fromPage !== "/" && auth) {
     return <Navigate to={fromPage} replace />;
@@ -121,6 +122,8 @@ function App() {
           element={<DiagramCompatibility />}
         />
         <Route path={"/success"} element={<Success />} />
+        <Route path={"/success-date-once"} element={<SuccessDateOnce />} />
+        <Route path={"/success-lesson"} element={<SuccessLesson />} />
         <Route path={"/error"} element={<Error />} />
         <Route path={"/welcome"} element={<Welcome />} />
         <Route path={"/forgot"} element={<ForgotPassword />} />

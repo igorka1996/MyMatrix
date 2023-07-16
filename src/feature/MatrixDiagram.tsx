@@ -1,6 +1,7 @@
 import React from "react";
 import { MatrixDiagramType } from "../type/personalMatrix-type";
 import "./MatrixDiagram.scss";
+import { v4 } from "uuid";
 
 export const MatrixDiagram = (props: MatrixDiagramType) => {
   const dominantEnergy = (num: number) => {
@@ -54,8 +55,8 @@ export const MatrixDiagram = (props: MatrixDiagramType) => {
       props.DG,
     ];
     const filteredArr = arr.filter((e) => e === num);
-    const jsxElements = filteredArr.map((e, index) => (
-      <td className="tdDiagram" key={index}></td>
+    const jsxElements = filteredArr.map((e) => (
+      <td className="tdDiagram" key={v4()}></td>
     ));
     const ci = 10 - jsxElements.length;
     for (let i = 0; i < ci; i++) {
@@ -1286,14 +1287,84 @@ export const MatrixDiagram = (props: MatrixDiagramType) => {
               </div>
             </div>
           </div>
+
+          <div className="diagram-values-item">
+            <div className="h6 diagram-values-item__title">Личная сила</div>
+            <div className="diagram-values-item__description text-block">
+              <p>Духовный зачет. Кто я для бога? Где божественное во мне?</p>
+            </div>
+            <div className="small-diagram-values">
+              <div
+                className="diagram-value js-personal-calculation-item"
+                data-personal-calculation-position="s"
+              >
+                {props.X}
+              </div>
+            </div>
+          </div>
+
+          <div className="diagram-values-item">
+            <div className="h6 diagram-values-item__title">Сила рода</div>
+            <div className="diagram-values-item__description text-block">
+              <p>Духовный зачет. Кто я для бога? Где божественное во мне?</p>
+            </div>
+            <div className="small-diagram-values">
+              <div
+                className="diagram-value js-personal-calculation-item"
+                data-personal-calculation-position="s"
+              >
+                {props.Y}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <table
-        className={"tableDiagram"}
-        // cellPadding={5}
-        // cellSpacing={2}
-        // border={1}
-      >
+
+      <ul className="diagram-values-list">
+        <li className="diagram-values-list__item">
+          <div className="diagram-values-item-horizontal">
+            <div className="h6 diagram-values-item-horizontal__title">
+              Код внутренней силы
+            </div>
+            <ul className="diagram-values-item-horizontal__values round-values-list">
+              <li
+                style={{ listStyleType: "none" }}
+                className="round-values-list__item"
+              >
+                <div
+                  className="diagram-value js-personal-calculation-item"
+                  data-personal-calculation-position="f"
+                >
+                  {props.X}
+                </div>
+              </li>
+              <li
+                style={{ listStyleType: "none" }}
+                className="round-values-list__item"
+              >
+                <div
+                  className="diagram-value js-personal-calculation-item"
+                  data-personal-calculation-position="y"
+                >
+                  {props.Y}
+                </div>
+              </li>
+              <li
+                style={{ listStyleType: "none" }}
+                className="round-values-list__item"
+              >
+                <div
+                  className="diagram-value js-personal-calculation-item"
+                  data-personal-calculation-position="o"
+                >
+                  {props.XY}
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+      <table className={"tableDiagram"}>
         <caption>Ваши доминирующие энергии</caption>
         <thead>
           <tr>
