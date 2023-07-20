@@ -4,23 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="18">
+    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="19">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Payment/Payment.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Payment/Payment.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/HistoryMatrix/TableCompatibility.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/HistoryMatrix/TableCompatibility.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/HistoryMatrix/TablePersonal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/HistoryMatrix/TablePersonal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/diagram/Diagram.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/diagram/Diagram.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/diagram/DiagramCompatibility.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/diagram/DiagramCompatibility.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/diagram/diagram.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/diagram/diagram.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feature/DatePickers.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/DatePickers.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feature/DatePickers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/DatePickers.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feature/MatrixDiagram.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/MatrixDiagram.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feature/MatrixDiagramCompatibility.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/MatrixDiagramCompatibility.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feature/RegistrationForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/RegistrationForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/type/personalMatrix-type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/type/personalMatrix-type.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +202,7 @@
       <workItem from="1689501558611" duration="16000" />
       <workItem from="1689501599430" duration="18998000" />
       <workItem from="1689676571015" duration="2308000" />
-      <workItem from="1689842235629" duration="21798000" />
+      <workItem from="1689842235629" duration="22122000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1676555659169</created>
@@ -356,7 +342,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689538561691</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="19">
+      <option name="closed" value="true" />
+      <created>1689871514490</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1689871514490</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,6 +400,7 @@
     <MESSAGE value="16" />
     <MESSAGE value="17" />
     <MESSAGE value="18" />
-    <option name="LAST_COMMIT_MESSAGE" value="18" />
+    <MESSAGE value="19" />
+    <option name="LAST_COMMIT_MESSAGE" value="19" />
   </component>
 </project>

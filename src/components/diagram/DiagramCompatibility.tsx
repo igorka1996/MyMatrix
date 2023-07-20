@@ -586,20 +586,23 @@ export const DiagramCompatibility = () => {
       <SimpleAccordionCompatibility />
       <div className={"payOnceAndPDF"}>
         {dateRepeatCompatibility ? undefined : (
-          <Link
-            style={{ backgroundColor: "rgb(186, 130, 167)" }}
-            className={"batonStandart"}
-            to={"/pay"}
-            state={{
-              name: "Разовая расшифровка даты",
-              matrix: "compatibility",
-              price: 45000,
-              date1: state.date,
-              date2: state.date1,
-            }}
-          >
-            Олатить разовый
-          </Link>
+          <React.Fragment>
+            <span>Приобрести расшифровку данных дат</span>
+            <Link
+              style={{ backgroundColor: "rgb(186, 130, 167)" }}
+              className={"batonStandart"}
+              to={"/pay"}
+              state={{
+                name: "Разовая расшифровка даты",
+                matrix: "compatibility",
+                price: 45000,
+                date1: state.date,
+                date2: state.date1,
+              }}
+            >
+              Олатить
+            </Link>
+          </React.Fragment>
         )}
         {dateRepeatCompatibility ? (
           <Button
@@ -607,7 +610,7 @@ export const DiagramCompatibility = () => {
             variant={"contained"}
             onClick={downloadPdf}
           >
-            Скачать PDF
+            Скачать в PDF
           </Button>
         ) : undefined}
       </div>
