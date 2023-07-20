@@ -42,7 +42,7 @@ export function RegistrationForm() {
     getValues,
     control,
   } = useForm<FormRegistration>({
-    mode: "onBlur",
+    mode: "all",
   });
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleClickShowPassword1 = () => setShowPassword1((show) => !show);

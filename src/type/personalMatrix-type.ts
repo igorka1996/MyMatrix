@@ -643,4 +643,6 @@ export type MatrixDiagramCompatibilityType = {
   LMd: number;
   YMd: number;
   RRMd: number;
+  date1: string;
+  date2: string;
 };

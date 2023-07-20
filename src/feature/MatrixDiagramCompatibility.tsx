@@ -6,10 +6,12 @@ export const MatrixDiagramCompatibility = (
 ) => {
   return (
     <section
-      style={{ paddingTop: 200 }}
+      style={{ color: "#6f89ad" }}
       className="section-with-diagram section pb-0 js-section-with-diagram"
     >
-      <div className="h2 section-with-diagram__title">Персональный расчет</div>
+      <p style={{ textAlign: "center", fontSize: 25, fontWeight: "bold" }}>
+        Матрица первого партнера: {props.date1.split("-").reverse().join("-")}
+      </p>
       <div className="section-with-diagram__top-content">
         <div className="section-with-diagram__col-with-diagram">
           <div className="section-with-diagram__matrix-diagram">
@@ -721,6 +723,9 @@ export const MatrixDiagramCompatibility = (
         </div>
       </div>
 
+      <p style={{ textAlign: "center", fontSize: 25, fontWeight: "bold" }}>
+        Матрица второго партнера: {props.date2.split("-").reverse().join("-")}
+      </p>
       <div className="section-with-diagram__top-content">
         <div className="section-with-diagram__col-with-diagram">
           <div className="section-with-diagram__matrix-diagram">
@@ -1431,7 +1436,9 @@ export const MatrixDiagramCompatibility = (
           </div>
         </div>
       </div>
-
+      <p style={{ textAlign: "center", fontSize: 25, fontWeight: "bold" }}>
+        Сочетание двух матриц
+      </p>
       <div className="section-with-diagram__top-content">
         <div className="section-with-diagram__col-with-diagram">
           <div className="section-with-diagram__matrix-diagram">

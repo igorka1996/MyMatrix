@@ -537,7 +537,9 @@ export function TablePersonal(props: PropsType) {
                 <StyledTableCell component="th" scope="row">
                   {row.name}
                 </StyledTableCell>
-                <StyledTableCell align="center">{row.date}</StyledTableCell>
+                <StyledTableCell align="center">
+                  {row.date.split("-").reverse().join("-")}
+                </StyledTableCell>
                 <StyledTableCell align="center">{row.gender}</StyledTableCell>
                 <StyledTableCell align="center">{row.link}</StyledTableCell>
                 <StyledTableCell align="center">{row.Pdf}</StyledTableCell>

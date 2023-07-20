@@ -986,6 +986,38 @@
 //.slider-forecast-years .forecast-years-item.-active{
 //    background-color:#eeeef3
 //}
+
+.section-with-diagram__bottom-values-row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+
+.payOnceAndPDF {
+    width: 80%;
+    margin: 0 auto;
+    padding: 50px 0;
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    color: #6f89ad;
+    font-weight: bold;
+}
+
+.diagramName {
+    width: 80%;
+    margin: 0 auto;
+    padding: 150px 0 0 0;
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    color: #6f89ad;
+    font-weight: bold;
+}
+
+
 .matrix-diagram {
     position: relative;
     font-size: 4px;
@@ -1775,7 +1807,7 @@
 
 .diagram-values-item-horizontal {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: space-between
 }
 
@@ -1783,11 +1815,6 @@
     font-weight: 500;
     font-size: 16px;
     margin-bottom: 0;
-    padding-right: 30px
-}
-
-.diagram-values-item-horizontal__values {
-    margin-right: -2px
 }
 
 .round-values-list {
@@ -1807,8 +1834,11 @@
     margin-bottom: 10px
 }
 
+
+
 .diagram-values-item {
-    margin-bottom: 50px
+    margin: 20px;
+    min-width: 200px
 }
 
 .diagram-values-item__title {
@@ -1827,6 +1857,14 @@
     align-items: center;
     min-height: 80px
 }
+
+//.small-diagram-valuess {
+//    display: flex;
+//   justify-content: space-between;
+//    margin: 0 10px ;
+//    align-items: center;
+//    min-height: 80px
+//}
 
 .small-diagram-values__titles-block {
     padding-right: 25px;
@@ -1913,7 +1951,6 @@
         border-right: 1px solid #222831
     }
 }
-
 
 
 .health-table th, .health-table td {
@@ -2336,7 +2373,6 @@
 }
 
 
-
 @media only screen and (max-width: 400px) {
     .section-calculation__left-content {
         margin-left: -30px;
@@ -2472,7 +2508,6 @@
 }
 
 
-
 .section-with-diagram.-in-one-column .section-with-diagram__top-content {
     flex-direction: column
 }
@@ -2592,8 +2627,6 @@
 }
 
 
-
-
 @media only screen and (min-width: 992px) {
     .section-with-diagram__col-with-diagram {
         padding-left: 20px;
@@ -2626,7 +2659,6 @@
         margin-right: 0
     }
 }
-
 
 
 .section-with-diagram__title {

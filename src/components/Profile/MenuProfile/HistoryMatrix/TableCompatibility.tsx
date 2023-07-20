@@ -191,10 +191,10 @@ export function TableCompatibility() {
             {rows?.map((row) => (
               <StyledTableRow key={row.partnerOne}>
                 <StyledTableCell component="th" scope="row">
-                  {row.partnerOne}
+                  {row.partnerOne.split("-").reverse().join("-")}
                 </StyledTableCell>
                 <StyledTableCell align="center">
-                  {row.partnerTwo}
+                  {row.partnerTwo.split("-").reverse().join("-")}
                 </StyledTableCell>
                 <StyledTableCell align="center">{row.link}</StyledTableCell>
                 <StyledTableCell align="center">{row.pdf}</StyledTableCell>

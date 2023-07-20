@@ -331,26 +331,18 @@ export const DiagramCompatibility = () => {
   }
   return (
     <>
-      {!dateRepeatCompatibility ? (
-        <Link
-          style={{ backgroundColor: "rgb(186, 130, 167)" }}
-          className={"batonStandart"}
-          to={"/pay"}
-          state={{
-            name: "Разовая расшифровка даты",
-            matrix: "compatibility",
-            price: 45000,
-            date1: state.date,
-            date2: state.date1,
-          }}
-        >
-          Олатить разовый
-        </Link>
-      ) : undefined}
-      {dateRepeatCompatibility ? (
-        <Button onClick={downloadPdf}>Скачать PDF</Button>
-      ) : undefined}
+      <div className={"diagramName"}>
+        Матрица совместимости
+        <br />
+        Дата рождения первого партнера:{" "}
+        {state.date.split("-").reverse().join("-")}
+        <br />
+        Дата рождения второго партнера:{" "}
+        {state.date1.split("-").reverse().join("-")}
+      </div>
       <MatrixDiagramCompatibility
+        date1={state.date}
+        date2={state.date1}
         LP1={LP1}
         LZ={LZ}
         LN={LN}
@@ -592,6 +584,33 @@ export const DiagramCompatibility = () => {
         RRMd={RRMd}
       />
       <SimpleAccordionCompatibility />
+      <div className={"payOnceAndPDF"}>
+        {dateRepeatCompatibility ? undefined : (
+          <Link
+            style={{ backgroundColor: "rgb(186, 130, 167)" }}
+            className={"batonStandart"}
+            to={"/pay"}
+            state={{
+              name: "Разовая расшифровка даты",
+              matrix: "compatibility",
+              price: 45000,
+              date1: state.date,
+              date2: state.date1,
+            }}
+          >
+            Олатить разовый
+          </Link>
+        )}
+        {dateRepeatCompatibility ? (
+          <Button
+            style={{ backgroundColor: "#ba82a7" }}
+            variant={"contained"}
+            onClick={downloadPdf}
+          >
+            Скачать PDF
+          </Button>
+        ) : undefined}
+      </div>
     </>
   );
 };

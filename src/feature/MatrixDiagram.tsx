@@ -67,10 +67,9 @@ export const MatrixDiagram = (props: MatrixDiagramType) => {
 
   return (
     <section
-      style={{ paddingTop: 200 }}
+      style={{ color: "#6f89ad" }}
       className="section-with-diagram section pb-0 js-section-with-diagram"
     >
-      <div className="h2 section-with-diagram__title">Персональный расчет</div>
       <div className="section-with-diagram__top-content">
         <div className="section-with-diagram__col-with-table">
           <div className="h5 section-with-diagram__table-title">
@@ -1166,9 +1165,7 @@ export const MatrixDiagram = (props: MatrixDiagramType) => {
         </div>
       </div>
 
-      <div>Таблица</div>
-
-      <div className="section-with-diagram__bottom-values-row row">
+      <div className="section-with-diagram__bottom-values-row">
         <div className="col">
           <div className="diagram-values-item">
             <div className="h6 diagram-values-item__title">Поиск себя</div>
@@ -1287,11 +1284,15 @@ export const MatrixDiagram = (props: MatrixDiagramType) => {
               </div>
             </div>
           </div>
-
+        </div>
+        <div className="col">
           <div className="diagram-values-item">
             <div className="h6 diagram-values-item__title">Личная сила</div>
             <div className="diagram-values-item__description text-block">
-              <p>Духовный зачет. Кто я для бога? Где божественное во мне?</p>
+              <p>
+                Духовный зачет. Кто я для бога? <br />
+                Где божественное во мне?
+              </p>
             </div>
             <div className="small-diagram-values">
               <div
@@ -1302,7 +1303,8 @@ export const MatrixDiagram = (props: MatrixDiagramType) => {
               </div>
             </div>
           </div>
-
+        </div>
+        <div className="col">
           <div className="diagram-values-item">
             <div className="h6 diagram-values-item__title">Сила рода</div>
             <div className="diagram-values-item__description text-block">
@@ -1318,54 +1320,41 @@ export const MatrixDiagram = (props: MatrixDiagramType) => {
             </div>
           </div>
         </div>
+
+        <div className="col">
+          <div className="diagram-values-item">
+            <div className="h6 diagram-values-item__title">Код внутренней</div>
+            <div className="diagram-values-item__description text-block">
+              <p>Духовный зачет. Кто я для бога? Где божественное во мне?</p>
+            </div>
+            <div className="small-diagram-values">
+              <div
+                className="diagram-value js-personal-calculation-item"
+                data-personal-calculation-position="s"
+              >
+                {props.X}
+              </div>
+              <div
+                className="diagram-value js-personal-calculation-item"
+                data-personal-calculation-position="s"
+              >
+                {props.Y}
+              </div>
+              <div
+                className="diagram-value js-personal-calculation-item"
+                data-personal-calculation-position="s"
+              >
+                {props.XY}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <ul className="diagram-values-list">
-        <li className="diagram-values-list__item">
-          <div className="diagram-values-item-horizontal">
-            <div className="h6 diagram-values-item-horizontal__title">
-              Код внутренней силы
-            </div>
-            <ul className="diagram-values-item-horizontal__values round-values-list">
-              <li
-                style={{ listStyleType: "none" }}
-                className="round-values-list__item"
-              >
-                <div
-                  className="diagram-value js-personal-calculation-item"
-                  data-personal-calculation-position="f"
-                >
-                  {props.X}
-                </div>
-              </li>
-              <li
-                style={{ listStyleType: "none" }}
-                className="round-values-list__item"
-              >
-                <div
-                  className="diagram-value js-personal-calculation-item"
-                  data-personal-calculation-position="y"
-                >
-                  {props.Y}
-                </div>
-              </li>
-              <li
-                style={{ listStyleType: "none" }}
-                className="round-values-list__item"
-              >
-                <div
-                  className="diagram-value js-personal-calculation-item"
-                  data-personal-calculation-position="o"
-                >
-                  {props.XY}
-                </div>
-              </li>
-            </ul>
-          </div>
-        </li>
-      </ul>
       <table className={"tableDiagram"}>
-        <caption>Ваши доминирующие энергии</caption>
+        <caption style={{ fontSize: 25, fontWeight: "bold" }}>
+          Доминирующие энергии
+        </caption>
         <thead>
           <tr>
             <th scope="col"></th>

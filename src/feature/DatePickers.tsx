@@ -85,14 +85,83 @@ export function DatePickers() {
   ) => {
     setValue1(e.currentTarget.value);
   };
-  console.log(value);
   const onClickHandlerMatrix = (value: string) => {
     setMatrix(value);
   };
+
+  const subscribe = () => {
+    return sub.filter((e: any) =>
+      e.subscribe === "Пробный" && e.access ? e : null
+    )[0];
+  };
+  const subscribeAll = () => {
+    return sub.filter((e: any) =>
+      (e.subscribe === "Вместе и навсегда" && e.access) ||
+      (e.subscribe === "Видео-курс + Вместе и навсегда" && e.access)
+        ? e
+        : null
+    )[0];
+  };
+  const subAll = subscribeAll();
+  const subscribeMonth = () => {
+    return sub.filter((e: any) =>
+      e.subscribe === "Матрица на месяц" && e.access ? e : null
+    )[0];
+  };
+  let day;
+  let month;
+  let year;
+  const timestamp = subscribeMonth()?.expiresSub
+    ? new Date(subscribeMonth().expiresSub)
+    : undefined;
+  if (timestamp) {
+    day = timestamp.getDate();
+    month = timestamp.getMonth() + 1;
+    year = timestamp.getFullYear();
+  }
+  const proba = subscribe();
   return (
     <React.Fragment>
       <div className={"backImageDate"}></div>
       <section className={"sectionDate"}>
+        {subAll ? (
+          <p className={"pom"}>Безлимитные расшифровки навсегда</p>
+        ) : undefined}
+        {timestamp ? (
+          <p className={"pom"}>{`Безлимитные расшифровки до ${
+            day ? (day > 9 ? day : "0" + day) : undefined
+          }-${month ? (month > 9 ? month : "0" + month) : undefined}-${
+            year ? year : undefined
+          }`}</p>
+        ) : undefined}
+        {matrix === "personal" && !subAll ? (
+          proba?.personal !== undefined && proba.personal > 0 ? (
+            <p className={"pom"}>
+              Вам доступно:{" "}
+              {proba.personal > 1
+                ? `${proba.personal} расшифровки`
+                : `${proba.personal} расшифровка`}
+            </p>
+          ) : undefined
+        ) : matrix === "children" && !subAll ? (
+          proba?.children !== undefined && proba.children > 0 ? (
+            <p className={"pom"}>
+              Вам доступно:{" "}
+              {proba.children > 1
+                ? `${proba.children} расшифровки`
+                : `${proba.children} расшифровка`}
+            </p>
+          ) : undefined
+        ) : proba?.compatibility !== undefined &&
+          proba.compatibility > 0 &&
+          !subAll ? (
+          <p className={"pom"}>
+            Вам доступно:{" "}
+            {proba.compatibility > 1
+              ? `${proba.compatibility} расшифровки`
+              : `${proba.compatibility} расшифровка`}
+          </p>
+        ) : undefined}
         <div className={"matrixSearch"}>
           <span
             onClick={() => onClickHandlerMatrix("personal")}

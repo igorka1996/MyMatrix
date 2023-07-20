@@ -24,43 +24,45 @@ export const Profile = () => {
   }
   return (
     <div className={"profileSection"}>
-      <div className={"profileMenu"}>
-        <NavLink
-          className={({ isActive }) => clasNam(isActive)}
-          to={"/profile/user"}
-        >
-          Профиль
-        </NavLink>
-        <NavLink
-          className={({ isActive }) => clasNam(isActive)}
-          to={"/profile/tarif"}
-        >
-          Мой тариф
-        </NavLink>
-        <NavLink
-          className={({ isActive }) => clasNam(isActive)}
-          to={"/profile/mymatrix"}
-        >
-          История поиска матрицы
-        </NavLink>
-        <NavLink
-          className={({ isActive }) => clasNam(isActive)}
-          to={"/profile/orders"}
-        >
-          История заказов
-        </NavLink>
-        <NavLink
-          className={({ isActive }) => clasNam(isActive)}
-          to={"/profile/learn"}
-        >
-          Видео-Обучение
-        </NavLink>
-        <NavLink
-          className={({ isActive }) => clasNam(isActive)}
-          to={"/profile/support"}
-        >
-          Написать в поддержку
-        </NavLink>
+      <div className={"glavProfileMenu"}>
+        <div className={"profileMenu"}>
+          <NavLink
+            className={({ isActive }) => clasNam(isActive)}
+            to={"/profile/user"}
+          >
+            Профиль
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => clasNam(isActive)}
+            to={"/profile/tarif"}
+          >
+            Мой тариф
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => clasNam(isActive)}
+            to={"/profile/mymatrix"}
+          >
+            История поиска матриц
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => clasNam(isActive)}
+            to={"/profile/orders"}
+          >
+            История заказов
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => clasNam(isActive)}
+            to={"/profile/learn"}
+          >
+            Видео-Обучение
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => clasNam(isActive)}
+            to={"/profile/support"}
+          >
+            Написать в поддержку
+          </NavLink>
+        </div>
       </div>
       <div className={"profileMenuSection"}>
         <Routes>

@@ -496,30 +496,18 @@ export const Diagram = () => {
       </div>
     );
   }
-  console.log(dateRepeatChildren);
-  console.log(dateRepeatPersonal);
   return (
     <>
-      {!dateRepeatChildren || !dateRepeatPersonal ? (
-        <Link
-          style={{ backgroundColor: "rgb(186, 130, 167)" }}
-          className={"batonStandart"}
-          to={"/pay"}
-          state={{
-            name: "Разовая расшифровка даты",
-            matrix: state.child ? "child" : "personal",
-            price: 45000,
-            date: state.date,
-            gender: state.male,
-            username: state.name,
-          }}
-        >
-          Олатить разовый
-        </Link>
-      ) : undefined}
-      {dateRepeatChildren || dateRepeatPersonal ? (
-        <Button onClick={downloadPdf}>Скачать PDF</Button>
-      ) : undefined}
+      <div className={"diagramName"}>
+        {state.child ? "Детская матрица" : "Персональная матрица"}
+        <br />
+        Имя: {state.name}
+        <br />
+        Дата рождения: {state.date.split("-").reverse().join("-")}
+        <br />
+        Пол: {state.male === "M" ? "Мужской" : "Женский"}
+      </div>
+
       <MatrixDiagram
         LP1={LP1}
         LZ={LZ}
@@ -733,6 +721,41 @@ export const Diagram = () => {
           EBBB={EBBB}
         />
       )}
+      <div className={"payOnceAndPDF"}>
+        {dateRepeatChildren || dateRepeatPersonal ? undefined : (
+          <React.Fragment>
+            <span>Приобрести расшифровку данной даты</span>
+            <Link
+              style={{
+                backgroundColor: "rgb(186, 130, 167)",
+                width: 150,
+                marginLeft: 20,
+              }}
+              className={"batonStandart"}
+              to={"/pay"}
+              state={{
+                name: "Разовая расшифровка даты",
+                matrix: state.child ? "child" : "personal",
+                price: 45000,
+                date: state.date,
+                gender: state.male,
+                username: state.name,
+              }}
+            >
+              Олатить
+            </Link>
+          </React.Fragment>
+        )}
+        {dateRepeatChildren || dateRepeatPersonal ? (
+          <Button
+            style={{ backgroundColor: "#ba82a7" }}
+            variant={"contained"}
+            onClick={downloadPdf}
+          >
+            Скачать в PDF
+          </Button>
+        ) : undefined}
+      </div>
     </>
   );
 };
