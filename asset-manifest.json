@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/MyMatrix/static/css/main.9bec096a.css",
+    "main.css": "/MyMatrix/static/css/main.3f2ebf11.css",
     "main.js": "/MyMatrix/static/js/main.51eda062.js",
     "static/media/Balance.jpg": "/MyMatrix/static/media/Balance.fea5384340cb0893d3e4.jpg",
     "static/media/mark.png": "/MyMatrix/static/media/mark.ede45ec649a7eaec696a.png",
@@ -17,11 +17,11 @@
     "static/media/pacifico-vietnamese-400-normal.woff2": "/MyMatrix/static/media/pacifico-vietnamese-400-normal.bd5387ce81f7c383a0a3.woff2",
     "static/media/bebas-neue-latin-ext-400-normal.woff2": "/MyMatrix/static/media/bebas-neue-latin-ext-400-normal.f2363170269a33a9c268.woff2",
     "index.html": "/MyMatrix/index.html",
-    "main.9bec096a.css.map": "/MyMatrix/static/css/main.9bec096a.css.map",
+    "main.3f2ebf11.css.map": "/MyMatrix/static/css/main.3f2ebf11.css.map",
     "main.51eda062.js.map": "/MyMatrix/static/js/main.51eda062.js.map"
   },
   "entrypoints": [
-    "static/css/main.9bec096a.css",
+    "static/css/main.3f2ebf11.css",
     "static/js/main.51eda062.js"
   ]
 }
