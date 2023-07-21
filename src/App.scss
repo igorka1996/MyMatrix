@@ -267,31 +267,33 @@ select {
     }
     .burger-icon {
         display: block;
-        width: 30px;
-        height: 20px;
+        width: 40px;
+        height: 40px;
         position: relative;
         cursor: pointer;
+        padding: 20px;
+        left: 15px;
     }
 
     .burger-icon::before,
     .burger-icon::after {
         content: "";
         position: absolute;
-        width: 35px;
-        height: 3px;
+        width: 40px;
+        height: 4px;
         background-color: #333;
         top: 8px;
         transition: transform 0.2s ease-in-out;
-        left: 10px;
+        left: 0;
         z-index: 2;
     }
 
     .burger-icon::before {
-        top: 0;
+        top: 8px;
     }
 
     .burger-icon::after {
-        top: 16px;
+        top: 24px;
     }
 
     /* Анимация для иконки меню "бургер" при активации */

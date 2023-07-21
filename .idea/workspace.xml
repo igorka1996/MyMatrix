@@ -4,30 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="20">
-      <change afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/LearnPay.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fondeva.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/matr.jpeg" afterDir="false" />
+    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="21">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/1njpg.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/API.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/API.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Osnova.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Osnova.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Payment/Payment.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Payment/Payment.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Payment/Payment.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Payment/Payment.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Orders/Orders.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Orders/Orders.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Orders/Orders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Orders/Orders.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Tarif/Tarif.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Tarif/Tarif.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/diagram/DiagramCompatibility.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/diagram/DiagramCompatibility.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/diagram/diagram.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/diagram/diagram.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feature/DatePickers.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/DatePickers.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feature/ForecastForTheYear.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/ForecastForTheYear.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feature/ForecastForTheYearChildren.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/ForecastForTheYearChildren.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux-store/personalMatrix-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/personalMatrix-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux-store/personalMatrixChildren-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/personalMatrixChildren-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux-store/registration-login-auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/registration-login-auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +204,7 @@
       <workItem from="1689676571015" duration="2308000" />
       <workItem from="1689842235629" duration="30619000" />
       <workItem from="1689931822532" duration="15992000" />
-      <workItem from="1689954023233" duration="3891000" />
+      <workItem from="1689954023233" duration="5021000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1676555659169</created>
@@ -381,7 +360,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689871781082</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="21">
+      <option name="closed" value="true" />
+      <created>1689958637215</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1689958637215</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -433,6 +420,7 @@
     <MESSAGE value="18" />
     <MESSAGE value="19" />
     <MESSAGE value="20" />
-    <option name="LAST_COMMIT_MESSAGE" value="20" />
+    <MESSAGE value="21" />
+    <option name="LAST_COMMIT_MESSAGE" value="21" />
   </component>
 </project>
