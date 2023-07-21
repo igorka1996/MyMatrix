@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import "./App.css";
+import React, { ChangeEvent, useEffect, useState } from "react";
+import "./App.scss";
 import { Diagram } from "./components/diagram/Diagram";
 import { Link, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { Success } from "./components/Payment/Success/Success";
@@ -26,11 +26,13 @@ import { DiagramCompatibility } from "./components/diagram/DiagramCompatibility"
 import { PlusSupport } from "./feature/PlusSupport";
 import { SuccessDateOnce } from "./components/Payment/Success/SuccessDateOnce";
 import { SuccessLesson } from "./components/Payment/Success/SuccessLesson";
+import { LearnPay } from "./components/LearnPay";
+import HomeIcon from "@mui/icons-material/Home";
 
 function App() {
   const loc = useLocation();
   const dispatch = useAppDispatch();
-  const matrixWait = useAppSelector((state) => state.errorReducer.matrixWait);
+  const [check, setCheck] = useState(false);
   const auth = useAppSelector((state) => state.registrationReducer.auth);
   const initialize = useAppSelector((state) => state.errorReducer.initialize);
   const fromPage = loc.state?.pathname || "/";
@@ -64,19 +66,50 @@ function App() {
   if (initialize && fromPage !== "/" && auth) {
     return <Navigate to={fromPage} replace />;
   }
+  const checkBurgerFunc = (e: ChangeEvent<HTMLInputElement>) => {
+    setCheck(e.currentTarget.checked);
+  };
 
+  const closeBurger = () => {
+    setCheck(false);
+  };
   return (
     <div className="App">
       <PlusSupport />
       {loc.pathname === "/welcome" ? undefined : (
         <div className={"header"}>
-          <div className={"headerList"}>
-            <Link to={"/"}>
-              <IconHome />
+          <input
+            onChange={checkBurgerFunc}
+            checked={check}
+            type="checkbox"
+            id="toggle-menu"
+          />
+          <label htmlFor="toggle-menu" className="burger-icon"></label>
+          <div className={`headerList ${check ? "activeBurger" : ""}`}>
+            <Link onClick={closeBurger} to={"/"}>
+              <HomeIcon className={"ef"} />
             </Link>
-            <span className={"menuSpan"}>О МЕТОДЕ</span>
-            <span className={"menuSpan"}>О НАС</span>
-            <Anchor smooth to={"/#tarif"} className={"menuSpan"}>
+            <span onClick={closeBurger} className={"menuSpan"}>
+              О МЕТОДЕ
+            </span>
+            <span onClick={closeBurger} className={"menuSpan"}>
+              О НАС
+            </span>
+            {/*<span className={"menuSpan"}>ОБУЧЕНИЕ</span>*/}
+            <Link
+              onClick={closeBurger}
+              style={{ marginRight: 20, fontSize: 20 }}
+              className={"menuSpan"}
+              to={"/learn"}
+            >
+              ОБУЧЕНИЕ
+            </Link>
+            <Anchor
+              onClick={closeBurger}
+              smooth
+              to={"/#tarif"}
+              className={"menuSpan"}
+            >
               ТАРИФЫ
             </Anchor>
           </div>
@@ -122,6 +155,7 @@ function App() {
           element={<DiagramCompatibility />}
         />
         <Route path={"/success"} element={<Success />} />
+        <Route path={"/learn"} element={<LearnPay />} />
         <Route path={"/success-date-once"} element={<SuccessDateOnce />} />
         <Route path={"/success-lesson"} element={<SuccessLesson />} />
         <Route path={"/error"} element={<Error />} />

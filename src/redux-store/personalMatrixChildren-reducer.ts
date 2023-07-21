@@ -4,6 +4,7 @@ import { HandleError } from "../utils/errors";
 import { PersonalMatrixChildren } from "../type/personalMatrixChildren-type";
 import { subAC } from "./registration-login-auth";
 import { matrixWaitAC } from "./error-wait-reducer";
+import { dateRepeatPersonal } from "./personalMatrix-reducer";
 
 const initialState: PersonalMatrixChildren = {
   data: {
@@ -44,6 +45,9 @@ const slice = createSlice({
     logOutMatrixChildrenAC() {
       return initialState;
     },
+    dateRepeatChildren(state) {
+      state.data.dateRepeat = false;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getPersonalMatrixChildren.fulfilled, (state, action) => {
@@ -53,7 +57,7 @@ const slice = createSlice({
 });
 
 export const personalMatrixChildrenReducer = slice.reducer;
-export const { logOutMatrixChildrenAC } = slice.actions;
+export const { logOutMatrixChildrenAC, dateRepeatChildren } = slice.actions;
 export const getPersonalMatrixChildren = createAsyncThunk(
   "personalMatrixChildren/post",
   async (
@@ -80,6 +84,7 @@ export const getPersonalMatrixChildren = createAsyncThunk(
   ) => {
     try {
       dispatch(matrixWaitAC({ matrixWait: true }));
+      dispatch(dateRepeatPersonal());
       dispatch(logOutMatrixChildrenAC());
       const res = await personalMatrixAPI.getPersonalMatrixChildren(
         param.isPersonalQualitiesChildren,

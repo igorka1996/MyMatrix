@@ -589,7 +589,11 @@ export const DiagramCompatibility = () => {
           <React.Fragment>
             <span>Приобрести расшифровку данных дат</span>
             <Link
-              style={{ backgroundColor: "rgb(186, 130, 167)" }}
+              style={{
+                backgroundColor: "rgb(186, 130, 167)",
+                width: 150,
+                marginLeft: 20,
+              }}
               className={"batonStandart"}
               to={"/pay"}
               state={{

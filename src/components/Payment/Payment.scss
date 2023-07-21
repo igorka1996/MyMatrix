@@ -1,124 +1,135 @@
 .allPay {
-  height: 100%;
-  width: 80%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  flex-direction: column; }
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 
 .backColor {
-  width: 100%;
-  display: flex;
-  align-items: center; }
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.otstup{
+    padding-top: 150px;
+}
 
 .spanPay {
-  color: white;
-  text-shadow: -1px -1px 0 #964B00, 1px -1px 0 #964B00, -1px 1px 0 #964B00, 1px 1px 0 #964B00;
-  font-weight: bold;
-  font-size: 35px;
-  text-align: center; }
+    color: white;
+    text-shadow: -1px -1px 0 #964B00, 1px -1px 0 #964B00, -1px 1px 0 #964B00, 1px 1px 0 #964B00;
+    font-weight: bold;
+    font-size: 35px;
+    text-align: center;
+}
 
 .ulPay {
-  font-size: 19px;
-  color: white;
-  font-weight: bold; }
+    font-size: 19px;
+    color: white;
+    font-weight: bold;
+}
 
 .fiol {
-  text-shadow: -1px -1px 0 #9486b3, 1px -1px 0 #9486b3, -1px 1px 0 #9486b3, 1px 1px 0 #9486b3; }
+    text-shadow: -1px -1px 0 #9486b3, 1px -1px 0 #9486b3, -1px 1px 0 #9486b3, 1px 1px 0 #9486b3;
+}
 
 .ic {
-  margin-right: 5px; }
+    margin-right: 5px;
+}
 
 .tarifText {
-  font-size: 55px;
-  font-weight: bold;
-  margin: 65px 0;
-  color: #9486b3; }
+    font-size: 55px;
+    font-weight: bold;
+    margin: 65px 0;
+    color: #9486b3;
+}
 
 .card {
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  transition: .5s; }
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    height: 400px;
+    width: 420px;
+    transition: .5s;
+}
 
 .card:hover {
-  transition: .5s;
-  transform: scale(1.05); }
+    transition: .5s;
+    transform: scale(1.05);
+}
 
 .listPay {
-  display: grid;
-  gap: 10px;
-  height: auto;
-  width: 100%;
-  margin-bottom: 80px;
-  grid-template-areas: "D D D D   D D E E   E E E E   A A A A" "B B B B   B B B B   C C C C   A A A A" "B B B B   B B B B   C C C C   A A A A"; }
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 80px;
+}
 
 .price {
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-  color: white;
-  font-weight: bold;
-  font-size: 30px;
-  margin-bottom: 15px; }
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
 
 .batonStandart {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  background-color: #ba82a7;
-  border: none;
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
-  border-radius: 5px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-  font-weight: 700;
-  padding: 5px; }
-
-
-
-
-
-
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: #317c53;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    font-weight: 700;
+    padding: 5px;
+}
 
 
 .batonStandart:hover {
-  box-shadow: 0 0 5px 2px #fff;
-  background-color: #ba82a7; }
+    box-shadow: 0 0 5px 2px #fff;
+    background-color: #317c53;
+}
 
 .box1 {
-  grid-area: A;
-  background-color: #6f89ad !important; }
-
-
-
+    //width: 420px;
+    background-color: #6f89ad !important;
+}
 
 
 ul {
-  list-style-type: none; }
+    list-style-type: none;
+}
 
 .box2 {
-
-
-  grid-area: B;
-  background-color: #e4e4ce !important; }
-
+    //width: 420px;
+    background-color: #e4e4ce !important;
+}
 
 
 .box3 {
-  grid-area: C;
-  background-color: #9486b3 !important; }
+    //width: 420px;
+    background-color: #9486b3 !important;
+}
 
 .box4 {
-  grid-area: D;
-  background-color: #ba82a7 !important; }
+    //width: 420px;
+    background-color: #ba82a7 !important;
+}
 
 .box5 {
-  grid-area: E;
-  background-color: #deb0a1 !important; }
+    //width: 420px;
+    background-color: #deb0a1 !important;
+}

@@ -5,12 +5,16 @@ import { PersonalMatrixChildrenAPI } from "../type/personalMatrixChildren-type";
 import { MatrixCompatibilityAPI } from "../type/matrixCompatibility-type";
 
 const instance = axios.create({
-  baseURL: "http://localhost:4444/",
+  baseURL: " http://localhost:4444/",
   withCredentials: true,
 });
 
 instance.interceptors.request.use((config) => {
   config.headers.Authorization = Cookies.get("token");
+  // config.headers.Authorization = Cookies.get("token")
+  //   ? Cookies.get("token")
+  //   : localStorage.getItem("token");
+  // config.headers.Authorization = localStorage.getItem("token");
   return config;
 });
 

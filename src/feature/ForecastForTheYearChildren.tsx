@@ -12,6 +12,7 @@ import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { PropsTypeForecastTheYearChildren } from "../type/personalMatrix-type";
+import { useAppSelector } from "../redux-store/store";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -43,6 +44,9 @@ function TabPanel(props: TabPanelProps) {
 export const ForecastForTheYearChildren = (
   props: PropsTypeForecastTheYearChildren
 ) => {
+  const dateRepeatChildren = useAppSelector(
+    (state) => state.personalMatrixChildrenReducer.data.dateRepeat
+  );
   function a11yProps(index: number) {
     return {
       id: `full-width-tab-${index}`,
@@ -75,7 +79,9 @@ export const ForecastForTheYearChildren = (
     setValue(index);
   };
   const disabledTab = (index: number) => {
-    return props.repeat ? !props.repeat : value !== index && !props.yes;
+    return dateRepeatChildren
+      ? !dateRepeatChildren
+      : value !== index && !props.yes;
   };
   return (
     <Box sx={{ bgcolor: "background.paper", width: "100%" }}>

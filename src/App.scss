@@ -1,0 +1,522 @@
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+    padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+    list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+    margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@media (max-width: 1208px) {
+    .menuSpan {
+        text-decoration: none;
+        cursor: pointer;
+        color: white;
+        font-size: 17px !important;
+        font-weight: bold;
+        margin: 35px 25px !important;
+    }
+    .batonStandart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        background-color: #317c53;
+        border: none;
+        color: white;
+        font-size: 17px !important;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+        font-weight: 700;
+        padding: 5px;
+    }
+}
+
+
+@media (max-width: 1011px) {
+    .menuSpan {
+        text-decoration: none;
+        cursor: pointer;
+        color: white;
+        font-size: 16px !important;
+        font-weight: bold;
+        margin: 30px 20px !important;
+    }
+
+    .batonStandart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        background-color: #317c53;
+        border: none;
+        color: white;
+        font-size: 16px !important;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+        font-weight: 700;
+        padding: 5px;
+    }
+
+
+    .backImage {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        background: url('fondeva.JPG') no-repeat 50% !important;
+        background-size: cover;
+    }
+
+
+    .h1 {
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        position: absolute;
+        top: 400px !important;
+        font-size: 80px !important;
+        color: #588e7f;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .baton {
+        text-decoration: none;
+        background-color: #317c53;
+        border: none;
+        color: white;
+        padding: 20px 20px;
+        display: inline-block;
+        font-size: 20px !important;
+        cursor: pointer;
+        border-radius: 5px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    }
+}
+
+
+@media (max-width: 903px) {
+    .menuSpan {
+        text-decoration: none;
+        cursor: pointer;
+        color: white;
+        font-size: 13px !important;
+        font-weight: bold;
+        margin: 20px 10px !important;
+    }
+
+    .batonStandart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        background-color: #317c53;
+        border: none;
+        color: white;
+        font-size: 13px !important;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+        font-weight: 700;
+        padding: 5px;
+    }
+
+
+    .h1 {
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        position: absolute;
+        top: 400px !important;
+        font-size: 60px !important;
+        color: #588e7f;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .baton {
+        text-decoration: none;
+        background-color: #317c53;
+        border: none;
+        color: white;
+        padding: 20px 20px;
+        display: inline-block;
+        font-size: 17px !important;
+        cursor: pointer;
+        border-radius: 5px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    }
+}
+
+
+@media (max-width: 710px) {
+
+    .header {
+        top: 0 !important;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+        width: 100% !important;
+        right: 50%;
+        transform: translateX(50%);
+        height: 80px;
+        background-color: #9FBEB7;
+        border-radius: 0 !important;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+    }
+    .headerList {
+        display: flex;
+        justify-content: flex-start !important;
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+        color: black !important;
+        background-color: white;
+        align-items: center;
+        position: absolute;
+        top: -1000%;
+        z-index: 1;
+        transition: .5s ease;
+    }
+    .activeBurger {
+        top: 0 !important;
+        transition: .5s ease;
+    }
+    .ef{
+        font-size: 50px !important;
+        color: black !important;
+    }
+    .burger-icon {
+        display: block;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .burger-icon::before,
+    .burger-icon::after {
+        content: "";
+        position: absolute;
+        width: 35px;
+        height: 3px;
+        background-color: #333;
+        top: 8px;
+        transition: transform 0.2s ease-in-out;
+        left: 10px;
+        z-index: 2;
+    }
+
+    .burger-icon::before {
+        top: 0;
+    }
+
+    .burger-icon::after {
+        top: 16px;
+    }
+
+    /* Анимация для иконки меню "бургер" при активации */
+    #toggle-menu:checked ~ .burger-icon::before {
+        transform: translateY(8px) rotate(-45deg);
+    }
+
+    #toggle-menu:checked ~ .burger-icon::after {
+        transform: translateY(-8px) rotate(45deg);
+    }
+
+    #toggle-menu {
+        display: none;
+    }
+
+
+    .menuSpan {
+        text-decoration: none;
+        cursor: pointer;
+        color: black !important;
+        font-size: 20px !important;
+        font-weight: bold;
+        margin: 20px 10px !important;
+    }
+
+    .batonStandart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        background-color: #317c53;
+        border: none;
+        color: white;
+        font-size: 13px !important;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+        font-weight: 700;
+        padding: 5px;
+    }
+
+
+    .h1 {
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        position: absolute;
+        top: 350px !important;
+        font-size: 60px !important;
+        color: #588e7f;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .baton {
+        text-decoration: none;
+        background-color: #317c53;
+        border: none;
+        color: white;
+        padding: 20px 20px;
+        display: inline-block;
+        font-size: 17px !important;
+        cursor: pointer;
+        border-radius: 5px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    }
+
+    .AppLow {
+        height: 100vh;
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+    }
+
+    .matrixText {
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        font-size: 80px !important;
+        line-height: 40px;
+        text-align: center;
+        color: #588e7f;
+        padding-top: 20px;
+    }
+}
+
+
+.header {
+    top: 30px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    width: 80%;
+    right: 50%;
+    transform: translateX(50%);
+    height: 80px;
+    background-color: #9FBEB7;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+}
+
+.matrixText {
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    font-size: 100px;
+    line-height: 40px;
+    text-align: center;
+    color: #588e7f;
+    padding-top: 20px;
+}
+
+
+.h1 {
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    position: absolute;
+    top: 450px;
+    font-size: 100px;
+    color: #588e7f;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.divLog {
+    display: flex;
+    margin-right: 20px;
+}
+
+
+.baton {
+    text-decoration: none;
+    background-color: #317c53;
+    border: none;
+    color: white;
+    padding: 20px 20px;
+    display: inline-block;
+    font-size: 25px;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+}
+
+
+.baton::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    width: 200%;
+    display: flex;
+    align-items: center;
+    bottom: -10px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    border-radius: 5px;
+    animation: shining 1s infinite alternate linear;
+}
+
+
+.baton:hover {
+    box-shadow: 0 0 5px 2px #fff;
+}
+
+
+@keyframes shining {
+    0% {
+        transform: translateX(-60%);
+    }
+    100% {
+        transform: translateX(60%);
+    }
+}
+
+
+.headerList {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.App {
+    position: relative;
+    font-family: "Bebas Neue", cursive;
+    width: 100%;
+}
+
+.backImage {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background: url('fondeva.JPG') no-repeat center left;
+    background-size: cover;
+}
+
+
+.AppLow {
+    height: 100vh;
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+}
+
+
+.menuSpan {
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 50px 40px;
+}
+
+.menuSpan:hover {
+    color: rgb(186, 130, 167);
+}
+
+.icon:hover {
+    color: rgb(186, 130, 167);
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+}
+

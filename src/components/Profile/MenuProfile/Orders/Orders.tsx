@@ -30,7 +30,20 @@ export const Orders = () => {
           style={{ backgroundColor: "rgb(148, 134, 179)" }}
           className={"spanOrders"}
         >
-          Дата приобретения: <span className={"spanOrdersMap"}>{el.date}</span>
+          Дата приобретения:{" "}
+          <span className={"spanOrdersMap"}>
+            {el.date.replace(
+              /(\d+)-(\d+)-(\d+) (\d+):(\d+):(\d+)/,
+              (_, year, month, day, hour, minute, second) =>
+                `${day.padStart(2, "0")}-${month.padStart(
+                  2,
+                  "0"
+                )}-${year} ${hour.padStart(2, "0")}:${minute.padStart(
+                  2,
+                  "0"
+                )}:${second.padStart(2, "0")}`
+            )}
+          </span>
         </span>
         <span
           style={{ backgroundColor: "rgb(222, 176, 161)" }}

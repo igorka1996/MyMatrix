@@ -81,6 +81,7 @@ const slice = createSlice({
       state.historyOfOrders = action.payload.orders;
       state.totalAmount = action.payload.totalAmount;
       state.avatar = action.payload.avatar;
+      // localStorage.setItem("token", action.payload.token);
     });
     builder.addCase(payAndRegistrationThunk.fulfilled, (state, action) => {
       state.name = action.payload.name;
@@ -94,6 +95,7 @@ const slice = createSlice({
       state.historyOfOrders = action.payload.orders;
       state.totalAmount = action.payload.totalAmount;
       state.avatar = "";
+      // localStorage.setItem("token", action.payload.token);
       window.location.assign(action.payload.url);
     });
     builder.addCase(authThunk.fulfilled, (state, action) => {
@@ -114,12 +116,14 @@ const slice = createSlice({
       state.email = action.payload.email;
       state.surname = action.payload.surname;
       state.id = action.payload.id;
+      state.phone = action.payload.phone;
       state.token = action.payload.token;
       state.auth = action.payload.auth;
       state.avatar = action.payload.avatar;
       state.subscription = action.payload.sub;
       state.historyOfOrders = action.payload.orders;
       state.totalAmount = action.payload.totalAmount;
+      // localStorage.setItem("token", action.payload.token);
     });
     builder.addCase(logOutThunk.fulfilled, (state, action) => {
       state.name = "";
@@ -128,6 +132,7 @@ const slice = createSlice({
       state.id = "";
       state.token = "";
       state.auth = action.payload.auth;
+      // localStorage.removeItem("token");
     });
     builder.addCase(uploadAvatarThunk.fulfilled, (state, action) => {
       state.avatar = action.payload.avatar;

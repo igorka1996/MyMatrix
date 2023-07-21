@@ -1,6 +1,6 @@
 import React from "react";
 import { Payment } from "./Payment/Payment";
-import "../App.css";
+import "../App.scss";
 import { DatePickers } from "../feature/DatePickers";
 
 export const Osnova = () => {

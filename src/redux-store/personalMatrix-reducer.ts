@@ -4,6 +4,7 @@ import { personalMatrixAPI } from "../API/API";
 import { HandleError } from "../utils/errors";
 import { subAC } from "./registration-login-auth";
 import { matrixWaitAC } from "./error-wait-reducer";
+import { dateRepeatChildren } from "./personalMatrixChildren-reducer";
 
 const initialState: PersonalMatrix = {
   data: {
@@ -63,6 +64,9 @@ const slice = createSlice({
     logOutMatrixAC() {
       return initialState;
     },
+    dateRepeatPersonal(state) {
+      state.data.dateRepeat = false;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getPersonalMatrix.fulfilled, (state, action) => {
@@ -72,7 +76,7 @@ const slice = createSlice({
 });
 
 export const personalMatrixReducer = slice.reducer;
-export const { logOutMatrixAC } = slice.actions;
+export const { logOutMatrixAC, dateRepeatPersonal } = slice.actions;
 export const getPersonalMatrix = createAsyncThunk(
   "personalMatrix/post",
   async (
@@ -111,6 +115,7 @@ export const getPersonalMatrix = createAsyncThunk(
   ) => {
     try {
       dispatch(matrixWaitAC({ matrixWait: true }));
+      dispatch(dateRepeatChildren());
       dispatch(logOutMatrixAC());
       const res = await personalMatrixAPI.getPersonalMatrix(
         param.isProgram,
