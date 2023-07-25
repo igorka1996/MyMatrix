@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/MyMatrix/static/css/main.627501d5.css",
+    "main.css": "/MyMatrix/static/css/main.5912c8be.css",
     "main.js": "/MyMatrix/static/js/main.5be8dec5.js",
     "static/media/girl2.jpg": "/MyMatrix/static/media/girl2.1ebe474a7bb0d928786c.jpg",
     "static/media/Balance.jpg": "/MyMatrix/static/media/Balance.fea5384340cb0893d3e4.jpg",
@@ -17,11 +17,11 @@
     "static/media/pacifico-vietnamese-400-normal.woff2": "/MyMatrix/static/media/pacifico-vietnamese-400-normal.bd5387ce81f7c383a0a3.woff2",
     "static/media/bebas-neue-latin-ext-400-normal.woff2": "/MyMatrix/static/media/bebas-neue-latin-ext-400-normal.f2363170269a33a9c268.woff2",
     "index.html": "/MyMatrix/index.html",
-    "main.627501d5.css.map": "/MyMatrix/static/css/main.627501d5.css.map",
+    "main.5912c8be.css.map": "/MyMatrix/static/css/main.5912c8be.css.map",
     "main.5be8dec5.js.map": "/MyMatrix/static/js/main.5be8dec5.js.map"
   },
   "entrypoints": [
-    "static/css/main.627501d5.css",
+    "static/css/main.5912c8be.css",
     "static/js/main.5be8dec5.js"
   ]
 }
