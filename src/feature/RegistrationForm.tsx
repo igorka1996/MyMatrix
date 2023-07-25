@@ -197,7 +197,7 @@ export function RegistrationForm() {
       />
       <button
         style={{ padding: "5px 40px", marginTop: 30 }}
-        className={`batonStandart + ' ' + ${!isValid ? "dis" : ""}`}
+        className={`batonStandartSearch + ' ' + ${!isValid ? "dis" : ""}`}
         disabled={!isValid}
         type={"submit"}
       >

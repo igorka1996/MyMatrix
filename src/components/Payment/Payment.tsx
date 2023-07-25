@@ -8,9 +8,7 @@ export const Payment = () => {
   return (
     <div id={"tarif"} className={"backColor"}>
       <div className={"allPay"}>
-        <span className={"tarifText"}>
-          Измени свою жизнь к лучшему уже сейчас
-        </span>
+        <p className={"tarifText"}>Измени свою жизнь к лучшему уже сейчас</p>
         <div className={"listPay"}>
           <Card className={"card box1"}>
             <span className={"spanPay"}>Матрица на месяц</span>
@@ -41,7 +39,7 @@ export const Payment = () => {
             <span className={"price"}>2 490₽</span>
             <Link
               style={{ backgroundColor: "rgb(186, 130, 167)" }}
-              className={"batonStandart"}
+              className={"batonStandartSearch"}
               to={"/pay"}
               state={{ name: "Матрица на месяц", price: 249000 }}
             >
@@ -75,7 +73,7 @@ export const Payment = () => {
             <span className={"price"}>7 490₽</span>
             <Link
               style={{ backgroundColor: "rgb(111, 137, 173)" }}
-              className={"batonStandart"}
+              className={"batonStandartSearch"}
               to={"/pay"}
               state={{ name: "Вместе и навсегда", price: 749000 }}
             >
@@ -99,7 +97,7 @@ export const Payment = () => {
             <span className={"price"}>790₽</span>
             <Link
               style={{ backgroundColor: "rgb(222, 176, 161)" }}
-              className={"batonStandart"}
+              className={"batonStandartSearch"}
               to={"/pay"}
               state={{ name: "Пробный", price: 79000 }}
             >
@@ -108,6 +106,7 @@ export const Payment = () => {
           </Card>
         </div>
         <p
+          className={"pVajno"}
           style={{
             textAlign: "center",
             color: "red",
@@ -115,11 +114,9 @@ export const Payment = () => {
             marginBottom: 50,
           }}
         >
-          <span style={{ fontSize: 30, color: "red", fontWeight: "bold" }}>
-            Важно!!!
-          </span>{" "}
-          <br /> 1. Все приобретенные даты по подписке будут доступны Вам
-          навсегда в разделе "История поиска матриц".
+          <span className={"spanVajno"}>Важно!!!</span> <br /> 1. Все
+          приобретенные даты по подписке будут доступны Вам навсегда в разделе
+          "История поиска матриц".
           <br />
           2. При приобретении тарифа "Пробный" повторно, количество расшифровок
           прибавляется к уже ранее приобретенным.

@@ -74,7 +74,7 @@ function App() {
     setCheck(false);
   };
   return (
-    <div className="App">
+    <div className={"App"}>
       <PlusSupport />
       {loc.pathname === "/welcome" ? undefined : (
         <div className={"header"}>

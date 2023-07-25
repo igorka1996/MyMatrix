@@ -104,7 +104,7 @@ export const Login = () => {
       />
       <button
         style={{ padding: "5px 40px" }}
-        className={`batonStandart + ' ' + ${!isValid ? "dis" : ""}`}
+        className={`batonStandartSearch + ' ' + ${!isValid ? "dis" : ""}`}
         disabled={!isValid}
         type={"submit"}
       >

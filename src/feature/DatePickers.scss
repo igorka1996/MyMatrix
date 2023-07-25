@@ -10,9 +10,10 @@
     width: 100%;
     height: 100vh;
     position: absolute;
-    background: url('../matr.jpeg') no-repeat 40%;
-    opacity: .2;
-    background-size: cover;
+    margin: 0 auto;
+    background: url('../krug2.png') no-repeat center center;
+    opacity: .15;
+    background-size: 900px 900px;
     z-index: -1;
 }
 
@@ -43,16 +44,93 @@
 
 .textMatrix {
     width: 400px;
-    bottom: 20px;
+    bottom: 40px;
 }
 
 .disabled-link {
-    background-color: darkgrey;
-    pointer-events: none;
+    background-color: darkgrey !important;
+    pointer-events: none !important;
 }
 
 .pom{
     font-size: 20px;
     font-weight: bold;
     color: #6f89ad;
+    text-align: center;
+}
+
+
+.batonStandartSearch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: #9486b3;
+    border: none;
+    color: white;
+    font-size: 17px !important;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    font-weight: 700;
+    padding: 5px;
+}
+
+@media (max-width: 759px) {
+    .matrixSpanSearch {
+        cursor: pointer;
+        border-radius: 10px;
+        font-size: 17px !important;
+        padding: 10px;
+        border: 1px solid black;
+        margin: 0 5px;
+        text-align: center;
+    }
+
+    .backImageDate {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        margin: 0 auto;
+        background: url('../krug2.png') no-repeat center center;
+        opacity: .15;
+        background-size: 600px 600px;
+        z-index: -1;
+    }
+
+}
+
+@media (max-width: 759px) {
+
+    .backImageDate {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        margin: 0 auto;
+        background: url('../krug2.png') no-repeat center center;
+        opacity: .15;
+        background-size: 500px 500px;
+        z-index: -1;
+    }
+
+}
+
+
+@media (max-width: 441px) {
+    .matrixSpanSearch {
+        cursor: pointer;
+        border-radius: 10px;
+        font-size: 17px !important;
+        padding: 10px;
+        border: 1px solid black;
+        margin: 0 5px;
+        text-align: center;
+    }
+
+    .textMatrix {
+        width: 300px !important;
+        bottom: 40px;
+    }
+
 }

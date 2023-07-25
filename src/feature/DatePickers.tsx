@@ -211,11 +211,12 @@ export function DatePickers() {
             spacing={3}
           >
             <TextField
+              className={"textMatrix"}
               onChange={onChangeHandler}
               id="date"
               label="Дата рождения"
               type="date"
-              sx={{ width: 400 }}
+              sx={{ width: 400, bottom: "20px" }}
               InputLabelProps={{
                 shrink: true,
               }}
@@ -234,7 +235,7 @@ export function DatePickers() {
             </FormGroup>
             <Link
               aria-disabled
-              className={`batonStandart ${
+              className={`batonStandartSearch ${
                 value.length !== 10 || name.length === 0 ? "disabled-link" : ""
               }`}
               state={{
@@ -264,11 +265,12 @@ export function DatePickers() {
             spacing={3}
           >
             <TextField
+              className={"textMatrix"}
               onChange={onChangeHandler}
               id="date"
               label="Дата рождения ребенка"
               type="date"
-              sx={{ width: 400 }}
+              sx={{ width: 400, bottom: "20px" }}
               InputLabelProps={{
                 shrink: true,
               }}
@@ -284,7 +286,7 @@ export function DatePickers() {
               label="Выберите пол ребенка"
             />
             <Link
-              className={`batonStandart ${
+              className={`batonStandartSearch ${
                 value.length !== 10 || name.length === 0 ? "disabled-link" : ""
               }`}
               state={{
@@ -315,27 +317,29 @@ export function DatePickers() {
             spacing={3}
           >
             <TextField
+              className={"textMatrix"}
               onChange={onChangeHandler}
               id="date"
               label="Дата рождения партнера 1"
               type="date"
-              sx={{ width: 400, bottom: "20px" }}
+              sx={{ width: 400, bottom: "20px !important" }}
               InputLabelProps={{
                 shrink: true,
               }}
             />
             <TextField
+              className={"textMatrix"}
               onChange={onChangeHandler1}
               id="date"
               label="Дата рождения партнера 2"
               type="date"
-              sx={{ width: 400, bottom: "20px" }}
+              sx={{ width: 400, bottom: "20px !important" }}
               InputLabelProps={{
                 shrink: true,
               }}
             />
             <Link
-              className={`batonStandart ${
+              className={`batonStandartSearch ${
                 value.length !== 10 || value1.length !== 10
                   ? "disabled-link"
                   : ""

@@ -12,7 +12,8 @@
     display: flex;
     align-items: center;
 }
-.otstup{
+
+.otstup {
     padding-top: 150px;
 }
 
@@ -43,6 +44,7 @@
     font-weight: bold;
     margin: 65px 0;
     color: #9486b3;
+    text-align: center;
 }
 
 .card {
@@ -104,7 +106,6 @@
 }
 
 .box1 {
-    //width: 420px;
     background-color: #6f89ad !important;
 }
 
@@ -114,22 +115,135 @@ ul {
 }
 
 .box2 {
-    //width: 420px;
     background-color: #e4e4ce !important;
 }
 
 
 .box3 {
-    //width: 420px;
     background-color: #9486b3 !important;
 }
 
 .box4 {
-    //width: 420px;
     background-color: #ba82a7 !important;
 }
 
 .box5 {
-    //width: 420px;
     background-color: #deb0a1 !important;
+}
+
+
+.pVajno {
+    text-align: center;
+    color: red;
+    font-size: 25px;
+    margin-bottom: 50px;
+}
+
+.spanVajno {
+    font-size: 30px;
+    color: red;
+    font-weight: bold;
+}
+
+
+@media (max-width: 651px) {
+    .tarifText {
+        font-size: 40px;
+        font-weight: bold;
+        margin: 65px 0;
+        color: #9486b3;
+        text-align: center;
+    }
+
+
+    .spanPay {
+        color: white;
+        text-shadow: -1px -1px 0 #964B00, 1px -1px 0 #964B00, -1px 1px 0 #964B00, 1px 1px 0 #964B00;
+        font-weight: bold;
+        font-size: 30px;
+        text-align: center;
+    }
+
+
+    .ulPay {
+        font-size: 16px;
+        color: white;
+        font-weight: bold;
+    }
+
+
+    .pVajno {
+        text-align: center;
+        color: red;
+        font-size: 20px;
+        margin-bottom: 50px;
+    }
+
+    .spanVajno {
+        font-size: 25px;
+        color: red;
+        font-weight: bold;
+    }
+}
+
+
+@media (max-width: 484px) {
+    .tarifText {
+        font-size: 35px;
+        font-weight: bold;
+        margin: 35px 0;
+        color: #9486b3;
+        text-align: center;
+    }
+
+
+    .spanPay {
+        color: white;
+        text-shadow: -1px -1px 0 #964B00, 1px -1px 0 #964B00, -1px 1px 0 #964B00, 1px 1px 0 #964B00;
+        font-weight: bold;
+        font-size: 25px;
+        text-align: center;
+    }
+
+
+    .ulPay {
+        font-size: 14px;
+        color: white;
+        font-weight: bold;
+    }
+    .pVajno {
+        text-align: center;
+        color: red;
+        font-size: 20px;
+        margin-bottom: 50px;
+    }
+
+    .spanVajno {
+        font-size: 25px;
+        color: red;
+        font-weight: bold;
+    }
+}
+
+
+@media (max-width: 416px) {
+    .tarifText {
+        font-size: 30px;
+        font-weight: bold;
+        margin: 35px 0;
+        color: #9486b3;
+        text-align: center;
+    }
+    .pVajno {
+        text-align: center;
+        color: red;
+        font-size: 15px !important;
+        margin-bottom: 50px;
+    }
+
+    .spanVajno {
+        font-size: 20px;
+        color: red;
+        font-weight: bold;
+    }
 }

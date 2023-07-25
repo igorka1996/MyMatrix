@@ -71,4 +71,139 @@
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
     }
 
+
+}
+
+
+
+@media (max-width: 1158px) {
+    .glavFonlogin{
+        height: 100%;
+        width: 45% !important;
+    }
+
+
+    .fonLogin{
+        height: 100vh;
+        width: 45% !important;
+        position: fixed;
+        background: url('../../Balance.jpg') no-repeat 50%;
+        background-size: cover;
+    }
+
+    .login {
+        font-family: "Bebas Neue", cursive;
+        width: 100%;
+        margin: 0 auto;
+        min-height: 100vh;
+        display: flex;
+        justify-content: space-between;
+    }
+    .formLogin {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.7) !important;
+        width: 55%;
+        padding: 30px 0;
+        transition: .5s;
+        z-index: 1;
+    }
+
+
+}
+
+
+
+
+@media (max-width: 734px) {
+    .glavFonlogin{
+        display: none;
+    }
+
+
+    .fonLogin{
+       display: none;
+    }
+
+    .login {
+        font-family: "Bebas Neue", cursive;
+        width: 100%;
+        margin: 0 auto;
+        min-height: 100vh;
+        display: flex;
+        justify-content: space-between;
+    }
+    .formLogin {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.7) !important;
+        width: 100%;
+        padding: 30px 0;
+        transition: .5s;
+        z-index: 1;
+    }
+
+
+}
+
+
+
+@media (max-width: 413px) {
+
+    .knopki{
+        display: flex;
+        justify-content: center;
+    }
+
+    .knopka {
+        height: 50px;
+        min-width: 130px;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: bold;
+        border: .5px solid rgb(111, 137, 173);
+        transition: .5s;
+
+        &:hover {
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .spanDobro {
+            font-size: 30px;
+            font-weight: bold;
+            margin: 20px 0 40px 0;
+        }
+
+        .glavFonlogin {
+            display: none;
+        }
+
+
+        .fonLogin {
+            display: none;
+        }
+
+        .login {
+            font-family: "Bebas Neue", cursive;
+            width: 100%;
+            margin: 0 auto;
+            min-height: 100vh;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .formLogin {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.7) !important;
+            width: 100%;
+            padding: 30px 0;
+            transition: .5s;
+            z-index: 1;
+        }
+
+    }
 }

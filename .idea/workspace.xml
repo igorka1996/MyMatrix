@@ -4,16 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="23">
-      <change afterPath="$PROJECT_DIR$/src/girl1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/girl2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/krug1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/krug2.png" afterDir="false" />
+    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="24">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Osnova.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Osnova.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Payment/Payment.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Payment/Payment.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Payment/Payment.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Payment/Payment.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Welcome/Welcome.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Welcome/Welcome.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature/DatePickers.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/DatePickers.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature/DatePickers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/DatePickers.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature/RegistrationForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/RegistrationForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fondeva.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/matr.jpeg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,7 +217,7 @@
       <workItem from="1689931822532" duration="15992000" />
       <workItem from="1689954023233" duration="7441000" />
       <workItem from="1689973938299" duration="189000" />
-      <workItem from="1690278385444" duration="6094000" />
+      <workItem from="1690278385444" duration="21900000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1676555659169</created>
@@ -393,7 +397,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689960408861</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="24">
+      <option name="closed" value="true" />
+      <created>1690288522214</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1690288522214</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -448,6 +460,7 @@
     <MESSAGE value="21" />
     <MESSAGE value="22" />
     <MESSAGE value="23" />
-    <option name="LAST_COMMIT_MESSAGE" value="23" />
+    <MESSAGE value="24" />
+    <option name="LAST_COMMIT_MESSAGE" value="24" />
   </component>
 </project>
