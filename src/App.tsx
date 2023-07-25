@@ -95,7 +95,6 @@ function App() {
             <span onClick={closeBurger} className={"menuSpan"}>
               О НАС
             </span>
-            {/*<span className={"menuSpan"}>ОБУЧЕНИЕ</span>*/}
             <Link
               onClick={closeBurger}
               style={{ marginRight: 20, fontSize: 20 }}

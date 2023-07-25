@@ -11,7 +11,7 @@ export const Osnova = () => {
         <h1 className={"h1"}>
           <p className={"matrixText"}>Матрица</p>
           твоей судьбы
-          <button className={"baton"}>ПРОВЕСТИ РАСЧЕТ</button>
+          <button className={"baton"}>РАССЧИТАТЬ</button>
         </h1>
       </section>
       <section>
