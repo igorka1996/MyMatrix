@@ -5,7 +5,7 @@ import { Link, Navigate } from "react-router-dom";
 import { useAppSelector } from "../../redux-store/store";
 import { Login } from "../../feature/Login";
 import { RegistrationForm } from "../../feature/RegistrationForm";
-import { IconHome } from "../../feature/Icon";
+// import { IconHome } from "../../feature/Icon";
 import HomeIcon from "@mui/icons-material/Home";
 
 export const Welcome = () => {
@@ -13,7 +13,7 @@ export const Welcome = () => {
   const [value, setValue] = useState(false);
 
   if (auth) {
-    return <Navigate to={"/"} />;
+    return <Navigate to={"/profile/user"} />;
   }
 
   return (
