@@ -37,6 +37,7 @@ export const Footer = () => {
                 viewBox="0 0 500.00001 162.81594"
                 height="50"
                 width="50"
+                className={"payIcon"}
               >
                 <defs>
                   <linearGradient
@@ -71,6 +72,7 @@ export const Footer = () => {
 
             <li className="payment-methods-list__item">
               <svg
+                className={"payIcon"}
                 xmlns="http://www.w3.org/2000/svg"
                 height="50"
                 width="50"
@@ -100,6 +102,7 @@ export const Footer = () => {
 
             <li className="payment-methods-list__item">
               <svg
+                className={"payIcon"}
                 xmlns="http://www.w3.org/2000/svg"
                 width="50"
                 height="50"
@@ -123,9 +126,7 @@ export const Footer = () => {
             </li>
           </ul>
         </div>
-        <div>
-          <span className={"linkIp"}>© 2023. Матрица Судьбы</span>
-        </div>
+        <span className={"linkIp"}>© 2023. Матрица Судьбы</span>
       </div>
     </footer>
   );

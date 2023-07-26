@@ -7,7 +7,6 @@ export const Orders = () => {
   const orders = useAppSelector(
     (state) => state.registrationReducer.historyOfOrders
   );
-  console.log(orders);
   const totalAmount = useAppSelector(
     (state) => state.registrationReducer.totalAmount
   );
@@ -59,7 +58,7 @@ export const Orders = () => {
   return (
     <div className={"userProfile"}>
       {orders.length ? (
-        <div>
+        <div className={"ordersDiv"}>
           <span className={"spanTarifActive"}>
             Ваша история приобретения тарифов
           </span>

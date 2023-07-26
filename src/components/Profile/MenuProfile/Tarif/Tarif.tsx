@@ -20,7 +20,7 @@ export const Tarif = () => {
   return (
     <div className={"userProfile"}>
       {!subscribe.filter((e: any) => e.access).length ? (
-        <div>
+        <div className={"learnMenu"}>
           <span className={"spanNoneTarif"}>
             На данный момент у Вас нет активных тарифов
           </span>
@@ -34,7 +34,7 @@ export const Tarif = () => {
           </Anchor>
         </div>
       ) : (
-        <div>
+        <div className={"learnMenu"}>
           <span className={"spanTarifActive"}>Действующие тарифы</span>
           <div>{tarif}</div>
           <Anchor

@@ -73,10 +73,15 @@
 
 
 }
-
+.ef{
+    color: #3f775f !important;
+}
 
 
 @media (max-width: 1158px) {
+    .ef{
+        color: #3f775f !important;
+    }
     .glavFonlogin{
         height: 100%;
         width: 45% !important;
@@ -121,7 +126,9 @@
         display: none;
     }
 
-
+    .ef{
+        color: #3f775f !important;
+    }
     .fonLogin{
        display: none;
     }
@@ -144,14 +151,65 @@
         transition: .5s;
         z-index: 1;
     }
+    .linkIcon{
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+        margin: 0 auto;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        font-size: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        color: rgb(186, 130, 167);
+        text-shadow: -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px 1px 0 #fff;
+    }
 
+    .ef{
+        color: #3f775f !important;
+        margin: 0 !important;
+    }
 
 }
 
 
 
 @media (max-width: 413px) {
+    .loginSpan {
+        font-size: 28px !important;
+        font-weight: bold;
+        color: #9486b3;
+        margin-top: 30px;
+        margin-bottom: 40px;
+    }
+    .linkIcon{
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+        margin: 0 auto;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        font-size: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        color: rgb(186, 130, 167);
+        text-shadow: -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px 1px 0 #fff;
+    }
 
+    .ef{
+        color: #3f775f !important;
+        margin: 0 !important;
+    }
     .knopki{
         display: flex;
         justify-content: center;

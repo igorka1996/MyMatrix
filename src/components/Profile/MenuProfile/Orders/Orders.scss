@@ -1,14 +1,10 @@
 .divOrders {
-    width: 98%;
+    width: 100%;
     display: flex;
     padding: 0;
     color: white;
     margin: 20px 0;
 }
-
-
-
-
 
 .spanOrders {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
@@ -23,12 +19,80 @@
 }
 
 
-
-
-
-
 .spanOrdersMap {
     color: white;
     margin-left: 10px;
 }
 
+
+@media (max-width: 1137px) {
+
+    .spanOrders {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+        display: flex;
+        width: 230px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        padding: 15px;
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 796px) {
+    .divOrders {
+        width: 100%;
+        display: flex;
+        padding: 0;
+        color: white;
+        margin: 20px 0;
+    }
+    .spanOrders {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+        display: flex;
+        width: 230px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        padding: 10px;
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 710px) {
+    .divOrdersHistory {
+        width: 100% !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center !important;
+        align-items: center;
+
+    }
+    .divOrders {
+        width: 100%;
+        display: flex;
+        padding: 0;
+        color: white;
+        margin: 10px 5px !important;
+    }
+    .ordersDiv {
+        display: flex;
+        flex-direction: column;
+        margin: 0 10px !important;
+    }
+    .spanOrders {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+        display: flex;
+        width: 100% !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px !important;
+        padding: 10px 5px !important;
+        text-align: center;
+    }
+}

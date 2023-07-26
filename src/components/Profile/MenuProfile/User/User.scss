@@ -94,3 +94,29 @@
     width: 100%;
     height: 100px;
 }
+
+@media (max-width: 710px) {
+    .userProfile{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 5px;
+    }
+    .formUpdate {
+        margin-top: 30px;
+        width: 100% !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .divUserForm{
+        display: flex;
+        justify-content: center;
+        width: 100% !important;
+        height: 100px;
+    }
+    .formPassAndMail {
+        width: 100%;
+    }
+}

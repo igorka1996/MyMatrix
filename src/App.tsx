@@ -9,7 +9,7 @@ import { ForgotPassword } from "./components/Forgot/ForgotPassword";
 import { ResetPassword } from "./components/ResetPassword";
 import { Pay } from "./components/Payment/Pay/Pay";
 import "@fontsource/bebas-neue";
-import { IconHome } from "./feature/Icon";
+// import { IconHome } from "./feature/Icon";
 import "@fontsource/pacifico";
 import { HashLink as Anchor } from "react-router-hash-link";
 import { Osnova } from "./components/Osnova";
@@ -55,7 +55,7 @@ function App() {
           position: "fixed",
           top: "30%",
           textAlign: "center",
-          width: "100%",
+          width: "100%"
         }}
       >
         <CircularProgress />

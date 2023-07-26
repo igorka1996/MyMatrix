@@ -29,7 +29,7 @@ export const Learn = () => {
   return (
     <div className={"userProfile"}>
       {!set ? (
-        <div>
+        <div className={"learnMenu"}>
           <span className={"spanNoneTarif"}>
             Вы можете приобрести курс по обучению расшифровки матрицы судьбы
           </span>
@@ -47,7 +47,7 @@ export const Learn = () => {
           </Link>
         </div>
       ) : (
-        <div>
+        <div className={"learnMenu"}>
           <span className={"spanNoneTarif"}>
             Вам открыт доступ на виде-обучение
           </span>

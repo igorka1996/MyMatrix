@@ -135,14 +135,14 @@ export function TableCompatibility() {
       e.datePartnerOne,
       e.datePartnerTwo,
       <Link
-        className={"batonStandart"}
+        className={"batonStandartRow"}
         state={{ date: e.datePartnerOne, date1: e.datePartnerTwo, sub, id }}
         to={"/matrixcompatibility"}
       >
         Рассчитать
       </Link>,
       <span
-        className={"batonStandart"}
+        className={"batonStandartRow"}
         onClick={() =>
           onClickHandlerCompatibilityPDF(e.datePartnerOne, e.datePartnerTwo)
         }
@@ -158,15 +158,21 @@ export function TableCompatibility() {
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
+      <Table sx={{ minWidth: 300 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Дата рождения первого партнера</StyledTableCell>
-            <StyledTableCell align="center">
+            <StyledTableCell className={"tableRow"}>
+              Дата рождения первого партнера
+            </StyledTableCell>
+            <StyledTableCell className={"tableRow"} align="center">
               Дата рождения второго партнера
             </StyledTableCell>
-            <StyledTableCell align="center">Рассчитать снова</StyledTableCell>
-            <StyledTableCell align="center">Документ</StyledTableCell>
+            <StyledTableCell className={"tableRow"} align="center">
+              Рассчитать снова
+            </StyledTableCell>
+            <StyledTableCell className={"tableRow"} align="center">
+              Документ
+            </StyledTableCell>
           </TableRow>
         </TableHead>
         {tableWait ? (
@@ -190,14 +196,22 @@ export function TableCompatibility() {
           <TableBody>
             {rows?.map((row) => (
               <StyledTableRow key={row.partnerOne}>
-                <StyledTableCell component="th" scope="row">
+                <StyledTableCell
+                  className={"tableRow"}
+                  component="th"
+                  scope="row"
+                >
                   {row.partnerOne.split("-").reverse().join("-")}
                 </StyledTableCell>
-                <StyledTableCell align="center">
+                <StyledTableCell className={"tableRow"} align="center">
                   {row.partnerTwo.split("-").reverse().join("-")}
                 </StyledTableCell>
-                <StyledTableCell align="center">{row.link}</StyledTableCell>
-                <StyledTableCell align="center">{row.pdf}</StyledTableCell>
+                <StyledTableCell className={"tableRow"} align="center">
+                  {row.link}
+                </StyledTableCell>
+                <StyledTableCell className={"tableRow"} align="center">
+                  {row.pdf}
+                </StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>

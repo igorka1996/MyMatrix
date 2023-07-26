@@ -437,7 +437,7 @@ export function TablePersonal(props: PropsType) {
         e.date,
         e.gender === "M" ? "Мужской" : "Женский",
         <Link
-          className={"batonStandart"}
+          className={"batonStandartRow"}
           state={{
             date: e.date,
             male: e.gender,
@@ -452,7 +452,7 @@ export function TablePersonal(props: PropsType) {
           Рассчитать
         </Link>,
         <span
-          className={"batonStandart"}
+          className={"batonStandartRow"}
           onClick={() => onClickHandlerPersonalPDF(e.name, e.gender, e.date)}
         >
           Скачать
@@ -466,7 +466,7 @@ export function TablePersonal(props: PropsType) {
         e.date,
         e.gender === "M" ? "Мужской" : "Женский",
         <Link
-          className={"batonStandart"}
+          className={"batonStandartRow"}
           state={{
             date: e.date,
             male: e.gender,
@@ -481,7 +481,7 @@ export function TablePersonal(props: PropsType) {
           Рассчитать
         </Link>,
         <span
-          className={"batonStandart"}
+          className={"batonStandartRow"}
           onClick={() => onClickHandlerPersonalPDF(e.name, e.gender, e.date)}
         >
           Скачать
@@ -500,14 +500,22 @@ export function TablePersonal(props: PropsType) {
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 400 }} aria-label="customized table">
+      <Table sx={{ minWidth: 300 }} aria-label="customized table">
         <TableHead>
           <TableRow sx={{ backgroundColor: "#6f89ad" }}>
-            <StyledTableCell>Имя</StyledTableCell>
-            <StyledTableCell align="center">Дата рождения</StyledTableCell>
-            <StyledTableCell align="center">Пол</StyledTableCell>
-            <StyledTableCell align="center">Рассчитать снова</StyledTableCell>
-            <StyledTableCell align="center">Документ</StyledTableCell>
+            <StyledTableCell className={"tableRow"}>Имя</StyledTableCell>
+            <StyledTableCell className={"tableRow"} align="center">
+              Дата рождения
+            </StyledTableCell>
+            <StyledTableCell className={"tableRow"} align="center">
+              Пол
+            </StyledTableCell>
+            <StyledTableCell className={"tableRow"} align="center">
+              Рассчитать снова
+            </StyledTableCell>
+            <StyledTableCell className={"tableRow"} align="center">
+              Документ
+            </StyledTableCell>
           </TableRow>
         </TableHead>
         {tableWait ? (
@@ -534,15 +542,25 @@ export function TablePersonal(props: PropsType) {
           <TableBody>
             {rows?.map((row) => (
               <StyledTableRow key={row.name}>
-                <StyledTableCell component="th" scope="row">
+                <StyledTableCell
+                  className={"tableRow"}
+                  component="th"
+                  scope="row"
+                >
                   {row.name}
                 </StyledTableCell>
-                <StyledTableCell align="center">
+                <StyledTableCell className={"tableRow"} align="center">
                   {row.date.split("-").reverse().join("-")}
                 </StyledTableCell>
-                <StyledTableCell align="center">{row.gender}</StyledTableCell>
-                <StyledTableCell align="center">{row.link}</StyledTableCell>
-                <StyledTableCell align="center">{row.Pdf}</StyledTableCell>
+                <StyledTableCell className={"tableRow"} align="center">
+                  {row.gender}
+                </StyledTableCell>
+                <StyledTableCell className={"tableRow"} align="center">
+                  {row.link}
+                </StyledTableCell>
+                <StyledTableCell className={"tableRow"} align="center">
+                  {row.Pdf}
+                </StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>

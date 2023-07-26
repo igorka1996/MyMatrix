@@ -6,6 +6,7 @@ import { useAppSelector } from "../../redux-store/store";
 import { Login } from "../../feature/Login";
 import { RegistrationForm } from "../../feature/RegistrationForm";
 import { IconHome } from "../../feature/Icon";
+import HomeIcon from "@mui/icons-material/Home";
 
 export const Welcome = () => {
   const auth = useAppSelector((state) => state.registrationReducer.auth);
@@ -20,18 +21,21 @@ export const Welcome = () => {
       <div className={"glavFonlogin"}>
         <div className={"fonLogin"}>
           <Link className={"linkIcon"} to={"/"}>
-            <IconHome />
+            <HomeIcon className={"ef"} />
           </Link>
         </div>
       </div>
 
       <div className={"formLogin"}>
+        <Link className={"linkIcon"} to={"/"}>
+          <HomeIcon className={"ef"} />
+        </Link>
         <span className={"spanDobro"}>Добро пожаловать</span>
         <div className={"knopki"}>
           <button
             style={{
               borderRadius: "10px 0px 0px 10px",
-              backgroundColor: !value ? "rgb(111, 137, 173)" : "#fff",
+              backgroundColor: !value ? "#3f775f " : "#fff",
               color: !value ? "#fff" : "#000",
             }}
             className={"knopka"}
@@ -42,7 +46,7 @@ export const Welcome = () => {
           <button
             style={{
               borderRadius: "0px 10px 10px 0px",
-              backgroundColor: value ? "rgb(111, 137, 173)" : "#fff",
+              backgroundColor: value ? "#3f775f " : "#fff",
               color: value ? "#fff" : "#000",
             }}
             className={"knopka"}
