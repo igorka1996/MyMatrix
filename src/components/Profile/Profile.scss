@@ -24,7 +24,7 @@
     display: flex;
     flex-direction: column;
     margin-top: 130px;
-    position: fixed;
+    position: relative;
     align-items: flex-start;
 }
 
@@ -274,8 +274,9 @@
         height: 4px;
         background-color: black;
         left: 20px;
-        top: 0;
+        top: 23px;
         cursor: pointer;
+        z-index: 10;
     }
 
     .profileMenu:before {

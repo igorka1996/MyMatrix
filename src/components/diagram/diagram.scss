@@ -1832,31 +1832,32 @@
 }
 
 .diagram-values-list__item:not(:last-child) {
-    margin-bottom: 10px
+    margin-bottom: 5px
 }
 
 
 
 .diagram-values-item {
-    margin: 20px;
     min-width: 200px
 }
-
+.col{
+    margin: 10px;
+}
 .diagram-values-item__title {
     font-weight: 500;
-    margin-bottom: 10px
+    margin-bottom: 5px
 }
 
 .diagram-values-item__description {
     font-size: 16px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     line-height: 1.375
 }
 
 .small-diagram-values {
     display: flex;
     align-items: center;
-    min-height: 80px
+    height:  100%
 }
 
 //.small-diagram-valuess {
@@ -2488,7 +2489,7 @@
 
 .section-with-diagram {
     margin: 0 auto;
-    padding: 50px 0;
+    padding: 20px 0;
     width: 80%;
 }
 

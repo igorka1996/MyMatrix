@@ -118,7 +118,6 @@ export const Diagram = () => {
       );
     }
   }, []);
-
   const birthdayArray = state.date.split("-");
   let A = calculation(parseInt(birthdayArray[2]));
   let B = calculation(parseInt(birthdayArray[1]));

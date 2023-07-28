@@ -78,12 +78,37 @@ export function DatePickers() {
   const onChangeHandler = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setValue(e.currentTarget.value);
+    const inputDate = e.currentTarget.value;
+    if (inputDate.length === 11) {
+      return;
+    }
+    // Проверяем, чтобы значение соответствовало формату "дд/мм/гг"
+    // Если длина введенной строки достигла 2 или 5 символов и не оканчивается на слэш,
+    // автоматически добавляем слэш после дня и месяца
+    if (
+      (inputDate.length === 2 && !inputDate.includes("-")) ||
+      (inputDate.length === 5 && inputDate.charAt(2) === "-")
+    ) {
+      setValue(inputDate + "-");
+    } else {
+      setValue(inputDate);
+    }
   };
   const onChangeHandler1 = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setValue1(e.currentTarget.value);
+    const inputDate = e.currentTarget.value;
+    if (inputDate.length === 11) {
+      return;
+    }
+    if (
+      (inputDate.length === 2 && !inputDate.includes("-")) ||
+      (inputDate.length === 5 && inputDate.charAt(2) === "-")
+    ) {
+      setValue1(inputDate + "-");
+    } else {
+      setValue1(inputDate);
+    }
   };
   const onClickHandlerMatrix = (value: string) => {
     setMatrix(value);
@@ -94,6 +119,7 @@ export function DatePickers() {
       e.subscribe === "Пробный" && e.access ? e : null
     )[0];
   };
+  console.log(value);
   const subscribeAll = () => {
     return sub.filter((e: any) =>
       (e.subscribe === "Вместе и навсегда" && e.access) ||
@@ -213,13 +239,10 @@ export function DatePickers() {
             <TextField
               className={"textMatrix"}
               onChange={onChangeHandler}
-              id="date"
               label="Дата рождения"
-              type="date"
+              value={value}
+              placeholder={"дд/мм/гггг"}
               sx={{ width: 400, bottom: "20px" }}
-              InputLabelProps={{
-                shrink: true,
-              }}
             />
             <FormGroup>
               <FormControlLabel
@@ -239,7 +262,7 @@ export function DatePickers() {
                 value.length !== 10 || name.length === 0 ? "disabled-link" : ""
               }`}
               state={{
-                date: value,
+                date: value.split("-").reverse().join("-"),
                 male: check ? "M" : "W",
                 child: false,
                 sub,
@@ -267,13 +290,10 @@ export function DatePickers() {
             <TextField
               className={"textMatrix"}
               onChange={onChangeHandler}
-              id="date"
               label="Дата рождения ребенка"
-              type="date"
+              placeholder={"дд/мм/гггг"}
+              value={value}
               sx={{ width: 400, bottom: "20px" }}
-              InputLabelProps={{
-                shrink: true,
-              }}
             />
             <FormControlLabel
               control={
@@ -290,7 +310,7 @@ export function DatePickers() {
                 value.length !== 10 || name.length === 0 ? "disabled-link" : ""
               }`}
               state={{
-                date: value,
+                date: value.split("-").reverse().join("-"),
                 male: check ? "M" : "W",
                 child: true,
                 auth,
@@ -319,24 +339,18 @@ export function DatePickers() {
             <TextField
               className={"textMatrix"}
               onChange={onChangeHandler}
-              id="date"
               label="Дата рождения партнера 1"
-              type="date"
+              placeholder={"дд/мм/гггг"}
+              value={value}
               sx={{ width: 400, bottom: "20px !important" }}
-              InputLabelProps={{
-                shrink: true,
-              }}
             />
             <TextField
               className={"textMatrix"}
               onChange={onChangeHandler1}
-              id="date"
               label="Дата рождения партнера 2"
-              type="date"
+              placeholder={"дд/мм/гггг"}
+              value={value1}
               sx={{ width: 400, bottom: "20px !important" }}
-              InputLabelProps={{
-                shrink: true,
-              }}
             />
             <Link
               className={`batonStandartSearch ${
@@ -344,7 +358,12 @@ export function DatePickers() {
                   ? "disabled-link"
                   : ""
               }`}
-              state={{ date: value, date1: value1, sub, id }}
+              state={{
+                date: value.split("-").reverse().join("-"),
+                date1: value1.split("-").reverse().join("-"),
+                sub,
+                id,
+              }}
               to={"/matrixcompatibility"}
             >
               Рассчитать

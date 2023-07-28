@@ -17,6 +17,9 @@ export const DiagramCompatibility = () => {
     (state) => state.MatrixCompatibilityReducer.data.dateRepeat
   );
 
+  console.log(state.date);
+  console.log(state.date1);
+
   const subscribeAccessCompatibility = state.sub.filter((e: any) => {
     return (
       e.access &&

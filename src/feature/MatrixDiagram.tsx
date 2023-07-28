@@ -368,92 +368,6 @@ export const MatrixDiagram = (props: MatrixDiagramType) => {
               </tr>
             </tbody>
           </table>
-          <ul className="diagram-values-list">
-            <li className="diagram-values-list__item">
-              <div className="diagram-values-item-horizontal">
-                <div className="h6 diagram-values-item-horizontal__title">
-                  Родовые программы по мужской линии:
-                </div>
-                <ul className="diagram-values-item-horizontal__values round-values-list">
-                  <li
-                    style={{ listStyleType: "none" }}
-                    className="round-values-list__item"
-                  >
-                    <div
-                      className="diagram-value js-personal-calculation-item"
-                      data-personal-calculation-position="f"
-                    >
-                      {props.E}
-                    </div>
-                  </li>
-                  <li
-                    style={{ listStyleType: "none" }}
-                    className="round-values-list__item"
-                  >
-                    <div
-                      className="diagram-value js-personal-calculation-item"
-                      data-personal-calculation-position="y"
-                    >
-                      {props.G}
-                    </div>
-                  </li>
-                  <li
-                    style={{ listStyleType: "none" }}
-                    className="round-values-list__item"
-                  >
-                    <div
-                      className="diagram-value js-personal-calculation-item"
-                      data-personal-calculation-position="o"
-                    >
-                      {props.EG}
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li className="diagram-values-list__item">
-              <div className="diagram-values-item-horizontal">
-                <div className="h6 diagram-values-item-horizontal__title">
-                  Родовые программы по женской линии:
-                </div>
-                <ul className="diagram-values-item-horizontal__values round-values-list">
-                  <li
-                    style={{ listStyleType: "none" }}
-                    className="round-values-list__item"
-                  >
-                    <div
-                      className="diagram-value js-personal-calculation-item"
-                      data-personal-calculation-position="g"
-                    >
-                      {props.F}
-                    </div>
-                  </li>
-                  <li
-                    style={{ listStyleType: "none" }}
-                    className="round-values-list__item"
-                  >
-                    <div
-                      className="diagram-value js-personal-calculation-item"
-                      data-personal-calculation-position="k"
-                    >
-                      {props.H}
-                    </div>
-                  </li>
-                  <li
-                    style={{ listStyleType: "none" }}
-                    className="round-values-list__item"
-                  >
-                    <div
-                      className="diagram-value js-personal-calculation-item"
-                      data-personal-calculation-position="u"
-                    >
-                      {props.FH}
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </li>
-          </ul>
         </div>
         <div className="section-with-diagram__col-with-diagram">
           <div className="section-with-diagram__matrix-diagram">
@@ -1167,8 +1081,99 @@ export const MatrixDiagram = (props: MatrixDiagramType) => {
 
       <div className="section-with-diagram__bottom-values-row">
         <div className="col">
+          <ul className="diagram-values-list">
+            <li className="diagram-values-list__item">
+              <div className="diagram-values-item-horizontal">
+                <div className="h6 diagram-values-item-horizontal__title">
+                  Родовые программы по мужской линии:
+                </div>
+                <ul className="diagram-values-item-horizontal__values round-values-list">
+                  <li
+                    style={{ listStyleType: "none" }}
+                    className="round-values-list__item"
+                  >
+                    <div
+                      className="diagram-value js-personal-calculation-item"
+                      data-personal-calculation-position="f"
+                    >
+                      {props.E}
+                    </div>
+                  </li>
+                  <li
+                    style={{ listStyleType: "none" }}
+                    className="round-values-list__item"
+                  >
+                    <div
+                      className="diagram-value js-personal-calculation-item"
+                      data-personal-calculation-position="y"
+                    >
+                      {props.G}
+                    </div>
+                  </li>
+                  <li
+                    style={{ listStyleType: "none" }}
+                    className="round-values-list__item"
+                  >
+                    <div
+                      className="diagram-value js-personal-calculation-item"
+                      data-personal-calculation-position="o"
+                    >
+                      {props.EG}
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li className="diagram-values-list__item">
+              <div className="diagram-values-item-horizontal">
+                <div className="h6 diagram-values-item-horizontal__title">
+                  Родовые программы по женской линии:
+                </div>
+                <ul className="diagram-values-item-horizontal__values round-values-list">
+                  <li
+                    style={{ listStyleType: "none" }}
+                    className="round-values-list__item"
+                  >
+                    <div
+                      className="diagram-value js-personal-calculation-item"
+                      data-personal-calculation-position="g"
+                    >
+                      {props.F}
+                    </div>
+                  </li>
+                  <li
+                    style={{ listStyleType: "none" }}
+                    className="round-values-list__item"
+                  >
+                    <div
+                      className="diagram-value js-personal-calculation-item"
+                      data-personal-calculation-position="k"
+                    >
+                      {props.H}
+                    </div>
+                  </li>
+                  <li
+                    style={{ listStyleType: "none" }}
+                    className="round-values-list__item"
+                  >
+                    <div
+                      className="diagram-value js-personal-calculation-item"
+                      data-personal-calculation-position="u"
+                    >
+                      {props.FH}
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div className="col">
           <div className="diagram-values-item">
-            <div className="h6 diagram-values-item__title">Поиск себя</div>
+            <div className="h6 diagram-values-item__title">
+              <b>Поиск себя</b>
+            </div>
             <div className="diagram-values-item__description text-block">
               <p>
                 Соединение мужского и женского. Выстраивание взаимоотношений.
@@ -1219,7 +1224,9 @@ export const MatrixDiagram = (props: MatrixDiagramType) => {
         </div>
         <div className="col">
           <div className="diagram-values-item">
-            <div className="h6 diagram-values-item__title">Социализация</div>
+            <div className="h6 diagram-values-item__title">
+              <b>Социализация</b>
+            </div>
             <div className="diagram-values-item__description text-block">
               <p>
                 Социальная и родовая системы. Результаты и признания в социуме.
@@ -1270,7 +1277,7 @@ export const MatrixDiagram = (props: MatrixDiagramType) => {
         <div className="col">
           <div className="diagram-values-item">
             <div className="h6 diagram-values-item__title">
-              Духовная грамотность
+              <b>Духовная грамотность</b>
             </div>
             <div className="diagram-values-item__description text-block">
               <p>Духовный зачет. Кто я для бога? Где божественное во мне?</p>
@@ -1287,7 +1294,9 @@ export const MatrixDiagram = (props: MatrixDiagramType) => {
         </div>
         <div className="col">
           <div className="diagram-values-item">
-            <div className="h6 diagram-values-item__title">Личная сила</div>
+            <div className="h6 diagram-values-item__title">
+              <b>Личная сила</b>
+            </div>
             <div className="diagram-values-item__description text-block">
               <p>
                 Духовный зачет. Кто я для бога? <br />
@@ -1306,7 +1315,9 @@ export const MatrixDiagram = (props: MatrixDiagramType) => {
         </div>
         <div className="col">
           <div className="diagram-values-item">
-            <div className="h6 diagram-values-item__title">Сила рода</div>
+            <div className="h6 diagram-values-item__title">
+              <b>Сила рода</b>
+            </div>
             <div className="diagram-values-item__description text-block">
               <p>Духовный зачет. Кто я для бога? Где божественное во мне?</p>
             </div>
@@ -1323,7 +1334,9 @@ export const MatrixDiagram = (props: MatrixDiagramType) => {
 
         <div className="col">
           <div className="diagram-values-item">
-            <div className="h6 diagram-values-item__title">Код внутренней</div>
+            <div className="h6 diagram-values-item__title">
+              <b>Код внутренней</b>
+            </div>
             <div className="diagram-values-item__description text-block">
               <p>Духовный зачет. Кто я для бога? Где божественное во мне?</p>
             </div>
