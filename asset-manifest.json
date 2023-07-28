@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/MyMatrix/static/css/main.c6421b6b.css",
-    "main.js": "/MyMatrix/static/js/main.b12914fc.js",
+    "main.css": "/MyMatrix/static/css/main.2488b4f1.css",
+    "main.js": "/MyMatrix/static/js/main.9b74f40e.js",
     "static/media/girl2.jpg": "/MyMatrix/static/media/girl2.1ebe474a7bb0d928786c.jpg",
     "static/media/Balance.jpg": "/MyMatrix/static/media/Balance.fea5384340cb0893d3e4.jpg",
     "static/media/krug2.png": "/MyMatrix/static/media/krug2.6f1e85a0741818d74af3.png",
@@ -17,11 +17,11 @@
     "static/media/pacifico-vietnamese-400-normal.woff2": "/MyMatrix/static/media/pacifico-vietnamese-400-normal.bd5387ce81f7c383a0a3.woff2",
     "static/media/bebas-neue-latin-ext-400-normal.woff2": "/MyMatrix/static/media/bebas-neue-latin-ext-400-normal.f2363170269a33a9c268.woff2",
     "index.html": "/MyMatrix/index.html",
-    "main.c6421b6b.css.map": "/MyMatrix/static/css/main.c6421b6b.css.map",
-    "main.b12914fc.js.map": "/MyMatrix/static/js/main.b12914fc.js.map"
+    "main.2488b4f1.css.map": "/MyMatrix/static/css/main.2488b4f1.css.map",
+    "main.9b74f40e.js.map": "/MyMatrix/static/js/main.9b74f40e.js.map"
   },
   "entrypoints": [
-    "static/css/main.c6421b6b.css",
-    "static/js/main.b12914fc.js"
+    "static/css/main.2488b4f1.css",
+    "static/js/main.9b74f40e.js"
   ]
 }
