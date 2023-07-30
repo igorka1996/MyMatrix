@@ -2536,8 +2536,21 @@
     .section-with-diagram.-in-one-column .section-with-diagram__col-with-diagram {
         margin-bottom: 45px
     }
+
 }
 
+
+@media (max-width: 500px) {
+    .section-with-diagram {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+        width: 80%;
+    }
+}
 
 .section-with-diagram__top-content {
     display: flex;

@@ -73,7 +73,7 @@ export const MatrixDiagram = (props: MatrixDiagramType) => {
       <div className="section-with-diagram__top-content">
         <div className="section-with-diagram__col-with-table">
           <div className="h5 section-with-diagram__table-title">
-            Карта здоровья
+            <b>Карта здоровья</b>
           </div>
           <table className="section-with-diagram__table table health-table js-health-table">
             <thead>
@@ -1363,7 +1363,6 @@ export const MatrixDiagram = (props: MatrixDiagramType) => {
           </div>
         </div>
       </div>
-
       <table className={"tableDiagram"}>
         <caption style={{ fontSize: 25, fontWeight: "bold" }}>
           Доминирующие энергии
