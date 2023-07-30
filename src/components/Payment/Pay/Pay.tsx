@@ -27,7 +27,7 @@ import "./Pay.scss";
 const policyFunc = (auth: boolean) => {
   if (auth) {
     return (
-      <span>
+      <span className={"spanOferta"}>
         Продолжая покупку, я принмаю условия{" "}
         <Link to={"/"}>Публичной оферты</Link>, подтверждая, что
         ознакомился(ась) с{" "}
@@ -37,7 +37,7 @@ const policyFunc = (auth: boolean) => {
     );
   } else {
     return (
-      <span>
+      <span className={"spanOferta"}>
         Продолжая покупку и регистрацию, я принмаю условия{" "}
         <Link to={"/"}>Публичной оферты</Link>, подтверждая, что
         ознакомился(ась) с{" "}
@@ -149,6 +149,7 @@ export const Pay = () => {
           Стоимость: <span className={"payPrice"}>{`${total} руб.`}</span>
         </span>
         <FormControlLabel
+          style={{ margin: "0 auto", paddingBottom: 30 }}
           className={"saveMe"}
           control={<Checkbox onChange={onChangeCheck} defaultChecked={false} />}
           label={pol}
@@ -307,6 +308,7 @@ export const Pay = () => {
           />
         </div>
         <FormControlLabel
+          style={{ margin: "0 auto", paddingBottom: 30 }}
           className={"saveMe"}
           control={<Checkbox onChange={onChangeCheck} defaultChecked={false} />}
           label={pol}

@@ -4,12 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="29">
+    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="30">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forgot/Forgot.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forgot/Forgot.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Payment/Pay/Pay.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Payment/Pay/Pay.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Payment/Pay/Pay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Payment/Pay/Pay.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Payment/Success/Success.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Payment/Success/Success.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/User/User.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/User/User.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/User/User.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/User/User.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/diagram/diagram.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/diagram/diagram.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/feature/DatePickers.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/DatePickers.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feature/MatrixDiagram.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/MatrixDiagram.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature/DatePickers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/DatePickers.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature/MatrixDiagramCompatibility.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/MatrixDiagramCompatibility.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature/SimpleAccordion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/SimpleAccordion.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature/SimpleAccordionChildren.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/SimpleAccordionChildren.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature/SimpleAccordionCompatibility.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/SimpleAccordionCompatibility.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux-store/registration-login-auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/registration-login-auth.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +225,7 @@
       <workItem from="1690362267483" duration="158000" />
       <workItem from="1690362439644" duration="27102000" />
       <workItem from="1690541589276" duration="6357000" />
-      <workItem from="1690716235331" duration="2061000" />
+      <workItem from="1690716235331" duration="12336000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1676555659169</created>
@@ -434,7 +445,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690560538683</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="30">
+      <option name="closed" value="true" />
+      <created>1690720250449</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1690720250449</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -465,7 +484,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="6" />
     <MESSAGE value="7" />
     <MESSAGE value="8" />
     <MESSAGE value="8.1" />
@@ -490,6 +508,7 @@
     <MESSAGE value="26" />
     <MESSAGE value="28" />
     <MESSAGE value="29" />
-    <option name="LAST_COMMIT_MESSAGE" value="29" />
+    <MESSAGE value="30" />
+    <option name="LAST_COMMIT_MESSAGE" value="30" />
   </component>
 </project>

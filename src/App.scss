@@ -66,6 +66,11 @@ select {
     height: 100%;
     overflow: hidden;
 }
+
+
+.simpAccordion{
+    width: 80% !important;
+}
 @media (max-width: 1208px) {
     .menuSpan {
         text-decoration: none;
@@ -453,6 +458,9 @@ select {
         text-align: center;
         color: #9486b3 !important;
         padding-top: 20px;
+    }
+    .simpAccordion{
+        width: 100% !important;
     }
 }
 

@@ -180,6 +180,7 @@ export const registrationThunk = createAsyncThunk(
         phone: param.phone,
       });
       dispatch(initialAC({ initial: true }));
+      dispatch(successAC({ success: "Вы успешно зарегистрировались" }));
       return {
         name: res.data.name,
         surname: res.data.surname,
@@ -242,6 +243,7 @@ export const loginThunk = createAsyncThunk(
         check: param.check,
       });
       dispatch(initialAC({ initial: true }));
+      dispatch(successAC({ success: "Вы успешно вошли в свой аккаунт" }));
       return {
         name: res.data.name,
         surname: res.data.surname,
@@ -269,6 +271,7 @@ export const logOutThunk = createAsyncThunk(
     try {
       await authAPI.deleteMe();
       dispatch(logOutMatrixAC());
+      dispatch(successAC({ success: "Вы успешно вышли из своего аккаунта" }));
       return { auth: false };
     } catch (e) {
       HandleError(e, dispatch);

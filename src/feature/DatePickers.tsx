@@ -78,37 +78,38 @@ export function DatePickers() {
   const onChangeHandler = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const inputDate = e.currentTarget.value;
-    if (inputDate.length === 11) {
-      return;
+    let inputDate = e.currentTarget.value;
+    inputDate = inputDate.replace(/\D/g, "");
+    if (inputDate.length > 8) {
+      inputDate = inputDate.slice(0, 8);
     }
-    // Проверяем, чтобы значение соответствовало формату "дд/мм/гг"
-    // Если длина введенной строки достигла 2 или 5 символов и не оканчивается на слэш,
-    // автоматически добавляем слэш после дня и месяца
-    if (
-      (inputDate.length === 2 && !inputDate.includes("-")) ||
-      (inputDate.length === 5 && inputDate.charAt(2) === "-")
-    ) {
-      setValue(inputDate + "-");
-    } else {
-      setValue(inputDate);
+    if (inputDate.length >= 5) {
+      inputDate = `${inputDate.slice(0, 2)}-${inputDate.slice(
+        2,
+        4
+      )}-${inputDate.slice(4)}`;
+    } else if (inputDate.length >= 3) {
+      inputDate = `${inputDate.slice(0, 2)}-${inputDate.slice(2)}`;
     }
+    setValue(inputDate);
   };
   const onChangeHandler1 = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const inputDate = e.currentTarget.value;
-    if (inputDate.length === 11) {
-      return;
+    let inputDate = e.currentTarget.value;
+    inputDate = inputDate.replace(/\D/g, "");
+    if (inputDate.length > 8) {
+      inputDate = inputDate.slice(0, 8);
     }
-    if (
-      (inputDate.length === 2 && !inputDate.includes("-")) ||
-      (inputDate.length === 5 && inputDate.charAt(2) === "-")
-    ) {
-      setValue1(inputDate + "-");
-    } else {
-      setValue1(inputDate);
+    if (inputDate.length >= 5) {
+      inputDate = `${inputDate.slice(0, 2)}-${inputDate.slice(
+        2,
+        4
+      )}-${inputDate.slice(4)}`;
+    } else if (inputDate.length >= 3) {
+      inputDate = `${inputDate.slice(0, 2)}-${inputDate.slice(2)}`;
     }
+    setValue1(inputDate);
   };
   const onClickHandlerMatrix = (value: string) => {
     setMatrix(value);

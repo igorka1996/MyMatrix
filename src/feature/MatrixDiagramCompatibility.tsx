@@ -5,10 +5,7 @@ export const MatrixDiagramCompatibility = (
   props: MatrixDiagramCompatibilityType
 ) => {
   return (
-    <section
-      style={{ color: "#6f89ad" }}
-      className="section-with-diagram section pb-0 js-section-with-diagram"
-    >
+    <section style={{ color: "#6f89ad" }} className="section-with-diagram">
       <p style={{ textAlign: "center", fontSize: 25, fontWeight: "bold" }}>
         Матрица первого партнера: {props.date1.split("-").reverse().join("-")}
       </p>

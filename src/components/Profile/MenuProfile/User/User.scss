@@ -19,6 +19,43 @@
     cursor: pointer;
 }
 
+@media (max-width: 710px) {
+    .divAvatar:active .avatarImg {
+        filter: brightness(100%);
+    }
+    .divAvatar:hover .avatarImg {
+        filter: none;
+        cursor: none;
+    }
+    .avatarInput:before {
+        content: "Выбрать";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-weight: bold;
+        font-size: 1.7rem;
+        opacity: 1 !important;
+        //transition: opacity 0.3s ease-in-out;
+    }
+
+    .avatarInput {
+        opacity: 1 !important;
+    }
+
+    .avatarInput {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        width: 200%;
+        height: 200%;
+        cursor: pointer;
+    }
+}
+
 .avatarInput {
     position: absolute;
     top: 50%;

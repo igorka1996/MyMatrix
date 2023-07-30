@@ -48,7 +48,7 @@ export const User = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const [showPassword1, setShowPassword1] = React.useState(false);
   const handleFileUpload = async (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
+    let file = event.target.files?.[0];
     if (!file) return;
     try {
       const compressedImage = await imageCompression(file, {
@@ -65,6 +65,7 @@ export const User = () => {
           dispatch(uploadAvatarThunk({ avatar: base64Image, userId }));
         }
       };
+      event.target.value = "";
     } catch (error) {
       console.log(error);
     }
@@ -141,12 +142,16 @@ export const User = () => {
               alt="Профиль"
             />
           )}
-          <input
-            className={"avatarInput"}
-            onChange={handleFileUpload}
-            accept="image/jpeg,image/png,image/gif"
-            type="file"
-          />
+          {avatarWait ? (
+            ""
+          ) : (
+            <input
+              className={"avatarInput"}
+              onChange={handleFileUpload}
+              accept="image/jpeg,image/png,image/gif"
+              type="file"
+            />
+          )}
         </div>
         <div className={"divSpanUser"}>
           <span className={"spanUserName"}>

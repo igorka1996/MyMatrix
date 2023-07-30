@@ -110,100 +110,11 @@ export function SimpleAccordion(props: PropsTypeForecastTheYear) {
     );
   };
 
-  // const accordion = (
-  //   txt: any,
-  //   arr: {
-  //     paragraph: string;
-  //     value: { text: string; value: number | string }[];
-  //   }[],
-  //   lock: boolean
-  // ) => {
-  //   return (
-  //     <Accordion>
-  //       <AccordionSummary
-  //         expandIcon={<ExpandMoreIcon />}
-  //         aria-controls="panel1a-content"
-  //         id="panel1a-header"
-  //       >
-  //         <Typography>
-  //           {!lock ? (
-  //             <b style={{ display: "flex" }}>{txt}</b>
-  //           ) : (
-  //             <b style={{ display: "flex" }}>
-  //               {arr[0].value?.length === undefined ? (
-  //                 <LockIcon style={{ color: "#ba82a7" }} />
-  //               ) : (
-  //                 ""
-  //               )}{" "}
-  //               {txt}
-  //             </b>
-  //           )}
-  //         </Typography>
-  //       </AccordionSummary>
-  //       <AccordionDetails>
-  //         {lock ? (
-  //           arr[0].value?.length === undefined ? (
-  //             <React.Fragment key={v4()}>
-  //               <p style={{ textAlign: "center", fontWeight: "bold" }}>
-  //                 Будет доступно после оформления одного из тарифов
-  //               </p>
-  //               <Anchor smooth to={"/#tarif"} className={"batonStandart"}>
-  //                 ТАРИФЫ
-  //               </Anchor>
-  //             </React.Fragment>
-  //           ) : (
-  //             <Typography>
-  //               {arr.map((el) => {
-  //                 return (
-  //                   <React.Fragment key={v4()}>
-  //                     <b>{el.paragraph}</b>
-  //                     <br />
-  //                     {el.value.map((e) => (
-  //                       <React.Fragment key={v4()}>
-  //                         {e.text.split("\n").map((paragraph) => (
-  //                           <React.Fragment key={v4()}>
-  //                             {paragraph}
-  //                             <br key={`br-${v4()}`} />
-  //                           </React.Fragment>
-  //                         ))}
-  //                         <br />
-  //                       </React.Fragment>
-  //                     ))}
-  //                   </React.Fragment>
-  //                 );
-  //               })}
-  //             </Typography>
-  //           )
-  //         ) : (
-  //           <Typography>
-  //             {arr.map((el) => {
-  //               return (
-  //                 <React.Fragment key={v4()}>
-  //                   <b>{el.paragraph}</b>
-  //                   <br />
-  //                   {el.value.map((e) => (
-  //                     <React.Fragment key={v4()}>
-  //                       {e.text.split("\n").map((paragraph) => (
-  //                         <React.Fragment key={v4()}>
-  //                           {paragraph}
-  //                           <br key={`br-${v4()}`} />
-  //                         </React.Fragment>
-  //                       ))}
-  //                       <br />
-  //                     </React.Fragment>
-  //                   ))}
-  //                 </React.Fragment>
-  //               );
-  //             })}
-  //           </Typography>
-  //         )}
-  //       </AccordionDetails>
-  //     </Accordion>
-  //   );
-  // };
-
   return (
-    <div style={{ width: "80%", margin: "0 auto" }}>
+    <div
+      className={"simpAccordion"}
+      style={{ width: "100%", margin: "0 auto" }}
+    >
       {accordion(
         "Личностные качества",
         [
