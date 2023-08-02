@@ -10,6 +10,7 @@ import { ForecastForTheYearChildren } from "./ForecastForTheYearChildren";
 import { filterCalcYear } from "../utils/calc";
 import { HashLink as Anchor } from "react-router-hash-link";
 import LockIcon from "@mui/icons-material/Lock";
+import { v4 } from "uuid";
 export function SimpleAccordionChildren(
   props: PropsTypeForecastTheYearChildren
 ) {
@@ -62,15 +63,15 @@ export function SimpleAccordionChildren(
               <Typography>
                 {arr.map((el) => {
                   return (
-                    <React.Fragment>
+                    <React.Fragment key={v4()}>
                       <b>{el.paragraph}</b>
                       <br />
-                      {el.value.map((e, index) => (
-                        <React.Fragment key={index}>
-                          {e.text.split("\n").map((paragraph, innerIndex) => (
-                            <React.Fragment key={innerIndex}>
+                      {el.value.map((e) => (
+                        <React.Fragment key={v4()}>
+                          {e.text.split("\n").map((paragraph) => (
+                            <React.Fragment key={v4()}>
                               {paragraph}
-                              <br key={`br-${index}`} />
+                              <br key={v4()} />
                             </React.Fragment>
                           ))}
                           <br />
@@ -85,15 +86,15 @@ export function SimpleAccordionChildren(
             <Typography>
               {arr.map((el) => {
                 return (
-                  <React.Fragment>
+                  <React.Fragment key={v4()}>
                     <b>{el.paragraph}</b>
                     <br />
-                    {el.value.map((e, index) => (
-                      <React.Fragment key={index}>
-                        {e.text.split("\n").map((paragraph, innerIndex) => (
-                          <React.Fragment key={innerIndex}>
+                    {el.value.map((e) => (
+                      <React.Fragment key={v4()}>
+                        {e.text.split("\n").map((paragraph) => (
+                          <React.Fragment key={v4()}>
                             {paragraph}
-                            <br key={`br-${index}`} />
+                            <br key={v4()} />
                           </React.Fragment>
                         ))}
                         <br />
@@ -109,7 +110,10 @@ export function SimpleAccordionChildren(
     );
   };
   return (
-    <div className={"simpAccordion"}>
+    <div
+      className={"simpAccordion"}
+      style={{ width: "100%", margin: "0 auto" }}
+    >
       {accordion(
         "Личные качества",
         [
@@ -243,40 +247,38 @@ export function SimpleAccordionChildren(
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            <ForecastForTheYearChildren
-              repeat={props.repeat}
-              yes={props.yes}
-              yaer={yearHandler}
-              age={props.age}
-              C={props.C}
-              A={props.A}
-              CGCC={props.CGCC}
-              AEAA={props.AEAA}
-              CGC={props.CGC}
-              AEA={props.AEA}
-              CGCCG={props.CGCCG}
-              AEAAE={props.AEAAE}
-              CG={props.CG}
-              AE={props.AE}
-              CGGCG={props.CGGCG}
-              AEEAE={props.AEEAE}
-              CGGG={props.CGGG}
-              AEEE={props.AEEE}
-              G={props.G}
-              E={props.E}
-              GDGG={props.GDGG}
-              EBEE={props.EBEE}
-              GDG={props.GDG}
-              EBE={props.EBE}
-              GDGGD={props.GDGGD}
-              EBEEB={props.EBEEB}
-              GD={props.GD}
-              EB={props.EB}
-              AEE={props.AEE}
-              CGG={props.CGG}
-            />
-          </Typography>
+          <ForecastForTheYearChildren
+            repeat={props.repeat}
+            yes={props.yes}
+            yaer={yearHandler}
+            age={props.age}
+            C={props.C}
+            A={props.A}
+            CGCC={props.CGCC}
+            AEAA={props.AEAA}
+            CGC={props.CGC}
+            AEA={props.AEA}
+            CGCCG={props.CGCCG}
+            AEAAE={props.AEAAE}
+            CG={props.CG}
+            AE={props.AE}
+            CGGCG={props.CGGCG}
+            AEEAE={props.AEEAE}
+            CGGG={props.CGGG}
+            AEEE={props.AEEE}
+            G={props.G}
+            E={props.E}
+            GDGG={props.GDGG}
+            EBEE={props.EBEE}
+            GDG={props.GDG}
+            EBE={props.EBE}
+            GDGGD={props.GDGGD}
+            EBEEB={props.EBEEB}
+            GD={props.GD}
+            EB={props.EB}
+            AEE={props.AEE}
+            CGG={props.CGG}
+          />
         </AccordionDetails>
       </Accordion>
     </div>

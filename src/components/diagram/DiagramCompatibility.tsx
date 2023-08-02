@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 import "./diagram.scss";
 import { Link, useLocation } from "react-router-dom";
 import { calculation, funcCalculation } from "../../utils/calc";
@@ -10,6 +10,7 @@ import { Button, CircularProgress } from "@mui/material";
 import { personalMatrixAPI } from "../../API/API";
 
 export const DiagramCompatibility = () => {
+  console.log("compatibility");
   const { state } = useLocation();
   const matrixWait = useAppSelector((state) => state.errorReducer.matrixWait);
   const dispatch = useAppDispatch();
@@ -17,293 +18,370 @@ export const DiagramCompatibility = () => {
     (state) => state.MatrixCompatibilityReducer.data.dateRepeat
   );
 
-  console.log(state.date);
-  console.log(state.date1);
-
-  const subscribeAccessCompatibility = state.sub.filter((e: any) => {
-    return (
-      e.access &&
-      (e.subscribe === "Вместе и навсегда" ||
-        e.subscribe === "Видео-курс + Вместе и навсегда" ||
-        (e.subscribe === "Пробный" && e.compatibility > 0) ||
-        (e.subscribe === "Матрица на месяц" && e.expiresSub > Date.now()))
+  const subscribeAccessCompatibility = useMemo(() => {
+    return state.sub.filter(
+      (e: {
+        access: boolean;
+        subscribe: string;
+        compatibility: number;
+        expiresSub: number;
+      }) => {
+        return (
+          e.access &&
+          (e.subscribe === "Вместе и навсегда" ||
+            e.subscribe === "Видео-курс + Вместе и навсегда" ||
+            (e.subscribe === "Пробный" && e.compatibility > 0) ||
+            (e.subscribe === "Матрица на месяц" && e.expiresSub > Date.now()))
+        );
+      }
     );
-  });
+  }, [state.sub]);
+
   useEffect(() => {
     dispatch(
       getMatrixCompatibility({
-        isWhyDidYouMeet: funcCalculation([Ad, A1d, A2d]),
-        isTheSpiritualEssenceOfTheCouple: funcCalculation([Bd, B1d, B2d]),
-        isMaterialKarma: funcCalculation([Cd, C1d, C2d]),
-        isCouplesSpiritualKarma: funcCalculation([Dd, D1d, D2d]),
-        isGenericTasksOfPartners: funcCalculation([Ed, Fd, Gd, Hd]),
-        isCouplesWellBeing: funcCalculation([C2d, Md, G4d, Ld, D2d]),
-        isThePurposeOfTheCouple: funcCalculation([LP1d, YMd, RRMd]),
+        isWhyDidYouMeet: isWhyDidYouMeet,
+        isTheSpiritualEssenceOfTheCouple: isTheSpiritualEssenceOfTheCouple,
+        isMaterialKarma: isMaterialKarma,
+        isCouplesSpiritualKarma: isCouplesSpiritualKarma,
+        isGenericTasksOfPartners: isGenericTasksOfPartners,
+        isCouplesWellBeing: isCouplesWellBeing,
+        isThePurposeOfTheCouple: isThePurposeOfTheCouple,
         datePartnerOne: state.date,
         datePartnerTwo: state.date1,
         subscribe: subscribeAccessCompatibility[0]?.subscribe,
         id: state.id,
       })
     );
-  }, []);
+  }, [state.date, state.date1]);
 
-  const birthdayArray = state.date.split("-");
-  let A = calculation(parseInt(birthdayArray[2]));
-  let B = calculation(parseInt(birthdayArray[1]));
-  let C = calculation(parseInt(birthdayArray[0]));
-  let D = calculation(A + B + C);
-  let X = calculation(A + B + C + D);
-  let B2 = calculation(B + X);
-  let B1 = calculation(B + B2);
-  let B3 = calculation(B2 + X);
-  let F = calculation(B + C);
-  let H = calculation(D + A);
-  let G = calculation(C + D);
-  let E = calculation(A + B);
-  let Y = calculation(E + F + G + H);
-  let G2 = calculation(G + Y);
-  let F2 = calculation(F + Y);
-  let F1 = calculation(F + F2);
-  let E2 = calculation(E + Y);
-  let E1 = calculation(E + E2);
-  let A2 = calculation(A + X);
-  let A1 = calculation(A + A2);
-  let A3 = calculation(A2 + X);
-  let C2 = calculation(C + X);
-  let C1 = calculation(C + C2);
-  let D2 = calculation(D + X);
-  let G4 = calculation(C2 + D2);
-  let M = calculation(G4 + C2);
-  let L = calculation(D2 + G4);
-  let XY = calculation(X + Y);
-  let G1 = calculation(G2 + G);
-  let D1 = calculation(D + D2);
-  let H2 = calculation(H + Y);
-  let H1 = calculation(H + H2);
-  let K1 = calculation(D + C);
-  let K2 = calculation(D2 + C2);
-  let K3 = calculation(X + X);
-  let K4 = calculation(B3 + A3);
-  let K5 = calculation(B2 + A2);
-  let K6 = calculation(B1 + A1);
-  let I5 = calculation(D2 + C2);
-  let T1 = calculation(D + D2 + B3 + X + B1 + B2 + B);
-  let T2 = calculation(A + A1 + A2 + A3 + X + C2 + C);
-  let T3 = calculation(E + K6 + K5 + K4 + K3 + K2 + K1);
-  let LN = calculation(B + D);
-  let LZ = calculation(A + C);
-  let LP1 = calculation(LN + LZ);
-  let LO = calculation(E + G);
-  let LM = calculation(F + H);
-  let YM = calculation(LO + LM);
-  let DG = calculation(YM + LP1);
-  let FH = calculation(F + H);
-  let EG = calculation(E + G);
-  let BF = calculation(B + F);
-  let BFB = calculation(B + BF);
-  let BFBBF = calculation(BF + BFB);
-  let BFBF = calculation(B + BFB);
-  let BFF = calculation(BF + F);
-  let BFFBF = calculation(BF + BFF);
-  let BFFF = calculation(F + BFF);
-  let FC = calculation(F + C);
-  let FCF = calculation(FC + F);
-  let FCFFC = calculation(FCF + FC);
-  let FCFF = calculation(FCF + F);
-  let FCC = calculation(FC + C);
-  let FCCFC = calculation(FCC + FC);
-  let FCCC = calculation(FCC + C);
-  let CG = calculation(C + G);
-  let CGC = calculation(CG + C);
-  let CGCC = calculation(CGC + C);
-  let CGCCG = calculation(CGC + CG);
-  let CGG = calculation(CG + G);
-  let CGGCG = calculation(CGG + CG);
-  let CGGG = calculation(CGG + G);
-  let GD = calculation(G + D);
-  let GDG = calculation(GD + G);
-  let GDGG = calculation(GDG + G);
-  let GDGGD = calculation(GDG + GD);
-  let GDD = calculation(GD + D);
-  let GDDGD = calculation(GDD + GD);
-  let GDDD = calculation(GDD + D);
-  let DH = calculation(D + H);
-  let DHD = calculation(DH + D);
-  let DHDD = calculation(DHD + D);
-  let DHDDH = calculation(DHD + DH);
-  let DHH = calculation(DH + H);
-  let DHHDH = calculation(DHH + DH);
-  let DHHH = calculation(DHH + H);
-  let HA = calculation(H + A);
-  let HAH = calculation(HA + H);
-  let HAHH = calculation(HAH + H);
-  let HAHHA = calculation(HAH + HA);
-  let HAA = calculation(HA + A);
-  let HAAHA = calculation(HAA + HA);
-  let HAAA = calculation(HAA + A);
-  let AE = calculation(A + E);
-  let AEA = calculation(AE + A);
-  let AEAA = calculation(AEA + A);
-  let AEAAE = calculation(AEA + AE);
-  let AEE = calculation(AE + E);
-  let AEEAE = calculation(AEE + AE);
-  let AEEE = calculation(AEE + E);
-  let EB = calculation(E + B);
-  let EBE = calculation(EB + E);
-  let EBEE = calculation(EBE + E);
-  let EBEEB = calculation(EBE + EB);
-  let EBB = calculation(EB + B);
-  let EBBEB = calculation(EBB + EB);
-  let EBBB = calculation(EBB + B);
+  const birthdayArray = useMemo(() => state.date.split("-"), [state.date]);
+  const parseBirthdayArray = parseInt(birthdayArray[0]);
+  const parseBirthdayArray1 = parseInt(birthdayArray[1]);
+  const parseBirthdayArray2 = parseInt(birthdayArray[2]);
+  const A = useMemo(
+    () => calculation(parseBirthdayArray2),
+    [parseBirthdayArray2]
+  );
+  const B = useMemo(
+    () => calculation(parseBirthdayArray1),
+    [parseBirthdayArray1]
+  );
+  const C = useMemo(
+    () => calculation(parseBirthdayArray),
+    [parseBirthdayArray]
+  );
+  const D = useMemo(() => calculation(A + B + C), [A, B, C]);
+  const X = useMemo(() => calculation(A + B + C + D), [A, B, C, D]);
+  const B2 = useMemo(() => calculation(B + X), [B, X]);
+  const B1 = useMemo(() => calculation(B + B2), [B, B2]);
+  const B3 = useMemo(() => calculation(B2 + X), [B2, X]);
+  const F = useMemo(() => calculation(B + C), [B, C]);
+  const H = useMemo(() => calculation(D + A), [D, A]);
+  const G = useMemo(() => calculation(C + D), [C, D]);
+  const E = useMemo(() => calculation(A + B), [A, B]);
+  const Y = useMemo(() => calculation(E + F + G + H), [E, F, G, H]);
+  const G2 = useMemo(() => calculation(G + Y), [G, Y]);
+  const F2 = useMemo(() => calculation(F + Y), [F, Y]);
+  const F1 = useMemo(() => calculation(F + F2), [F, F2]);
+  const E2 = useMemo(() => calculation(E + Y), [E, Y]);
+  const E1 = useMemo(() => calculation(E + E2), [E, E2]);
+  const A2 = useMemo(() => calculation(A + X), [A, X]);
+  const A1 = useMemo(() => calculation(A + A2), [A, A2]);
+  const A3 = useMemo(() => calculation(A2 + X), [A2, X]);
+  const C2 = useMemo(() => calculation(C + X), [C, X]);
+  const C1 = useMemo(() => calculation(C + C2), [C, C2]);
+  const D2 = useMemo(() => calculation(D + X), [D, X]);
+  const G4 = useMemo(() => calculation(C2 + D2), [C2, D2]);
+  const M = useMemo(() => calculation(G4 + C2), [G4, C2]);
+  const L = useMemo(() => calculation(D2 + G4), [D2, G4]);
+  const XY = useMemo(() => calculation(X + Y), [X, Y]);
+  const G1 = useMemo(() => calculation(G2 + G), [G2, G]);
+  const D1 = useMemo(() => calculation(D + D2), [D, D2]);
+  const H2 = useMemo(() => calculation(H + Y), [H, Y]);
+  const H1 = useMemo(() => calculation(H + H2), [H, H2]);
+  const K1 = useMemo(() => calculation(D + C), [D, C]);
+  const K2 = useMemo(() => calculation(D2 + C2), [D2, C2]);
+  const K3 = useMemo(() => calculation(X + X), [X]);
+  const K4 = useMemo(() => calculation(B3 + A3), [B3, A3]);
+  const K5 = useMemo(() => calculation(B2 + A2), [B2, A2]);
+  const K6 = useMemo(() => calculation(B1 + A1), [B1, A1]);
+  const I5 = useMemo(() => calculation(D2 + C2), [D2, C2]);
+  const T1 = useMemo(
+    () => calculation(D + D2 + B3 + X + B1 + B2 + B),
+    [D, D2, B3, X, B1, B2, B]
+  );
+  const T2 = useMemo(
+    () => calculation(A + A1 + A2 + A3 + X + C2 + C),
+    [A, A1, A2, A3, X, C2, C]
+  );
+  const T3 = useMemo(
+    () => calculation(E + K6 + K5 + K4 + K3 + K2 + K1),
+    [E, K6, K5, K4, K3, K2, K1]
+  );
+  const LN = useMemo(() => calculation(B + D), [B, D]);
+  const LZ = useMemo(() => calculation(A + C), [A, C]);
+  const LP1 = useMemo(() => calculation(LN + LZ), [LN, LZ]);
+  const LO = useMemo(() => calculation(E + G), [E, G]);
+  const LM = useMemo(() => calculation(F + H), [F, H]);
+  const YM = useMemo(() => calculation(LO + LM), [LO, LM]);
+  const DG = useMemo(() => calculation(YM + LP1), [YM, LP1]);
+  const FH = useMemo(() => calculation(F + H), [F, H]);
+  const EG = useMemo(() => calculation(E + G), [E, G]);
+  const BF = useMemo(() => calculation(B + F), [B, F]);
+  const BFB = useMemo(() => calculation(B + BF), [B, BF]);
+  const BFBBF = useMemo(() => calculation(BF + BFB), [BF, BFB]);
+  const BFBF = useMemo(() => calculation(B + BFB), [B, BFB]);
+  const BFF = useMemo(() => calculation(BF + F), [BF, F]);
+  const BFFBF = useMemo(() => calculation(BF + BFF), [BF, BFF]);
+  const BFFF = useMemo(() => calculation(F + BFF), [F, BFF]);
+  const FC = useMemo(() => calculation(F + C), [F, C]);
+  const FCF = useMemo(() => calculation(FC + F), [FC, F]);
+  const FCFFC = useMemo(() => calculation(FCF + FC), [FCF, FC]);
+  const FCFF = useMemo(() => calculation(FCF + F), [FCF, F]);
+  const FCC = useMemo(() => calculation(FC + C), [FC, C]);
+  const FCCFC = useMemo(() => calculation(FCC + FC), [FCC, FC]);
+  const FCCC = useMemo(() => calculation(FCC + C), [FCC, C]);
+  const CG = useMemo(() => calculation(C + G), [C, G]);
+  const CGC = useMemo(() => calculation(CG + C), [CG, C]);
+  const CGCC = useMemo(() => calculation(CGC + C), [CGC, C]);
+  const CGCCG = useMemo(() => calculation(CGC + CG), [CGC, CG]);
+  const CGG = useMemo(() => calculation(CG + G), [CG, G]);
+  const CGGCG = useMemo(() => calculation(CGG + CG), [CGG, CG]);
+  const CGGG = useMemo(() => calculation(CGG + G), [CGG, G]);
+  const GD = useMemo(() => calculation(G + D), [G, D]);
+  const GDG = useMemo(() => calculation(GD + G), [GD, G]);
+  const GDGG = useMemo(() => calculation(GDG + G), [GDG, G]);
+  const GDGGD = useMemo(() => calculation(GDG + GD), [GDG, GD]);
+  const GDD = useMemo(() => calculation(GD + D), [GD, D]);
+  const GDDGD = useMemo(() => calculation(GDD + GD), [GDD, GD]);
+  const GDDD = useMemo(() => calculation(GDD + D), [GDD, D]);
+  const DH = useMemo(() => calculation(D + H), [D, H]);
+  const DHD = useMemo(() => calculation(DH + D), [DH, D]);
+  const DHDD = useMemo(() => calculation(DHD + D), [DHD, D]);
+  const DHDDH = useMemo(() => calculation(DHD + DH), [DHD, DH]);
+  const DHH = useMemo(() => calculation(DH + H), [DH, H]);
+  const DHHDH = useMemo(() => calculation(DHH + DH), [DHH, DH]);
+  const DHHH = useMemo(() => calculation(DHH + H), [DHH, H]);
+  const HA = useMemo(() => calculation(H + A), [H, A]);
+  const HAH = useMemo(() => calculation(HA + H), [HA, H]);
+  const HAHH = useMemo(() => calculation(HAH + H), [HAH, H]);
+  const HAHHA = useMemo(() => calculation(HAH + HA), [HAH, HA]);
+  const HAA = useMemo(() => calculation(HA + A), [HA, A]);
+  const HAAHA = useMemo(() => calculation(HAA + HA), [HAA, HA]);
+  const HAAA = useMemo(() => calculation(HAA + A), [HAA, A]);
+  const AE = useMemo(() => calculation(A + E), [A, E]);
+  const AEA = useMemo(() => calculation(AE + A), [AE, A]);
+  const AEAA = useMemo(() => calculation(AEA + A), [AEA, A]);
+  const AEAAE = useMemo(() => calculation(AEA + AE), [AEA, AE]);
+  const AEE = useMemo(() => calculation(AE + E), [AE, E]);
+  const AEEAE = useMemo(() => calculation(AEE + AE), [AEE, AE]);
+  const AEEE = useMemo(() => calculation(AEE + E), [AEE, E]);
+  const EB = useMemo(() => calculation(E + B), [E, B]);
+  const EBE = useMemo(() => calculation(EB + E), [EB, E]);
+  const EBEE = useMemo(() => calculation(EBE + E), [EBE, E]);
+  const EBEEB = useMemo(() => calculation(EBE + EB), [EBE, EB]);
+  const EBB = useMemo(() => calculation(EB + B), [EB, B]);
+  const EBBEB = useMemo(() => calculation(EBB + EB), [EBB, EB]);
+  const EBBB = useMemo(() => calculation(EBB + B), [EBB, B]);
 
-  const birthdayArray1 = state.date1.split("-");
-  let Ac = calculation(parseInt(birthdayArray1[2]));
-  let Bc = calculation(parseInt(birthdayArray1[1]));
-  let Cc = calculation(parseInt(birthdayArray1[0]));
-
-  let Dc = calculation(Ac + Bc + Cc);
-  let Xc = calculation(Ac + Bc + Cc + Dc);
-  let B2c = calculation(Bc + Xc);
-  let B1c = calculation(Bc + B2c);
-  let B3c = calculation(B2c + Xc);
-  let Fc = calculation(Bc + Cc);
-  let Hc = calculation(Dc + Ac);
-  let Gc = calculation(Cc + Dc);
-  let Ec = calculation(Ac + Bc);
-  let Yc = calculation(Ec + Fc + Gc + Hc);
-  let G2c = calculation(Gc + Yc);
-  let F2c = calculation(Fc + Yc);
-  let F1c = calculation(Fc + F2c);
-  let E2c = calculation(Ec + Yc);
-  let E1c = calculation(Ec + E2c);
-  let A2c = calculation(Ac + Xc);
-  let A1c = calculation(Ac + A2c);
-  let A3c = calculation(A2c + Xc);
-  let C2c = calculation(Cc + Xc);
-  let C1c = calculation(Cc + C2c);
-  let D2c = calculation(Dc + Xc);
-  let G4c = calculation(C2c + D2c);
-  let Mc = calculation(G4c + C2c);
-  let Lc = calculation(D2c + G4c);
-  let XYc = calculation(Xc + Yc);
-  let G1c = calculation(G2c + Gc);
-  let D1c = calculation(Dc + D2c);
-  let H2c = calculation(Hc + Yc);
-  let H1c = calculation(Hc + H2c);
-  let K1c = calculation(Dc + Cc);
-  let K2c = calculation(D2c + C2c);
-  let K3c = calculation(Xc + Xc);
-  let K4c = calculation(B3c + A3c);
-  let K5c = calculation(B2c + A2c);
-  let K6c = calculation(B1c + A1c);
-  let I5c = calculation(D2c + C2c);
-  let T1c = calculation(Dc + D2c + B3c + Xc + B1c + B2c + Bc);
-  let T2c = calculation(Ac + A1c + A2c + A3c + Xc + C2c + Cc);
-  let T3c = calculation(Ec + K6c + K5c + K4c + K3c + K2c + K1c);
-  let LNc = calculation(Bc + Dc);
-  let LZc = calculation(Ac + Cc);
-  let LP1c = calculation(LNc + LZc);
-  let LOc = calculation(Ec + Gc);
-  let LMc = calculation(Fc + Hc);
-  let YMc = calculation(LOc + LMc);
-  let DGc = calculation(YMc + LP1c);
-  let FHc = calculation(Fc + Hc);
-  let EGc = calculation(Ec + Gc);
-  let BFc = calculation(Bc + Fc);
-  let BFBc = calculation(Bc + BFc);
-  let BFBBFc = calculation(BFc + BFBc);
-  let BFBFc = calculation(Bc + BFBc);
-  let BFFc = calculation(BFc + Fc);
-  let BFFBFc = calculation(BFc + BFFc);
-  let BFFFc = calculation(Fc + BFFc);
-  let FCc = calculation(Fc + Cc);
-  let FCFc = calculation(FCc + Fc);
-  let FCFFCc = calculation(FCFc + FCc);
-  let FCFFc = calculation(FCFc + Fc);
-  let FCCc = calculation(FCc + Cc);
-  let FCCFCc = calculation(FCCc + FCc);
-  let FCCCc = calculation(FCCc + Cc);
-  let CGc = calculation(Cc + Gc);
-  let CGCc = calculation(CGc + Cc);
-  let CGCCc = calculation(CGCc + Cc);
-  let CGCCGc = calculation(CGCc + CGc);
-  let CGGc = calculation(CGc + Gc);
-  let CGGCGc = calculation(CGGc + CGc);
-  let CGGGc = calculation(CGGc + Gc);
-  let GDc = calculation(Gc + Dc);
-  let GDGc = calculation(GDc + Gc);
-  let GDGGc = calculation(GDGc + Gc);
-  let GDGGDc = calculation(GDGc + GDc);
-  let GDDc = calculation(GDc + Dc);
-  let GDDGDc = calculation(GDDc + GDc);
-  let GDDDc = calculation(GDDc + Dc);
-  let DHc = calculation(Dc + Hc);
-  let DHDc = calculation(DHc + Dc);
-  let DHDDc = calculation(DHDc + Dc);
-  let DHDDHc = calculation(DHDc + DHc);
-  let DHHc = calculation(DHc + Hc);
-  let DHHDHc = calculation(DHHc + DHc);
-  let DHHHc = calculation(DHHc + Hc);
-  let HAc = calculation(Hc + Ac);
-  let HAHc = calculation(HAc + Hc);
-  let HAHHc = calculation(HAHc + Hc);
-  let HAHHAc = calculation(HAHc + HAc);
-  let HAAc = calculation(HAc + Ac);
-  let HAAHAc = calculation(HAAc + HAc);
-  let HAAAc = calculation(HAAc + Ac);
-  let AEc = calculation(Ac + Ec);
-  let AEAc = calculation(AEc + Ac);
-  let AEAAc = calculation(AEAc + Ac);
-  let AEAAEc = calculation(AEAc + AEc);
-  let AEEc = calculation(AEc + Ec);
-  let AEEAEc = calculation(AEEc + AEc);
-  let AEEEc = calculation(AEEc + Ec);
-  let EBc = calculation(Ec + Bc);
-  let EBEc = calculation(EBc + Ec);
-  let EBEEc = calculation(EBEc + Ec);
-  let EBEEBc = calculation(EBEc + EBc);
-  let EBBc = calculation(EBc + Bc);
-  let EBBEBc = calculation(EBBc + EBc);
-  let EBBBc = calculation(EBBc + Bc);
+  const birthdayArray1 = useMemo(() => state.date1.split("-"), [state.date1]);
+  const parsedBirthdayArray10 = parseInt(birthdayArray1[0]);
+  const parsedBirthdayArray11 = parseInt(birthdayArray1[1]);
+  const parsedBirthdayArray12 = parseInt(birthdayArray1[2]);
+  const Ac = useMemo(
+    () => calculation(parsedBirthdayArray12),
+    [parsedBirthdayArray12]
+  );
+  const Bc = useMemo(
+    () => calculation(parsedBirthdayArray11),
+    [parsedBirthdayArray11]
+  );
+  const Cc = useMemo(
+    () => calculation(parsedBirthdayArray10),
+    [parsedBirthdayArray10]
+  );
+  const Dc = useMemo(() => calculation(Ac + Bc + Cc), [Ac, Bc, Cc]);
+  const Xc = useMemo(() => calculation(Ac + Bc + Cc + Dc), [Ac, Bc, Cc, Dc]);
+  const B2c = useMemo(() => calculation(Bc + Xc), [Bc, Xc]);
+  const B1c = useMemo(() => calculation(Bc + B2c), [Bc, B2c]);
+  const B3c = useMemo(() => calculation(B2c + Xc), [B2c, Xc]);
+  const Fc = useMemo(() => calculation(Bc + Cc), [Bc, Cc]);
+  const Hc = useMemo(() => calculation(Dc + Ac), [Dc, Ac]);
+  const Gc = useMemo(() => calculation(Cc + Dc), [Cc, Dc]);
+  const Ec = useMemo(() => calculation(Ac + Bc), [Ac, Bc]);
+  const Yc = useMemo(() => calculation(Ec + Fc + Gc + Hc), [Ec, Fc, Gc, Hc]);
+  const G2c = useMemo(() => calculation(Gc + Yc), [Gc, Yc]);
+  const F2c = useMemo(() => calculation(Fc + Yc), [Fc, Yc]);
+  const F1c = useMemo(() => calculation(Fc + F2c), [Fc, F2c]);
+  const E2c = useMemo(() => calculation(Ec + Yc), [Ec, Yc]);
+  const E1c = useMemo(() => calculation(Ec + E2c), [Ec, E2c]);
+  const A2c = useMemo(() => calculation(Ac + Xc), [Ac, Xc]);
+  const A1c = useMemo(() => calculation(Ac + A2c), [Ac, A2c]);
+  const A3c = useMemo(() => calculation(A2c + Xc), [A2c, Xc]);
+  const C2c = useMemo(() => calculation(Cc + Xc), [Cc, Xc]);
+  const C1c = useMemo(() => calculation(Cc + C2c), [Cc, C2c]);
+  const D2c = useMemo(() => calculation(Dc + Xc), [Dc, Xc]);
+  const G4c = useMemo(() => calculation(C2c + D2c), [C2c, D2c]);
+  const Mc = useMemo(() => calculation(G4c + C2c), [G4c, C2c]);
+  const Lc = useMemo(() => calculation(D2c + G4c), [D2c, G4c]);
+  const XYc = useMemo(() => calculation(Xc + Yc), [Xc, Yc]);
+  const G1c = useMemo(() => calculation(G2c + Gc), [G2c, Gc]);
+  const D1c = useMemo(() => calculation(Dc + D2c), [Dc, D2c]);
+  const H2c = useMemo(() => calculation(Hc + Yc), [Hc, Yc]);
+  const H1c = useMemo(() => calculation(Hc + H2c), [H2c, Hc]);
+  const K1c = useMemo(() => calculation(Dc + Cc), [Dc, Cc]);
+  const K2c = useMemo(() => calculation(D2c + C2c), [D2c, C2c]);
+  const K3c = useMemo(() => calculation(Xc + Xc), [Xc]);
+  const K4c = useMemo(() => calculation(B3c + A3c), [B3c, A3c]);
+  const K5c = useMemo(() => calculation(B2c + A2c), [B2c, A2c]);
+  const K6c = useMemo(() => calculation(B1c + A1c), [B1c, A1c]);
+  const I5c = useMemo(() => calculation(D2c + C2c), [D2c, C2c]);
+  const T1c = useMemo(
+    () => calculation(Dc + D2c + B3c + Xc + B1c + B2c + Bc),
+    [Dc, D2c, B3c, Xc, B1c, B2c, Bc]
+  );
+  const T2c = useMemo(
+    () => calculation(Ac + A1c + A2c + A3c + Xc + C2c + Cc),
+    [Ac, A1c, A2c, A3c, Xc, C2c, Cc]
+  );
+  const T3c = useMemo(
+    () => calculation(Ec + K6c + K5c + K4c + K3c + K2c + K1c),
+    [Ec, K6c, K5c, K4c, K3c, K2c, K1c]
+  );
+  const LNc = useMemo(() => calculation(Bc + Dc), [Bc, Dc]);
+  const LZc = useMemo(() => calculation(Ac + Cc), [Ac, Cc]);
+  const LP1c = useMemo(() => calculation(LNc + LZc), [LNc, LZc]);
+  const LOc = useMemo(() => calculation(Ec + Gc), [Ec, Gc]);
+  const LMc = useMemo(() => calculation(Fc + Hc), [Fc, Hc]);
+  const YMc = useMemo(() => calculation(LOc + LMc), [LOc, LMc]);
+  const DGc = useMemo(() => calculation(YMc + LP1c), [YMc, LP1c]);
+  const FHc = useMemo(() => calculation(Fc + Hc), [Fc, Hc]);
+  const EGc = useMemo(() => calculation(Ec + Gc), [Ec, Gc]);
+  const BFc = useMemo(() => calculation(Bc + Fc), [Bc, Fc]);
+  const BFBc = useMemo(() => calculation(Bc + BFc), [Bc, BFc]);
+  const BFBBFc = useMemo(() => calculation(BFc + BFBc), [BFc, BFBc]);
+  const BFBFc = useMemo(() => calculation(Bc + BFBc), [Bc, BFBc]);
+  const BFFc = useMemo(() => calculation(BFc + Fc), [BFc, Fc]);
+  const BFFBFc = useMemo(() => calculation(BFc + BFFc), [BFc, BFFc]);
+  const BFFFc = useMemo(() => calculation(Fc + BFFc), [Fc, BFFc]);
+  const FCc = useMemo(() => calculation(Fc + Cc), [Fc, Cc]);
+  const FCFc = useMemo(() => calculation(FCc + Fc), [FCc, Fc]);
+  const FCFFCc = useMemo(() => calculation(FCFc + FCc), [FCFc, FCc]);
+  const FCFFc = useMemo(() => calculation(FCFc + Fc), [FCFc, Fc]);
+  const FCCc = useMemo(() => calculation(FCc + Cc), [FCc, Cc]);
+  const FCCFCc = useMemo(() => calculation(FCCc + FCc), [FCCc, FCc]);
+  const FCCCc = useMemo(() => calculation(FCCc + Cc), [FCCc, Cc]);
+  const CGc = useMemo(() => calculation(Cc + Gc), [Cc, Gc]);
+  const CGCc = useMemo(() => calculation(CGc + Cc), [CGc, Cc]);
+  const CGCCc = useMemo(() => calculation(CGCc + Cc), [CGCc, Cc]);
+  const CGCCGc = useMemo(() => calculation(CGCc + CGc), [CGCc, CGc]);
+  const CGGc = useMemo(() => calculation(CGc + Gc), [CGc, Gc]);
+  const CGGCGc = useMemo(() => calculation(CGGc + CGc), [CGGc, CGc]);
+  const CGGGc = useMemo(() => calculation(CGGc + Gc), [CGGc, Gc]);
+  const GDc = useMemo(() => calculation(Gc + Dc), [Gc, Dc]);
+  const GDGc = useMemo(() => calculation(GDc + Gc), [GDc, Gc]);
+  const GDGGc = useMemo(() => calculation(GDGc + Gc), [GDGc, Gc]);
+  const GDGGDc = useMemo(() => calculation(GDGc + GDc), [GDGc, GDc]);
+  const GDDc = useMemo(() => calculation(GDc + Dc), [GDc, Dc]);
+  const GDDGDc = useMemo(() => calculation(GDDc + GDc), [GDDc, GDc]);
+  const GDDDc = useMemo(() => calculation(GDDc + Dc), [GDDc, Dc]);
+  const DHc = useMemo(() => calculation(Dc + Hc), [Dc, Hc]);
+  const DHDc = useMemo(() => calculation(DHc + Dc), [DHc, Dc]);
+  const DHDDc = useMemo(() => calculation(DHDc + Dc), [DHDc, Dc]);
+  const DHDDHc = useMemo(() => calculation(DHDc + DHc), [DHDc, DHc]);
+  const DHHc = useMemo(() => calculation(DHc + Hc), [DHc, Hc]);
+  const DHHDHc = useMemo(() => calculation(DHHc + DHc), [DHHc, DHc]);
+  const DHHHc = useMemo(() => calculation(DHHc + Hc), [DHHc, Hc]);
+  const HAc = useMemo(() => calculation(Hc + Ac), [Hc, Ac]);
+  const HAHc = useMemo(() => calculation(HAc + Hc), [HAc, Hc]);
+  const HAHHc = useMemo(() => calculation(HAHc + Hc), [HAHc, Hc]);
+  const HAHHAc = useMemo(() => calculation(HAHc + HAc), [HAHc, HAc]);
+  const HAAc = useMemo(() => calculation(HAc + Ac), [HAc, Ac]);
+  const HAAHAc = useMemo(() => calculation(HAAc + HAc), [HAAc, HAc]);
+  const HAAAc = useMemo(() => calculation(HAAc + Ac), [HAAc, Ac]);
+  const AEc = useMemo(() => calculation(Ac + Ec), [Ac, Ec]);
+  const AEAc = useMemo(() => calculation(AEc + Ac), [AEc, Ac]);
+  const AEAAc = useMemo(() => calculation(AEAc + Ac), [AEAc, Ac]);
+  const AEAAEc = useMemo(() => calculation(AEAc + AEc), [AEAc, AEc]);
+  const AEEc = useMemo(() => calculation(AEc + Ec), [AEc, Ec]);
+  const AEEAEc = useMemo(() => calculation(AEEc + AEc), [AEEc, AEc]);
+  const AEEEc = useMemo(() => calculation(AEEc + Ec), [AEEc, Ec]);
+  const EBc = useMemo(() => calculation(Ec + Bc), [Ec, Bc]);
+  const EBEc = useMemo(() => calculation(EBc + Ec), [EBc, Ec]);
+  const EBEEc = useMemo(() => calculation(EBEc + Ec), [EBEc, Ec]);
+  const EBEEBc = useMemo(() => calculation(EBEc + EBc), [EBEc, EBc]);
+  const EBBc = useMemo(() => calculation(EBc + Bc), [EBc, Bc]);
+  const EBBEBc = useMemo(() => calculation(EBBc + EBc), [EBBc, EBc]);
+  const EBBBc = useMemo(() => calculation(EBBc + Bc), [EBBc, Bc]);
   // Compatibility
-  let Bd = calculation(B + Bc);
-  let Fd = calculation(F + Fc);
-  let Cd = calculation(C + Cc);
-  let Gd = calculation(G + Gc);
-  let Dd = calculation(D + Dc);
-  let Hd = calculation(H + Hc);
-  let Ad = calculation(A + Ac);
-  let Ed = calculation(E + Ec);
-  let Xd = calculation(X + Xc);
+  const Bd = useMemo(() => calculation(B + Bc), [B, Bc]);
+  const Fd = useMemo(() => calculation(F + Fc), [F, Fc]);
+  const Cd = useMemo(() => calculation(C + Cc), [C, Cc]);
+  const Gd = useMemo(() => calculation(G + Gc), [G, Gc]);
+  const Dd = useMemo(() => calculation(D + Dc), [D, Dc]);
+  const Hd = useMemo(() => calculation(H + Hc), [H, Hc]);
+  const Ad = useMemo(() => calculation(A + Ac), [A, Ac]);
+  const Ed = useMemo(() => calculation(E + Ec), [E, Ec]);
+  const Xd = useMemo(() => calculation(X + Xc), [X, Xc]);
+  const B2d = useMemo(() => calculation(Bd + Xd), [Bd, Xd]);
+  const B1d = useMemo(() => calculation(Bd + B2d), [Bd, B2d]);
+  const C2d = useMemo(() => calculation(Cd + Xd), [Cd, Xd]);
+  const C1d = useMemo(() => calculation(Cd + C2d), [Cd, C2d]);
+  const D2d = useMemo(() => calculation(Dd + Xd), [Dd, Xd]);
+  const D1d = useMemo(() => calculation(Dd + D2d), [Dd, D2d]);
+  const A2d = useMemo(() => calculation(Ad + Xd), [Ad, Xd]);
+  const A1d = useMemo(() => calculation(Ad + A2d), [Ad, A2d]);
+  const G4d = useMemo(() => calculation(C2d + D2d), [C2d, D2d]);
+  const Ld = useMemo(() => calculation(D2d + G4d), [D2d, G4d]);
+  const Md = useMemo(() => calculation(G4d + C2d), [G4d, C2d]);
+  const LNd = useMemo(() => calculation(Bd + Dd), [Bd, Dd]);
+  const LZd = useMemo(() => calculation(Ad + Cd), [Ad, Cd]);
+  const LP1d = useMemo(() => calculation(LNd + LZd), [LNd, LZd]);
+  const LOd = useMemo(() => calculation(Ed + Gd), [Ed, Gd]);
+  const LMd = useMemo(() => calculation(Fd + Hd), [Fd, Hd]);
+  const YMd = useMemo(() => calculation(LOd + LMd), [LOd, LMd]);
+  const RRMd = useMemo(() => calculation(LP1d + YMd), [LP1d, YMd]);
 
-  let B2d = calculation(Bd + Xd);
-  let B1d = calculation(Bd + B2d);
-  let C2d = calculation(Cd + Xd);
-  let C1d = calculation(Cd + C2d);
-  let D2d = calculation(Dd + Xd);
-  let D1d = calculation(Dd + D2d);
-  let A2d = calculation(Ad + Xd);
-  let A1d = calculation(Ad + A2d);
-  let G4d = calculation(C2d + D2d);
-  let Ld = calculation(D2d + G4d);
-  let Md = calculation(G4d + C2d);
-  let LNd = calculation(Bd + Dd);
-  let LZd = calculation(Ad + Cd);
-  let LP1d = calculation(LNd + LZd);
-  let LOd = calculation(Ed + Gd);
-  let LMd = calculation(Fd + Hd);
-  let YMd = calculation(LOd + LMd);
-  let RRMd = calculation(LP1d + YMd);
+  const isWhyDidYouMeet = useMemo(
+    () => funcCalculation([Ad, A1d, A2d]),
+    [Ad, A1d, A2d]
+  );
+  const isTheSpiritualEssenceOfTheCouple = useMemo(
+    () => funcCalculation([Bd, B1d, B2d]),
+    [Bd, B1d, B2d]
+  );
+  const isMaterialKarma = useMemo(
+    () => funcCalculation([Cd, C1d, C2d]),
+    [Cd, C1d, C2d]
+  );
+  const isCouplesSpiritualKarma = useMemo(
+    () => funcCalculation([Dd, D1d, D2d]),
+    [Dd, D1d, D2d]
+  );
+  const isGenericTasksOfPartners = useMemo(
+    () => funcCalculation([Ed, Fd, Gd, Hd]),
+    [Ed, Fd, Gd, Hd]
+  );
+  const isCouplesWellBeing = useMemo(
+    () => funcCalculation([C2d, Md, G4d, Ld, D2d]),
+    [C2d, Md, G4d, Ld, D2d]
+  );
+  const isThePurposeOfTheCouple = useMemo(
+    () => funcCalculation([LP1d, YMd, RRMd]),
+    [LP1d, YMd, RRMd]
+  );
 
-  const downloadPdf = async () => {
+  const downloadPdf = useCallback(async () => {
+    console.log("weviwev");
     let response = await personalMatrixAPI.getPdfCompatibility(
-      funcCalculation([Ad, A1d, A2d]),
-      funcCalculation([Bd, B1d, B2d]),
-      funcCalculation([Cd, C1d, C2d]),
-      funcCalculation([Dd, D1d, D2d]),
-      funcCalculation([Ed, Fd, Gd, Hd]),
-      funcCalculation([C2d, Md, G4d, Ld, D2d]),
-      funcCalculation([LP1d, YMd, RRMd]),
+      isWhyDidYouMeet,
+      isTheSpiritualEssenceOfTheCouple,
+      isMaterialKarma,
+      isCouplesSpiritualKarma,
+      isGenericTasksOfPartners,
+      isCouplesWellBeing,
+      isThePurposeOfTheCouple,
       state.date,
       state.date1
     );
@@ -314,7 +392,17 @@ export const DiagramCompatibility = () => {
     link.download = `${state.date}/${state.date1}`;
     link.click();
     URL.revokeObjectURL(url);
-  };
+  }, [
+    isWhyDidYouMeet,
+    isTheSpiritualEssenceOfTheCouple,
+    isMaterialKarma,
+    isCouplesSpiritualKarma,
+    isGenericTasksOfPartners,
+    isCouplesWellBeing,
+    isThePurposeOfTheCouple,
+    state.date,
+    state.date1,
+  ]);
   if (matrixWait) {
     return (
       <div

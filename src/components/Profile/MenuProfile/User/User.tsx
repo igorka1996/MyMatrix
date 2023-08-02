@@ -23,6 +23,7 @@ import IconButton from "@mui/material/IconButton";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Visibility from "@mui/icons-material/Visibility";
 import FormHelperText from "@mui/material/FormHelperText";
+import { avatarWaitAC } from "../../../../redux-store/error-wait-reducer";
 
 interface FormRegistration {
   name: string;
@@ -48,6 +49,7 @@ export const User = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const [showPassword1, setShowPassword1] = React.useState(false);
   const handleFileUpload = async (event: ChangeEvent<HTMLInputElement>) => {
+    dispatch(avatarWaitAC({ avatarWait: true }));
     let file = event.target.files?.[0];
     if (!file) return;
     try {
@@ -73,7 +75,7 @@ export const User = () => {
 
   const {
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { errors },
     register,
     getValues,
     control,

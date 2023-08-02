@@ -381,7 +381,6 @@ export const uploadAvatarThunk = createAsyncThunk(
     { dispatch, rejectWithValue }
   ) => {
     try {
-      dispatch(avatarWaitAC({ avatarWait: true }));
       const res = await authAPI.uploadAvatar({
         avatar: param.avatar,
         userId: param.userId,
@@ -392,6 +391,7 @@ export const uploadAvatarThunk = createAsyncThunk(
       };
     } catch (e) {
       HandleError(e, dispatch);
+      dispatch(avatarWaitAC({ avatarWait: false }));
       return rejectWithValue(null);
     }
   }

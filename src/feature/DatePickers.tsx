@@ -1,7 +1,7 @@
 import * as React from "react";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import "./DatePickers.scss";
 import { FormControlLabel, styled, Switch } from "@mui/material";
@@ -9,6 +9,7 @@ import { FormGroup } from "@material-ui/core";
 import { useAppSelector } from "../redux-store/store";
 
 export function DatePickers() {
+  console.log("datepicker");
   const [value, setValue] = useState<string>("");
   const [value1, setValue1] = useState<string>("");
   const [matrix, setMatrix] = useState<string>("personal");
@@ -115,43 +116,48 @@ export function DatePickers() {
     setMatrix(value);
   };
 
-  const subscribe = () => {
-    return sub.filter((e: any) =>
-      e.subscribe === "Пробный" && e.access ? e : null
-    )[0];
-  };
-  console.log(value);
-  const subscribeAll = () => {
-    return sub.filter((e: any) =>
-      (e.subscribe === "Вместе и навсегда" && e.access) ||
-      (e.subscribe === "Видео-курс + Вместе и навсегда" && e.access)
-        ? e
-        : null
-    )[0];
-  };
-  const subAll = subscribeAll();
-  const subscribeMonth = () => {
-    return sub.filter((e: any) =>
-      e.subscribe === "Матрица на месяц" && e.access ? e : null
-    )[0];
-  };
+  const subscribe = useMemo(
+    () =>
+      sub.filter((e: any) =>
+        e.subscribe === "Пробный" && e.access ? e : null
+      )[0],
+    [sub]
+  );
+  const subscribeAll = useMemo(
+    () =>
+      sub.filter((e: any) =>
+        (e.subscribe === "Вместе и навсегда" && e.access) ||
+        (e.subscribe === "Видео-курс + Вместе и навсегда" && e.access)
+          ? e
+          : null
+      )[0],
+    [sub]
+  );
+  // const subAll = subscribeAll();
+  const subscribeMonth = useMemo(
+    () =>
+      sub.filter((e: any) =>
+        e.subscribe === "Матрица на месяц" && e.access ? e : null
+      )[0],
+    [sub]
+  );
   let day;
   let month;
   let year;
-  const timestamp = subscribeMonth()?.expiresSub
-    ? new Date(subscribeMonth().expiresSub)
+  const timestamp = subscribeMonth?.expiresSub
+    ? new Date(subscribeMonth.expiresSub)
     : undefined;
   if (timestamp) {
     day = timestamp.getDate();
     month = timestamp.getMonth() + 1;
     year = timestamp.getFullYear();
   }
-  const proba = subscribe();
+  // const proba = subscribe();
   return (
     <React.Fragment>
       <div className={"backImageDate"}></div>
       <section className={"sectionDate"}>
-        {subAll ? (
+        {subscribeAll ? (
           <p className={"pom"}>Безлимитные расшифровки навсегда</p>
         ) : undefined}
         {timestamp ? (
@@ -161,32 +167,32 @@ export function DatePickers() {
             year ? year : undefined
           }`}</p>
         ) : undefined}
-        {matrix === "personal" && !subAll ? (
-          proba?.personal !== undefined && proba.personal > 0 ? (
+        {matrix === "personal" && !subscribeAll ? (
+          subscribe?.personal !== undefined && subscribe.personal > 0 ? (
             <p className={"pom"}>
               Вам доступно:{" "}
-              {proba.personal > 1
-                ? `${proba.personal} расшифровки`
-                : `${proba.personal} расшифровка`}
+              {subscribe.personal > 1
+                ? `${subscribe.personal} расшифровки`
+                : `${subscribe.personal} расшифровка`}
             </p>
           ) : undefined
-        ) : matrix === "children" && !subAll ? (
-          proba?.children !== undefined && proba.children > 0 ? (
+        ) : matrix === "children" && !subscribeAll ? (
+          subscribe?.children !== undefined && subscribe.children > 0 ? (
             <p className={"pom"}>
               Вам доступно:{" "}
-              {proba.children > 1
-                ? `${proba.children} расшифровки`
-                : `${proba.children} расшифровка`}
+              {subscribe.children > 1
+                ? `${subscribe.children} расшифровки`
+                : `${subscribe.children} расшифровка`}
             </p>
           ) : undefined
-        ) : proba?.compatibility !== undefined &&
-          proba.compatibility > 0 &&
-          !subAll ? (
+        ) : subscribe?.compatibility !== undefined &&
+          subscribe.compatibility > 0 &&
+          !subscribeAll ? (
           <p className={"pom"}>
             Вам доступно:{" "}
-            {proba.compatibility > 1
-              ? `${proba.compatibility} расшифровки`
-              : `${proba.compatibility} расшифровка`}
+            {subscribe.compatibility > 1
+              ? `${subscribe.compatibility} расшифровки`
+              : `${subscribe.compatibility} расшифровка`}
           </p>
         ) : undefined}
         <div className={"matrixSearch"}>

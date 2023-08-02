@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 import { calculation, funcCalculation } from "../../../../utils/calc";
 import { personalMatrixAPI } from "../../../../API/API";
 import { TableWaitSkeleton } from "../../../../feature/TableWaitSkeleton";
+import { v4 } from "uuid";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -195,7 +196,7 @@ export function TableCompatibility() {
         ) : (
           <TableBody>
             {rows?.map((row) => (
-              <StyledTableRow key={row.partnerOne}>
+              <StyledTableRow key={v4()}>
                 <StyledTableCell
                   className={"tableRow"}
                   component="th"

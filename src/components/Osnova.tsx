@@ -2,6 +2,7 @@ import React from "react";
 import { Payment } from "./Payment/Payment";
 import "../App.scss";
 import { DatePickers } from "../feature/DatePickers";
+import { HashLink as Anchor } from "react-router-hash-link";
 
 export const Osnova = () => {
   return (
@@ -11,7 +12,9 @@ export const Osnova = () => {
         <h1 className={"h1"}>
           <p className={"matrixText"}>Матрица</p>
           твоей судьбы
-          <button className={"baton"}>РАССЧИТАТЬ</button>
+          <Anchor smooth to={"/#tarif"} className={"baton"}>
+            РАССЧИТАТЬ
+          </Anchor>
         </h1>
       </section>
       <section>

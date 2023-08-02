@@ -21,6 +21,7 @@ import {
   funcCalculation,
 } from "../../../../utils/calc";
 import { TableWaitSkeleton } from "../../../../feature/TableWaitSkeleton";
+import { v4 } from "uuid";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -431,7 +432,7 @@ export function TablePersonal(props: PropsType) {
   };
   let rows;
   if (props.matrix === "personal") {
-    rows = matrixSearchHistory?.personal.map((e, index) =>
+    rows = matrixSearchHistory?.personal.map((e) =>
       createData(
         e.name,
         e.date,
@@ -460,7 +461,7 @@ export function TablePersonal(props: PropsType) {
       )
     );
   } else {
-    rows = matrixSearchHistory?.children.map((e, index) =>
+    rows = matrixSearchHistory?.children.map((e) =>
       createData(
         e.name,
         e.date,
@@ -541,7 +542,7 @@ export function TablePersonal(props: PropsType) {
         ) : (
           <TableBody>
             {rows?.map((row) => (
-              <StyledTableRow key={row.name}>
+              <StyledTableRow key={v4()}>
                 <StyledTableCell
                   className={"tableRow"}
                   component="th"

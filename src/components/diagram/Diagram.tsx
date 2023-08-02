@@ -12,6 +12,7 @@ import { personalMatrixAPI } from "../../API/API";
 import { Button, CircularProgress } from "@mui/material";
 
 export const Diagram = () => {
+  console.log("personal-children");
   const { state } = useLocation();
   const age = calculateAge(state.date);
   const matrixWait = useAppSelector((state) => state.errorReducer.matrixWait);

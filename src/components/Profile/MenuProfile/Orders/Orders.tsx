@@ -2,6 +2,7 @@ import React from "react";
 import { useAppSelector } from "../../../../redux-store/store";
 import "./Orders.scss";
 import { HashLink as Anchor } from "react-router-hash-link";
+import { v4 } from "uuid";
 
 export const Orders = () => {
   const orders = useAppSelector(
@@ -18,7 +19,7 @@ export const Orders = () => {
       ?.toString()
       .replace(/(\d+)00(?=\s|$)/g, "$1,00");
     return (
-      <div className={"divOrders"}>
+      <div key={v4()} className={"divOrders"}>
         <span
           style={{ backgroundColor: "rgb(111, 137, 173)" }}
           className={"spanOrders"}

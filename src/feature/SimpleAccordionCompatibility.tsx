@@ -83,8 +83,12 @@ export function SimpleAccordionCompatibility() {
       </Accordion>
     );
   };
+
   return (
-    <div className={"simpAccordion"}>
+    <div
+      className={"simpAccordion"}
+      style={{ width: "100%", margin: "0 auto" }}
+    >
       {accordion(
         "Для чего встретились",
         MatrixCompatibility.data.isWhyDidYouMeet,

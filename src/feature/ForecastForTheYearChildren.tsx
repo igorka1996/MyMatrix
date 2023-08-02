@@ -9,10 +9,10 @@ import {
   funcCalculation,
 } from "../utils/calc";
 import { useTheme } from "@mui/material/styles";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { PropsTypeForecastTheYearChildren } from "../type/personalMatrix-type";
 import { useAppSelector } from "../redux-store/store";
+import { v4 } from "uuid";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -34,7 +34,7 @@ function TabPanel(props: TabPanelProps) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          <>{children}</>
         </Box>
       )}
     </div>
@@ -60,7 +60,7 @@ export const ForecastForTheYearChildren = (
     const arr = funcCalculation([A, B, C]);
     return arr.map((e) => {
       return (
-        <div>
+        <div key={v4()}>
           <p>{getMatrixItem(e)?.text}</p>
         </div>
       );
