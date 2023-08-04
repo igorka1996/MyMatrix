@@ -79,8 +79,7 @@ export function DatePickers() {
   const onChangeHandler = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    let inputDate = e.currentTarget.value;
-    inputDate = inputDate.replace(/\D/g, "");
+    let inputDate = e.currentTarget.value.replace(/\D/g, "");
     if (inputDate.length > 8) {
       inputDate = inputDate.slice(0, 8);
     }
@@ -97,8 +96,7 @@ export function DatePickers() {
   const onChangeHandler1 = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    let inputDate = e.currentTarget.value;
-    inputDate = inputDate.replace(/\D/g, "");
+    let inputDate = e.currentTarget.value.replace(/\D/g, "");
     if (inputDate.length > 8) {
       inputDate = inputDate.slice(0, 8);
     }
@@ -133,7 +131,6 @@ export function DatePickers() {
       )[0],
     [sub]
   );
-  // const subAll = subscribeAll();
   const subscribeMonth = useMemo(
     () =>
       sub.filter((e: any) =>
@@ -152,11 +149,10 @@ export function DatePickers() {
     month = timestamp.getMonth() + 1;
     year = timestamp.getFullYear();
   }
-  // const proba = subscribe();
   return (
     <React.Fragment>
       <div className={"backImageDate"}></div>
-      <section className={"sectionDate"}>
+      <section className={"sectionDate"} id={"sectionDateScroll"}>
         {subscribeAll ? (
           <p className={"pom"}>Безлимитные расшифровки навсегда</p>
         ) : undefined}

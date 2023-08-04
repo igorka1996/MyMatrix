@@ -159,10 +159,10 @@ export function TableCompatibility() {
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 300 }} aria-label="customized table">
+      <Table sx={{ width: "100% !important" }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell className={"tableRow"}>
+            <StyledTableCell className={"tableRow"} align="center">
               Дата рождения первого партнера
             </StyledTableCell>
             <StyledTableCell className={"tableRow"} align="center">

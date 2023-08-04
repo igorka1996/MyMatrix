@@ -89,9 +89,14 @@ function App() {
             <Link onClick={closeBurger} to={"/"}>
               <HomeIcon className={"ef"} />
             </Link>
-            <span onClick={closeBurger} className={"menuSpan"}>
+            <Anchor
+              onClick={closeBurger}
+              smooth
+              to={"/#methodScroll"}
+              className={"menuSpan"}
+            >
               О МЕТОДЕ
-            </span>
+            </Anchor>
             <span onClick={closeBurger} className={"menuSpan"}>
               О НАС
             </span>

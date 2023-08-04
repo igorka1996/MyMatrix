@@ -501,7 +501,7 @@ export function TablePersonal(props: PropsType) {
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 300 }} aria-label="customized table">
+      <Table sx={{ width: "100% !important" }} aria-label="customized table">
         <TableHead>
           <TableRow sx={{ backgroundColor: "#6f89ad" }}>
             <StyledTableCell className={"tableRow"}>Имя</StyledTableCell>

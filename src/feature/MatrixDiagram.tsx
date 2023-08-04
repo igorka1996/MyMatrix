@@ -66,10 +66,7 @@ export const MatrixDiagram = (props: MatrixDiagramType) => {
   };
 
   return (
-    <section
-      style={{ color: "#6f89ad" }}
-      className="section-with-diagram section pb-0 js-section-with-diagram"
-    >
+    <section style={{ color: "#6f89ad" }} className="section-with-diagram">
       <div className="section-with-diagram__top-content">
         <div className="section-with-diagram__col-with-table">
           <div className="h5 section-with-diagram__table-title">

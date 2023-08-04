@@ -83,8 +83,8 @@
 
 @media (max-width: 510px) {
     .tableRow{
-        font-size: 12px ;
-        padding: 5px !important;
+        font-size: 12px !important;
+        padding: 15px !important;
     }
     .batonStandartRow {
         display: flex;
@@ -101,5 +101,19 @@
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
         font-weight: 700;
         padding: 5px;
+    }
+}
+@media (max-width: 449px) {
+    .tableRow{
+        font-size: 12px !important;
+        padding: 10px !important;
+    }
+}
+
+
+@media (max-width: 399px) {
+    .tableRow{
+        font-size: 10px !important;
+        padding: 8px !important;
     }
 }

@@ -10,7 +10,6 @@ import { Button, CircularProgress } from "@mui/material";
 import { personalMatrixAPI } from "../../API/API";
 
 export const DiagramCompatibility = () => {
-  console.log("compatibility");
   const { state } = useLocation();
   const matrixWait = useAppSelector((state) => state.errorReducer.matrixWait);
   const dispatch = useAppDispatch();
