@@ -12,7 +12,6 @@ import { personalMatrixAPI } from "../../API/API";
 import { Button, CircularProgress } from "@mui/material";
 
 export const Diagram = () => {
-  console.log("personal-children");
   const { state } = useLocation();
   const age = calculateAge(state.date);
   const matrixWait = useAppSelector((state) => state.errorReducer.matrixWait);
@@ -24,22 +23,12 @@ export const Diagram = () => {
   );
   const dispatch = useAppDispatch();
 
-  const subscribeAccessPersonal = state.sub.filter((e: any) => {
+  const subscribeAccess = state.sub.filter((e: any) => {
     return (
       e.access &&
       (e.subscribe === "Вместе и навсегда" ||
         e.subscribe === "Видео-курс + Вместе и навсегда" ||
-        (e.subscribe === "Пробный" && e.personal > 0) ||
-        (e.subscribe === "Матрица на месяц" && e.expiresSub > Date.now()))
-    );
-  });
-
-  const subscribeAccessChildren = state.sub.filter((e: any) => {
-    return (
-      e.access &&
-      (e.subscribe === "Вместе и навсегда" ||
-        e.subscribe === "Видео-курс + Вместе и навсегда" ||
-        (e.subscribe === "Пробный" && e.children > 0) ||
+        (e.subscribe === "Пробный" && e.quantity > 0) ||
         (e.subscribe === "Матрица на месяц" && e.expiresSub > Date.now()))
     );
   });
@@ -79,7 +68,7 @@ export const Diagram = () => {
           Gender: state.male,
           date: state.date,
           name: state.name,
-          subscribe: subscribeAccessChildren[0]?.subscribe,
+          subscribe: subscribeAccess[0]?.subscribe,
           id: state.id,
         })
       );
@@ -114,7 +103,7 @@ export const Diagram = () => {
           date: state.date,
           name: state.name,
           id: state.id,
-          subscribe: subscribeAccessPersonal[0]?.subscribe,
+          subscribe: subscribeAccess[0]?.subscribe,
         })
       );
     }
@@ -619,7 +608,7 @@ export const Diagram = () => {
       {state.child ? (
         <SimpleAccordionChildren
           repeat={state.repeat}
-          yes={subscribeAccessChildren.length > 0}
+          yes={subscribeAccess.length > 0}
           gender={state.male}
           age={age}
           AEE={AEE}
@@ -652,7 +641,7 @@ export const Diagram = () => {
       ) : (
         <SimpleAccordion
           repeat={state.repeat}
-          yes={subscribeAccessPersonal.length > 0}
+          yes={subscribeAccess.length > 0}
           gender={state.male}
           age={age}
           B={B}

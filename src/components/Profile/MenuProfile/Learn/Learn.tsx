@@ -63,9 +63,7 @@ export const Learn = () => {
               backgroundColor: "rgb(222, 176, 161)",
             }}
             className={"batonStandart"}
-            to={
-              "https://gradients.app/ru/colorpalette/75a59e-588e7f-3f775f-317c53-2a9d58-2cbe56/"
-            }
+            to={"https://disk.yandex.ru/d/nKWTPxsB0wkhBA"}
           >
             Перейти к обучению
           </Link>
@@ -79,7 +77,7 @@ export const Learn = () => {
               backgroundColor: "rgb(222, 176, 161)",
             }}
             className={"batonStandart"}
-            to={"/"}
+            to={"/https://disk.yandex.ru/d/_m2GoNveNRFXvg"}
           >
             Перейти к обучению
           </Link>
@@ -93,7 +91,7 @@ export const Learn = () => {
               backgroundColor: "rgb(222, 176, 161)",
             }}
             className={"batonStandart"}
-            to={"/"}
+            to={"/https://disk.yandex.ru/d/cCElgYKsgpjXZA"}
           >
             Перейти к обучению
           </Link>

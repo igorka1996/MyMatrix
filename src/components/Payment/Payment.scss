@@ -18,22 +18,16 @@
 }
 
 .spanPay {
-    color: white;
-    text-shadow: -1px -1px 0 #964B00, 1px -1px 0 #964B00, -1px 1px 0 #964B00, 1px 1px 0 #964B00;
     font-weight: bold;
-    font-size: 35px;
+    font-size: 30px;
     text-align: center;
 }
 
 .ulPay {
-    font-size: 19px;
-    color: white;
+    font-size: 16px;
     font-weight: bold;
 }
 
-.fiol {
-    text-shadow: -1px -1px 0 #9486b3, 1px -1px 0 #9486b3, -1px 1px 0 #9486b3, 1px 1px 0 #9486b3;
-}
 
 .ic {
     margin-right: 5px;
@@ -51,12 +45,13 @@
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    padding: 5px;
+    padding: 20px 5px;
     height: 400px;
-    width: 420px;
+    width: 350px;
     transition: .5s;
+    border: 2px solid #588e7f;
 }
 
 .card:hover {
@@ -82,6 +77,14 @@
     margin-bottom: 15px;
 }
 
+
+.divBoxPay{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .batonStandart {
     display: flex;
     justify-content: center;
@@ -105,31 +108,11 @@
     background-color: #317c53;
 }
 
-.box1 {
-    background-color: #6f89ad !important;
-}
-
 
 ul {
     list-style-type: none;
 }
 
-.box2 {
-    background-color: #e4e4ce !important;
-}
-
-
-.box3 {
-    background-color: #9486b3 !important;
-}
-
-.box4 {
-    background-color: #ba82a7 !important;
-}
-
-.box5 {
-    background-color: #deb0a1 !important;
-}
 
 
 .pVajno {
@@ -157,8 +140,6 @@ ul {
 
 
     .spanPay {
-        color: white;
-        text-shadow: -1px -1px 0 #964B00, 1px -1px 0 #964B00, -1px 1px 0 #964B00, 1px 1px 0 #964B00;
         font-weight: bold;
         font-size: 30px;
         text-align: center;
@@ -167,7 +148,6 @@ ul {
 
     .ulPay {
         font-size: 16px;
-        color: white;
         font-weight: bold;
     }
 
@@ -195,11 +175,17 @@ ul {
         color: #9486b3;
         text-align: center;
     }
+    .allPay {
+        height: 100%;
+        width: 95%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
 
 
     .spanPay {
-        color: white;
-        text-shadow: -1px -1px 0 #964B00, 1px -1px 0 #964B00, -1px 1px 0 #964B00, 1px 1px 0 #964B00;
         font-weight: bold;
         font-size: 25px;
         text-align: center;
@@ -208,7 +194,6 @@ ul {
 
     .ulPay {
         font-size: 14px;
-        color: white;
         font-weight: bold;
     }
     .pVajno {

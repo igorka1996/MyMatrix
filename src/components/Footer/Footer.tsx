@@ -3,6 +3,7 @@ import TelegramIcon from "@mui/icons-material/Telegram";
 import "./Footer.scss";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { Link } from "react-router-dom";
+
 export const Footer = () => {
   return (
     <footer className={"footer"}>
@@ -17,11 +18,11 @@ export const Footer = () => {
         </div>
         <div className={"ip"}>
           <span className={"linkIp"}>
-            ИП Иванова С.А. ОГРНИП: 121332390014324 ИНН: 755538842680
+            ИП Приемыхова М.Э. ОГРНИП 323508100183320 ИНН 501501654377
           </span>
         </div>
         <div className={"support"}>
-          <span className={"linkIp"}>Служба тенической поддержки:</span>
+          <span className={"linkIp"}>По вопросам приобретения:</span>
           <TelegramIcon className={"footerIcon"} />
           <WhatsAppIcon
             style={{ backgroundColor: "#2DB742" }}

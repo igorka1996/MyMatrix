@@ -6,6 +6,7 @@ import { registrationReducer } from "./registration-login-auth";
 import { errorReducer } from "./error-wait-reducer";
 import { personalMatrixChildrenReducer } from "./personalMatrixChildren-reducer";
 import { MatrixCompatibilityReducer } from "./MatrixCompatibility-reducer";
+import { adminUserAll } from "./admin-all-user";
 
 const rootReducers = combineReducers({
   personalMatrixReducer: personalMatrixReducer,
@@ -13,6 +14,7 @@ const rootReducers = combineReducers({
   errorReducer: errorReducer,
   personalMatrixChildrenReducer: personalMatrixChildrenReducer,
   MatrixCompatibilityReducer: MatrixCompatibilityReducer,
+  adminUserAll: adminUserAll,
 });
 
 export const store = configureStore({

@@ -36,73 +36,80 @@ export const Payment = () => {
                 Доступ НА 1 МЕСЯЦ
               </li>
             </ul>
-            <span className={"price"}>2 490₽</span>
-            <Link
-              style={{ backgroundColor: "rgb(186, 130, 167)" }}
-              className={"batonStandartSearch"}
-              to={"/pay"}
-              state={{ name: "Матрица на месяц", price: 249000 }}
-            >
-              Оплатить
-            </Link>
+            <div className={"divBoxPay"}>
+              <span className={"price"}>1 990₽</span>
+              <Link
+                className={"batonStandartSearch"}
+                to={"/pay"}
+                state={{ name: "Матрица на месяц", price: 199000 }}
+              >
+                Оплатить
+              </Link>
+            </div>
           </Card>
           <Card className={"card box2"}>
             <span className={"spanPay"}>Раз и навсегда</span>
             <ul>
-              <li className={"ulPay fiol"}>
+              <li className={"ulPay"}>
                 <DoneOutlineIcon className={"ic"} />
                 Расшифровка детской матрицы
               </li>
-              <li className={"ulPay fiol"}>
+              <li className={"ulPay"}>
                 <DoneOutlineIcon className={"ic"} />
                 Расшифровка совместимости
               </li>
-              <li className={"ulPay fiol"}>
+              <li className={"ulPay"}>
                 <DoneOutlineIcon className={"ic"} />
                 Полная расшифровка Матрицы
               </li>
-              <li className={"ulPay fiol"}>
+              <li className={"ulPay"}>
                 <DoneOutlineIcon className={"ic"} />
                 Количество дат к проверке не ограничено
               </li>
-              <li className={"ulPay fiol"}>
+              <li className={"ulPay"}>
                 <DoneOutlineIcon className={"ic"} />
                 Доступ НАВСЕГДА
               </li>
             </ul>
-            <span className={"price"}>7 490₽</span>
-            <Link
-              style={{ backgroundColor: "rgb(111, 137, 173)" }}
-              className={"batonStandartSearch"}
-              to={"/pay"}
-              state={{ name: "Вместе и навсегда", price: 749000 }}
-            >
-              Оплатить
-            </Link>
+            <div className={"divBoxPay"}>
+              <span className={"price"}>4 990₽</span>
+              <Link
+                className={"batonStandartSearch"}
+                to={"/pay"}
+                state={{ name: "Вместе и навсегда", price: 499000 }}
+              >
+                Оплатить
+              </Link>
+            </div>
           </Card>
           <Card className={"card box3"}>
             <span className={"spanPay"}>Пробный</span>
             <ul>
               <li className={"ulPay"}>
                 <DoneOutlineIcon className={"ic"} />1 Расшифровка Матрицы судьбы
+                <br />
+                или
               </li>
               <li className={"ulPay"}>
                 <DoneOutlineIcon className={"ic"} />1 Расшифровка совместимости
+                <br />
+                или
               </li>
               <li className={"ulPay"}>
                 <DoneOutlineIcon className={"ic"} />1 Расшифровка Детской
                 Матрицы
               </li>
             </ul>
-            <span className={"price"}>790₽</span>
-            <Link
-              style={{ backgroundColor: "rgb(222, 176, 161)" }}
-              className={"batonStandartSearch"}
-              to={"/pay"}
-              state={{ name: "Пробный", price: 79000 }}
-            >
-              Оплатить
-            </Link>
+            <div className={"divBoxPay"}>
+              <span className={"price"}>390₽</span>
+              <Link
+                className={"batonStandartSearch"}
+                to={"/pay"}
+                state={{ name: "Пробный", price: 39000 }}
+              >
+                Оплатить
+              </Link>
+            </div>
           </Card>
         </div>
         <p

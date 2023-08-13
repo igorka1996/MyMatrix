@@ -294,3 +294,12 @@ export const authAPI = {
     return instance.get("history-compatibility-matrix");
   },
 };
+
+export const adminAPI = {
+  getUsers(page: number, batchSize: number) {
+    return instance.get(`admin-get-user?page=${page}&batchSize=${batchSize}`);
+  },
+  admin(data: { userId: string; value: boolean }) {
+    return instance.put(`admin`, data);
+  },
+};

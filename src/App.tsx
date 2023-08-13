@@ -27,13 +27,14 @@ import { SuccessDateOnce } from "./components/Payment/Success/SuccessDateOnce";
 import { SuccessLesson } from "./components/Payment/Success/SuccessLesson";
 import { LearnPay } from "./components/LearnPay";
 import HomeIcon from "@mui/icons-material/Home";
+import { AdminTable } from "./Admin/component/AdminTable";
 
 function App() {
-  console.log("app");
   const loc = useLocation();
   const dispatch = useAppDispatch();
   const [check, setCheck] = useState(false);
   const auth = useAppSelector((state) => state.registrationReducer.auth);
+  const admin = useAppSelector((state) => state.registrationReducer.admin);
   const initialize = useAppSelector((state) => state.errorReducer.initialize);
   const fromPage = loc.state?.pathname || "/";
   useEffect(() => {
@@ -98,7 +99,7 @@ function App() {
               О МЕТОДЕ
             </Anchor>
             <span onClick={closeBurger} className={"menuSpan"}>
-              О НАС
+              БЛОГ
             </span>
             <Link
               onClick={closeBurger}
@@ -116,6 +117,16 @@ function App() {
             >
               ТАРИФЫ
             </Anchor>
+            {admin ? (
+              <Link
+                onClick={closeBurger}
+                style={{ marginRight: 20, fontSize: 20 }}
+                className={"menuSpan"}
+                to={"/admin-table"}
+              >
+                АДМИНИСТРАТОР
+              </Link>
+            ) : undefined}
           </div>
           {auth ? (
             <>
@@ -168,6 +179,9 @@ function App() {
         <Route path={"/reset-password/:token"} element={<ResetPassword />} />
         <Route path={"/pay"} element={<Pay />} />
         <Route path={"/profile/*"} element={<Profile />} />
+        {admin ? (
+          <Route path={"/admin-table"} element={<AdminTable />} />
+        ) : undefined}
       </Routes>
       <ErrorSnackbar />
       <SnackBarSuccess />

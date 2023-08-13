@@ -30,6 +30,7 @@ type InitialStateType = {
   phone: string;
   historyOfOrders: OrdersType[];
   totalAmount: number;
+  admin: boolean;
   matrixSearchHistory: {
     personal: { gender: string; name: string; date: string; _id: string }[];
     children: { gender: string; name: string; date: string; _id: string }[];
@@ -48,6 +49,7 @@ const initialState: InitialStateType = {
   id: "",
   token: "",
   auth: false,
+  admin: false,
   subscription: [],
   avatar: "",
   phone: "",
@@ -81,20 +83,21 @@ const slice = createSlice({
       state.historyOfOrders = action.payload.orders;
       state.totalAmount = action.payload.totalAmount;
       state.avatar = action.payload.avatar;
+      state.admin = action.payload.admin;
       // localStorage.setItem("token", action.payload.token);
     });
     builder.addCase(payAndRegistrationThunk.fulfilled, (state, action) => {
-      state.name = action.payload.name;
-      state.email = action.payload.email;
-      state.surname = action.payload.surname;
-      state.id = action.payload.id;
+      // state.name = action.payload.name;
+      // state.email = action.payload.email;
+      // state.surname = action.payload.surname;
+      // state.id = action.payload.id;
       state.token = action.payload.token;
-      state.auth = action.payload.auth;
-      state.phone = action.payload.phone;
-      state.subscription = action.payload.sub;
-      state.historyOfOrders = action.payload.orders;
-      state.totalAmount = action.payload.totalAmount;
-      state.avatar = "";
+      // state.auth = action.payload.auth;
+      // state.phone = action.payload.phone;
+      // state.subscription = action.payload.sub;
+      // state.historyOfOrders = action.payload.orders;
+      // state.totalAmount = action.payload.totalAmount;
+      // state.avatar = "";
       // localStorage.setItem("token", action.payload.token);
       window.location.assign(action.payload.url);
     });
@@ -110,6 +113,7 @@ const slice = createSlice({
       state.subscription = action.payload.sub;
       state.historyOfOrders = action.payload.orders;
       state.totalAmount = action.payload.totalAmount;
+      state.admin = action.payload.admin;
     });
     builder.addCase(loginThunk.fulfilled, (state, action) => {
       state.name = action.payload.name;
@@ -119,6 +123,7 @@ const slice = createSlice({
       state.phone = action.payload.phone;
       state.token = action.payload.token;
       state.auth = action.payload.auth;
+      state.admin = action.payload.admin;
       state.avatar = action.payload.avatar;
       state.subscription = action.payload.sub;
       state.historyOfOrders = action.payload.orders;
@@ -192,6 +197,7 @@ export const registrationThunk = createAsyncThunk(
         orders: res.data.historyOfOrders,
         totalAmount: res.data.totalAmount,
         auth: true,
+        admin: res.data.admin,
         avatar: res.data.avatarURL,
         matrixSearchHistory: res.data.matrixSearchHistory,
       };
@@ -214,6 +220,7 @@ export const authThunk = createAsyncThunk(
         email: res.data.email,
         id: res.data._id,
         token: res.data.token,
+        admin: res.data.admin,
         avatar: res.data.avatar,
         phone: res.data.phone,
         sub: res.data.subscription,
@@ -251,6 +258,7 @@ export const loginThunk = createAsyncThunk(
         id: res.data._id,
         token: res.data.token,
         avatar: res.data.avatar,
+        admin: res.data.admin,
         sub: res.data.subscription,
         phone: res.data.phone,
         orders: res.data.historyOfOrders,
@@ -354,17 +362,17 @@ export const payAndRegistrationThunk = createAsyncThunk(
         },
       });
       return {
-        name: res.data.name,
-        surname: res.data.surname,
-        email: res.data.email,
-        id: res.data._id,
+        // name: res.data.name,
+        // surname: res.data.surname,
+        // email: res.data.email,
+        // id: res.data._id,
         token: res.data.token,
-        phone: res.data.phone,
-        sub: res.data.subscription,
-        orders: res.data.historyOfOrders,
-        totalAmount: res.data.totalAmount,
-        matrixSearchHistory: res.data.matrixSearchHistory,
-        auth: true,
+        // phone: res.data.phone,
+        // sub: res.data.subscription,
+        // orders: res.data.historyOfOrders,
+        // totalAmount: res.data.totalAmount,
+        // matrixSearchHistory: res.data.matrixSearchHistory,
+        // auth: true,
         url: res.data.url,
       };
     } catch (e) {

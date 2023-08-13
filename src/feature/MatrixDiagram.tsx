@@ -1169,12 +1169,12 @@ export const MatrixDiagram = (props: MatrixDiagramType) => {
         <div className="col">
           <div className="diagram-values-item">
             <div className="h6 diagram-values-item__title">
-              <b>Поиск себя</b>
+              <b>Личное ( до 40 лет )</b>
             </div>
             <div className="diagram-values-item__description text-block">
               <p>
-                Соединение мужского и женского. Выстраивание взаимоотношений.
-                Способности, навыки, умения.
+                То, что человек должен сделать для себя самого, какие уроки
+                пройти, что понять, что в себе усовершенствовать.
               </p>
             </div>
             <div className="small-diagram-values">
@@ -1222,12 +1222,10 @@ export const MatrixDiagram = (props: MatrixDiagramType) => {
         <div className="col">
           <div className="diagram-values-item">
             <div className="h6 diagram-values-item__title">
-              <b>Социализация</b>
+              <b>Социальное ( 40-60 лет )</b>
             </div>
             <div className="diagram-values-item__description text-block">
-              <p>
-                Социальная и родовая системы. Результаты и признания в социуме.
-              </p>
+              <p>То, что человек должен отдать своему роду и людям.</p>
             </div>
             <div className="small-diagram-values">
               <div className="small-diagram-values__titles-block">
@@ -1274,10 +1272,13 @@ export const MatrixDiagram = (props: MatrixDiagramType) => {
         <div className="col">
           <div className="diagram-values-item">
             <div className="h6 diagram-values-item__title">
-              <b>Духовная грамотность</b>
+              <b>Духовное ( вся жизнь )</b>
             </div>
             <div className="diagram-values-item__description text-block">
-              <p>Духовный зачет. Кто я для бога? Где божественное во мне?</p>
+              <p>
+                Покровительствующая энергия всей Матрицы, проходит через всю
+                жизнь человека. Духовный зачет
+              </p>
             </div>
             <div className="small-diagram-values">
               <div
@@ -1295,10 +1296,7 @@ export const MatrixDiagram = (props: MatrixDiagramType) => {
               <b>Личная сила</b>
             </div>
             <div className="diagram-values-item__description text-block">
-              <p>
-                Духовный зачет. Кто я для бога? <br />
-                Где божественное во мне?
-              </p>
+              <p>Энергия может работать в Плюс и в Минус .</p>
             </div>
             <div className="small-diagram-values">
               <div
@@ -1316,7 +1314,10 @@ export const MatrixDiagram = (props: MatrixDiagramType) => {
               <b>Сила рода</b>
             </div>
             <div className="diagram-values-item__description text-block">
-              <p>Духовный зачет. Кто я для бога? Где божественное во мне?</p>
+              <p>
+                Энергия получаемая при исцеления родовой кармы . Для реализации
+                себя в социуме.
+              </p>
             </div>
             <div className="small-diagram-values">
               <div
@@ -1335,7 +1336,11 @@ export const MatrixDiagram = (props: MatrixDiagramType) => {
               <b>Код внутренней</b>
             </div>
             <div className="diagram-values-item__description text-block">
-              <p>Духовный зачет. Кто я для бога? Где божественное во мне?</p>
+              <p>
+                «Супер сила»
+                <br />
+                Энергия для реализации глобальных проектов
+              </p>
             </div>
             <div className="small-diagram-values">
               <div

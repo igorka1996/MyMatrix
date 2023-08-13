@@ -22,14 +22,14 @@ export const DiagramCompatibility = () => {
       (e: {
         access: boolean;
         subscribe: string;
-        compatibility: number;
+        quantity: number;
         expiresSub: number;
       }) => {
         return (
           e.access &&
           (e.subscribe === "Вместе и навсегда" ||
             e.subscribe === "Видео-курс + Вместе и навсегда" ||
-            (e.subscribe === "Пробный" && e.compatibility > 0) ||
+            (e.subscribe === "Пробный" && e.quantity > 0) ||
             (e.subscribe === "Матрица на месяц" && e.expiresSub > Date.now()))
         );
       }
@@ -372,7 +372,6 @@ export const DiagramCompatibility = () => {
   );
 
   const downloadPdf = useCallback(async () => {
-    console.log("weviwev");
     let response = await personalMatrixAPI.getPdfCompatibility(
       isWhyDidYouMeet,
       isTheSpiritualEssenceOfTheCouple,

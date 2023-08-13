@@ -9,7 +9,6 @@ import { FormGroup } from "@material-ui/core";
 import { useAppSelector } from "../redux-store/store";
 
 export function DatePickers() {
-  console.log("datepicker");
   const [value, setValue] = useState<string>("");
   const [value1, setValue1] = useState<string>("");
   const [matrix, setMatrix] = useState<string>("personal");
@@ -164,31 +163,31 @@ export function DatePickers() {
           }`}</p>
         ) : undefined}
         {matrix === "personal" && !subscribeAll ? (
-          subscribe?.personal !== undefined && subscribe.personal > 0 ? (
+          subscribe?.quantity !== undefined && subscribe.quantity > 0 ? (
             <p className={"pom"}>
               Вам доступно:{" "}
-              {subscribe.personal > 1
-                ? `${subscribe.personal} расшифровки`
-                : `${subscribe.personal} расшифровка`}
+              {subscribe.quantity > 1
+                ? `${subscribe.quantity} любые расшифровки`
+                : `${subscribe.quantity} любая расшифровка`}
             </p>
           ) : undefined
         ) : matrix === "children" && !subscribeAll ? (
-          subscribe?.children !== undefined && subscribe.children > 0 ? (
+          subscribe?.quantity !== undefined && subscribe.quantity > 0 ? (
             <p className={"pom"}>
               Вам доступно:{" "}
-              {subscribe.children > 1
-                ? `${subscribe.children} расшифровки`
-                : `${subscribe.children} расшифровка`}
+              {subscribe.quantity > 1
+                ? `${subscribe.quantity} любые расшифровки`
+                : `${subscribe.quantity} любая расшифровка`}
             </p>
           ) : undefined
-        ) : subscribe?.compatibility !== undefined &&
-          subscribe.compatibility > 0 &&
+        ) : subscribe?.quantity !== undefined &&
+          subscribe.quantity > 0 &&
           !subscribeAll ? (
           <p className={"pom"}>
             Вам доступно:{" "}
-            {subscribe.compatibility > 1
-              ? `${subscribe.compatibility} расшифровки`
-              : `${subscribe.compatibility} расшифровка`}
+            {subscribe.quantity > 1
+              ? `${subscribe.quantity} любые расшифровки`
+              : `${subscribe.quantity} любая расшифровка`}
           </p>
         ) : undefined}
         <div className={"matrixSearch"}>

@@ -1,10 +1,10 @@
 import React from "react";
 import "./Method.scss";
-import MoneyOffIconTwoToneIcon from "@mui/icons-material/MoneyOff";
-import WorkOffTwoToneIcon from "@mui/icons-material/WorkOffTwoTone";
-import HeartBrokenTwoToneIcon from "@mui/icons-material/HeartBrokenTwoTone";
-import HealingTwoToneIcon from "@mui/icons-material/HealingTwoTone";
-import ContactSupportTwoToneIcon from "@mui/icons-material/ContactSupportTwoTone";
+import BlindTwoToneIcon from "@mui/icons-material/Blind";
+import TransferWithinAStationTwoToneIcon from "@mui/icons-material/TransferWithinAStation";
+import Diversity1TwoToneIcon from "@mui/icons-material/Diversity1TwoTone";
+import HailTwoToneIcon from "@mui/icons-material/HailTwoTone";
+import AccessibilityNewTwoToneIcon from "@mui/icons-material/AccessibilityNewTwoTone";
 
 export const Method = () => {
   return (
@@ -16,36 +16,32 @@ export const Method = () => {
           через анализ личности. Она служит инструментом для раскрытия
           внутренних ресурсов и достижения гармонии. Получение знаний о энергиях
           вашей Матрицы Судьбы помогает вам лучше понять себя, улучшить все
-          сферы жизни, начать оказывать профессиональную консультацию,
-          зарабатывать онлайн и вести свободный образ жизни, работая из любой
-          точки мира.
+          сферы жизни.
         </div>
         <div className={"methodIconAndDescription"}>
           <div className={"IconAndDescription"}>
-            <MoneyOffIconTwoToneIcon
-              style={{ fontSize: 50, color: "#3f775f" }}
+            <AccessibilityNewTwoToneIcon
+              style={{ fontSize: 45, color: "#3f775f" }}
             />
-            <span>Отсутствие финансовой стабильности</span>
+            <span>Освободитесь от негативных эмоций и опыта прошлого</span>
           </div>
           <div className={"IconAndDescription"}>
-            <WorkOffTwoToneIcon style={{ fontSize: 50, color: "#3f775f" }} />
-            <span>Сложности в самореализации</span>
+            <HailTwoToneIcon style={{ fontSize: 45, color: "#3f775f" }} />
+            <span>Направьте ваши ресурсы в нужное русло</span>
           </div>
           <div className={"IconAndDescription"}>
-            <HeartBrokenTwoToneIcon
-              style={{ fontSize: 50, color: "#3f775f" }}
+            <Diversity1TwoToneIcon style={{ fontSize: 45, color: "#3f775f" }} />
+            <span>Узнайте особенности вашего характера</span>
+          </div>
+          <div className={"IconAndDescription"}>
+            <BlindTwoToneIcon style={{ fontSize: 45, color: "#3f775f" }} />
+            <span>Разберитесь в причинах проблем со здоровьем</span>
+          </div>
+          <div className={"IconAndDescription"}>
+            <TransferWithinAStationTwoToneIcon
+              style={{ fontSize: 45, color: "#3f775f" }}
             />
-            <span>Неудачу в личной жизни</span>
-          </div>
-          <div className={"IconAndDescription"}>
-            <HealingTwoToneIcon style={{ fontSize: 50, color: "#3f775f" }} />
-            <span>Проблем со здоровьем</span>
-          </div>
-          <div className={"IconAndDescription"}>
-            <ContactSupportTwoToneIcon
-              style={{ fontSize: 50, color: "#3f775f" }}
-            />
-            <span>Отсутствие понимание куда двигаться дальше</span>
+            <span>Поймите свое истинное предназначение</span>
           </div>
         </div>
       </div>
