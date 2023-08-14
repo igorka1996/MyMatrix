@@ -28,6 +28,7 @@ import { SuccessLesson } from "./components/Payment/Success/SuccessLesson";
 import { LearnPay } from "./components/LearnPay";
 import HomeIcon from "@mui/icons-material/Home";
 import { AdminTable } from "./Admin/component/AdminTable";
+import { UserInfo } from "./Admin/component/UserInfo";
 
 function App() {
   const loc = useLocation();
@@ -180,7 +181,10 @@ function App() {
         <Route path={"/pay"} element={<Pay />} />
         <Route path={"/profile/*"} element={<Profile />} />
         {admin ? (
-          <Route path={"/admin-table"} element={<AdminTable />} />
+          <React.Fragment>
+            <Route path={"/admin-table"} element={<AdminTable />} />
+            <Route path={"/admin-table/:id"} element={<UserInfo />} />
+          </React.Fragment>
         ) : undefined}
       </Routes>
       <ErrorSnackbar />

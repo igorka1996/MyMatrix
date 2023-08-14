@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { adminAPI } from "../API/API";
+import { tableWaitAC } from "./error-wait-reducer";
 
 export type userAll = {
   _id: string;
@@ -15,10 +16,12 @@ export type initialStateType = {
   data: userAll[];
   userAll: number;
   page: number;
+  search: string;
 };
 
 const initialState: initialStateType = {
   data: [],
+  search: "",
   userAll: 0,
   page: 0,
 };
@@ -31,6 +34,7 @@ const slice = createSlice({
       state.data = action.payload.data;
       state.userAll = action.payload.userAll;
       state.page = action.payload.page;
+      state.search = action.payload.search;
     });
     builder.addCase(changeAdmin.fulfilled, (state, action) => {
       state.data.forEach((e) => {
@@ -47,17 +51,25 @@ export const adminUserAll = slice.reducer;
 export const getUserPage = createAsyncThunk(
   "admin-user-all/page",
   async (
-    param: { page: number; batchSize: number },
+    param: { page: number; batchSize: number; search: string },
     { dispatch, rejectWithValue }
   ) => {
     try {
-      let res = await adminAPI.getUsers(param.page, param.batchSize);
+      dispatch(tableWaitAC({ tableWait: true }));
+      let res = await adminAPI.getUsers(
+        param.page,
+        param.batchSize,
+        param.search
+      );
+      dispatch(tableWaitAC({ tableWait: false }));
       return {
         data: res.data.data,
         userAll: res.data.userAll,
         page: res.data.page,
+        search: res.data.search,
       };
     } catch (e) {
+      dispatch(tableWaitAC({ tableWait: false }));
       return rejectWithValue(null);
     }
   }

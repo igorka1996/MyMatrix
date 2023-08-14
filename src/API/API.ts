@@ -296,10 +296,18 @@ export const authAPI = {
 };
 
 export const adminAPI = {
-  getUsers(page: number, batchSize: number) {
-    return instance.get(`admin-get-user?page=${page}&batchSize=${batchSize}`);
+  getUsers(page: number, batchSize: number, search?: string) {
+    return instance.get(
+      `admin-get-user?page=${page}&batchSize=${batchSize}&search=${search}`
+    );
   },
   admin(data: { userId: string; value: boolean }) {
     return instance.put(`admin`, data);
+  },
+  getUser(id: string) {
+    return instance.get(`admin-get-one-user?id=${id}`);
+  },
+  updateUser(data: { subscribe: string; access: boolean; id: string }) {
+    return instance.put("admin-update-user", data);
   },
 };

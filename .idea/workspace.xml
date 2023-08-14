@@ -4,31 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="33">
-      <change afterPath="$PROJECT_DIR$/src/Admin/component/AdminTable.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Admin/component/AdminTable.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Admin/feature/TableUser.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux-store/admin-all-user.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sertificate.png" afterDir="false" />
+    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="34">
+      <change afterPath="$PROJECT_DIR$/src/Admin/component/UserInfo.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Admin/component/UserInfo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Admin/feature/SuperInput.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux-store/admin-one-user.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/API/API.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/API.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/feature/TableUser.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/feature/TableUser.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LearnPay.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LearnPay.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LearnPay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LearnPay.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Payment/Payment.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Payment/Payment.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Payment/Payment.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Payment/Payment.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Learn/Learn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Learn/Learn.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Tarif/Tarif.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MenuProfile/Tarif/Tarif.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/diagram/Diagram.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/diagram/Diagram.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/diagram/DiagramCompatibility.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/diagram/DiagramCompatibility.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feature/DatePickers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/DatePickers.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feature/MatrixDiagram.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/MatrixDiagram.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feature/Method.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/Method.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feature/Method.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/Method.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux-store/registration-login-auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/registration-login-auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux-store/admin-all-user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/admin-all-user.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux-store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/store.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,8 +25,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
         <option value="SCSS File" />
       </list>
     </option>
@@ -244,7 +229,8 @@
       <workItem from="1691262776619" duration="1390000" />
       <workItem from="1691577533492" duration="4855000" />
       <workItem from="1691840473965" duration="11091000" />
-      <workItem from="1691939082582" duration="16083000" />
+      <workItem from="1691939082582" duration="16218000" />
+      <workItem from="1692021856937" duration="18384000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1676555659169</created>
@@ -496,7 +482,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691187021904</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="34">
+      <option name="closed" value="true" />
+      <created>1691962111896</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1691962111896</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -527,7 +521,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="8.2" />
     <MESSAGE value="9" />
     <MESSAGE value="10" />
     <MESSAGE value="11" />
@@ -552,6 +545,7 @@
     <MESSAGE value="31" />
     <MESSAGE value="32" />
     <MESSAGE value="33" />
-    <option name="LAST_COMMIT_MESSAGE" value="33" />
+    <MESSAGE value="34" />
+    <option name="LAST_COMMIT_MESSAGE" value="34" />
   </component>
 </project>
