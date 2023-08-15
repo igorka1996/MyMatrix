@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { adminAPI } from "../API/API";
-import { tableWaitAC } from "./error-wait-reducer";
+import { switchWaitAC, tableWaitAC } from "./error-wait-reducer";
 
 export type userAll = {
   _id: string;
@@ -82,15 +82,18 @@ export const changeAdmin = createAsyncThunk(
     { dispatch, rejectWithValue }
   ) => {
     try {
+      dispatch(switchWaitAC({ switchWait: true }));
       let res = await adminAPI.admin({
         userId: param.userId,
         value: param.value,
       });
+      dispatch(switchWaitAC({ switchWait: false }));
       return {
         userId: res.data.userId,
         admin: res.data.admin,
       };
     } catch (e) {
+      dispatch(switchWaitAC({ switchWait: false }));
       return rejectWithValue(null);
     }
   }

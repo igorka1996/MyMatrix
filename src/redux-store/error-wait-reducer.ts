@@ -11,6 +11,8 @@ type InitialStateType = {
   updateUser: boolean;
   tableWait: boolean;
   matrixWait: boolean;
+  userAdmin: boolean;
+  switchWait: boolean;
 };
 
 const initialState: InitialStateType = {
@@ -22,6 +24,8 @@ const initialState: InitialStateType = {
   updateUser: false,
   tableWait: false,
   matrixWait: false,
+  userAdmin: false,
+  switchWait: false,
 };
 
 const slice = createSlice({
@@ -33,6 +37,9 @@ const slice = createSlice({
     },
     successAC(state, action: PayloadAction<{ success: string }>) {
       state.success = action.payload.success;
+    },
+    switchWaitAC(state, action: PayloadAction<{ switchWait: boolean }>) {
+      state.switchWait = action.payload.switchWait;
     },
     statusAC(state, action: PayloadAction<{ status: StatusType }>) {
       state.status = action.payload.status;
@@ -52,6 +59,9 @@ const slice = createSlice({
     matrixWaitAC(state, action: PayloadAction<{ matrixWait: boolean }>) {
       state.matrixWait = action.payload.matrixWait;
     },
+    userAdminAC(state, action: PayloadAction<{ userAdmin: boolean }>) {
+      state.userAdmin = action.payload.userAdmin;
+    },
   },
 });
 
@@ -64,5 +74,7 @@ export const {
   initialAC,
   tableWaitAC,
   matrixWaitAC,
+  userAdminAC,
+  switchWaitAC,
 } = slice.actions;
 export const errorReducer = slice.reducer;

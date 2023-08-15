@@ -4,16 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="34">
-      <change afterPath="$PROJECT_DIR$/src/Admin/component/UserInfo.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Admin/component/UserInfo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Admin/feature/SuperInput.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux-store/admin-one-user.ts" afterDir="false" />
+    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="35">
+      <change afterPath="$PROJECT_DIR$/src/Admin/feature/MatrixCompatibilityAdmin.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Admin/feature/MatrixCompatibilityAdmin.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux-store/get-matrix-compatibility.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/API/API.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/API.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/component/AdminTable.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/component/AdminTable.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/component/AdminTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/component/AdminTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/component/UserInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/component/UserInfo.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Admin/feature/TableUser.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/feature/TableUser.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/diagram/Diagram.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/diagram/Diagram.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/diagram/DiagramCompatibility.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/diagram/DiagramCompatibility.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux-store/admin-all-user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/admin-all-user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux-store/admin-one-user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/admin-one-user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux-store/error-wait-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/error-wait-reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux-store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/store.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,8 +30,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
         <option value="SCSS File" />
       </list>
     </option>
@@ -230,7 +235,9 @@
       <workItem from="1691577533492" duration="4855000" />
       <workItem from="1691840473965" duration="11091000" />
       <workItem from="1691939082582" duration="16218000" />
-      <workItem from="1692021856937" duration="18384000" />
+      <workItem from="1692021856937" duration="18409000" />
+      <workItem from="1692091070014" duration="3791000" />
+      <workItem from="1692118541526" duration="14948000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1676555659169</created>
@@ -490,7 +497,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691962111896</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="35">
+      <option name="closed" value="true" />
+      <created>1692046741709</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1692046741709</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -521,7 +536,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="9" />
     <MESSAGE value="10" />
     <MESSAGE value="11" />
     <MESSAGE value="12" />
@@ -546,6 +560,7 @@
     <MESSAGE value="32" />
     <MESSAGE value="33" />
     <MESSAGE value="34" />
-    <option name="LAST_COMMIT_MESSAGE" value="34" />
+    <MESSAGE value="35" />
+    <option name="LAST_COMMIT_MESSAGE" value="35" />
   </component>
 </project>

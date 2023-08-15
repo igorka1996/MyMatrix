@@ -22,12 +22,11 @@ export const Diagram = () => {
     (state) => state.personalMatrixChildrenReducer.data.dateRepeat
   );
   const dispatch = useAppDispatch();
-
   const subscribeAccess = state.sub.filter((e: any) => {
     return (
       e.access &&
       (e.subscribe === "Вместе и навсегда" ||
-        e.subscribe === "Видео-курс + Вместе и навсегда" ||
+        e.subscribe === "Базовый курс + Вместе и навсегда" ||
         (e.subscribe === "Пробный" && e.quantity > 0) ||
         (e.subscribe === "Матрица на месяц" && e.expiresSub > Date.now()))
     );

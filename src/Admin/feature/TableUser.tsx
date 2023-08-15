@@ -75,6 +75,7 @@ export function TableUser() {
   const userAll = useAppSelector((state) => state.adminUserAll.userAll);
   const users = useAppSelector((state) => state.adminUserAll.data);
   const tableWait = useAppSelector((state) => state.errorReducer.tableWait);
+  const switchWait = useAppSelector((state) => state.errorReducer.switchWait);
   const dispatch = useAppDispatch();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -112,6 +113,7 @@ export function TableUser() {
           e.totalAmount.toString().replace(/(\d+)00(?=\s|$)/g, "$1,00"),
           <Switch
             checked={e.admin}
+            disabled={switchWait}
             onChange={(el) => onChangeHandlerAdmin(el, e._id)}
             color="secondary"
           />
@@ -190,9 +192,9 @@ export function TableUser() {
       <TablePagination
         rowsPerPageOptions={[10, 25, 50]}
         component="div"
-        count={userAll}
+        count={tableWait ? 0 : userAll}
         rowsPerPage={rowsPerPage}
-        page={page}
+        page={tableWait ? 0 : page}
         labelRowsPerPage={"Количество аккаунтов на странице"}
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}

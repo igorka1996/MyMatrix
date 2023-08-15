@@ -310,4 +310,15 @@ export const adminAPI = {
   updateUser(data: { subscribe: string; access: boolean; id: string }) {
     return instance.put("admin-update-user", data);
   },
+  getMatrixCompatibilityAdmin(id: string) {
+    return instance.get(`get-matrix-compatibility?id=${id}`);
+  },
+  updateMatrixCompatibilityAdmin(data: {
+    index: number;
+    name: string;
+    id: string;
+    description: string;
+  }) {
+    return instance.put("update-matrix-compatibility", data);
+  },
 };

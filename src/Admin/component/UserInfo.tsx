@@ -3,25 +3,28 @@ import { useAppDispatch, useAppSelector } from "../../redux-store/store";
 import { getUser, updateUser } from "../../redux-store/admin-one-user";
 import { useLocation } from "react-router-dom";
 import "./UserInfo.scss";
-import { Switch } from "@mui/material";
+import { CircularProgress, Switch } from "@mui/material";
 import { v4 } from "uuid";
 
 export const UserInfo = () => {
   const dispatch = useAppDispatch();
   const { state } = useLocation();
   const userSub = useAppSelector((state) => state.adminUser.subscription);
+  const userAdminWait = useAppSelector((state) => state.errorReducer.userAdmin);
   const name = useAppSelector((state) => state.adminUser.name);
   const surname = useAppSelector((state) => state.adminUser.surname);
   const phone = useAppSelector((state) => state.adminUser.phone);
   const email = useAppSelector((state) => state.adminUser.email);
   const orders = useAppSelector((state) => state.adminUser.historyOfOrders);
   const avatar = useAppSelector((state) => state.adminUser.avatarURL);
+  const switchWait = useAppSelector((state) => state.errorReducer.switchWait);
 
   const sub = userSub.map((e: any, index) => {
     return (
       <div key={index} className={"subNameChange"}>
         <span>{e.subscribe}</span>
         <Switch
+          disabled={switchWait}
           checked={e.access}
           onChange={(event) =>
             dispatch(
@@ -83,6 +86,24 @@ export const UserInfo = () => {
   useEffect(() => {
     dispatch(getUser({ id: state.id }));
   }, [dispatch, state.id]);
+
+  if (userAdminWait) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "100vh",
+          top: "50%",
+          textAlign: "center",
+          width: "100%",
+        }}
+      >
+        <CircularProgress />
+      </div>
+    );
+  }
   return (
     <div className={"userInfo"}>
       <div className={"personalInfo"}>
