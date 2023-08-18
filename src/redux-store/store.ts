@@ -9,6 +9,7 @@ import { MatrixCompatibilityReducer } from "./MatrixCompatibility-reducer";
 import { adminUserAll } from "./admin-all-user";
 import { adminUser } from "./admin-one-user";
 import { getMatrixCompatibility } from "./get-matrix-compatibility";
+import { getMatrixChildren } from "./get-matrix-children";
 
 const rootReducers = combineReducers({
   personalMatrixReducer: personalMatrixReducer,
@@ -19,6 +20,7 @@ const rootReducers = combineReducers({
   adminUserAll: adminUserAll,
   adminUser: adminUser,
   getMatrixCompatibility: getMatrixCompatibility,
+  getMatrixChildren: getMatrixChildren,
 });
 
 export const store = configureStore({

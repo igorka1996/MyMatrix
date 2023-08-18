@@ -321,4 +321,7 @@ export const adminAPI = {
   }) {
     return instance.put("update-matrix-compatibility", data);
   },
+  getMatrixChildrenAdmin(id: string) {
+    return instance.get(`get-matrix-child?id=${id}`);
+  },
 };

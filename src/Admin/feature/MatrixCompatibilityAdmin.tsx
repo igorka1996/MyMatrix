@@ -118,11 +118,13 @@ export const MatrixCompatibilityAdmin = () => {
   return (
     <div>
       <FormControl style={{ width: 300, marginBottom: 50 }}>
-        <InputLabel id="demo-simple-select">Редактирование</InputLabel>
+        <InputLabel id="demo-simple-select">
+          Редактирование матрицы совместимости
+        </InputLabel>
         <Select
           labelId="demo-simple-select"
           id="demo-simple-select"
-          label={"Редактирование"}
+          label={"Редактирование матрицы совместимости"}
           value={selectMatrix}
           onChange={handleChange}
         >
