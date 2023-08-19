@@ -324,4 +324,14 @@ export const adminAPI = {
   getMatrixChildrenAdmin(id: string) {
     return instance.get(`get-matrix-child?id=${id}`);
   },
+  updateMatrixChildrenAdmin(data: {
+    index: number;
+    name: string;
+    id: string;
+    description: string;
+    category: string;
+    gender?: string;
+  }) {
+    return instance.put("update-matrix-children", data);
+  },
 };

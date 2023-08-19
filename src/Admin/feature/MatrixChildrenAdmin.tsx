@@ -4,10 +4,13 @@ import MenuItem from "@mui/material/MenuItem";
 import ListSubheader from "@mui/material/ListSubheader";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux-store/store";
-import { getMatrixChildrenAdmin } from "../../redux-store/get-matrix-children";
-import { SelectChangeEvent } from "@mui/material";
+import {
+  getMatrixChildrenAdmin,
+  updateMatrixChildrenAdmin,
+} from "../../redux-store/get-matrix-children";
+import { Button, SelectChangeEvent } from "@mui/material";
 
 type MatrixChildrenAdmin =
   | "isCharacteristicsOfQualities"
@@ -40,6 +43,8 @@ export function MatrixChildrenAdmin() {
   const dispatch = useAppDispatch();
   const id = useAppSelector((state) => state.getMatrixChildren.id);
   const data = useAppSelector((state) => state.getMatrixChildren.data);
+  const [num, setNum] = useState<number>(0);
+  const [txt, setTxt] = useState<string>("");
   const [category, setCategory] = useState<Category>(
     "isPersonalQualitiesChildren"
   );
@@ -48,7 +53,9 @@ export function MatrixChildrenAdmin() {
   const [selectMatrix, setSelectMatrix] = useState<MatrixChildrenAdmin>(
     "isCharacteristicsOfQualities"
   );
-
+  const onChangeTxt = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setTxt(e.currentTarget.value);
+  };
   const handleChange = (event: SelectChangeEvent) => {
     setSelectMatrix(event.target.value as MatrixChildrenAdmin);
     if (
@@ -95,6 +102,31 @@ export function MatrixChildrenAdmin() {
     }
   };
 
+  const onClickHandler = (
+    index: number,
+    description: string,
+    id: string,
+    name: string,
+    category: string,
+    gender?: string
+  ) => {
+    setNum(0);
+    dispatch(
+      updateMatrixChildrenAdmin({
+        index,
+        name,
+        id,
+        description,
+        category,
+        gender,
+      })
+    );
+  };
+
+  const onDoubleClickChange = (value: number, text: string) => {
+    setTxt(text);
+    setNum(value);
+  };
   const matrixDescription = (arrDesc: any[]) => {
     return arrDesc.map((e: any, index) => {
       if (e.m || e.w) {
@@ -138,72 +170,102 @@ export function MatrixChildrenAdmin() {
         );
       } else {
         return (
-          <p className="descriptionAdmin" key={index}>
-            {e.text.split("\n").map((paragraph: string, idx: number) => (
-              <React.Fragment key={idx}>
-                {paragraph}
-                <br />
+          <React.Fragment>
+            {num === e.value ? (
+              <React.Fragment>
+                <textarea
+                  style={{ width: "100%", height: "auto" }}
+                  cols={30}
+                  rows={10}
+                  onChange={onChangeTxt}
+                >
+                  {txt}
+                </textarea>
+                <Button
+                  onClick={() =>
+                    onClickHandler(e.value, txt, id, selectMatrix, category)
+                  }
+                  variant={"contained"}
+                >
+                  Изменить
+                </Button>
               </React.Fragment>
-            ))}
-          </p>
+            ) : (
+              <p
+                onDoubleClick={() =>
+                  onDoubleClickChange(e.value, e.text.split("\n").join("\n"))
+                }
+                className="descriptionAdmin"
+                key={index}
+              >
+                {e.text.split("\n").map((paragraph: string, idx: number) => (
+                  <React.Fragment key={idx}>
+                    {paragraph}
+                    <br />
+                  </React.Fragment>
+                ))}
+              </p>
+            )}
+          </React.Fragment>
         );
       }
     });
   };
 
-  // const matrixDescription = (arrDesc: []) => {
-  //   return arrDesc.map((e: any, index) => {
-  //     return index === 3 || index === 4 ? (
-  //       <React.Fragment key={index}>
-  //         <span>
-  //           <b>{e.m ? "Мужчина" : "Женщина"}</b>
-  //         </span>
-  //         <p className={"descriptionAdmin"}>
-  //           <React.Fragment key={index}>
-  //             {e?.m?.text?.split("\n").map((paragraph: string) => (
-  //               <React.Fragment>
-  //                 {paragraph}
-  //                 <br />
-  //               </React.Fragment>
-  //             ))}
-  //             <br />
-  //           </React.Fragment>
-  //         </p>
-  //         <span>
-  //           <b>{e.m ? "Мужчина" : "Женщина"}</b>
-  //         </span>
-  //         <p className={"descriptionAdmin"}>
-  //           <React.Fragment key={index}>
-  //             {e?.w?.text?.split("\n").map((paragraph: string) => (
-  //               <React.Fragment>
-  //                 {paragraph}
-  //                 <br />
-  //               </React.Fragment>
-  //             ))}
-  //             <br />
-  //           </React.Fragment>
-  //         </p>
-  //       </React.Fragment>
-  //     ) : (
-  //       <React.Fragment key={index}>
-  //         <p className={"descriptionAdmin"}>
-  //           <React.Fragment key={index}>
-  //             {e?.text?.split("\n").map((paragraph: string) => (
-  //               <React.Fragment>
-  //                 {paragraph}
-  //                 <br />
-  //               </React.Fragment>
-  //             ))}
-  //             <br />
-  //           </React.Fragment>
-  //         </p>
-  //       </React.Fragment>
-  //     );
-  //   });
-  // };
   let table;
   if (selectMatrix === "isYear") {
     table = matrixDescription(data.isYear);
+  } else if (selectMatrix === "isCharacteristicsOfQualities") {
+    table = matrixDescription(
+      data.isPersonalQualitiesChildren.isCharacteristicsOfQualities
+    );
+  } else if (selectMatrix === "isRecommendationsForParents") {
+    table = matrixDescription(
+      data.isPersonalQualitiesChildren.isRecommendationsForParents
+    );
+  } else if (selectMatrix === "isChildInCommunication") {
+    table = matrixDescription(
+      data.isPersonalQualitiesChildren.isChildInCommunication
+    );
+  } else if (selectMatrix === "isTalentsFomBirth") {
+    table = matrixDescription(data.isChildTalents.isTalentsFomBirth);
+  } else if (selectMatrix === "isTalentsInTheMaleLine") {
+    table = matrixDescription(data.isChildTalents.isTalentsInTheMaleLine);
+  } else if (selectMatrix === "isTalentsInTheFemaleLine") {
+    table = matrixDescription(data.isChildTalents.isTalentsInTheFemaleLine);
+  } else if (selectMatrix === "isDirectionsOfHobbiesAndHobbyGroups") {
+    table = matrixDescription(
+      data.isChildTalents.isDirectionsOfHobbiesAndHobbyGroups
+    );
+  } else if (selectMatrix === "isWhatToConsiderWhenRaisingAChild") {
+    table = matrixDescription(
+      data.isRelationshipWithParents.isWhatToConsiderWhenRaisingAChild
+    );
+  } else if (selectMatrix === "isLessonsOnTheGenderOfTheMaleLine") {
+    table = matrixDescription(
+      data.isRelationshipWithParents.isLessonsOnTheGenderOfTheMaleLine
+    );
+  } else if (selectMatrix === "isLessonsOnTheGenderOfTheFemaleLine") {
+    table = matrixDescription(
+      data.isRelationshipWithParents.isLessonsOnTheGenderOfTheFemaleLine
+    );
+  } else if (
+    selectMatrix === "isDirectionOfActivityOptionsForFutureProfessions"
+  ) {
+    table = matrixDescription(
+      data.isSelfRrealizationOfTheChild
+        .isDirectionOfActivityOptionsForFutureProfessions
+    );
+  } else if (selectMatrix === "isForSuccessItIsImportant") {
+    table = matrixDescription(
+      data.isSelfRrealizationOfTheChild.isForSuccessItIsImportant
+    );
+  } else if (selectMatrix === "isFirstPersonalPurpose") {
+    table = matrixDescription(data.isPurposeOfTheChild.isFirstPersonalPurpose);
+  } else if (selectMatrix === "isSecondSocialPurpose") {
+    table = matrixDescription(data.isPurposeOfTheChild.isSecondSocialPurpose);
+  } else if (selectMatrix === "isSubconsciousScript") {
+    table = matrixDescription(data.isSubconsciousScript);
   }
   useEffect(() => {
     dispatch(getMatrixChildrenAdmin({ id }));

@@ -92,26 +92,35 @@ export const getMatrixChildrenAdmin = createAsyncThunk(
   }
 );
 
-// export const updateMatrixCompatibilityAdmin = createAsyncThunk(
-//   "get-matrix-compatibility-admin/update",
-//   async (
-//     param: { index: number; name: string; id: string; description: string },
-//     { dispatch, rejectWithValue }
-//   ) => {
-//     try {
-//       let res = await adminAPI.updateMatrixCompatibilityAdmin({
-//         index: param.index,
-//         description: param.description,
-//         id: param.id,
-//         name: param.name,
-//       });
-//       console.log(res.data.data);
-//       return {
-//         data: res.data.data,
-//         name: res.data.name,
-//       };
-//     } catch (e) {
-//       return rejectWithValue(null);
-//     }
-//   }
-// );
+export const updateMatrixChildrenAdmin = createAsyncThunk(
+  "get-matrix-children-admin/update",
+  async (
+    param: {
+      index: number;
+      name: string;
+      id: string;
+      description: string;
+      category: string;
+      gender?: string;
+    },
+    { dispatch, rejectWithValue }
+  ) => {
+    try {
+      let res = await adminAPI.updateMatrixChildrenAdmin({
+        index: param.index,
+        description: param.description,
+        id: param.id,
+        name: param.name,
+        category: param.category,
+        gender: param.gender,
+      });
+      console.log(res.data.data);
+      return {
+        data: res.data.data,
+        name: res.data.name,
+      };
+    } catch (e) {
+      return rejectWithValue(null);
+    }
+  }
+);
