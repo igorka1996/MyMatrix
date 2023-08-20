@@ -66,7 +66,7 @@ export const MatrixCompatibilityAdmin = () => {
                 rows={10}
                 onChange={onChangeTxt}
               >
-                {txt}
+                {txt.split("\n").join("\n")}
               </textarea>
               <Button
                 onClick={() => onClickHandler(e.value, txt, id, selectMatrix)}

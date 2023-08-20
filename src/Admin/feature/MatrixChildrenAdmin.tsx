@@ -44,11 +44,11 @@ export function MatrixChildrenAdmin() {
   const id = useAppSelector((state) => state.getMatrixChildren.id);
   const data = useAppSelector((state) => state.getMatrixChildren.data);
   const [num, setNum] = useState<number>(0);
+  const [gend, setGend] = useState<string>("");
   const [txt, setTxt] = useState<string>("");
   const [category, setCategory] = useState<Category>(
     "isPersonalQualitiesChildren"
   );
-  console.log(data.isYear);
   const [nameCategory, setNameCategory] = useState("1. Личные качества");
   const [selectMatrix, setSelectMatrix] = useState<MatrixChildrenAdmin>(
     "isCharacteristicsOfQualities"
@@ -102,30 +102,34 @@ export function MatrixChildrenAdmin() {
     }
   };
 
-  const onClickHandler = (
-    index: number,
-    description: string,
-    id: string,
-    name: string,
-    category: string,
-    gender?: string
-  ) => {
+  const onClickHandler = (data: {
+    index: number;
+    description: string;
+    id: string;
+    name?: string;
+    category: string;
+    gender?: string;
+  }) => {
+    setGend("");
     setNum(0);
     dispatch(
       updateMatrixChildrenAdmin({
-        index,
-        name,
-        id,
-        description,
-        category,
-        gender,
+        index: data.index,
+        name: data.name,
+        id: data.id,
+        description: data.description,
+        category: data.category,
+        gender: data.gender,
       })
     );
   };
 
-  const onDoubleClickChange = (value: number, text: string) => {
+  const onDoubleClickChange = (value: number, text: string, gend?: string) => {
     setTxt(text);
     setNum(value);
+    if (gend) {
+      setGend(gend);
+    }
   };
   const matrixDescription = (arrDesc: any[]) => {
     return arrDesc.map((e: any, index) => {
@@ -137,16 +141,53 @@ export function MatrixChildrenAdmin() {
                 <span>
                   <b>Мужчина</b>
                 </span>
-                <p className="descriptionAdmin">
-                  {e.m.text
-                    .split("\n")
-                    .map((paragraph: string, idx: number) => (
-                      <React.Fragment key={idx}>
-                        {paragraph}
-                        <br />
-                      </React.Fragment>
-                    ))}
-                </p>
+                {num === e.m.value && gend === "m" && e.m ? (
+                  <React.Fragment>
+                    <textarea
+                      style={{ width: "100%", height: "auto" }}
+                      cols={30}
+                      rows={10}
+                      onChange={onChangeTxt}
+                    >
+                      {txt}
+                    </textarea>
+                    <Button
+                      onClick={() =>
+                        onClickHandler({
+                          index: e.m.value,
+                          description: txt,
+                          id,
+                          name: selectMatrix,
+                          category,
+                          gender: gend,
+                        })
+                      }
+                      variant={"contained"}
+                    >
+                      Изменить
+                    </Button>
+                  </React.Fragment>
+                ) : (
+                  <p
+                    onDoubleClick={() =>
+                      onDoubleClickChange(
+                        e.m.value,
+                        e.m.text.split("\n").join("\n"),
+                        "m"
+                      )
+                    }
+                    className="descriptionAdmin"
+                  >
+                    {e.m.text
+                      .split("\n")
+                      .map((paragraph: string, idx: number) => (
+                        <React.Fragment key={idx}>
+                          {paragraph}
+                          <br />
+                        </React.Fragment>
+                      ))}
+                  </p>
+                )}
               </React.Fragment>
             )}
             {e.w && (
@@ -154,16 +195,54 @@ export function MatrixChildrenAdmin() {
                 <span>
                   <b>Женщина</b>
                 </span>
-                <p className="descriptionAdmin">
-                  {e.w.text
-                    .split("\n")
-                    .map((paragraph: string, idx: number) => (
-                      <React.Fragment key={idx}>
-                        {paragraph}
-                        <br />
-                      </React.Fragment>
-                    ))}
-                </p>
+                {num === e.w.value && gend === "w" && e.w ? (
+                  <React.Fragment>
+                    <textarea
+                      style={{ width: "100%", height: "auto" }}
+                      cols={30}
+                      rows={10}
+                      onChange={onChangeTxt}
+                    >
+                      {txt}
+                    </textarea>
+                    <Button
+                      onClick={() =>
+                        onClickHandler({
+                          index: e.w.value,
+                          description: txt,
+                          id,
+
+                          name: selectMatrix,
+                          category,
+                          gender: gend,
+                        })
+                      }
+                      variant={"contained"}
+                    >
+                      Изменить
+                    </Button>
+                  </React.Fragment>
+                ) : (
+                  <p
+                    onDoubleClick={() =>
+                      onDoubleClickChange(
+                        e.w.value,
+                        e.w.text.split("\n").join("\n"),
+                        "w"
+                      )
+                    }
+                    className="descriptionAdmin"
+                  >
+                    {e.w.text
+                      .split("\n")
+                      .map((paragraph: string, idx: number) => (
+                        <React.Fragment key={idx}>
+                          {paragraph}
+                          <br />
+                        </React.Fragment>
+                      ))}
+                  </p>
+                )}
               </React.Fragment>
             )}
           </React.Fragment>
@@ -183,7 +262,13 @@ export function MatrixChildrenAdmin() {
                 </textarea>
                 <Button
                   onClick={() =>
-                    onClickHandler(e.value, txt, id, selectMatrix, category)
+                    onClickHandler({
+                      index: e.value,
+                      description: txt,
+                      id,
+                      name: selectMatrix,
+                      category,
+                    })
                   }
                   variant={"contained"}
                 >
@@ -198,7 +283,7 @@ export function MatrixChildrenAdmin() {
                 className="descriptionAdmin"
                 key={index}
               >
-                {e.text.split("\n").map((paragraph: string, idx: number) => (
+                {e.text?.split("\n").map((paragraph: string, idx: number) => (
                   <React.Fragment key={idx}>
                     {paragraph}
                     <br />

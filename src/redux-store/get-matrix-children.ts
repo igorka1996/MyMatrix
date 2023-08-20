@@ -1,36 +1,37 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { adminAPI } from "../API/API";
 
+type Data = {
+  isPersonalQualitiesChildren: {
+    isCharacteristicsOfQualities: [];
+    isRecommendationsForParents: [];
+    isChildInCommunication: [];
+  };
+  isRelationshipWithParents: {
+    isWhatToConsiderWhenRaisingAChild: [];
+    isLessonsOnTheGenderOfTheMaleLine: [];
+    isLessonsOnTheGenderOfTheFemaleLine: [];
+  };
+  isChildTalents: {
+    isTalentsFomBirth: [];
+    isTalentsInTheMaleLine: [];
+    isTalentsInTheFemaleLine: [];
+    isDirectionsOfHobbiesAndHobbyGroups: [];
+  };
+  isSelfRrealizationOfTheChild: {
+    isDirectionOfActivityOptionsForFutureProfessions: [];
+    isForSuccessItIsImportant: [];
+  };
+  isPurposeOfTheChild: {
+    isFirstPersonalPurpose: [];
+    isSecondSocialPurpose: [];
+  };
+  isSubconsciousScript: [];
+  isYear: [];
+};
 export type Children = {
   id: string;
-  data: {
-    isPersonalQualitiesChildren: {
-      isCharacteristicsOfQualities: [];
-      isRecommendationsForParents: [];
-      isChildInCommunication: [];
-    };
-    isRelationshipWithParents: {
-      isWhatToConsiderWhenRaisingAChild: [];
-      isLessonsOnTheGenderOfTheMaleLine: [];
-      isLessonsOnTheGenderOfTheFemaleLine: [];
-    };
-    isChildTalents: {
-      isTalentsFomBirth: [];
-      isTalentsInTheMaleLine: [];
-      isTalentsInTheFemaleLine: [];
-      isDirectionsOfHobbiesAndHobbyGroups: [];
-    };
-    isSelfRrealizationOfTheChild: {
-      isDirectionOfActivityOptionsForFutureProfessions: [];
-      isForSuccessItIsImportant: [];
-    };
-    isPurposeOfTheChild: {
-      isFirstPersonalPurpose: [];
-      isSecondSocialPurpose: [];
-    };
-    isSubconsciousScript: [];
-    isYear: [];
-  };
+  data: Data | any;
 };
 
 const initialState: Children = {
@@ -73,6 +74,26 @@ const slice = createSlice({
     builder.addCase(getMatrixChildrenAdmin.fulfilled, (state, action) => {
       state.data = action.payload.data;
     });
+    builder.addCase(updateMatrixChildrenAdmin.fulfilled, (state, action) => {
+      const category = state.data[action.payload.category];
+      const name =
+        action.payload.category === action.payload.name
+          ? category
+          : category[action.payload.name];
+      const obj = action.payload.data;
+      for (let i = 0; i < name.length; i++) {
+        if (name[i].value === action.payload.index) {
+          name[i] = obj;
+          break;
+        } else if (i === 2 && i === action.payload.index - 1) {
+          name[i] = obj;
+          break;
+        } else if (i === 3 && i === action.payload.index - 1) {
+          name[i] = obj;
+          break;
+        }
+      }
+    });
   },
 });
 
@@ -97,7 +118,7 @@ export const updateMatrixChildrenAdmin = createAsyncThunk(
   async (
     param: {
       index: number;
-      name: string;
+      name?: string;
       id: string;
       description: string;
       category: string;
@@ -114,10 +135,12 @@ export const updateMatrixChildrenAdmin = createAsyncThunk(
         category: param.category,
         gender: param.gender,
       });
-      console.log(res.data.data);
       return {
         data: res.data.data,
-        name: res.data.name,
+        name: res.data.name as keyof Data,
+        category: res.data.category as keyof Data,
+        gender: res.data.gender,
+        index: res.data.index,
       };
     } catch (e) {
       return rejectWithValue(null);

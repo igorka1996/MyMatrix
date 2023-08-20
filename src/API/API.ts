@@ -326,7 +326,7 @@ export const adminAPI = {
   },
   updateMatrixChildrenAdmin(data: {
     index: number;
-    name: string;
+    name?: string;
     id: string;
     description: string;
     category: string;

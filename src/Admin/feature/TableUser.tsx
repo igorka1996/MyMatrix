@@ -190,8 +190,11 @@ export function TableUser() {
         </Table>
       </TableContainer>
       <TablePagination
-        rowsPerPageOptions={[10, 25, 50]}
+        rowsPerPageOptions={[5, 10, 25, 50]}
         component="div"
+        labelDisplayedRows={(paginationInfo) =>
+          `${paginationInfo.page + 1} из ${Math.ceil(userAll / rowsPerPage)}`
+        }
         count={tableWait ? 0 : userAll}
         rowsPerPage={rowsPerPage}
         page={tableWait ? 0 : page}
