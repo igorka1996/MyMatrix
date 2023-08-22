@@ -8,6 +8,7 @@ import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import { MatrixCompatibilityAdmin } from "../feature/MatrixCompatibilityAdmin";
 import { MatrixChildrenAdmin } from "../feature/MatrixChildrenAdmin";
+import { MatrixPersonalAdmin } from "../feature/MatrixPersonalAdmin";
 type SelectType =
   | "accounts"
   | "personalMatrix"
@@ -31,6 +32,8 @@ export const AdminTable = () => {
     tableComponent = <MatrixCompatibilityAdmin />;
   } else if (select === "childrenMatrix") {
     tableComponent = <MatrixChildrenAdmin />;
+  } else if (select === "personalMatrix") {
+    tableComponent = <MatrixPersonalAdmin />;
   }
   return (
     <div className={"adminTable"}>

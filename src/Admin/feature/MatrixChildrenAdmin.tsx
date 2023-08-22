@@ -138,6 +138,7 @@ export function MatrixChildrenAdmin() {
           <React.Fragment key={index}>
             {e.m && (
               <React.Fragment>
+                <br />
                 <span>
                   <b>Мужчина</b>
                 </span>
@@ -192,6 +193,7 @@ export function MatrixChildrenAdmin() {
             )}
             {e.w && (
               <React.Fragment>
+                <br />
                 <span>
                   <b>Женщина</b>
                 </span>
