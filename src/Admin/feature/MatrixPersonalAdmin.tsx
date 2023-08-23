@@ -4,13 +4,16 @@ import MenuItem from "@mui/material/MenuItem";
 import ListSubheader from "@mui/material/ListSubheader";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, ChangeEventHandler, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux-store/store";
-import { updateMatrixChildrenAdmin } from "../../redux-store/get-matrix-children";
 import { Button, SelectChangeEvent } from "@mui/material";
-import { getMatrixPersonalAdmin } from "../../redux-store/get-matrix-personal";
+import {
+  getMatrixPersonalAdmin,
+  updateMatrixPersonalAdmin,
+  updatePersonalProgramAndPastLifeMatrix,
+} from "../../redux-store/get-matrix-personal";
 
-type MatrixPersonalAdmin =
+type MatrixPersonalAdminType =
   | "isGeneral"
   | "isPositive"
   | "isNegative"
@@ -58,18 +61,31 @@ export function MatrixPersonalAdmin() {
   const dispatch = useAppDispatch();
   const id = useAppSelector((state) => state.getMatrixPersonal.id);
   const data = useAppSelector((state) => state.getMatrixPersonal.data);
-  const [num, setNum] = useState<number>(0);
+  const [num, setNum] = useState<number | string>(0);
+  const [numTitle, setNumTitle] = useState<string>("");
   const [gend, setGend] = useState<string>("");
   const [txt, setTxt] = useState<string>("");
+  const [title, setTitle] = useState<string>("");
   const [category, setCategory] = useState<Category>("isPersonalQualities");
   const [nameCategory, setNameCategory] = useState("1. Личностные качества");
   const [selectMatrix, setSelectMatrix] =
-    useState<MatrixPersonalAdmin>("isPositive");
+    useState<MatrixPersonalAdminType>("isPositive");
+  const onChangeTxtProgram = (
+    e: ChangeEvent<HTMLTextAreaElement>,
+    titleText: string
+  ) => {
+    setTxt(e.currentTarget.value);
+    setTitle(titleText);
+  };
   const onChangeTxt = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setTxt(e.currentTarget.value);
   };
+  const onChangeTitle = (e: ChangeEvent<HTMLTextAreaElement>, text: string) => {
+    setTitle(e.currentTarget.value);
+    setTxt(text);
+  };
   const handleChange = (event: SelectChangeEvent) => {
-    setSelectMatrix(event.target.value as MatrixPersonalAdmin);
+    setSelectMatrix(event.target.value as MatrixPersonalAdminType);
     if (
       event.target.value === "isGeneral" ||
       event.target.value === "isPositive" ||
@@ -100,14 +116,11 @@ export function MatrixPersonalAdmin() {
     } else if (event.target.value === "isPersonalPowerCode") {
       setNameCategory("6. Код личной силы");
       setCategory("isPersonalPowerCode");
-    } else if (event.target.value === "isYear") {
-      setNameCategory("7. Прогнозы по годам");
-      setCategory("isYear");
     } else if (event.target.value === "isChildren") {
       setNameCategory("8. Дети");
       setCategory("isChildren");
-    } else if (event.target.value === "Руководство") {
-      setNameCategory("9. Дети");
+    } else if (event.target.value === "isManagement") {
+      setNameCategory("9. Руководство");
       setCategory("isManagement");
     } else if (
       event.target.value === "parentMenLine" ||
@@ -140,7 +153,6 @@ export function MatrixPersonalAdmin() {
       setCategory("isYear");
     }
   };
-
   const onClickHandler = (data: {
     index: number;
     description: string;
@@ -152,13 +164,36 @@ export function MatrixPersonalAdmin() {
     setGend("");
     setNum(0);
     dispatch(
-      updateMatrixChildrenAdmin({
+      updateMatrixPersonalAdmin({
         index: data.index,
         name: data.name,
         id: data.id,
         description: data.description,
         category: data.category,
         gender: data.gender,
+      })
+    );
+  };
+
+  const onClickHandlerProgramAndPastLife = (data: {
+    index: number;
+    description: string;
+    id: string;
+    category: string;
+    title: string;
+    value: string;
+  }) => {
+    setGend("");
+    setNum(0);
+    setNumTitle("");
+    dispatch(
+      updatePersonalProgramAndPastLifeMatrix({
+        index: data.index,
+        id: data.id,
+        description: data.description,
+        category: data.category,
+        title: data.title,
+        value: data.value,
       })
     );
   };
@@ -170,6 +205,170 @@ export function MatrixPersonalAdmin() {
       setGend(gend);
     }
   };
+
+  const onDoubleClickProgramAndPastLifeChange = (
+    value: number,
+    text: string,
+    titleText: string
+  ) => {
+    setTxt(text);
+    setNum(value);
+    setTitle(titleText);
+  };
+
+  const onDoubleClickProgramAndPastLifeChangeTitle = (
+    value: string,
+    text: string,
+    titleText: string
+  ) => {
+    setNumTitle(value);
+    setTitle(titleText);
+  };
+
+  const matrixProgramAndPastLife = (arrDesc: any[]) => {
+    return arrDesc.map((e: any, index) => {
+      if (e.title) {
+        return (
+          <React.Fragment>
+            {num === e.value ? (
+              <React.Fragment>
+                <span>{e.value}</span>
+                <br />
+                {numTitle ? (
+                  <React.Fragment>
+                    <textarea
+                      style={{ width: "100%", height: "auto" }}
+                      cols={30}
+                      rows={10}
+                      value={title}
+                      onChange={(el) => onChangeTitle(el, e.text)}
+                    >
+                      {title}
+                    </textarea>
+                    <Button
+                      onClick={() =>
+                        onClickHandlerProgramAndPastLife({
+                          index: index,
+                          description: txt,
+                          id,
+                          title,
+                          category,
+                          value: e.value,
+                        })
+                      }
+                      variant={"contained"}
+                    >
+                      Изменить
+                    </Button>
+                    <br />
+                  </React.Fragment>
+                ) : (
+                  <span
+                    onDoubleClick={() =>
+                      onDoubleClickProgramAndPastLifeChangeTitle(
+                        e.value,
+                        e.text.split("\n").join("\n"),
+                        e.title
+                      )
+                    }
+                  >
+                    {`Заголовок:${e.title}`}
+                  </span>
+                )}
+                <textarea
+                  style={{ width: "100%", height: "auto" }}
+                  cols={30}
+                  rows={10}
+                  value={txt}
+                  onChange={(el) => onChangeTxtProgram(el, e.title)}
+                ></textarea>
+                <Button
+                  onClick={() =>
+                    onClickHandlerProgramAndPastLife({
+                      index: index,
+                      description: txt,
+                      id,
+                      title: e.title,
+                      category,
+                      value: e.value,
+                    })
+                  }
+                  variant={"contained"}
+                >
+                  Изменить
+                </Button>
+                <br />
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                <span>{e.value}</span>
+                <br />
+                {numTitle === e.value ? (
+                  <React.Fragment>
+                    <textarea
+                      style={{ width: "100%", height: "auto" }}
+                      cols={30}
+                      rows={10}
+                      value={title}
+                      onChange={(el) => onChangeTitle(el, e.text)}
+                    >
+                      {title}
+                    </textarea>
+                    <Button
+                      onClick={() =>
+                        onClickHandlerProgramAndPastLife({
+                          index: index,
+                          description: txt,
+                          id,
+                          title,
+                          category,
+                          value: e.value,
+                        })
+                      }
+                      variant={"contained"}
+                    >
+                      Изменить
+                    </Button>
+                  </React.Fragment>
+                ) : (
+                  <span
+                    onDoubleClick={() =>
+                      onDoubleClickProgramAndPastLifeChangeTitle(
+                        e.value,
+                        e.text.split("\n").join("\n"),
+                        e.title
+                      )
+                    }
+                  >
+                    {`Заголовок:${" " + e.title}`}
+                  </span>
+                )}
+                <p
+                  onDoubleClick={() =>
+                    onDoubleClickProgramAndPastLifeChange(
+                      e.value,
+                      e.text.split("\n").join("\n"),
+                      e.title
+                    )
+                  }
+                  className="descriptionAdmin"
+                  key={index}
+                >
+                  {e.text?.split("\n").map((paragraph: string, idx: number) => (
+                    <React.Fragment key={idx}>
+                      {paragraph}
+                      <br />
+                    </React.Fragment>
+                  ))}
+                </p>
+              </React.Fragment>
+            )}
+          </React.Fragment>
+        );
+      }
+    });
+  };
+
   const matrixDescription = (arrDesc: any[]) => {
     return arrDesc.map((e: any, index) => {
       if (e.m || e.w) {
@@ -337,11 +536,9 @@ export function MatrixPersonalAdmin() {
       }
     });
   };
-  console.log(data);
+  // console.log(data);
   let table;
-  if (selectMatrix === "isYear") {
-    table = matrixDescription(data.isYear);
-  } else if (selectMatrix === "isPositive") {
+  if (selectMatrix === "isPositive") {
     table = matrixDescription(data.isPersonalQualities.isPositive);
   } else if (selectMatrix === "isNegative") {
     table = matrixDescription(data.isPersonalQualities.isNegative);
@@ -354,7 +551,7 @@ export function MatrixPersonalAdmin() {
   } else if (selectMatrix === "isMotherTalent") {
     table = matrixDescription(data.isTalents.isMotherTalent);
   } else if (selectMatrix === "isPastLife") {
-    table = matrixDescription(data.isPastLife);
+    table = matrixProgramAndPastLife(data.isPastLife);
   } else if (selectMatrix === "isHealth") {
     table = matrixDescription(data.isHealth);
   } else if (selectMatrix === "isPurpose20_40") {
@@ -392,7 +589,7 @@ export function MatrixPersonalAdmin() {
   } else if (selectMatrix === "MoneyFlow") {
     table = matrixDescription(data.isMoney.MoneyFlow);
   } else if (selectMatrix === "isProgram") {
-    table = matrixDescription(data.isProgram);
+    table = matrixProgramAndPastLife(data.isProgram);
   } else if (selectMatrix === "isYear") {
     table = matrixDescription(data.isYear);
   }

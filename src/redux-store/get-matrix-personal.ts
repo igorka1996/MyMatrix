@@ -109,17 +109,47 @@ const slice = createSlice({
       const obj = action.payload.data;
       for (let i = 0; i < name.length; i++) {
         if (name[i].value === action.payload.index) {
+          if (obj._id) {
+            const { _id, ...data } = obj;
+            console.log(data);
+            name[i] = data;
+            break;
+          }
           name[i] = obj;
           break;
         } else if (i === 2 && i === action.payload.index - 1) {
+          if (obj._id) {
+            const { _id, ...data } = obj;
+            console.log(data);
+            name[i] = data;
+            break;
+          }
           name[i] = obj;
           break;
         } else if (i === 3 && i === action.payload.index - 1) {
+          if (obj._id) {
+            const { _id, ...data } = obj;
+            console.log(data);
+            name[i] = data;
+            break;
+          }
           name[i] = obj;
           break;
         }
       }
     });
+    builder.addCase(
+      updatePersonalProgramAndPastLifeMatrix.fulfilled,
+      (state, action) => {
+        const category = state.data[action.payload.category];
+        const obj = action.payload.data;
+        for (let i = 0; i < category.length; i++) {
+          if (category[i].value === action.payload.data.value) {
+            category[i] = obj;
+          }
+        }
+      }
+    );
   },
 });
 
@@ -153,7 +183,7 @@ export const updateMatrixPersonalAdmin = createAsyncThunk(
     { dispatch, rejectWithValue }
   ) => {
     try {
-      let res = await adminAPI.updateMatrixChildrenAdmin({
+      let res = await adminAPI.updateMatrixPersonalAdmin({
         index: param.index,
         description: param.description,
         id: param.id,
@@ -163,8 +193,43 @@ export const updateMatrixPersonalAdmin = createAsyncThunk(
       });
       return {
         data: res.data.data,
-        name: res.data.name as keyof Data,
-        category: res.data.category as keyof Data,
+        name: res.data.name,
+        category: res.data.category,
+        gender: res.data.gender,
+        index: res.data.index,
+      };
+    } catch (e) {
+      return rejectWithValue(null);
+    }
+  }
+);
+
+export const updatePersonalProgramAndPastLifeMatrix = createAsyncThunk(
+  "get-matrix-personal-admin/update-program-past-life",
+  async (
+    param: {
+      index: number;
+      id: string;
+      description: string;
+      category: string;
+      value: string;
+      title: string;
+    },
+    { dispatch, rejectWithValue }
+  ) => {
+    try {
+      let res = await adminAPI.updatePersonalProgramAndPastLifeMatrix({
+        index: param.index,
+        description: param.description,
+        id: param.id,
+        category: param.category,
+        value: param.value,
+        title: param.title,
+      });
+      return {
+        data: res.data.data,
+        name: res.data.name,
+        category: res.data.category,
         gender: res.data.gender,
         index: res.data.index,
       };

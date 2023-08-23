@@ -337,4 +337,24 @@ export const adminAPI = {
   }) {
     return instance.put("update-matrix-children", data);
   },
+  updateMatrixPersonalAdmin(data: {
+    index: number;
+    name?: string;
+    id: string;
+    description: string;
+    category: string;
+    gender?: string;
+  }) {
+    return instance.put("update-matrix-personal", data);
+  },
+  updatePersonalProgramAndPastLifeMatrix(data: {
+    index: number;
+    id: string;
+    value: string;
+    title: string;
+    description: string;
+    category: string;
+  }) {
+    return instance.put("update-matrix-personal-program-past-life", data);
+  },
 };
