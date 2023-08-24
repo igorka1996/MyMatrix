@@ -84,21 +84,9 @@ const slice = createSlice({
       state.totalAmount = action.payload.totalAmount;
       state.avatar = action.payload.avatar;
       state.admin = action.payload.admin;
-      // localStorage.setItem("token", action.payload.token);
     });
     builder.addCase(payAndRegistrationThunk.fulfilled, (state, action) => {
-      // state.name = action.payload.name;
-      // state.email = action.payload.email;
-      // state.surname = action.payload.surname;
-      // state.id = action.payload.id;
       state.token = action.payload.token;
-      // state.auth = action.payload.auth;
-      // state.phone = action.payload.phone;
-      // state.subscription = action.payload.sub;
-      // state.historyOfOrders = action.payload.orders;
-      // state.totalAmount = action.payload.totalAmount;
-      // state.avatar = "";
-      // localStorage.setItem("token", action.payload.token);
       window.location.assign(action.payload.url);
     });
     builder.addCase(authThunk.fulfilled, (state, action) => {
@@ -362,17 +350,7 @@ export const payAndRegistrationThunk = createAsyncThunk(
         },
       });
       return {
-        // name: res.data.name,
-        // surname: res.data.surname,
-        // email: res.data.email,
-        // id: res.data._id,
         token: res.data.token,
-        // phone: res.data.phone,
-        // sub: res.data.subscription,
-        // orders: res.data.historyOfOrders,
-        // totalAmount: res.data.totalAmount,
-        // matrixSearchHistory: res.data.matrixSearchHistory,
-        // auth: true,
         url: res.data.url,
       };
     } catch (e) {

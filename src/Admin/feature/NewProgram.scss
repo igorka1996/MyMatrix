@@ -1,0 +1,24 @@
+.divNewProgram{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.divProgram{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.spanProgram{
+    font-size: 25px;
+}
+
+.inputProgram{
+    width: 500px;
+}

@@ -125,7 +125,7 @@ function App() {
                 className={"menuSpan"}
                 to={"/admin-table"}
               >
-                АДМИНИСТРАТОР
+                АДМИН
               </Link>
             ) : undefined}
           </div>

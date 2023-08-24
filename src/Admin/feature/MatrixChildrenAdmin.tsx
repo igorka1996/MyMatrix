@@ -10,7 +10,7 @@ import {
   getMatrixChildrenAdmin,
   updateMatrixChildrenAdmin,
 } from "../../redux-store/get-matrix-children";
-import { Button, SelectChangeEvent } from "@mui/material";
+import { Button, CircularProgress, SelectChangeEvent } from "@mui/material";
 
 type MatrixChildrenAdmin =
   | "isCharacteristicsOfQualities"
@@ -41,6 +41,7 @@ type Category =
 
 export function MatrixChildrenAdmin() {
   const dispatch = useAppDispatch();
+  const userAdminWait = useAppSelector((state) => state.errorReducer.userAdmin);
   const id = useAppSelector((state) => state.getMatrixChildren.id);
   const data = useAppSelector((state) => state.getMatrixChildren.data);
   const [num, setNum] = useState<number>(0);
@@ -135,12 +136,15 @@ export function MatrixChildrenAdmin() {
     return arrDesc.map((e: any, index) => {
       if (e.m || e.w) {
         return (
-          <React.Fragment key={index}>
+          <div className={"divDesc"} key={index}>
             {e.m && (
               <React.Fragment>
+                <div className={"spanValue"}>{`Энергия: ${
+                  " " + e.m.value
+                }`}</div>
                 <br />
                 <span>
-                  <b>Мужчина</b>
+                  <b>Мальчик</b>
                 </span>
                 {num === e.m.value && gend === "m" && e.m ? (
                   <React.Fragment>
@@ -148,11 +152,11 @@ export function MatrixChildrenAdmin() {
                       style={{ width: "100%", height: "auto" }}
                       cols={30}
                       rows={10}
+                      value={txt}
                       onChange={onChangeTxt}
-                    >
-                      {txt}
-                    </textarea>
+                    ></textarea>
                     <Button
+                      style={{ marginRight: 10 }}
                       onClick={() =>
                         onClickHandler({
                           index: e.m.value,
@@ -166,6 +170,9 @@ export function MatrixChildrenAdmin() {
                       variant={"contained"}
                     >
                       Изменить
+                    </Button>
+                    <Button onClick={() => setNum(0)} variant={"contained"}>
+                      Отмена
                     </Button>
                   </React.Fragment>
                 ) : (
@@ -193,9 +200,12 @@ export function MatrixChildrenAdmin() {
             )}
             {e.w && (
               <React.Fragment>
+                <div className={"spanValue"}>{`Энергия: ${
+                  " " + e.w.value
+                }`}</div>
                 <br />
                 <span>
-                  <b>Женщина</b>
+                  <b>Девочка</b>
                 </span>
                 {num === e.w.value && gend === "w" && e.w ? (
                   <React.Fragment>
@@ -203,11 +213,11 @@ export function MatrixChildrenAdmin() {
                       style={{ width: "100%", height: "auto" }}
                       cols={30}
                       rows={10}
+                      value={txt}
                       onChange={onChangeTxt}
-                    >
-                      {txt}
-                    </textarea>
+                    ></textarea>
                     <Button
+                      style={{ marginRight: 10 }}
                       onClick={() =>
                         onClickHandler({
                           index: e.w.value,
@@ -222,6 +232,9 @@ export function MatrixChildrenAdmin() {
                       variant={"contained"}
                     >
                       Изменить
+                    </Button>
+                    <Button onClick={() => setNum(0)} variant={"contained"}>
+                      Отмена
                     </Button>
                   </React.Fragment>
                 ) : (
@@ -247,22 +260,23 @@ export function MatrixChildrenAdmin() {
                 )}
               </React.Fragment>
             )}
-          </React.Fragment>
+          </div>
         );
       } else {
         return (
-          <React.Fragment>
+          <div className={"divDesc"} key={index}>
+            <div className={"spanValue"}>{`Энергия: ${" " + e.value}`}</div>
             {num === e.value ? (
               <React.Fragment>
                 <textarea
                   style={{ width: "100%", height: "auto" }}
                   cols={30}
                   rows={10}
+                  value={txt}
                   onChange={onChangeTxt}
-                >
-                  {txt}
-                </textarea>
+                ></textarea>
                 <Button
+                  style={{ marginRight: 10 }}
                   onClick={() =>
                     onClickHandler({
                       index: e.value,
@@ -275,6 +289,9 @@ export function MatrixChildrenAdmin() {
                   variant={"contained"}
                 >
                   Изменить
+                </Button>
+                <Button onClick={() => setNum(0)} variant={"contained"}>
+                  Отмена
                 </Button>
               </React.Fragment>
             ) : (
@@ -293,7 +310,7 @@ export function MatrixChildrenAdmin() {
                 ))}
               </p>
             )}
-          </React.Fragment>
+          </div>
         );
       }
     });
@@ -436,7 +453,23 @@ export function MatrixChildrenAdmin() {
       </FormControl>
       <div>
         <br />
-        {table}
+        {userAdminWait ? (
+          <div
+            style={{
+              display: "flex",
+              alignItems: "flex-start",
+              justifyContent: "center",
+              height: "100vh",
+              top: "40%",
+              textAlign: "center",
+              width: "100%",
+            }}
+          >
+            <CircularProgress />
+          </div>
+        ) : (
+          table
+        )}
         <br />
       </div>
     </div>

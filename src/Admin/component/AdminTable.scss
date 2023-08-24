@@ -5,3 +5,53 @@
     padding-top: 150px;
     padding-bottom: 100px;
 }
+
+.divDesc{
+    margin: 20px 0;
+    border: 3px solid #9486b3;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.spanDesc{
+    border: 2px solid black;
+    padding: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.spanValue{
+    margin: 5px 0;
+}
+
+.deleteButton {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: relative;
+    margin-top: 1%;
+    margin-left: 96%;
+}
+
+
+.deleteSpan::before,
+.deleteSpan::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    top: 12px;
+    background-color: red;
+    transition: transform 0.2s;
+}
+
+.deleteSpan::before {
+    transform: rotate(45deg);
+}
+
+.deleteSpan::after {
+    transform: rotate(-45deg);
+}
+

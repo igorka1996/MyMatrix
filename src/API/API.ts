@@ -347,7 +347,7 @@ export const adminAPI = {
   }) {
     return instance.put("update-matrix-personal", data);
   },
-  updatePersonalProgramAndPastLifeMatrix(data: {
+  updatePersonalProgramMatrix(data: {
     index: number;
     id: string;
     value: string;
@@ -355,6 +355,36 @@ export const adminAPI = {
     description: string;
     category: string;
   }) {
-    return instance.put("update-matrix-personal-program-past-life", data);
+    return instance.put("update-matrix-personal-program", data);
+  },
+  updatePersonalPastLifeMatrix(data: {
+    index: number;
+    id: string;
+    value: string;
+    description: string;
+    category: string;
+  }) {
+    return instance.put("update-matrix-personal-past-life", data);
+  },
+  newPersonalProgramMatrix(data: {
+    id: string;
+    value: string;
+    title: string;
+    description: string;
+  }) {
+    return instance.post("new-matrix-personal-program", data);
+  },
+  newPersonalPastLifeMatrix(data: {
+    id: string;
+    value: string;
+    description: string;
+  }) {
+    return instance.post("new-matrix-personal-past-life", data);
+  },
+  deletePersonalProgramMatrix(data: { id: string; value: string }) {
+    return instance.put("delete-matrix-personal-program", data);
+  },
+  deletePersonalPastLifeMatrix(data: { id: string; value: string }) {
+    return instance.put("delete-matrix-personal-past-life", data);
   },
 };

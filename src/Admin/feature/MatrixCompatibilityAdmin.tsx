@@ -7,10 +7,16 @@ import {
 } from "../../redux-store/get-matrix-compatibility";
 import "./MatrixCompatibilityAdmin.scss";
 import InputLabel from "@mui/material/InputLabel";
-import { Button, MenuItem, Select, SelectChangeEvent } from "@mui/material";
+import {
+  Button,
+  CircularProgress,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+} from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 
-type MatrixCompatibilityAdmin =
+type MatrixCompatibilityAdminType =
   | "isWhyDidYouMeet"
   | "isTheSpiritualEssenceOfTheCouple"
   | "isMaterialKarma"
@@ -23,12 +29,13 @@ export const MatrixCompatibilityAdmin = () => {
   const id = useAppSelector((state) => state.getMatrixCompatibility.id);
   const data = useAppSelector((state) => state.getMatrixCompatibility.data);
   const [selectMatrix, setSelectMatrix] =
-    useState<MatrixCompatibilityAdmin>("isWhyDidYouMeet");
+    useState<MatrixCompatibilityAdminType>("isWhyDidYouMeet");
   const [num, setNum] = useState<number>(0);
   const [txt, setTxt] = useState<string>("");
+  const userAdminWait = useAppSelector((state) => state.errorReducer.userAdmin);
   const dispatch = useAppDispatch();
   const handleChange = (event: SelectChangeEvent) => {
-    setSelectMatrix(event.target.value as MatrixCompatibilityAdmin);
+    setSelectMatrix(event.target.value as MatrixCompatibilityAdminType);
     setNum(0);
   };
 
@@ -57,22 +64,26 @@ export const MatrixCompatibilityAdmin = () => {
   const matrixDescription = (value: isDescription[]) => {
     return value.map((e, index) => {
       return (
-        <React.Fragment key={index}>
+        <div className={"divDesc"} key={index}>
+          <div className={"spanValue"}>{`Энергии: ${" " + e.value}`}</div>
           {num === e.value ? (
             <React.Fragment>
               <textarea
                 style={{ width: "100%", height: "auto" }}
                 cols={30}
                 rows={10}
+                value={txt.split("\n").join("\n")}
                 onChange={onChangeTxt}
-              >
-                {txt.split("\n").join("\n")}
-              </textarea>
+              ></textarea>
               <Button
+                style={{ marginRight: 10 }}
                 onClick={() => onClickHandler(e.value, txt, id, selectMatrix)}
                 variant={"contained"}
               >
                 Изменить
+              </Button>
+              <Button onClick={() => setNum(0)} variant={"contained"}>
+                Отмена
               </Button>
             </React.Fragment>
           ) : (
@@ -93,7 +104,7 @@ export const MatrixCompatibilityAdmin = () => {
               </React.Fragment>
             </p>
           )}
-        </React.Fragment>
+        </div>
       );
     });
   };
@@ -115,6 +126,23 @@ export const MatrixCompatibilityAdmin = () => {
     table = matrixDescription(data.isThePurposeOfTheCouple);
   }
 
+  if (userAdminWait) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "100vh",
+          top: "50%",
+          textAlign: "center",
+          width: "100%",
+        }}
+      >
+        <CircularProgress />
+      </div>
+    );
+  }
   return (
     <div>
       <FormControl style={{ width: 300, marginBottom: 50 }}>
@@ -147,7 +175,23 @@ export const MatrixCompatibilityAdmin = () => {
       </FormControl>
       <div>
         <br />
-        {table}
+        {userAdminWait ? (
+          <div
+            style={{
+              display: "flex",
+              alignItems: "flex-start",
+              justifyContent: "center",
+              height: "100vh",
+              top: "40%",
+              textAlign: "center",
+              width: "100%",
+            }}
+          >
+            <CircularProgress />
+          </div>
+        ) : (
+          table
+        )}
         <br />
       </div>
     </div>

@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { adminAPI } from "../API/API";
+import { successAC, tableWaitAC, userAdminAC } from "./error-wait-reducer";
+import { HandleError } from "../utils/errors";
 
 type Data = {
   isPersonalQualitiesChildren: {
@@ -103,11 +105,15 @@ export const getMatrixChildrenAdmin = createAsyncThunk(
   "get-matrix-children-admin/get",
   async (param: { id: string }, { dispatch, rejectWithValue }) => {
     try {
+      dispatch(userAdminAC({ userAdmin: true }));
       let res = await adminAPI.getMatrixChildrenAdmin(param.id);
+      dispatch(userAdminAC({ userAdmin: false }));
       return {
         data: res.data,
       };
     } catch (e) {
+      dispatch(userAdminAC({ userAdmin: false }));
+      HandleError(e, dispatch);
       return rejectWithValue(null);
     }
   }
@@ -135,6 +141,7 @@ export const updateMatrixChildrenAdmin = createAsyncThunk(
         category: param.category,
         gender: param.gender,
       });
+      dispatch(successAC({ success: "Данные успешно изменены" }));
       return {
         data: res.data.data,
         name: res.data.name as keyof Data,
@@ -143,6 +150,7 @@ export const updateMatrixChildrenAdmin = createAsyncThunk(
         index: res.data.index,
       };
     } catch (e) {
+      HandleError(e, dispatch);
       return rejectWithValue(null);
     }
   }

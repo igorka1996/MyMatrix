@@ -4,14 +4,19 @@ import MenuItem from "@mui/material/MenuItem";
 import ListSubheader from "@mui/material/ListSubheader";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { ChangeEvent, ChangeEventHandler, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux-store/store";
-import { Button, SelectChangeEvent } from "@mui/material";
+import { Button, CircularProgress, SelectChangeEvent } from "@mui/material";
 import {
+  deletePersonalPastLifeMatrix,
+  deletePersonalProgramMatrix,
   getMatrixPersonalAdmin,
   updateMatrixPersonalAdmin,
-  updatePersonalProgramAndPastLifeMatrix,
+  updatePersonalPastLifeMatrix,
+  updatePersonalProgramMatrix,
 } from "../../redux-store/get-matrix-personal";
+import { NewProgram } from "./NewProgram";
+import { NewPastLife } from "./NewPastLife";
 
 type MatrixPersonalAdminType =
   | "isGeneral"
@@ -59,6 +64,7 @@ type Category =
 
 export function MatrixPersonalAdmin() {
   const dispatch = useAppDispatch();
+  const userAdminWait = useAppSelector((state) => state.errorReducer.userAdmin);
   const id = useAppSelector((state) => state.getMatrixPersonal.id);
   const data = useAppSelector((state) => state.getMatrixPersonal.data);
   const [num, setNum] = useState<number | string>(0);
@@ -175,7 +181,7 @@ export function MatrixPersonalAdmin() {
     );
   };
 
-  const onClickHandlerProgramAndPastLife = (data: {
+  const onClickHandlerProgram = (data: {
     index: number;
     description: string;
     id: string;
@@ -187,12 +193,32 @@ export function MatrixPersonalAdmin() {
     setNum(0);
     setNumTitle("");
     dispatch(
-      updatePersonalProgramAndPastLifeMatrix({
+      updatePersonalProgramMatrix({
         index: data.index,
         id: data.id,
         description: data.description,
         category: data.category,
         title: data.title,
+        value: data.value,
+      })
+    );
+  };
+
+  const onClickHandlerPastLife = (data: {
+    index: number;
+    description: string;
+    id: string;
+    category: string;
+    value: string;
+  }) => {
+    setGend("");
+    setNum(0);
+    dispatch(
+      updatePersonalPastLifeMatrix({
+        index: data.index,
+        id: data.id,
+        description: data.description,
+        category: data.category,
         value: data.value,
       })
     );
@@ -206,7 +232,7 @@ export function MatrixPersonalAdmin() {
     }
   };
 
-  const onDoubleClickProgramAndPastLifeChange = (
+  const onDoubleClickProgramChange = (
     value: number,
     text: string,
     titleText: string
@@ -216,156 +242,269 @@ export function MatrixPersonalAdmin() {
     setTitle(titleText);
   };
 
-  const onDoubleClickProgramAndPastLifeChangeTitle = (
+  const onDoubleClickProgramChangeTitle = (
     value: string,
     text: string,
     titleText: string
   ) => {
+    setTxt(text);
     setNumTitle(value);
     setTitle(titleText);
   };
 
-  const matrixProgramAndPastLife = (arrDesc: any[]) => {
+  const matrixPastLife = (arrDesc: any[]) => {
     return arrDesc.map((e: any, index) => {
-      if (e.title) {
-        return (
-          <React.Fragment>
-            {num === e.value ? (
-              <React.Fragment>
-                <span>{e.value}</span>
-                <br />
-                {numTitle ? (
-                  <React.Fragment>
-                    <textarea
-                      style={{ width: "100%", height: "auto" }}
-                      cols={30}
-                      rows={10}
-                      value={title}
-                      onChange={(el) => onChangeTitle(el, e.text)}
-                    >
-                      {title}
-                    </textarea>
-                    <Button
-                      onClick={() =>
-                        onClickHandlerProgramAndPastLife({
-                          index: index,
-                          description: txt,
-                          id,
-                          title,
-                          category,
-                          value: e.value,
-                        })
-                      }
-                      variant={"contained"}
-                    >
-                      Изменить
-                    </Button>
+      return (
+        <React.Fragment key={index}>
+          {num === e.value ? (
+            <div className={"divDesc"}>
+              <div className="deleteButton">
+                <span
+                  onClick={() =>
+                    dispatch(
+                      deletePersonalPastLifeMatrix({ id, value: e.value })
+                    )
+                  }
+                  className={"deleteSpan"}
+                ></span>
+              </div>
+              <div className={"spanValue"}>{`Энергии: ${" " + e.value}`}</div>
+              <br />
+              <textarea
+                autoFocus
+                style={{ width: "100%", height: "auto" }}
+                cols={30}
+                rows={10}
+                value={txt.split("\n").join("\n")}
+                onChange={onChangeTxt}
+              ></textarea>
+              <Button
+                style={{ marginRight: 10 }}
+                onClick={() =>
+                  onClickHandlerPastLife({
+                    index: index,
+                    description: txt,
+                    id,
+                    category,
+                    value: e.value,
+                  })
+                }
+                variant={"contained"}
+              >
+                Изменить
+              </Button>
+              <Button onClick={() => setNum(0)} variant={"contained"}>
+                Отмена
+              </Button>
+              <br />
+            </div>
+          ) : (
+            <div key={index} className={"divDesc"}>
+              <div className="deleteButton">
+                <span
+                  onClick={() =>
+                    dispatch(
+                      deletePersonalPastLifeMatrix({ id, value: e.value })
+                    )
+                  }
+                  className={"deleteSpan"}
+                ></span>
+              </div>
+              <div className={"spanValue"}>{`Энергии: ${" " + e.value}`}</div>
+              <br />
+              <p
+                onDoubleClick={() =>
+                  onDoubleClickChange(e.value, e.text.split("\n").join("\n"))
+                }
+                className="descriptionAdmin"
+                key={index}
+              >
+                {e.text?.split("\n").map((paragraph: string, idx: number) => (
+                  <React.Fragment key={idx}>
+                    {paragraph}
                     <br />
                   </React.Fragment>
-                ) : (
-                  <span
-                    onDoubleClick={() =>
-                      onDoubleClickProgramAndPastLifeChangeTitle(
-                        e.value,
-                        e.text.split("\n").join("\n"),
-                        e.title
-                      )
-                    }
-                  >
-                    {`Заголовок:${e.title}`}
-                  </span>
-                )}
-                <textarea
-                  style={{ width: "100%", height: "auto" }}
-                  cols={30}
-                  rows={10}
-                  value={txt}
-                  onChange={(el) => onChangeTxtProgram(el, e.title)}
-                ></textarea>
-                <Button
+                ))}
+              </p>
+            </div>
+          )}
+        </React.Fragment>
+      );
+    });
+  };
+
+  const matrixProgram = (arrDesc: any[]) => {
+    return arrDesc.map((e: any, index) => {
+      return (
+        <React.Fragment key={index}>
+          {num === e.value ? (
+            <div className={"divDesc"}>
+              <div className="deleteButton">
+                <span
                   onClick={() =>
-                    onClickHandlerProgramAndPastLife({
-                      index: index,
-                      description: txt,
-                      id,
-                      title: e.title,
-                      category,
-                      value: e.value,
-                    })
+                    dispatch(
+                      deletePersonalProgramMatrix({ id, value: e.value })
+                    )
                   }
-                  variant={"contained"}
-                >
-                  Изменить
-                </Button>
-                <br />
-              </React.Fragment>
-            ) : (
-              <React.Fragment>
-                <span>{e.value}</span>
-                <br />
-                {numTitle === e.value ? (
-                  <React.Fragment>
-                    <textarea
-                      style={{ width: "100%", height: "auto" }}
-                      cols={30}
-                      rows={10}
-                      value={title}
-                      onChange={(el) => onChangeTitle(el, e.text)}
-                    >
-                      {title}
-                    </textarea>
-                    <Button
-                      onClick={() =>
-                        onClickHandlerProgramAndPastLife({
-                          index: index,
-                          description: txt,
-                          id,
-                          title,
-                          category,
-                          value: e.value,
-                        })
-                      }
-                      variant={"contained"}
-                    >
-                      Изменить
-                    </Button>
-                  </React.Fragment>
-                ) : (
-                  <span
-                    onDoubleClick={() =>
-                      onDoubleClickProgramAndPastLifeChangeTitle(
-                        e.value,
-                        e.text.split("\n").join("\n"),
-                        e.title
-                      )
+                  className={"deleteSpan"}
+                ></span>
+              </div>
+              <div className={"spanValue"}>{`Энергии: ${" " + e.value}`}</div>
+              <br />
+              {numTitle === e.value ? (
+                <React.Fragment>
+                  <textarea
+                    autoFocus
+                    style={{ width: "100%", height: "auto" }}
+                    cols={30}
+                    rows={10}
+                    value={title}
+                    onChange={(el) => onChangeTitle(el, e.text)}
+                  ></textarea>
+                  <Button
+                    style={{ marginRight: 10 }}
+                    onClick={() =>
+                      onClickHandlerProgram({
+                        index: index,
+                        description: txt,
+                        id,
+                        title,
+                        category,
+                        value: e.value,
+                      })
                     }
+                    variant={"contained"}
                   >
-                    {`Заголовок:${" " + e.title}`}
-                  </span>
-                )}
-                <p
+                    Изменить
+                  </Button>
+                  <Button onClick={() => setNumTitle("")} variant={"contained"}>
+                    Отмена
+                  </Button>
+                  <br />
+                </React.Fragment>
+              ) : (
+                <span
+                  className={"spanDesc"}
                   onDoubleClick={() =>
-                    onDoubleClickProgramAndPastLifeChange(
+                    onDoubleClickProgramChangeTitle(
                       e.value,
                       e.text.split("\n").join("\n"),
                       e.title
                     )
                   }
-                  className="descriptionAdmin"
-                  key={index}
                 >
-                  {e.text?.split("\n").map((paragraph: string, idx: number) => (
-                    <React.Fragment key={idx}>
-                      {paragraph}
-                      <br />
-                    </React.Fragment>
-                  ))}
-                </p>
-              </React.Fragment>
-            )}
-          </React.Fragment>
-        );
-      }
+                  {`Заголовок:${e.title}`}
+                </span>
+              )}
+              <textarea
+                autoFocus
+                style={{ width: "100%", height: "auto" }}
+                cols={30}
+                rows={10}
+                value={txt.split("\n").join("\n")}
+                onChange={(el) => onChangeTxtProgram(el, e.title)}
+              ></textarea>
+              <Button
+                style={{ marginRight: 10 }}
+                onClick={() =>
+                  onClickHandlerProgram({
+                    index: index,
+                    description: txt,
+                    id,
+                    title: e.title,
+                    category,
+                    value: e.value,
+                  })
+                }
+                variant={"contained"}
+              >
+                Изменить
+              </Button>
+              <Button onClick={() => setNum(0)} variant={"contained"}>
+                Отмена
+              </Button>
+              <br />
+            </div>
+          ) : (
+            <div key={index} className={"divDesc"}>
+              <div className="deleteButton">
+                <span
+                  onClick={() =>
+                    dispatch(
+                      deletePersonalProgramMatrix({ id, value: e.value })
+                    )
+                  }
+                  className={"deleteSpan"}
+                ></span>
+              </div>
+              <div className={"spanValue"}>{`Энергии: ${" " + e.value}`}</div>
+              <br />
+              {numTitle === e.value ? (
+                <React.Fragment>
+                  <textarea
+                    autoFocus
+                    style={{ width: "100%", height: "auto" }}
+                    cols={30}
+                    rows={10}
+                    value={title}
+                    onChange={(el) => onChangeTitle(el, e.text)}
+                  ></textarea>
+                  <Button
+                    style={{ marginRight: 10 }}
+                    onClick={() =>
+                      onClickHandlerProgram({
+                        index: index,
+                        description: txt,
+                        id,
+                        title,
+                        category,
+                        value: e.value,
+                      })
+                    }
+                    variant={"contained"}
+                  >
+                    Изменить
+                  </Button>
+                  <Button onClick={() => setNumTitle("")} variant={"contained"}>
+                    Отмена
+                  </Button>
+                </React.Fragment>
+              ) : (
+                <span
+                  className={"spanDesc"}
+                  onDoubleClick={() =>
+                    onDoubleClickProgramChangeTitle(
+                      e.value,
+                      e.text.split("\n").join("\n"),
+                      e.title
+                    )
+                  }
+                >
+                  {`Заголовок:${" " + e.title}`}
+                </span>
+              )}
+              <p
+                onDoubleClick={() =>
+                  onDoubleClickProgramChange(
+                    e.value,
+                    e.text.split("\n").join("\n"),
+                    e.title
+                  )
+                }
+                className="descriptionAdmin"
+                key={index}
+              >
+                {e.text?.split("\n").map((paragraph: string, idx: number) => (
+                  <React.Fragment key={idx}>
+                    {paragraph}
+                    <br />
+                  </React.Fragment>
+                ))}
+              </p>
+            </div>
+          )}
+        </React.Fragment>
+      );
     });
   };
 
@@ -373,9 +512,12 @@ export function MatrixPersonalAdmin() {
     return arrDesc.map((e: any, index) => {
       if (e.m || e.w) {
         return (
-          <React.Fragment key={index}>
+          <div className={"divDesc"} key={index}>
             {e.m && (
               <React.Fragment>
+                <div className={"spanValue"}>{`Энергия: ${
+                  " " + e.m.value
+                }`}</div>
                 <br />
                 <span>
                   <b>Мужчина</b>
@@ -383,14 +525,15 @@ export function MatrixPersonalAdmin() {
                 {num === e.m.value && gend === "m" && e.m ? (
                   <React.Fragment>
                     <textarea
+                      autoFocus
                       style={{ width: "100%", height: "auto" }}
                       cols={30}
                       rows={10}
+                      value={txt.split("\n").join("\n")}
                       onChange={onChangeTxt}
-                    >
-                      {txt}
-                    </textarea>
+                    ></textarea>
                     <Button
+                      style={{ marginRight: 10 }}
                       onClick={() =>
                         onClickHandler({
                           index: e.m.value,
@@ -404,6 +547,9 @@ export function MatrixPersonalAdmin() {
                       variant={"contained"}
                     >
                       Изменить
+                    </Button>
+                    <Button onClick={() => setNum(0)} variant={"contained"}>
+                      Отмена
                     </Button>
                   </React.Fragment>
                 ) : (
@@ -431,6 +577,9 @@ export function MatrixPersonalAdmin() {
             )}
             {e.w && (
               <React.Fragment>
+                <div className={"spanValue"}>{`Энергия: ${
+                  " " + e.w.value
+                }`}</div>
                 <br />
                 <span>
                   <b>Женщина</b>
@@ -438,14 +587,15 @@ export function MatrixPersonalAdmin() {
                 {num === e.w.value && gend === "w" && e.w ? (
                   <React.Fragment>
                     <textarea
+                      autoFocus
                       style={{ width: "100%", height: "auto" }}
                       cols={30}
                       rows={10}
+                      value={txt.split("\n").join("\n")}
                       onChange={onChangeTxt}
-                    >
-                      {txt}
-                    </textarea>
+                    ></textarea>
                     <Button
+                      style={{ marginRight: 10 }}
                       onClick={() =>
                         onClickHandler({
                           index: e.w.value,
@@ -460,6 +610,9 @@ export function MatrixPersonalAdmin() {
                       variant={"contained"}
                     >
                       Изменить
+                    </Button>
+                    <Button onClick={() => setNum(0)} variant={"contained"}>
+                      Отмена
                     </Button>
                   </React.Fragment>
                 ) : (
@@ -485,22 +638,24 @@ export function MatrixPersonalAdmin() {
                 )}
               </React.Fragment>
             )}
-          </React.Fragment>
+          </div>
         );
       } else {
         return (
-          <React.Fragment>
+          <div className={"divDesc"}>
+            <div className={"spanValue"}>{`Энергия: ${" " + e.value}`}</div>
             {num === e.value ? (
               <React.Fragment>
                 <textarea
+                  autoFocus
                   style={{ width: "100%", height: "auto" }}
                   cols={30}
                   rows={10}
+                  value={txt.split("\n").join("\n")}
                   onChange={onChangeTxt}
-                >
-                  {txt}
-                </textarea>
+                ></textarea>
                 <Button
+                  style={{ marginRight: 10 }}
                   onClick={() =>
                     onClickHandler({
                       index: e.value,
@@ -513,6 +668,9 @@ export function MatrixPersonalAdmin() {
                   variant={"contained"}
                 >
                   Изменить
+                </Button>
+                <Button onClick={() => setNum(0)} variant={"contained"}>
+                  Отмена
                 </Button>
               </React.Fragment>
             ) : (
@@ -531,12 +689,11 @@ export function MatrixPersonalAdmin() {
                 ))}
               </p>
             )}
-          </React.Fragment>
+          </div>
         );
       }
     });
   };
-  // console.log(data);
   let table;
   if (selectMatrix === "isPositive") {
     table = matrixDescription(data.isPersonalQualities.isPositive);
@@ -551,7 +708,7 @@ export function MatrixPersonalAdmin() {
   } else if (selectMatrix === "isMotherTalent") {
     table = matrixDescription(data.isTalents.isMotherTalent);
   } else if (selectMatrix === "isPastLife") {
-    table = matrixProgramAndPastLife(data.isPastLife);
+    table = matrixPastLife(data.isPastLife);
   } else if (selectMatrix === "isHealth") {
     table = matrixDescription(data.isHealth);
   } else if (selectMatrix === "isPurpose20_40") {
@@ -589,7 +746,7 @@ export function MatrixPersonalAdmin() {
   } else if (selectMatrix === "MoneyFlow") {
     table = matrixDescription(data.isMoney.MoneyFlow);
   } else if (selectMatrix === "isProgram") {
-    table = matrixProgramAndPastLife(data.isProgram);
+    table = matrixProgram(data.isProgram);
   } else if (selectMatrix === "isYear") {
     table = matrixDescription(data.isYear);
   }
@@ -668,8 +825,26 @@ export function MatrixPersonalAdmin() {
       </FormControl>
       <div>
         <br />
-        {table}
+        {userAdminWait ? (
+          <div
+            style={{
+              display: "flex",
+              alignItems: "flex-start",
+              justifyContent: "center",
+              height: "100vh",
+              top: "40%",
+              textAlign: "center",
+              width: "100%",
+            }}
+          >
+            <CircularProgress />
+          </div>
+        ) : (
+          table
+        )}
         <br />
+        {selectMatrix === "isProgram" ? <NewProgram /> : undefined}
+        {selectMatrix === "isPastLife" ? <NewPastLife /> : undefined}
       </div>
     </div>
   );

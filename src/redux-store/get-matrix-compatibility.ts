@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { adminAPI } from "../API/API";
+import { successAC, tableWaitAC, userAdminAC } from "./error-wait-reducer";
+import { HandleError } from "../utils/errors";
 
 export type isDescription = {
   _id: string;
@@ -64,11 +66,15 @@ export const getMatrixCompatibilityAdmin = createAsyncThunk(
   "get-matrix-compatibility-admin/get",
   async (param: { id: string }, { dispatch, rejectWithValue }) => {
     try {
+      dispatch(userAdminAC({ userAdmin: true }));
       let res = await adminAPI.getMatrixCompatibilityAdmin(param.id);
+      dispatch(userAdminAC({ userAdmin: false }));
       return {
         data: res.data,
       };
     } catch (e) {
+      dispatch(userAdminAC({ userAdmin: false }));
+      HandleError(e, dispatch);
       return rejectWithValue(null);
     }
   }
@@ -87,12 +93,13 @@ export const updateMatrixCompatibilityAdmin = createAsyncThunk(
         id: param.id,
         name: param.name,
       });
-      console.log(res.data.data);
+      dispatch(successAC({ success: "Данные успешно изменены" }));
       return {
         data: res.data.data,
         name: res.data.name,
       };
     } catch (e) {
+      HandleError(e, dispatch);
       return rejectWithValue(null);
     }
   }
