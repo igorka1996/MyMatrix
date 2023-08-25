@@ -387,4 +387,25 @@ export const adminAPI = {
   deletePersonalPastLifeMatrix(data: { id: string; value: string }) {
     return instance.put("delete-matrix-personal-past-life", data);
   },
+  deleteBlog(data: { id: string }) {
+    return instance.put("delete-blog", data);
+  },
+  updateBlogImg(data: { id: string; img: string }) {
+    return instance.put("update-blog-img", data);
+  },
+  updateBlogText(data: { id: string; text: string }) {
+    return instance.put("update-blog-text", data);
+  },
+  updateBlogTitle(data: { id: string; title: string }) {
+    return instance.put("update-blog-title", data);
+  },
+  getAllBlog() {
+    return instance.get("get-all-blog");
+  },
+  getBlog(id: string) {
+    return instance.get(`get-blog?id=${id}`);
+  },
+  newBlog(data: { img: string; title: string; text: string }) {
+    return instance.post("new-blog", data);
+  },
 };

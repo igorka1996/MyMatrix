@@ -1,0 +1,75 @@
+.glavDivBlog{
+    padding-top: 130px;
+    width: 80%;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    display: flex;
+}
+
+.imgBlog{
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.divBlog{
+    max-width: 500px;
+    max-height: 400px;
+    position: relative;
+    cursor: pointer;
+    margin: 20px;
+    transition: ease .3s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    &:hover{
+        .pelena{
+            width: 100%;
+            position: absolute;
+            background-color: black;
+            opacity: .5;
+            height: 100%;
+            transition: ease .3s;
+        }
+        .spanBlog{
+            font-size: 25px;
+            transition: ease .3s;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        }
+    }
+}
+.pelena{
+    width: 100%;
+    position: absolute;
+    opacity: .5;
+    height: 100%;
+    transition: ease .3s;
+}
+
+.spanBlog{
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: ease .3s;
+    transform: translateX(-50%) translateY(-50%);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.divBlogs{
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    transition: ease .3s;
+}
+
+
+.spanGlavBlog{
+    font-size: 35px;
+    font-weight: bold;
+    color: #9486b3;
+}

@@ -1,0 +1,30 @@
+.divAvatarBlog {
+    position: relative;
+    max-width: 30%;
+    height: auto;
+    overflow: hidden;
+}
+
+.divAvatarBlog:hover .avatarImgBlog {
+    filter: brightness(70%);
+    cursor: pointer;
+}
+
+
+.avatarImgBlog {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: filter 0.3s ease-in-out;
+}
+
+.divDescBlog{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+    border: 3px solid #9486b3;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+}

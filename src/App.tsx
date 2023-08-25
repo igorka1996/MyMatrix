@@ -29,6 +29,8 @@ import { LearnPay } from "./components/LearnPay";
 import HomeIcon from "@mui/icons-material/Home";
 import { AdminTable } from "./Admin/component/AdminTable";
 import { UserInfo } from "./Admin/component/UserInfo";
+import { BlogAll } from "./components/Blog/BlogAll";
+import { Blog } from "./components/Blog/Blog";
 
 function App() {
   const loc = useLocation();
@@ -99,9 +101,14 @@ function App() {
             >
               О МЕТОДЕ
             </Anchor>
-            <span onClick={closeBurger} className={"menuSpan"}>
+            <Link
+              onClick={closeBurger}
+              style={{ marginRight: 20, fontSize: 20 }}
+              className={"menuSpan"}
+              to={"/blog"}
+            >
               БЛОГ
-            </span>
+            </Link>
             <Link
               onClick={closeBurger}
               style={{ marginRight: 20, fontSize: 20 }}
@@ -180,6 +187,8 @@ function App() {
         <Route path={"/reset-password/:token"} element={<ResetPassword />} />
         <Route path={"/pay"} element={<Pay />} />
         <Route path={"/profile/*"} element={<Profile />} />
+        <Route path={"/blog/:id"} element={<Blog />} />
+        <Route path={"/blog"} element={<BlogAll />} />
         {admin ? (
           <React.Fragment>
             <Route path={"/admin-table"} element={<AdminTable />} />

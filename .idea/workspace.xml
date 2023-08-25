@@ -4,22 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="41">
-      <change afterPath="$PROJECT_DIR$/src/Admin/feature/NewPastLife.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Admin/feature/NewProgram.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Admin/feature/NewProgram.tsx" afterDir="false" />
+    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="42">
+      <change afterPath="$PROJECT_DIR$/src/Admin/feature/BlogAdmin.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Admin/feature/BlogAdmin.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Blog/Blog.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Blog/Blog.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Blog/BlogAll.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Blog/BlogAll.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux-store/blog-admin-reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux-store/blog-reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/API/API.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/API.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Admin/component/AdminTable.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/component/AdminTable.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/feature/MatrixChildrenAdmin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/feature/MatrixChildrenAdmin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/feature/MatrixCompatibilityAdmin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/feature/MatrixCompatibilityAdmin.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/feature/MatrixCompatibilityAdmin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/feature/MatrixCompatibilityAdmin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/feature/MatrixPersonalAdmin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/feature/MatrixPersonalAdmin.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/component/AdminTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/component/AdminTable.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux-store/get-matrix-children.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/get-matrix-children.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux-store/get-matrix-compatibility.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/get-matrix-compatibility.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux-store/get-matrix-personal.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/get-matrix-personal.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux-store/registration-login-auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/registration-login-auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux-store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/store.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +31,8 @@
       <list>
         <option value="JavaScript File" />
         <option value="TypeScript File" />
-        <option value="TypeScript JSX File" />
         <option value="SCSS File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -60,38 +60,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/src/Admin/feature&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.css.dialects&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/src/redux-store",
+    "list.type.of.created.stylesheet": "SCSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.stylelint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "prettierjs.PrettierConfiguration.Package": "/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/node_modules/prettier",
+    "settings.editor.selected.configurable": "settings.css.dialects",
+    "ts.external.directory.path": "/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/Admin/feature" />
       <recent name="$PROJECT_DIR$/src/redux-store" />
+      <recent name="$PROJECT_DIR$/src/components/Blog" />
+      <recent name="$PROJECT_DIR$/src/Admin/feature" />
       <recent name="$PROJECT_DIR$/src/components" />
       <recent name="$PROJECT_DIR$/src/feature" />
-      <recent name="$PROJECT_DIR$/src/components/Payment/Success" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Admin/feature" />
@@ -245,7 +245,8 @@
       <workItem from="1692532737398" duration="12817000" />
       <workItem from="1692705761328" duration="8793000" />
       <workItem from="1692795130038" duration="11861000" />
-      <workItem from="1692873453951" duration="17441000" />
+      <workItem from="1692873453951" duration="17657000" />
+      <workItem from="1692961652436" duration="21446000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1676555659169</created>
@@ -561,7 +562,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692832817507</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="42">
+      <option name="closed" value="true" />
+      <created>1692896687833</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1692896687833</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -592,7 +601,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="16" />
     <MESSAGE value="17" />
     <MESSAGE value="18" />
     <MESSAGE value="19" />
@@ -617,6 +625,7 @@
     <MESSAGE value="39" />
     <MESSAGE value="40" />
     <MESSAGE value="41" />
-    <option name="LAST_COMMIT_MESSAGE" value="41" />
+    <MESSAGE value="42" />
+    <option name="LAST_COMMIT_MESSAGE" value="42" />
   </component>
 </project>
