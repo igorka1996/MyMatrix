@@ -31,6 +31,9 @@ import { AdminTable } from "./Admin/component/AdminTable";
 import { UserInfo } from "./Admin/component/UserInfo";
 import { BlogAll } from "./components/Blog/BlogAll";
 import { Blog } from "./components/Blog/Blog";
+import { Konf } from "./components/OfertaKonf/Konf";
+import { Oferta } from "./components/OfertaKonf/Oferta";
+import { NotFound } from "./components/NotFound/NotFound";
 
 function App() {
   const loc = useLocation();
@@ -42,6 +45,7 @@ function App() {
   const fromPage = loc.state?.pathname || "/";
   useEffect(() => {
     localStorage.setItem("path", loc.pathname);
+    window.scrollTo(0, 0);
   }, [loc.pathname]);
 
   useEffect(() => {
@@ -189,12 +193,16 @@ function App() {
         <Route path={"/profile/*"} element={<Profile />} />
         <Route path={"/blog/:id"} element={<Blog />} />
         <Route path={"/blog"} element={<BlogAll />} />
+        <Route path={"/konf"} element={<Konf />} />
+        <Route path={"/oferta"} element={<Oferta />} />
         {admin ? (
           <React.Fragment>
             <Route path={"/admin-table"} element={<AdminTable />} />
             <Route path={"/admin-table/:id"} element={<UserInfo />} />
           </React.Fragment>
         ) : undefined}
+        <Route path={"/not-found"} element={<NotFound />} />
+        <Route path={"*"} element={<Navigate to="/not-found" />} />
       </Routes>
       <ErrorSnackbar />
       <SnackBarSuccess />

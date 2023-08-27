@@ -9,10 +9,10 @@ export const Footer = () => {
     <footer className={"footer"}>
       <div className={"divFooter"}>
         <div className={"oferta"}>
-          <Link className={"linkOferta"} to={"/"}>
+          <Link className={"linkOferta"} to={"/oferta"}>
             Публичная оферта
           </Link>
-          <Link className={"linkOferta"} to={"/"}>
+          <Link className={"linkOferta"} to={"/konf"}>
             Политика конфиденциальности
           </Link>
         </div>

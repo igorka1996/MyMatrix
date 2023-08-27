@@ -61,7 +61,6 @@ const initialState: InitialStateType = {
     compatibility: [],
   },
 };
-console.log(initialState);
 const slice = createSlice({
   name: "registration-auth-login",
   initialState,

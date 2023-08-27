@@ -130,7 +130,7 @@ export const BlogAdmin = () => {
   const blog = () => {
     return allBlog.map((el, index) => {
       return (
-        <div className={"divDescBlog"}>
+        <div className={"divDescBlog"} key={index}>
           <div className="deleteButton">
             <span
               onClick={() => dispatch(deleteBlog({ id: el._id }))}

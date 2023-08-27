@@ -4,22 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="42">
-      <change afterPath="$PROJECT_DIR$/src/Admin/feature/BlogAdmin.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Admin/feature/BlogAdmin.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Blog/Blog.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Blog/Blog.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Blog/BlogAll.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Blog/BlogAll.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux-store/blog-admin-reducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux-store/blog-reducer.ts" afterDir="false" />
+    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="43">
+      <change afterPath="$PROJECT_DIR$/src/1357402.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/NotFound/NotFound.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/NotFound/NotFound.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/OfertaKonf/Konf.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/OfertaKonf/Konf.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/OfertaKonf/Oferta.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/API.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/API.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/component/AdminTable.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/component/AdminTable.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/component/AdminTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/component/AdminTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/feature/BlogAdmin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/feature/BlogAdmin.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/feature/MatrixPersonalAdmin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/feature/MatrixPersonalAdmin.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux-store/get-matrix-personal.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/get-matrix-personal.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux-store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux-store/registration-login-auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/registration-login-auth.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +51,9 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2
+}]]></component>
   <component name="ProjectId" id="2Lp5fzkCMgcUAjKsJt1LJMAoJqA" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -68,7 +70,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/src/redux-store",
+    "last_opened_file_path": "/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/src/components/NotFound",
     "list.type.of.created.stylesheet": "SCSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
@@ -81,17 +83,17 @@
     "nodejs_package_manager_path": "yarn",
     "prettierjs.PrettierConfiguration.Package": "/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/node_modules/prettier",
     "settings.editor.selected.configurable": "settings.css.dialects",
-    "ts.external.directory.path": "/Users/igorgazarov/Documents/Работа с back/matrixDirectory/matrix/node_modules/typescript/lib",
+    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/NotFound" />
       <recent name="$PROJECT_DIR$/src/redux-store" />
       <recent name="$PROJECT_DIR$/src/components/Blog" />
       <recent name="$PROJECT_DIR$/src/Admin/feature" />
       <recent name="$PROJECT_DIR$/src/components" />
-      <recent name="$PROJECT_DIR$/src/feature" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Admin/feature" />
@@ -246,7 +248,9 @@
       <workItem from="1692705761328" duration="8793000" />
       <workItem from="1692795130038" duration="11861000" />
       <workItem from="1692873453951" duration="17657000" />
-      <workItem from="1692961652436" duration="21446000" />
+      <workItem from="1692961652436" duration="22628000" />
+      <workItem from="1693133981139" duration="20000" />
+      <workItem from="1693134024221" duration="9230000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1676555659169</created>
@@ -570,7 +574,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692896687833</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="43">
+      <option name="closed" value="true" />
+      <created>1692992420010</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1692992420010</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -601,7 +613,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="17" />
     <MESSAGE value="18" />
     <MESSAGE value="19" />
     <MESSAGE value="20" />
@@ -626,6 +637,7 @@
     <MESSAGE value="40" />
     <MESSAGE value="41" />
     <MESSAGE value="42" />
-    <option name="LAST_COMMIT_MESSAGE" value="42" />
+    <MESSAGE value="43" />
+    <option name="LAST_COMMIT_MESSAGE" value="43" />
   </component>
 </project>

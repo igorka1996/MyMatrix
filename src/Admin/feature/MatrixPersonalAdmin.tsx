@@ -17,6 +17,7 @@ import {
 } from "../../redux-store/get-matrix-personal";
 import { NewProgram } from "./NewProgram";
 import { NewPastLife } from "./NewPastLife";
+import { v4 } from "uuid";
 
 type MatrixPersonalAdminType =
   | "isGeneral"
@@ -255,7 +256,7 @@ export function MatrixPersonalAdmin() {
   const matrixPastLife = (arrDesc: any[]) => {
     return arrDesc.map((e: any, index) => {
       return (
-        <React.Fragment key={index}>
+        <React.Fragment key={v4()}>
           {num === e.value ? (
             <div className={"divDesc"}>
               <div className="deleteButton">
@@ -299,7 +300,7 @@ export function MatrixPersonalAdmin() {
               <br />
             </div>
           ) : (
-            <div key={index} className={"divDesc"}>
+            <div key={v4()} className={"divDesc"}>
               <div className="deleteButton">
                 <span
                   onClick={() =>
@@ -319,8 +320,8 @@ export function MatrixPersonalAdmin() {
                 className="descriptionAdmin"
                 key={index}
               >
-                {e.text?.split("\n").map((paragraph: string, idx: number) => (
-                  <React.Fragment key={idx}>
+                {e.text?.split("\n").map((paragraph: string) => (
+                  <React.Fragment key={v4()}>
                     {paragraph}
                     <br />
                   </React.Fragment>
@@ -336,7 +337,7 @@ export function MatrixPersonalAdmin() {
   const matrixProgram = (arrDesc: any[]) => {
     return arrDesc.map((e: any, index) => {
       return (
-        <React.Fragment key={index}>
+        <React.Fragment key={v4()}>
           {num === e.value ? (
             <div className={"divDesc"}>
               <div className="deleteButton">
@@ -426,7 +427,7 @@ export function MatrixPersonalAdmin() {
               <br />
             </div>
           ) : (
-            <div key={index} className={"divDesc"}>
+            <div key={v4()} className={"divDesc"}>
               <div className="deleteButton">
                 <span
                   onClick={() =>
@@ -494,8 +495,8 @@ export function MatrixPersonalAdmin() {
                 className="descriptionAdmin"
                 key={index}
               >
-                {e.text?.split("\n").map((paragraph: string, idx: number) => (
-                  <React.Fragment key={idx}>
+                {e.text?.split("\n").map((paragraph: string) => (
+                  <React.Fragment key={v4()}>
                     {paragraph}
                     <br />
                   </React.Fragment>
@@ -512,7 +513,7 @@ export function MatrixPersonalAdmin() {
     return arrDesc.map((e: any, index) => {
       if (e.m || e.w) {
         return (
-          <div className={"divDesc"} key={index}>
+          <div className={"divDesc"} key={v4()}>
             {e.m && (
               <React.Fragment>
                 <div className={"spanValue"}>{`Энергия: ${
@@ -563,14 +564,12 @@ export function MatrixPersonalAdmin() {
                     }
                     className="descriptionAdmin"
                   >
-                    {e.m.text
-                      .split("\n")
-                      .map((paragraph: string, idx: number) => (
-                        <React.Fragment key={idx}>
-                          {paragraph}
-                          <br />
-                        </React.Fragment>
-                      ))}
+                    {e.m.text.split("\n").map((paragraph: string) => (
+                      <React.Fragment key={v4()}>
+                        {paragraph}
+                        <br />
+                      </React.Fragment>
+                    ))}
                   </p>
                 )}
               </React.Fragment>
@@ -642,7 +641,7 @@ export function MatrixPersonalAdmin() {
         );
       } else {
         return (
-          <div className={"divDesc"}>
+          <div key={v4()} className={"divDesc"}>
             <div className={"spanValue"}>{`Энергия: ${" " + e.value}`}</div>
             {num === e.value ? (
               <React.Fragment>
@@ -681,8 +680,8 @@ export function MatrixPersonalAdmin() {
                 className="descriptionAdmin"
                 key={index}
               >
-                {e.text?.split("\n").map((paragraph: string, idx: number) => (
-                  <React.Fragment key={idx}>
+                {e.text?.split("\n").map((paragraph: string) => (
+                  <React.Fragment key={v4()}>
                     {paragraph}
                     <br />
                   </React.Fragment>
