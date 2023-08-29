@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TableUser } from "../feature/TableUser";
 import "./AdminTable.scss";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { useAppSelector } from "../../redux-store/store";
 import { MenuItem, Select, SelectChangeEvent } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
@@ -18,13 +18,14 @@ type SelectType =
   | "blog";
 
 export const AdminTable = () => {
+  const loc = useLocation();
   const admin = useAppSelector((state) => state.registrationReducer.admin);
   const [select, setSelect] = useState<SelectType>("accounts");
   const handleChange = (event: SelectChangeEvent) => {
     setSelect(event.target.value as SelectType);
   };
   if (!admin) {
-    return <Navigate to={"/"} replace />;
+    return <Navigate to={"/"} state={loc} />;
   }
   let tableComponent;
   if (select === "accounts") {

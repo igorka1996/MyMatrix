@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { adminAPI } from "../API/API";
-import { successAC, tableWaitAC, userAdminAC } from "./error-wait-reducer";
+import { successAC, userAdminAC } from "./error-wait-reducer";
 import { HandleError } from "../utils/errors";
 
 export type isDescription = {

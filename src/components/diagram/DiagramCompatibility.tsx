@@ -693,7 +693,7 @@ export const DiagramCompatibility = () => {
                 date2: state.date1,
               }}
             >
-              Олатить
+              Оплатить
             </Link>
           </React.Fragment>
         )}

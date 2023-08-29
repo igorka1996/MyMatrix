@@ -195,12 +195,8 @@ function App() {
         <Route path={"/blog"} element={<BlogAll />} />
         <Route path={"/konf"} element={<Konf />} />
         <Route path={"/oferta"} element={<Oferta />} />
-        {admin ? (
-          <React.Fragment>
-            <Route path={"/admin-table"} element={<AdminTable />} />
-            <Route path={"/admin-table/:id"} element={<UserInfo />} />
-          </React.Fragment>
-        ) : undefined}
+        <Route path={"/admin-table"} element={<AdminTable />} />
+        <Route path={"/admin-table/:id"} element={<UserInfo />} />
         <Route path={"/not-found"} element={<NotFound />} />
         <Route path={"*"} element={<Navigate to="/not-found" />} />
       </Routes>
