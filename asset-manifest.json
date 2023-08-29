@@ -1,11 +1,12 @@
 {
   "files": {
-    "main.css": "/MyMatrix/static/css/main.29adc008.css",
-    "main.js": "/MyMatrix/static/js/main.3c364617.js",
+    "main.css": "/MyMatrix/static/css/main.24fc1c2f.css",
+    "main.js": "/MyMatrix/static/js/main.830b6f9f.js",
     "static/media/girl2.jpg": "/MyMatrix/static/media/girl2.1ebe474a7bb0d928786c.jpg",
     "static/media/Balance.jpg": "/MyMatrix/static/media/Balance.fea5384340cb0893d3e4.jpg",
     "static/media/krug2.png": "/MyMatrix/static/media/krug2.6f1e85a0741818d74af3.png",
     "static/media/mark.png": "/MyMatrix/static/media/mark.ede45ec649a7eaec696a.png",
+    "static/media/1357402.png": "/MyMatrix/static/media/1357402.ca45aa72b8e131abe452.png",
     "static/media/pacifico-all-400-normal.woff": "/MyMatrix/static/media/pacifico-all-400-normal.8f19c0296562a647f0a0.woff",
     "static/media/error.png": "/MyMatrix/static/media/error.7b7a7b42701bf9501887.png",
     "static/media/sertificate.png": "/MyMatrix/static/media/sertificate.5f5ed0a83e2ecc88399f.png",
@@ -18,11 +19,11 @@
     "static/media/pacifico-vietnamese-400-normal.woff2": "/MyMatrix/static/media/pacifico-vietnamese-400-normal.bd5387ce81f7c383a0a3.woff2",
     "static/media/bebas-neue-latin-ext-400-normal.woff2": "/MyMatrix/static/media/bebas-neue-latin-ext-400-normal.f2363170269a33a9c268.woff2",
     "index.html": "/MyMatrix/index.html",
-    "main.29adc008.css.map": "/MyMatrix/static/css/main.29adc008.css.map",
-    "main.3c364617.js.map": "/MyMatrix/static/js/main.3c364617.js.map"
+    "main.24fc1c2f.css.map": "/MyMatrix/static/css/main.24fc1c2f.css.map",
+    "main.830b6f9f.js.map": "/MyMatrix/static/js/main.830b6f9f.js.map"
   },
   "entrypoints": [
-    "static/css/main.29adc008.css",
-    "static/js/main.3c364617.js"
+    "static/css/main.24fc1c2f.css",
+    "static/js/main.830b6f9f.js"
   ]
 }
