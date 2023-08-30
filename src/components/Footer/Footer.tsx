@@ -24,10 +24,6 @@ export const Footer = () => {
         <div className={"support"}>
           <span className={"linkIp"}>По вопросам приобретения:</span>
           <TelegramIcon className={"footerIcon"} />
-          <WhatsAppIcon
-            style={{ backgroundColor: "#2DB742" }}
-            className={"footerIcon"}
-          />
         </div>
         <div style={{ marginTop: 10 }} className={"support"}>
           <span className={"linkIp"}>Принимаем к оплате:</span>

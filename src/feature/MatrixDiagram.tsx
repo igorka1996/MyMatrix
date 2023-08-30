@@ -1077,290 +1077,281 @@ export const MatrixDiagram = (props: MatrixDiagramType) => {
       </div>
 
       <div className="section-with-diagram__bottom-values-row">
-        <div className="col">
-          <ul className="diagram-values-list">
-            <li className="diagram-values-list__item">
-              <div className="diagram-values-item-horizontal">
-                <div className="h6 diagram-values-item-horizontal__title">
-                  Родовые программы по мужской линии:
-                </div>
-                <ul className="diagram-values-item-horizontal__values round-values-list">
-                  <li
-                    style={{ listStyleType: "none" }}
-                    className="round-values-list__item"
-                  >
-                    <div
-                      className="diagram-value js-personal-calculation-item"
-                      data-personal-calculation-position="f"
-                    >
-                      {props.E}
-                    </div>
-                  </li>
-                  <li
-                    style={{ listStyleType: "none" }}
-                    className="round-values-list__item"
-                  >
-                    <div
-                      className="diagram-value js-personal-calculation-item"
-                      data-personal-calculation-position="y"
-                    >
-                      {props.G}
-                    </div>
-                  </li>
-                  <li
-                    style={{ listStyleType: "none" }}
-                    className="round-values-list__item"
-                  >
-                    <div
-                      className="diagram-value js-personal-calculation-item"
-                      data-personal-calculation-position="o"
-                    >
-                      {props.EG}
-                    </div>
-                  </li>
-                </ul>
+        <div className="diagram-values-item">
+          <li className="diagram-values-list__item">
+            <div className="diagram-values-item-horizontal">
+              <div className="h6 diagram-values-item-horizontal__title">
+                Родовые программы по мужской линии:
               </div>
-            </li>
-            <li className="diagram-values-list__item">
-              <div className="diagram-values-item-horizontal">
-                <div className="h6 diagram-values-item-horizontal__title">
-                  Родовые программы по женской линии:
-                </div>
-                <ul className="diagram-values-item-horizontal__values round-values-list">
-                  <li
-                    style={{ listStyleType: "none" }}
-                    className="round-values-list__item"
+              <ul className="diagram-values-item-horizontal__values round-values-list">
+                <li
+                  style={{ listStyleType: "none" }}
+                  className="round-values-list__item"
+                >
+                  <div
+                    className="diagram-value js-personal-calculation-item"
+                    data-personal-calculation-position="f"
                   >
-                    <div
-                      className="diagram-value js-personal-calculation-item"
-                      data-personal-calculation-position="g"
-                    >
-                      {props.F}
-                    </div>
-                  </li>
-                  <li
-                    style={{ listStyleType: "none" }}
-                    className="round-values-list__item"
+                    {props.E}
+                  </div>
+                </li>
+                <li
+                  style={{ listStyleType: "none" }}
+                  className="round-values-list__item"
+                >
+                  <div
+                    className="diagram-value js-personal-calculation-item"
+                    data-personal-calculation-position="y"
                   >
-                    <div
-                      className="diagram-value js-personal-calculation-item"
-                      data-personal-calculation-position="k"
-                    >
-                      {props.H}
-                    </div>
-                  </li>
-                  <li
-                    style={{ listStyleType: "none" }}
-                    className="round-values-list__item"
+                    {props.G}
+                  </div>
+                </li>
+                <li
+                  style={{ listStyleType: "none" }}
+                  className="round-values-list__item"
+                >
+                  <div
+                    className="diagram-value js-personal-calculation-item"
+                    data-personal-calculation-position="o"
                   >
-                    <div
-                      className="diagram-value js-personal-calculation-item"
-                      data-personal-calculation-position="u"
-                    >
-                      {props.FH}
-                    </div>
-                  </li>
-                </ul>
+                    {props.EG}
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li className="diagram-values-list__item">
+            <div className="diagram-values-item-horizontal">
+              <div className="h6 diagram-values-item-horizontal__title">
+                Родовые программы по женской линии:
               </div>
-            </li>
-          </ul>
+              <ul className="diagram-values-item-horizontal__values round-values-list">
+                <li
+                  style={{ listStyleType: "none" }}
+                  className="round-values-list__item"
+                >
+                  <div
+                    className="diagram-value js-personal-calculation-item"
+                    data-personal-calculation-position="g"
+                  >
+                    {props.F}
+                  </div>
+                </li>
+                <li
+                  style={{ listStyleType: "none" }}
+                  className="round-values-list__item"
+                >
+                  <div
+                    className="diagram-value js-personal-calculation-item"
+                    data-personal-calculation-position="k"
+                  >
+                    {props.H}
+                  </div>
+                </li>
+                <li
+                  style={{ listStyleType: "none" }}
+                  className="round-values-list__item"
+                >
+                  <div
+                    className="diagram-value js-personal-calculation-item"
+                    data-personal-calculation-position="u"
+                  >
+                    {props.FH}
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
         </div>
 
-        <div className="col">
-          <div className="diagram-values-item">
-            <div className="h6 diagram-values-item__title">
-              <b>Личное ( до 40 лет )</b>
-            </div>
-            <div className="diagram-values-item__description text-block">
-              <p>
-                То, что человек должен сделать для себя самого, какие уроки
-                пройти, что понять, что в себе усовершенствовать.
-              </p>
-            </div>
-            <div className="small-diagram-values">
-              <div className="small-diagram-values__titles-block">
-                <div className="h6 small-diagram-values__title">Небо</div>
-                <div className="h6 small-diagram-values__title">Земля</div>
-              </div>
-              <div className="small-diagram-values__values-block">
-                <div className="small-diagram-values__path-img">
-                  <svg
-                    width="38"
-                    height="48"
-                    viewBox="0 0 38 48"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0 0V2H18V46H0V48H20V25H38V23H20V0H0Z"
-                      fill="#222831"
-                    ></path>
-                  </svg>
-                </div>
-                <div
-                  className="small-diagram-values__value js-personal-calculation-item -top-left diagram-value"
-                  data-personal-calculation-position="h"
-                >
-                  {props.LN}
-                </div>
-                <div
-                  className="small-diagram-values__value js-personal-calculation-item -bottom-left diagram-value"
-                  data-personal-calculation-position="j"
-                >
-                  {props.LZ}
-                </div>
-                <div
-                  className="small-diagram-values__value js-personal-calculation-item -center diagram-value"
-                  data-personal-calculation-position="m"
-                >
-                  {props.LP1}
-                </div>
-              </div>
-            </div>
+        <div className="diagram-values-item">
+          <div className="h6 diagram-values-item__title">
+            <b>
+              Личное ( до <span style={{ fontWeight: "100" }}>40</span> лет )
+            </b>
           </div>
-        </div>
-        <div className="col">
-          <div className="diagram-values-item">
-            <div className="h6 diagram-values-item__title">
-              <b>Социальное ( 40-60 лет )</b>
-            </div>
-            <div className="diagram-values-item__description text-block">
-              <p>То, что человек должен отдать своему роду и людям.</p>
-            </div>
-            <div className="small-diagram-values">
-              <div className="small-diagram-values__titles-block">
-                <div className="h6 small-diagram-values__title">М</div>
-                <div className="h6 small-diagram-values__title">Ж</div>
-              </div>
-              <div className="small-diagram-values__values-block">
-                <div className="small-diagram-values__path-img">
-                  <svg
-                    width="38"
-                    height="48"
-                    viewBox="0 0 38 48"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0 0V2H18V46H0V48H20V25H38V23H20V0H0Z"
-                      fill="#222831"
-                    ></path>
-                  </svg>
-                </div>
-                <div
-                  className="small-diagram-values__value js-personal-calculation-item -top-left diagram-value"
-                  data-personal-calculation-position="n"
-                >
-                  {props.LO}
-                </div>
-                <div
-                  className="small-diagram-values__value js-personal-calculation-item -bottom-left diagram-value"
-                  data-personal-calculation-position="t"
-                >
-                  {props.LM}
-                </div>
-                <div
-                  className="small-diagram-values__value js-personal-calculation-item -center diagram-value"
-                  data-personal-calculation-position="z"
-                >
-                  {props.YM}
-                </div>
-              </div>
-            </div>
+          <div className="diagram-values-item__description">
+            <p>
+              То, что человек должен сделать для себя самого, какие уроки
+              пройти, что понять, что в себе усовершенствовать.
+            </p>
           </div>
-        </div>
-        <div className="col">
-          <div className="diagram-values-item">
-            <div className="h6 diagram-values-item__title">
-              <b>Духовное ( вся жизнь )</b>
+          <div className="small-diagram-values">
+            <div className="small-diagram-values__titles-block">
+              <div className="h6 small-diagram-values__title">Небо</div>
+              <div className="h6 small-diagram-values__title">Земля</div>
             </div>
-            <div className="diagram-values-item__description text-block">
-              <p>
-                Покровительствующая энергия всей Матрицы, проходит через всю
-                жизнь человека. Духовный зачет
-              </p>
-            </div>
-            <div className="small-diagram-values">
+            <div className="small-diagram-values__values-block">
+              <div className="small-diagram-values__path-img">
+                <svg
+                  width="38"
+                  height="48"
+                  viewBox="0 0 38 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 0V2H18V46H0V48H20V25H38V23H20V0H0Z"
+                    fill="#222831"
+                  ></path>
+                </svg>
+              </div>
               <div
-                className="diagram-value js-personal-calculation-item"
-                data-personal-calculation-position="s"
+                className="small-diagram-values__value js-personal-calculation-item -top-left diagram-value"
+                data-personal-calculation-position="n"
               >
-                {props.DG}
+                {props.LN}
+              </div>
+              <div
+                className="small-diagram-values__value js-personal-calculation-item -bottom-left diagram-value"
+                data-personal-calculation-position="t"
+              >
+                {props.LZ}
+              </div>
+              <div
+                className="small-diagram-values__value js-personal-calculation-item -center diagram-value"
+                data-personal-calculation-position="z"
+              >
+                {props.LP1}
               </div>
             </div>
           </div>
         </div>
-        <div className="col">
-          <div className="diagram-values-item">
-            <div className="h6 diagram-values-item__title">
-              <b>Личная сила</b>
+        <div className="diagram-values-item">
+          <div className="h6 diagram-values-item__title">
+            <b>
+              Социальное ( <span style={{ fontWeight: "100" }}>40-60</span> лет
+              )
+            </b>
+          </div>
+          <div className="diagram-values-item__description">
+            <p>То, что человек должен отдать своему роду и людям.</p>
+          </div>
+          <div className="small-diagram-values">
+            <div className="small-diagram-values__titles-block">
+              <div className="h6 small-diagram-values__title">М</div>
+              <div className="h6 small-diagram-values__title">Ж</div>
             </div>
-            <div className="diagram-values-item__description text-block">
-              <p>Энергия может работать в Плюс и в Минус .</p>
-            </div>
-            <div className="small-diagram-values">
+            <div className="small-diagram-values__values-block">
+              <div className="small-diagram-values__path-img">
+                <svg
+                  width="38"
+                  height="48"
+                  viewBox="0 0 38 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 0V2H18V46H0V48H20V25H38V23H20V0H0Z"
+                    fill="#222831"
+                  ></path>
+                </svg>
+              </div>
               <div
-                className="diagram-value js-personal-calculation-item"
-                data-personal-calculation-position="s"
+                className="small-diagram-values__value js-personal-calculation-item -top-left diagram-value"
+                data-personal-calculation-position="n"
               >
-                {props.X}
+                {props.LO}
+              </div>
+              <div
+                className="small-diagram-values__value js-personal-calculation-item -bottom-left diagram-value"
+                data-personal-calculation-position="t"
+              >
+                {props.LM}
+              </div>
+              <div
+                className="small-diagram-values__value js-personal-calculation-item -center diagram-value"
+                data-personal-calculation-position="z"
+              >
+                {props.YM}
               </div>
             </div>
           </div>
         </div>
-        <div className="col">
-          <div className="diagram-values-item">
-            <div className="h6 diagram-values-item__title">
-              <b>Сила рода</b>
+        <div className="diagram-values-item">
+          <div className="h6 diagram-values-item__title">
+            <b>Духовное ( вся жизнь )</b>
+          </div>
+          <div className="diagram-values-item__description text-block">
+            <p>
+              Покровительствующая энергия всей Матрицы, проходит через всю жизнь
+              человека. Духовный зачет
+            </p>
+          </div>
+          <div className="small-diagram-values">
+            <div
+              className="diagram-value js-personal-calculation-item"
+              data-personal-calculation-position="s"
+            >
+              {props.DG}
             </div>
-            <div className="diagram-values-item__description text-block">
-              <p>
-                Энергия получаемая при исцеления родовой кармы . Для реализации
-                себя в социуме.
-              </p>
-            </div>
-            <div className="small-diagram-values">
-              <div
-                className="diagram-value js-personal-calculation-item"
-                data-personal-calculation-position="s"
-              >
-                {props.Y}
-              </div>
+          </div>
+        </div>
+        <div className="diagram-values-item">
+          <div className="h6 diagram-values-item__title">
+            <b>Личная сила</b>
+          </div>
+          <div className="diagram-values-item__description text-block">
+            <p>Энергия может работать в Плюс и в Минус .</p>
+          </div>
+          <div className="small-diagram-values">
+            <div
+              className="diagram-value js-personal-calculation-item"
+              data-personal-calculation-position="s"
+            >
+              {props.X}
             </div>
           </div>
         </div>
 
-        <div className="col">
-          <div className="diagram-values-item">
-            <div className="h6 diagram-values-item__title">
-              <b>Код внутренней</b>
+        <div className="diagram-values-item">
+          <div className="h6 diagram-values-item__title">
+            <b>Сила рода</b>
+          </div>
+          <div className="diagram-values-item__description text-block">
+            <p>
+              Энергия получаемая при исцеления родовой кармы . Для реализации
+              себя в социуме.
+            </p>
+          </div>
+          <div className="small-diagram-values">
+            <div
+              className="diagram-value js-personal-calculation-item"
+              data-personal-calculation-position="s"
+            >
+              {props.Y}
             </div>
-            <div className="diagram-values-item__description text-block">
-              <p>
-                «Супер сила»
-                <br />
-                Энергия для реализации глобальных проектов
-              </p>
+          </div>
+        </div>
+        <div className="diagram-values-item">
+          <div className="h6 diagram-values-item__title">
+            <b>Код внутренней</b>
+          </div>
+          <div className="diagram-values-item__description text-block">
+            <p>
+              «Супер сила»
+              <br />
+              Энергия для реализации глобальных проектов
+            </p>
+          </div>
+          <div className="small-diagram-values">
+            <div
+              className="diagram-value js-personal-calculation-item"
+              data-personal-calculation-position="s"
+            >
+              {props.X}
             </div>
-            <div className="small-diagram-values">
-              <div
-                className="diagram-value js-personal-calculation-item"
-                data-personal-calculation-position="s"
-              >
-                {props.X}
-              </div>
-              <div
-                className="diagram-value js-personal-calculation-item"
-                data-personal-calculation-position="s"
-              >
-                {props.Y}
-              </div>
-              <div
-                className="diagram-value js-personal-calculation-item"
-                data-personal-calculation-position="s"
-              >
-                {props.XY}
-              </div>
+            <div
+              className="diagram-value js-personal-calculation-item"
+              data-personal-calculation-position="s"
+            >
+              {props.Y}
+            </div>
+            <div
+              className="diagram-value js-personal-calculation-item"
+              data-personal-calculation-position="s"
+            >
+              {props.XY}
             </div>
           </div>
         </div>

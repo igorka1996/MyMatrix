@@ -730,7 +730,7 @@ export const Diagram = () => {
                 username: state.name,
               }}
             >
-              Олатить
+              Оплатить
             </Link>
           </React.Fragment>
         )}

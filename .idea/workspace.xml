@@ -4,19 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="44">
-      <change afterPath="$PROJECT_DIR$/public/free-icon-network-9371389.png" afterDir="false" />
+    <list default="true" id="0af18851-f976-4ff3-9afe-2f3f2139841b" name="Changes" comment="45">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/API/API.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/API.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/component/AdminTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/component/AdminTable.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/diagram/DiagramCompatibility.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/diagram/DiagramCompatibility.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux-store/get-matrix-compatibility.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux-store/get-matrix-compatibility.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LearnPay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LearnPay.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OfertaKonf/Konf.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OfertaKonf/Konf.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OfertaKonf/Oferta.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OfertaKonf/Oferta.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Payment/Payment.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Payment/Payment.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/diagram/Diagram.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/diagram/Diagram.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/diagram/diagram.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/diagram/diagram.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature/MatrixDiagram.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/MatrixDiagram.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature/PlusSupport.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature/PlusSupport.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +251,8 @@
       <workItem from="1693134024221" duration="9278000" />
       <workItem from="1693301072723" duration="5398000" />
       <workItem from="1693316245111" duration="785000" />
-      <workItem from="1693317844191" duration="18357000" />
+      <workItem from="1693317844191" duration="18419000" />
+      <workItem from="1693379824073" duration="9291000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1676555659169</created>
@@ -591,7 +592,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693151561501</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="45">
+      <option name="closed" value="true" />
+      <created>1693345371421</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1693345371421</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -622,7 +631,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="19" />
     <MESSAGE value="20" />
     <MESSAGE value="21" />
     <MESSAGE value="22" />
@@ -647,6 +655,7 @@
     <MESSAGE value="42" />
     <MESSAGE value="43" />
     <MESSAGE value="44" />
-    <option name="LAST_COMMIT_MESSAGE" value="44" />
+    <MESSAGE value="45" />
+    <option name="LAST_COMMIT_MESSAGE" value="45" />
   </component>
 </project>

@@ -23,7 +23,7 @@ export const LearnPay = () => {
       <span className={"spanLearn"}>Программы обучения</span>
       <div className={"learnProgram"}>
         <div className={"learnDescription"} data-counter="1">
-          <span className={"learnSpanKourse"}>Базовый курс матрицы</span>
+          <span className={"learnSpanKourse"}>Базовый урок по матрицы</span>
           <p className={"learnP"}>
             -Расчет матрицы судьбы
             <br />
@@ -74,7 +74,7 @@ export const LearnPay = () => {
           </div>
         </div>
         <div className={"learnDescription"} data-counter="2">
-          <span className={"learnSpanKourse"}>Курс детской матрицы</span>
+          <span className={"learnSpanKourse"}>Урок по детской матрице</span>
           <p className={"learnP"}>
             Видео урок: "Особенности разбора Детской матрицы"
             <br />
@@ -107,12 +107,16 @@ export const LearnPay = () => {
           </div>
         </div>
         <div className={"learnDescription"} data-counter="3">
-          <span className={"learnSpanKourse"}>Курс матрицы совместимости</span>
+          <span className={"learnSpanKourse"}>
+            Урок по матрице совместимости
+          </span>
           <p className={"learnP"}>
-            Методичка по каналу отношений
+            Видео урок "Расчет матрицы совместимости и анализа матрицы
+            совместимости"
             <br />
-            Методичка: "Расшифровка матрицы совместимости с рекомендациями для
-            проработки энергий на каждой позиции"
+            Методичка по каналу отношений Методичка "Расшифровка матрицы
+            совместимости с рекомендациями для проработки энергий на каждой
+            позиции "
           </p>
           <div className={"divBoxPay"}>
             <span className={"price"}>2 500₽</span>

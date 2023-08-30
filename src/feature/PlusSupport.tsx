@@ -3,13 +3,9 @@ import Box from "@mui/material/Box";
 import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialIcon from "@mui/material/SpeedDialIcon";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import TelegramIcon from "@mui/icons-material/Telegram";
 
-const actions = [
-  { icon: <TelegramIcon />, name: "Telegram" },
-  { icon: <WhatsAppIcon />, name: "WhatsApp" },
-];
+const actions = [{ icon: <TelegramIcon />, name: "Telegram" }];
 
 export function PlusSupport() {
   return (

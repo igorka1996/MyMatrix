@@ -299,7 +299,7 @@ select {
         justify-content: space-between;
         align-items: center;
         position: relative;
-        z-index: 3 !important;
+        z-index: 15 !important;
     }
     .backImage {
         width: 100%;
@@ -316,7 +316,7 @@ select {
         background-color: white;
         align-items: center;
         position: absolute;
-        top: -1500%;
+        top: -1700%;
         z-index: 1;
         transition: .3s ease-in-out;
         margin: 0 !important;
