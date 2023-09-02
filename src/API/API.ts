@@ -5,7 +5,7 @@ import { PersonalMatrixChildrenAPI } from "../type/personalMatrixChildren-type";
 import { MatrixCompatibilityAPI } from "../type/matrixCompatibility-type";
 
 const instance = axios.create({
-  baseURL: "https://9d92-176-118-67-207.ngrok-free.app/",
+  baseURL: "https://0480-176-118-67-207.ngrok-free.app/",
   // method: "get",
   withCredentials: true,
 });

@@ -41,7 +41,7 @@ export const Payment = () => {
               <Link
                 className={"batonStandartSearch"}
                 to={"/pay"}
-                state={{ name: "Матрица на месяц", price: 199000 }}
+                state={{ name: "Матрица на месяц", price: 1990 }}
               >
                 Оплатить
               </Link>
@@ -76,7 +76,7 @@ export const Payment = () => {
               <Link
                 className={"batonStandartSearch"}
                 to={"/pay"}
-                state={{ name: "Вместе и навсегда", price: 499000 }}
+                state={{ name: "Вместе и навсегда", price: 4990 }}
               >
                 Оплатить
               </Link>
@@ -105,7 +105,7 @@ export const Payment = () => {
               <Link
                 className={"batonStandartSearch"}
                 to={"/pay"}
-                state={{ name: "Пробный", price: 39000 }}
+                state={{ name: "Пробный", price: 1 }}
               >
                 Оплатить
               </Link>

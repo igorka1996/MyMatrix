@@ -66,7 +66,7 @@ export const LearnPay = () => {
               to={"/pay"}
               state={{
                 name: "Базовый курс матрицы",
-                price: 459000,
+                price: 4590,
               }}
             >
               Приобрести
@@ -99,7 +99,7 @@ export const LearnPay = () => {
               to={"/pay"}
               state={{
                 name: "Курс детской матрицы",
-                price: 250000,
+                price: 2500,
               }}
             >
               Приобрести
@@ -126,7 +126,7 @@ export const LearnPay = () => {
               to={"/pay"}
               state={{
                 name: "Курс матрицы совместимости",
-                price: 250000,
+                price: 2500,
               }}
             >
               Приобрести
@@ -177,7 +177,7 @@ export const LearnPay = () => {
                   }}
                   className={"batonStandart"}
                   to={"/pay"}
-                  state={{ name: "Базовый курс матрицы", price: 459000 }}
+                  state={{ name: "Базовый курс матрицы", price: 4590 }}
                 >
                   Оплатить
                 </Link>
@@ -203,7 +203,7 @@ export const LearnPay = () => {
                   to={"/pay"}
                   state={{
                     name: "Базовый курс + Вместе и навсегда",
-                    price: 1000000,
+                    price: 10000,
                   }}
                 >
                   Оплатить

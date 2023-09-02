@@ -1,7 +1,7 @@
 import React from "react";
 import "./Success.scss";
-import { Link } from "react-router-dom";
 import mark from "./../../../mark.png";
+import { HashLink as Anchor } from "react-router-hash-link";
 
 export const Success = () => {
   return (
@@ -9,9 +9,9 @@ export const Success = () => {
       <div className={"forgotBox"}>
         <span className={"forgotSpan"}>Ваша оплата прошла успешно</span>
         <img width={200} src={mark} alt="Успешно" />
-        <Link className={"batonStandart"} to={"/"}>
+        <Anchor smooth to={"/#sectionDateScroll"} className={"baton"}>
           Перейти к рассчету матрицы
-        </Link>
+        </Anchor>
       </div>
     </div>
   );

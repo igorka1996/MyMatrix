@@ -724,7 +724,7 @@ export const Diagram = () => {
               state={{
                 name: "Разовая расшифровка даты",
                 matrix: state.child ? "child" : "personal",
-                price: 45000,
+                price: 450,
                 date: state.date,
                 gender: state.male,
                 username: state.name,

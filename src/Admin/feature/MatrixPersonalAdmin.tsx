@@ -256,7 +256,7 @@ export function MatrixPersonalAdmin() {
   const matrixPastLife = (arrDesc: any[]) => {
     return arrDesc.map((e: any, index) => {
       return (
-        <React.Fragment key={v4()}>
+        <React.Fragment key={index}>
           {num === e.value ? (
             <div className={"divDesc"}>
               <div className="deleteButton">
@@ -272,7 +272,6 @@ export function MatrixPersonalAdmin() {
               <div className={"spanValue"}>{`Энергии: ${" " + e.value}`}</div>
               <br />
               <textarea
-                autoFocus
                 style={{ width: "100%", height: "auto" }}
                 cols={30}
                 rows={10}
@@ -337,7 +336,7 @@ export function MatrixPersonalAdmin() {
   const matrixProgram = (arrDesc: any[]) => {
     return arrDesc.map((e: any, index) => {
       return (
-        <React.Fragment key={v4()}>
+        <React.Fragment key={index}>
           {num === e.value ? (
             <div className={"divDesc"}>
               <div className="deleteButton">
@@ -355,12 +354,11 @@ export function MatrixPersonalAdmin() {
               {numTitle === e.value ? (
                 <React.Fragment>
                   <textarea
-                    autoFocus
                     style={{ width: "100%", height: "auto" }}
                     cols={30}
                     rows={10}
                     value={title}
-                    onChange={(el) => onChangeTitle(el, e.text)}
+                    onChange={(el) => onChangeTitle(el, e.title)}
                   ></textarea>
                   <Button
                     style={{ marginRight: 10 }}
@@ -398,7 +396,6 @@ export function MatrixPersonalAdmin() {
                 </span>
               )}
               <textarea
-                autoFocus
                 style={{ width: "100%", height: "auto" }}
                 cols={30}
                 rows={10}
@@ -427,7 +424,7 @@ export function MatrixPersonalAdmin() {
               <br />
             </div>
           ) : (
-            <div key={v4()} className={"divDesc"}>
+            <div key={index} className={"divDesc"}>
               <div className="deleteButton">
                 <span
                   onClick={() =>
@@ -443,7 +440,6 @@ export function MatrixPersonalAdmin() {
               {numTitle === e.value ? (
                 <React.Fragment>
                   <textarea
-                    autoFocus
                     style={{ width: "100%", height: "auto" }}
                     cols={30}
                     rows={10}
@@ -495,12 +491,14 @@ export function MatrixPersonalAdmin() {
                 className="descriptionAdmin"
                 key={index}
               >
-                {e.text?.split("\n").map((paragraph: string) => (
-                  <React.Fragment key={v4()}>
-                    {paragraph}
-                    <br />
-                  </React.Fragment>
-                ))}
+                {e.text
+                  ?.split("\n")
+                  .map((paragraph: string, indexKey: number) => (
+                    <React.Fragment key={indexKey}>
+                      {paragraph}
+                      <br />
+                    </React.Fragment>
+                  ))}
               </p>
             </div>
           )}
@@ -513,7 +511,7 @@ export function MatrixPersonalAdmin() {
     return arrDesc.map((e: any, index) => {
       if (e.m || e.w) {
         return (
-          <div className={"divDesc"} key={v4()}>
+          <div className={"divDesc"} key={index}>
             {e.m && (
               <React.Fragment>
                 <div className={"spanValue"}>{`Энергия: ${
@@ -526,7 +524,6 @@ export function MatrixPersonalAdmin() {
                 {num === e.m.value && gend === "m" && e.m ? (
                   <React.Fragment>
                     <textarea
-                      autoFocus
                       style={{ width: "100%", height: "auto" }}
                       cols={30}
                       rows={10}
@@ -586,7 +583,6 @@ export function MatrixPersonalAdmin() {
                 {num === e.w.value && gend === "w" && e.w ? (
                   <React.Fragment>
                     <textarea
-                      autoFocus
                       style={{ width: "100%", height: "auto" }}
                       cols={30}
                       rows={10}
@@ -641,12 +637,11 @@ export function MatrixPersonalAdmin() {
         );
       } else {
         return (
-          <div key={v4()} className={"divDesc"}>
+          <div key={index} className={"divDesc"}>
             <div className={"spanValue"}>{`Энергия: ${" " + e.value}`}</div>
             {num === e.value ? (
               <React.Fragment>
                 <textarea
-                  autoFocus
                   style={{ width: "100%", height: "auto" }}
                   cols={30}
                   rows={10}

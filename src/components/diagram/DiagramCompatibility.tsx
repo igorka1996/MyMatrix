@@ -688,7 +688,7 @@ export const DiagramCompatibility = () => {
               state={{
                 name: "Разовая расшифровка даты",
                 matrix: "compatibility",
-                price: 45000,
+                price: 450,
                 date1: state.date,
                 date2: state.date1,
               }}
