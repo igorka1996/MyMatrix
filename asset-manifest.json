@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/MyMatrix/static/css/main.24fc1c2f.css",
-    "main.js": "/MyMatrix/static/js/main.830b6f9f.js",
-    "static/media/girl2.jpg": "/MyMatrix/static/media/girl2.1ebe474a7bb0d928786c.jpg",
-    "static/media/Balance.jpg": "/MyMatrix/static/media/Balance.fea5384340cb0893d3e4.jpg",
-    "static/media/krug2.png": "/MyMatrix/static/media/krug2.6f1e85a0741818d74af3.png",
-    "static/media/mark.png": "/MyMatrix/static/media/mark.ede45ec649a7eaec696a.png",
-    "static/media/1357402.png": "/MyMatrix/static/media/1357402.ca45aa72b8e131abe452.png",
-    "static/media/pacifico-all-400-normal.woff": "/MyMatrix/static/media/pacifico-all-400-normal.8f19c0296562a647f0a0.woff",
-    "static/media/error.png": "/MyMatrix/static/media/error.7b7a7b42701bf9501887.png",
-    "static/media/sertificate.png": "/MyMatrix/static/media/sertificate.5f5ed0a83e2ecc88399f.png",
-    "static/media/pacifico-latin-400-normal.woff2": "/MyMatrix/static/media/pacifico-latin-400-normal.f36bb0347eecd87d78af.woff2",
-    "static/media/pacifico-latin-ext-400-normal.woff2": "/MyMatrix/static/media/pacifico-latin-ext-400-normal.e12a2413eb43b100497c.woff2",
-    "static/media/pacifico-cyrillic-ext-400-normal.woff2": "/MyMatrix/static/media/pacifico-cyrillic-ext-400-normal.682f9fb5d72ef074686d.woff2",
-    "static/media/bebas-neue-all-400-normal.woff": "/MyMatrix/static/media/bebas-neue-all-400-normal.a29dc33571b2d621af09.woff",
-    "static/media/pacifico-cyrillic-400-normal.woff2": "/MyMatrix/static/media/pacifico-cyrillic-400-normal.12b0288f7a1df3155d42.woff2",
-    "static/media/bebas-neue-latin-400-normal.woff2": "/MyMatrix/static/media/bebas-neue-latin-400-normal.2722c396c28250094a8c.woff2",
-    "static/media/pacifico-vietnamese-400-normal.woff2": "/MyMatrix/static/media/pacifico-vietnamese-400-normal.bd5387ce81f7c383a0a3.woff2",
-    "static/media/bebas-neue-latin-ext-400-normal.woff2": "/MyMatrix/static/media/bebas-neue-latin-ext-400-normal.f2363170269a33a9c268.woff2",
-    "index.html": "/MyMatrix/index.html",
-    "main.24fc1c2f.css.map": "/MyMatrix/static/css/main.24fc1c2f.css.map",
-    "main.830b6f9f.js.map": "/MyMatrix/static/js/main.830b6f9f.js.map"
+    "main.css": "./static/css/main.2907bef7.css",
+    "main.js": "./static/js/main.5e061cef.js",
+    "static/media/girl2.jpg": "./static/media/girl2.1ebe474a7bb0d928786c.jpg",
+    "static/media/Balance.jpg": "./static/media/Balance.fea5384340cb0893d3e4.jpg",
+    "static/media/krug2.png": "./static/media/krug2.6f1e85a0741818d74af3.png",
+    "static/media/mark.png": "./static/media/mark.ede45ec649a7eaec696a.png",
+    "static/media/1357402.png": "./static/media/1357402.ca45aa72b8e131abe452.png",
+    "static/media/pacifico-all-400-normal.woff": "./static/media/pacifico-all-400-normal.8f19c0296562a647f0a0.woff",
+    "static/media/error.png": "./static/media/error.7b7a7b42701bf9501887.png",
+    "static/media/sertificate.png": "./static/media/sertificate.94630bf27f52ee0ca10f.png",
+    "static/media/pacifico-latin-400-normal.woff2": "./static/media/pacifico-latin-400-normal.f36bb0347eecd87d78af.woff2",
+    "static/media/pacifico-latin-ext-400-normal.woff2": "./static/media/pacifico-latin-ext-400-normal.e12a2413eb43b100497c.woff2",
+    "static/media/pacifico-cyrillic-ext-400-normal.woff2": "./static/media/pacifico-cyrillic-ext-400-normal.682f9fb5d72ef074686d.woff2",
+    "static/media/bebas-neue-all-400-normal.woff": "./static/media/bebas-neue-all-400-normal.a29dc33571b2d621af09.woff",
+    "static/media/pacifico-cyrillic-400-normal.woff2": "./static/media/pacifico-cyrillic-400-normal.12b0288f7a1df3155d42.woff2",
+    "static/media/bebas-neue-latin-400-normal.woff2": "./static/media/bebas-neue-latin-400-normal.2722c396c28250094a8c.woff2",
+    "static/media/pacifico-vietnamese-400-normal.woff2": "./static/media/pacifico-vietnamese-400-normal.bd5387ce81f7c383a0a3.woff2",
+    "static/media/bebas-neue-latin-ext-400-normal.woff2": "./static/media/bebas-neue-latin-ext-400-normal.f2363170269a33a9c268.woff2",
+    "index.html": "./index.html",
+    "main.2907bef7.css.map": "./static/css/main.2907bef7.css.map",
+    "main.5e061cef.js.map": "./static/js/main.5e061cef.js.map"
   },
   "entrypoints": [
-    "static/css/main.24fc1c2f.css",
-    "static/js/main.830b6f9f.js"
+    "static/css/main.2907bef7.css",
+    "static/js/main.5e061cef.js"
   ]
 }
